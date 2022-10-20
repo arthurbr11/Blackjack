@@ -43,32 +43,10 @@ class Card:
 
     @property
     def value(self):
-        if self._rank == Rank.ACE:
-            return 1
-        elif self._rank == Rank.TWO:
-            return 2
-        elif self._rank == Rank.THREE:
-            return 3
-        elif self._rank == Rank.FOUR:
-            return 4
-        elif self._rank == Rank.FIVE:
-            return 5
-        elif self._rank == Rank.SIX:
-            return 6
-        elif self._rank == Rank.SEVEN:
-            return 7
-        elif self._rank == Rank.EIGHT:
-            return 8
-        elif self._rank == Rank.NINE:
-            return 9
-        elif self._rank == Rank.TEN:
+        if self._rank == Rank.JACK or self._rank == Rank.QUEEN or self._rank == Rank.KING:
             return 10
-        elif self._rank == Rank.JACK:
-            return 10
-        elif self._rank == Rank.QUEEN:
-            return 10
-        elif self._rank == Rank.KING:
-            return 10
+        else:
+            return self._rank.value
 
 
 class Deck:
