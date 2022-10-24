@@ -92,8 +92,9 @@ class Deck:
 
 class Player:
 
-    def __init__(self):
+    def __init__(self,name):
         self._hand = [Card]
+        self._name= name
 
     def pair(self) -> bool:
         if len(self._hand) != 2:
@@ -133,16 +134,16 @@ class Player:
 class Dealer(Player):
 
     def __init__(self):
-        super().__init__()
+        super().__init__('DEALER')
 
 
 class HumanPlayer(Player):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self,name):
+        super().__init__(name)
 
 
 class AI(Player):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self,name):
+        super().__init__(name)
