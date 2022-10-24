@@ -95,6 +95,8 @@ class Player:
     def __init__(self):
         self._hand = [Card]
 
+    """Return True if the player has a pair in hand"""
+
     def pair(self) -> bool:
         if len(self._hand) != 2:
             return False
