@@ -5,7 +5,7 @@ NB_DECK = 6
 
 class Game:
 
-    def __init__(self, players: [model.Player]):
+    def __init__(self, players: [model.Player()]):
         self.deck = model.Deck(NB_DECK)
         self._players = players
         self._dealer = model.Dealer
@@ -18,15 +18,15 @@ class Game:
     def dealer(self) -> model.Dealer:
         return self._dealer
 
-    def winners(self) -> [model.Player]:
-        winners = []
+    def winners(self):
+        winners = {}
         for player in self.players:
             if player.value() > self.dealer.value():
-                winners.append(player)
+                winners[player._name]='win'
             elif player.value() < self.dealer.value():
-                winners.append(self.dealer)
+                winners[player._name]='loose'
             else:
-                winners.append(None)  # The dealer and the player are even
+                winners[player._name]='even'  # The dealer and the player are even
         return winners
 
     def play(self):
