@@ -26,22 +26,14 @@ class Game:
             elif player.value() < self.dealer.value():
                 winners.append(self.dealer)
             else:
-                winners.append(None)  # The dealer and the player are even test
+                winners.append(None)  # The dealer and the player are even
         return winners
 
-    def play(self):
-        keep_going = True
-        while keep_going:
-            keep_going = False
+    """The dealer distributes one card for him and two cards for each player."""
+    def first_distribution(self):
+        self.dealer.draw(self.deck)  # The dealer draws one
+        for i in range(0, 2):  # Each player draws two cards
             for player in self.players:
-                if player.value() < 21:
-                    if isinstance(player, model.HumanPlayer):
-                        print("1st Option : Stand")
-                        print("2nd Option : Hit")
-                        if player.pair():
-                            print("3rd Option : Split")
-                        chosen_option = input("Which option do you choose ?")
-                        if chosen_option == 2:
-                            player.draw(self.deck)
-                            # elif chosen_option == 3:
-                    # if isinstance(player, model.AI):
+                player.draw(self.deck)
+
+

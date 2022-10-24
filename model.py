@@ -95,6 +95,10 @@ class Player:
     def __init__(self):
         self._hand = [Card]
 
+    @property
+    def hand(self):
+        return self._hand
+
     """Return True if the player has a pair in hand"""
 
     def pair(self) -> bool:
@@ -148,3 +152,11 @@ class AI(Player):
 
     def __init__(self):
         super().__init__()
+
+
+class Alias(Player):
+
+    def __init__(self, player):
+        super().__init__()
+        self.father = player
+        self.hand = player.hand
