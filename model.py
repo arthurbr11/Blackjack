@@ -159,4 +159,4 @@ class Alias(Player):
     def __init__(self, player):
         super().__init__()
         self.father = player
-        self.hand = player.hand
+        self._hand = player.hand
