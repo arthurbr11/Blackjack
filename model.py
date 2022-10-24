@@ -48,6 +48,9 @@ class Card:
         else:
             return self._rank.value
 
+    def __str__(self):
+        return self.color.value + " of " + str(self.rank).lstrip('Rank.')
+
 
 class Deck:
 
@@ -92,9 +95,17 @@ class Deck:
 
 class Player:
 
-    def __init__(self,name):
-        self._hand = [Card]
-        self._name= name
+    def __init__(self, name):
+        self._hand = []
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def hand(self):
+        return self._hand
 
     def pair(self) -> bool:
         if len(self._hand) != 2:
@@ -129,6 +140,11 @@ class Player:
 
     def draw(self, deck: Deck):
         self._hand.append(deck.draw())
+        print(self._name + ": have ", end='')
+        for card in self._hand:
+            print(card, end='')
+            print(", ", end='')
+        print(f"With a value of {self.value()}")
 
 
 class Dealer(Player):
@@ -136,14 +152,17 @@ class Dealer(Player):
     def __init__(self):
         super().__init__('DEALER')
 
+    def draw_without_showing(self, deck: Deck):
+        self._hand.append(deck.draw())
+
 
 class HumanPlayer(Player):
 
-    def __init__(self,name):
+    def __init__(self, name):
         super().__init__(name)
 
 
 class AI(Player):
 
-    def __init__(self,name):
+    def __init__(self, name):
         super().__init__(name)
