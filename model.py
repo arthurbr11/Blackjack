@@ -59,7 +59,7 @@ class Card:
 class Deck:
     def __init__(self, nb_decks):
         self._nb_decks = nb_decks
-        self._cards = [Card]
+        self._cards = []
         for _ in range(0, nb_decks):
             for color in Color:
                 for rank in Rank:
@@ -82,6 +82,13 @@ class Deck:
     def random_stop_index(self):
         self._stop_index = random.randrange(52, 52 * (self.nb_decks - 1))
 
+    def reset(self):
+        self._cards = []
+        for _ in range(0, self.nb_decks):
+            for color in Color:
+                for rank in Rank:
+                    self._cards.append(Card(color, rank))
+
     def perfect_shuffle(self):
         """
         Shuffles the deck in an unpredictable way.
@@ -95,9 +102,11 @@ class Deck:
         ):  # If the dealer hasn't reached the red card yet, he draws
             self.stop_index_decrease()
             return self._cards.pop()
-        else:
-            self.perfect_shuffle()  # Else he shuffles the deck and then draws one
-            self.draw()
+        else:# Else he shuffles the deck and then draws one
+            self.reset()
+            self.perfect_shuffle()
+            self.stop_index_decrease()
+            return self._cards.pop()
 
 
 class Player:
