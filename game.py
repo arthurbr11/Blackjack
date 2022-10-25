@@ -8,7 +8,7 @@ class Game:
     def __init__(self, players: [model.Player]):
         self.deck = model.Deck(NB_DECK)
         self._players = players
-        self._dealer = model.Dealer()
+        self._dealer = model.Dealer
 
     @property
     def players(self) -> [model.Player]:
@@ -29,11 +29,19 @@ class Game:
                 winners.append(None)  # The dealer and the player are even
         return winners
 
-    """The dealer distributes one card for his self and two cards for each players"""
-    def first_distribution(self):
-        self.dealer.draw(self.deck)  # The dealer draws one
-        for i in range(0, 2):  # Each player draws two cards
+    def play(self):
+        keep_going = True
+        while keep_going:
+            keep_going = False
             for player in self.players:
-                player.draw(self.deck)
-
-
+                if player.value() < 21:
+                    if isinstance(player, model.HumanPlayer):
+                        print("1st Option : Stand")
+                        print("2nd Option : Hit")
+                        if player.pair():
+                            print("3rd Option : Split")
+                    chosen_option = input("Which option do you choose ?")
+                    if chosen_option == 2:
+                        player.draw(self.deck)
+                     # elif chosen_option == 3:
+                     # if isinstance(player, model.AI):
