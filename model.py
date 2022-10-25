@@ -56,6 +56,7 @@ class Card:
         return self.color.value + " of " + str(self.rank).lstrip("Rank.")
 
 
+
 class Deck:
     def __init__(self, nb_decks):
         self._nb_decks = nb_decks
