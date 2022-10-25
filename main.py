@@ -3,8 +3,7 @@ import model
 
 
 def play():
-    want_play = True
-    nb_player = int(input("Nubmber of players"))
+    nb_player = int(input("Number of players"))
     players = []
     nb_IA = 0
     for i in range(nb_player):
@@ -13,18 +12,17 @@ def play():
             players.append(model.AI(nb_IA))
             nb_IA += 1
         else:
-            name = input(f"Name player : ")
+            name = input("Name player : ")
             players.append(model.HumanPlayer(name))
-    Party = game.Game(players)
-    while want_play:
-        Party.play_round()
+    party = game.Game(players)
+    while True:
+        party.play_round()
         choice = int(input("Do you want to continue ? (0 Yes, 1 No)"))
         if choice == 1:
-            want_play = False
             print("END OF THE GAME")
+            return
+        party.reset()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     play()
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
