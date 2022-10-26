@@ -75,12 +75,18 @@ class Game:
                 print("2nd Option : Hit")
                 if player.pair():
                     print("3rd Option : Split")
-            chosen_option = int(input("Which option do you choose ? (Put the number)"))
-            if chosen_option == 2:
-                player.draw(self.deck)
-                if player.value() < 21:
+                chosen_option = int(input("Which option do you choose ? (Put the number)"))
+                if chosen_option == 2:
+                    player.draw(self.deck)
+                    if player.value() < 21:
+                        keep_going = True
+                elif chosen_option == 3:
+                    alias = model.HumanPlayer(player.name)  # new player which will hold the split hand
+                    alias.add_card(player.pop_card())
+                    self._players.append(alias)
+                    self.play_player(alias)  # this alias will have to then play normally
                     keep_going = True
-            # elif chosen_option == 3:
+
             # if isinstance(player, model.AI):
 
     def play_dealer(self):

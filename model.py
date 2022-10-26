@@ -44,9 +44,9 @@ class Card:
         :return: the value of the card, with one for an ace.
         """
         if (
-            self._rank == Rank.JACK
-            or self._rank == Rank.QUEEN
-            or self._rank == Rank.KING
+                self._rank == Rank.JACK
+                or self._rank == Rank.QUEEN
+                or self._rank == Rank.KING
         ):
             return 10
         else:
@@ -54,7 +54,6 @@ class Card:
 
     def __str__(self):
         return self.color.value + " of " + str(self.rank).lstrip("Rank.")
-
 
 
 class Deck:
@@ -99,11 +98,11 @@ class Deck:
 
     def draw(self) -> Card:
         if (
-            self.stop_index > 0
+                self.stop_index > 0
         ):  # If the dealer hasn't reached the red card yet, he draws
             self.stop_index_decrease()
             return self._cards.pop()
-        else:# Else he shuffles the deck and then draws one
+        else:  # Else he shuffles the deck and then draws one
             self.reset()
             self.perfect_shuffle()
             self.stop_index_decrease()
@@ -126,11 +125,9 @@ class Player:
     def pair(self) -> bool:
         if len(self._hand) != 2:
             return False
-        return self._hand[0] == self._hand[1]
+        return self.hand[0].value == self.hand[1].value
 
-    def reset(
-        self,
-    ):
+    def reset(self):
         self._hand = []
 
     def value(self) -> int:
@@ -154,7 +151,7 @@ class Player:
                 return values[0]  # The player's hand value is beyond 21
             else:
                 for i in range(
-                    1, len(values)
+                        1, len(values)
                 ):  # We compute the maximal possible value of the player's hand below 21
                     if values[i] > 21:
                         return values[i - 1]
@@ -170,6 +167,12 @@ class Player:
             print(card, end="")
             print(", ", end="")
         print(f"With a value of {self.value()}")
+
+    def pop_card(self) -> Card:
+        return self._hand.pop()  # This discard the last card of the player's hand and return it as output (to split)
+
+    def add_card(self, card: Card):
+        self._hand.append(card)
 
 
 class Dealer(Player):
