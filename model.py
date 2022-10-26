@@ -127,9 +127,8 @@ class Player:
             return False
         return self.hand[0].value == self.hand[1].value
 
-    def reset(
-            self,
-    ):
+
+    def reset(self):
         self._hand = []
 
     def value(self) -> int:
@@ -165,6 +164,7 @@ class Player:
             print(card, end="")
             print(", ", end="")
         print(f"With a value of {self.value()}")
+
 
     def draw(self, deck: Deck):
         """
