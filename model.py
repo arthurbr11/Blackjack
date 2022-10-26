@@ -31,11 +31,11 @@ class Card:
         self._rank = rank
 
     @property
-    def color(self):
+    def color(self) -> Color:
         return self._color
 
     @property
-    def rank(self):
+    def rank(self) -> Rank:
         return self._rank
 
     @property
@@ -52,12 +52,12 @@ class Card:
         else:
             return self._rank.value
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.rank).lstrip("Rank.") + " of " + self.color.value
 
 
 class Deck:
-    def __init__(self, nb_decks):
+    def __init__(self, nb_decks: int):
         self._nb_decks = nb_decks
         self._cards = []
         for _ in range(0, nb_decks):
@@ -69,11 +69,15 @@ class Deck:
         )  # Position of the red card in the deck : the dealer shuffles the deck when drawn
 
     @property
-    def stop_index(self):
+    def cards(self) -> [Card]:
+        return self._cards
+
+    @property
+    def stop_index(self) -> int:
         return self._stop_index
 
     @property
-    def nb_decks(self):
+    def nb_decks(self) -> int:
         return self._nb_decks
 
     def stop_index_decrease(self):
@@ -115,18 +119,17 @@ class Player:
         self._name = name
 
     @property
-    def name(self):
+    def name(self) -> str:
         return self._name
 
     @property
-    def hand(self):
+    def hand(self) -> [Card]:
         return self._hand
 
     def pair(self) -> bool:
         if len(self.hand) != 2:
             return False
         return self.hand[0].value == self.hand[1].value
-
 
     def reset(self):
         self._hand = []
@@ -165,7 +168,6 @@ class Player:
             print(", ", end="")
         print(f"With a value of {self.value()}")
 
-
     def draw(self, deck: Deck):
         """
         The player draws the top card of the deck and adds it to his hand.
@@ -184,6 +186,14 @@ class Dealer(Player):
         """
         self._hand.append(deck.draw())
 
+    def play(self, deck: Deck):
+        """
+        This function make a dealer play.
+        """
+        self.show_hand()
+        while self.value() < 17:
+            self.draw(deck)
+
 
 class HumanPlayer(Player):
     def __init__(self, name):
@@ -198,9 +208,7 @@ class HumanPlayer(Player):
     def nb_hand(self, new_nb_hand):
         self._nb_hand = new_nb_hand
 
-    def reset(
-            self,
-    ):
+    def reset(self):
         self._hand = []
         self._nb_hand = 1
 
@@ -218,9 +226,7 @@ class AI(Player):
     def nb_hand(self, new_nb_hand):
         self._nb_hand = new_nb_hand
 
-    def reset(
-            self,
-    ):
+    def reset(self):
         self._hand = []
         self._nb_hand = 1
 

@@ -5,10 +5,14 @@ NB_DECK = 6
 
 class Game:
     def __init__(self, players: [model.Player]):
-        self.deck = model.Deck(NB_DECK)
+        self._deck = model.Deck(NB_DECK)
         self._players = players
         self._dealer = model.Dealer()
         self.deck.perfect_shuffle()
+
+    @property
+    def deck(self) -> model.Deck:
+        return self._deck
 
     @property
     def players(self) -> [model.Player]:
@@ -101,26 +105,18 @@ class Game:
                         for k in range(0, 2):
                             alias_player = model.AliasPlayer(player_father.owner, player_father.index_hand + k)
                             alias_player.hand.append(player_father.hand[k])
-                            self._players.insert(i + k, alias_player)
-                            index += self.play_player(alias_player, i + k)
+                            self._players.insert(i, alias_player)
+                            index += self.play_player(alias_player, i)
                     else:
                         player_father.nb_hand += 1
                         for k in range(0, 2):
                             alias_player = model.AliasPlayer(player_father, player_father.nb_hand - (1 - k))
                             alias_player.hand.append(player_father.hand[k])
-                            self._players.insert(i + k, alias_player)
-                            index += self.play_player(alias_player, i + k)
+                            self._players.insert(i, alias_player)
+                            index += self.play_player(alias_player, i)
                     return index
             # if isinstance(player, model.AI):
         return 0
-
-    def play_dealer(self):
-        """
-        This function make a dealer play.
-        """
-        self._dealer.show_hand()
-        while self.dealer.value() < 17:
-            self.dealer.draw(self.deck)
 
     def play_round(self):
         """
@@ -132,7 +128,7 @@ class Game:
         for (i, player) in enumerate(players_copy):
             index += self.play_player(player, i + index)
 
-        self.play_dealer()
+        self.dealer.play(self.deck)
         results = self.results()
 
         for player_name, message in results.items():
