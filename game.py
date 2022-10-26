@@ -30,7 +30,7 @@ class Game:
                 Player_copy.append(player)
             else:
                 if player.index_hand == 1:
-                    player._owner.reset()
+                    player.owner.reset()
                     Player_copy.append(player.owner)
 
         self._players = Player_copy.copy()
@@ -73,8 +73,8 @@ class Game:
 
     def play_player(self, player, i):
         """
-        This function make a player play.
-        :param player:
+        This function make a player play. :param i: :param player: To test if the split method work well change 52 by
+        16 in the classe deck and add a condition that card.value==10 we will ve the possibility to split each time
         """
         print(player.name + ": it's your turn to play !!")
         player.show_hand()
@@ -93,24 +93,24 @@ class Game:
                         keep_going = True
                 elif chosen_option == 3:
                     player_father = self._players.pop(i)
-
+                    index = 1
                     if isinstance(player_father, model.AliasPlayer):
-                        player_father._owner._nb_hand += 1
+                        player_father.owner.nb_hand += 1
                         for k in range(0, 2):
-                            alias_player = model.AliasPlayer(player_father.owner, player_father.index_hand + 1+k)
+                            alias_player = model.AliasPlayer(player_father.owner, player_father.index_hand + k)
                             alias_player.hand.append(player_father.hand[k])
-                            self._players.insert(i+k, alias_player)
-                            self.play_player(alias_player, i+k)
+                            self._players.insert(i + k, alias_player)
+                            index += self.play_player(alias_player, i + k)
                     else:
-                        player_father._nb_hand += 1
+                        player_father.nb_hand += 1
                         for k in range(0, 2):
-                            alias_player = model.AliasPlayer(player_father, 1+k)
-                            alias_player.hand.append(player_father.hand[0+k])
-                            self._players.insert(i+k, alias_player)
-                            self.play_player(alias_player, i+k)
-                    return (1)
+                            alias_player = model.AliasPlayer(player_father, player_father.nb_hand - (1 - k))
+                            alias_player.hand.append(player_father.hand[0 + k])
+                            self._players.insert(i + k, alias_player)
+                            index += self.play_player(alias_player, i + k)
+                    return index
             # if isinstance(player, model.AI):
-        return (0)
+        return 0
 
     def play_dealer(self):
         """

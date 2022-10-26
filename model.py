@@ -158,6 +158,7 @@ class Player:
                     if values[i] > 21:
                         return values[i - 1]
                 return values[len(values) - 1]
+
     def show_hand(self):
         print(self._name + ": have ", end="")
         for card in self._hand:
@@ -193,11 +194,15 @@ class HumanPlayer(Player):
     def nb_hand(self):
         return self._nb_hand
 
+    @nb_hand.setter
+    def nb_hand(self, new_nb_hand):
+        self._nb_hand = new_nb_hand
+
     def reset(
             self,
     ):
-        self._hand=[]
-        self._nb_hand=1
+        self._hand = []
+        self._nb_hand = 1
 
 
 class AI(Player):
@@ -209,17 +214,21 @@ class AI(Player):
     def nb_hand(self):
         return self._nb_hand
 
+    @nb_hand.setter
+    def nb_hand(self, new_nb_hand):
+        self._nb_hand = new_nb_hand
+
     def reset(
             self,
     ):
-        self._hand=[]
-        self._nb_hand=1
+        self._hand = []
+        self._nb_hand = 1
 
 
 class AliasPlayer(Player):
     def __init__(self, player, i):
-        super().__init__(player.name +f" hand {i}")
-        self._index_hand=i
+        super().__init__(player.name + f" hand {i}")
+        self._index_hand = i
         self._owner = player
 
     @property
@@ -230,4 +239,6 @@ class AliasPlayer(Player):
     def index_hand(self):
         return self._index_hand
 
-
+    @owner.setter
+    def owner(self, new_owner):
+        self._owner = new_owner
