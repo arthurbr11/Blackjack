@@ -63,9 +63,10 @@ class Deck:
         for _ in range(0, nb_decks):
             for color in Color:
                 for rank in Rank:
-                    self._cards.append(Card(color, rank))
+                    if Card(color, rank).value == 10:
+                        self._cards.append(Card(color, rank))
         self._stop_index = random.randrange(
-            52, 52 * (nb_decks - 1)
+            16, 16 * (nb_decks - 1)
         )  # Position of the red card in the deck : the dealer shuffles the deck when drawn
 
     @property
@@ -80,7 +81,7 @@ class Deck:
         self._stop_index += -1
 
     def random_stop_index(self):
-        self._stop_index = random.randrange(52, 52 * (self.nb_decks - 1))
+        self._stop_index = random.randrange(16, 16 * (self.nb_decks - 1))
 
     def reset(self):
         self._cards = []

@@ -106,7 +106,7 @@ class Game:
                         player_father.nb_hand += 1
                         for k in range(0, 2):
                             alias_player = model.AliasPlayer(player_father, player_father.nb_hand - (1 - k))
-                            alias_player.hand.append(player_father.hand[0 + k])
+                            alias_player.hand.append(player_father.hand[k])
                             self._players.insert(i + k, alias_player)
                             index += self.play_player(alias_player, i + k)
                     return index
