@@ -73,7 +73,8 @@ class Game:
 
     def play_player(self, player, i):
         """
-        This function make a player play. :param i: :param player: To test if the split method work well change 52 by
+        This function make a player play. :param i: :param player:
+        To test if the split method work well change 52 by
         16 in the classe deck and add a condition that card.value==10 we will ve the possibility to split each time
         """
         print(player.name + ": it's your turn to play !!")
