@@ -8,6 +8,7 @@ class Game:
         self.deck = model.Deck(NB_DECK)
         self._players = players
         self._dealer = model.Dealer()
+        self.deck.perfect_shuffle()
 
     @property
     def players(self) -> [model.Player]:
