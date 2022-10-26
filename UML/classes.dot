@@ -1,0 +1,28 @@
+digraph "classes" {
+charset="utf-1"
+rankdir=BT
+"0" [label="{Game|dealer\ldeck\lplayers\l|first_distribution()\lplay_dealer()\lplay_player(player)\lplay_round()\lreset()\lresults(): \l}", shape="record"];
+
+"1" [label="{Player|hand\lname\l|draw(deck: Deck)\lpair(): bool\lreset()\lvalue(): int\l}", shape="record"];
+"2" [label="{HumanPlayer|\l|}", shape="record"];
+"3" [label="{AI|\l|}", shape="record"];
+"4" [label="{Dealer|\l|draw_without_showing(deck: Deck)\l}", shape="record"];
+"5" [label="{Enum|\l|name()\lvalue()\l}", shape="record"];
+"6" [label="{Deck|cards\lnb_decks\lstop_index\l|draw(): Card\lperfect_shuffle()\lrandom_stop_index()\lreset()\lstop_index_decrease()\l}", shape="record"];
+"7" [label="{Card|color\lrank\lvalue\l|}", shape="record"];
+"8" [label="{Color|name\l|}", shape="record"];
+"9" [label="{Rank|name\l|}", shape="record"];
+
+"3" -> "1" [arrowhead="empty", arrowtail="none"];
+"8" -> "5" [arrowhead="empty", arrowtail="none"];
+"4" -> "1" [arrowhead="empty", arrowtail="none"];
+"2" -> "1" [arrowhead="empty", arrowtail="none"];
+"9" -> "5" [arrowhead="empty", arrowtail="none"];
+"7" -> "6" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...n", style="solid"];
+"4" -> "0" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...n (dealer)", style="solid"];
+"1" -> "0" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...n (players)", style="solid"];
+"6" -> "0" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...1", style="solid"];
+"7" -> "1" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...n", style="solid"];
+"8" -> "7" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...1", style="solid"];
+"9" -> "7" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...1", style="solid"];
+}
