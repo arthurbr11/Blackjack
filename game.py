@@ -21,9 +21,19 @@ class Game:
         """
         We set the hand of the dealer and each player empty.
         """
-        self.dealer.reset()
+        self._dealer.reset()
+
+        Player_copy = []
         for player in self.players:
-            player.reset()
+            if not isinstance(player, model.AliasPlayer):
+                player.reset()
+                Player_copy.append(player)
+            else:
+                if player.index_hand == 1:
+                    player._owner.reset()
+                    Player_copy.append(player.owner)
+
+        self._players = Player_copy.copy()
 
     def results(self) -> {str: str}:
         """
@@ -61,37 +71,52 @@ class Game:
                 player.draw(self.deck)
         self._dealer.draw_without_showing(self.deck)
 
-    def play_player(self, player):
+    def play_player(self, player, i):
         """
         This function make a player play.
         :param player:
         """
         print(player.name + ": it's your turn to play !!")
+        player.show_hand()
         keep_going = True
         while keep_going:
             keep_going = False
-            if isinstance(player, model.HumanPlayer):
+            if not isinstance(player, model.AI):
                 print("1st Option : Stand")
                 print("2nd Option : Hit")
                 if player.pair():
                     print("3rd Option : Split")
-            chosen_option = int(input("Which option do you choose ? (Put the number)"))
-            if chosen_option == 2:
-                player.draw(self.deck)
-                if player.value() < 21:
-                    keep_going = True
-            # elif chosen_option == 3:
+                chosen_option = int(input("Which option do you choose ? (Put the number)"))
+                if chosen_option == 2:
+                    player.draw(self.deck)
+                    if player.value() < 21:
+                        keep_going = True
+                elif chosen_option == 3:
+                    player_father = self._players.pop(i)
+
+                    if isinstance(player_father, model.AliasPlayer):
+                        player_father._owner._nb_hand += 1
+                        for k in range(0, 2):
+                            alias_player = model.AliasPlayer(player_father.owner, player_father.index_hand + 1+k)
+                            alias_player.hand.append(player_father.hand[k])
+                            self._players.insert(i+k, alias_player)
+                            self.play_player(alias_player, i+k)
+                    else:
+                        player_father._nb_hand += 1
+                        for k in range(0, 2):
+                            alias_player = model.AliasPlayer(player_father, 1+k)
+                            alias_player.hand.append(player_father.hand[0+k])
+                            self._players.insert(i+k, alias_player)
+                            self.play_player(alias_player, i+k)
+                    return (1)
             # if isinstance(player, model.AI):
+        return (0)
 
     def play_dealer(self):
         """
         This function make a dealer play.
         """
-        print(self.dealer.name + ": have ", end="")
-        for card in self._dealer.hand:
-            print(card, end="")
-            print(", ", end="")
-        print(f"With a value of {self.dealer.value()}")
+        self._dealer.show_hand()
         while self.dealer.value() < 17:
             self.dealer.draw(self.deck)
 
@@ -100,8 +125,10 @@ class Game:
         This function is the main loop for each round.
         """
         self.first_distribution()
-        for player in self._players:
-            self.play_player(player)
+        players_copy = self._players.copy()
+        index = 0
+        for (i, player) in enumerate(players_copy):
+            index += self.play_player(player, i + index)
 
         self.play_dealer()
         results = self.results()
