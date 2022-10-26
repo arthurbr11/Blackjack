@@ -53,7 +53,7 @@ class Card:
             return self._rank.value
 
     def __str__(self):
-        return self.color.value + " of " + str(self.rank).lstrip("Rank.")
+        return str(self.rank).lstrip("Rank.") + " of " + self.color.value
 
 
 class Deck:
@@ -123,9 +123,10 @@ class Player:
         return self._hand
 
     def pair(self) -> bool:
-        if len(self._hand) != 2:
+        if len(self.hand) != 2:
             return False
         return self.hand[0].value == self.hand[1].value
+
 
     def reset(self):
         self._hand = []
@@ -157,22 +158,20 @@ class Player:
                         return values[i - 1]
                 return values[len(values) - 1]
 
-    def draw(self, deck: Deck):
-        """
-        The player draws the top card of the deck and adds it to his hand.
-        """
-        self._hand.append(deck.draw())
+    def show_hand(self):
         print(self._name + ": have ", end="")
         for card in self._hand:
             print(card, end="")
             print(", ", end="")
         print(f"With a value of {self.value()}")
 
-    def pop_card(self) -> Card:
-        return self._hand.pop()  # This discard the last card of the player's hand and return it as output (to split)
 
-    def add_card(self, card: Card):
-        self._hand.append(card)
+    def draw(self, deck: Deck):
+        """
+        The player draws the top card of the deck and adds it to his hand.
+        """
+        self._hand.append(deck.draw())
+        self.show_hand()
 
 
 class Dealer(Player):
@@ -189,8 +188,57 @@ class Dealer(Player):
 class HumanPlayer(Player):
     def __init__(self, name):
         super().__init__(name)
+        self._nb_hand = 1
+
+    @property
+    def nb_hand(self):
+        return self._nb_hand
+
+    @nb_hand.setter
+    def nb_hand(self, new_nb_hand):
+        self._nb_hand = new_nb_hand
+
+    def reset(
+            self,
+    ):
+        self._hand = []
+        self._nb_hand = 1
 
 
 class AI(Player):
     def __init__(self, name):
         super().__init__(name)
+        self._nb_hand = 1
+
+    @property
+    def nb_hand(self):
+        return self._nb_hand
+
+    @nb_hand.setter
+    def nb_hand(self, new_nb_hand):
+        self._nb_hand = new_nb_hand
+
+    def reset(
+            self,
+    ):
+        self._hand = []
+        self._nb_hand = 1
+
+
+class AliasPlayer(Player):
+    def __init__(self, player, i):
+        super().__init__(player.name + f" hand {i}")
+        self._index_hand = i
+        self._owner = player
+
+    @property
+    def owner(self):
+        return self._owner
+
+    @property
+    def index_hand(self):
+        return self._index_hand
+
+    @owner.setter
+    def owner(self, new_owner):
+        self._owner = new_owner
