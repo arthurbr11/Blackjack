@@ -42,7 +42,7 @@ class Game:
 
     def results(self) -> {str: str}:
         """
-        We return a dictionary with the player's name for key and is statut for value.
+        :return: a dictionary with the player's name for key and is statut for value.
         """
         results = {}
         value_dealer = self.dealer.value()
@@ -76,46 +76,53 @@ class Game:
                 player.draw(self.deck)
         self._dealer.draw_without_showing(self.deck)
 
-    def play_player(self, player, i):
+    def play_player(self, player: model.Player, i: int) -> int:
         """
-        This function make a player play. :param i: :param player:
+        This function make a player play.
         To test if the split method work well change 52 by
         16 in the classe deck and add a condition that card.value==10 we will ve the possibility to split each time
+
+        :param i: this index allow us to know where we are in the list to pop the good element
+        :param player: this is the player who is about to play
+        :return: the number of elements we have add to the list
+
         """
         print(player.name + ": it's your turn to play !!")
         player.show_hand()
         keep_going = True
         while keep_going:
             keep_going = False
-            if not isinstance(player, model.AI):
-                print("1st Option : Stand")
-                print("2nd Option : Hit")
-                if player.pair():
-                    print("3rd Option : Split")
-                chosen_option = int(input("Which option do you choose ? (Put the number)"))
-                if chosen_option == 2:
-                    player.draw(self.deck)
-                    if player.value() < 21:
-                        keep_going = True
-                elif chosen_option == 3:
-                    player_father = self._players.pop(i)
-                    index = 1
-                    if isinstance(player_father, model.AliasPlayer):
-                        player_father.owner.nb_hand += 1
-                        for k in range(0, 2):
-                            alias_player = model.AliasPlayer(player_father.owner, player_father.index_hand + k)
-                            alias_player.hand.append(player_father.hand[k])
-                            self._players.insert(i, alias_player)
-                            index += self.play_player(alias_player, i)
-                    else:
-                        player_father.nb_hand += 1
-                        for k in range(0, 2):
-                            alias_player = model.AliasPlayer(player_father, player_father.nb_hand - (1 - k))
-                            alias_player.hand.append(player_father.hand[k])
-                            self._players.insert(i, alias_player)
-                            index += self.play_player(alias_player, i)
-                    return index
-            # if isinstance(player, model.AI):
+            chosen_option = 0
+            if (isinstance(player, model.HumanPlayer) or (
+                    isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.HumanPlayer))):
+                chosen_option = player.show_possibilities()
+            elif isinstance(player, model.AI):
+                chosen_option = player.choose_option_ai()
+            elif isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.AI):
+                chosen_option = player.owner.chose_option_ai()
+
+            if chosen_option == 2:
+                player.draw(self.deck)
+                if player.value() < 21:
+                    keep_going = True
+            elif chosen_option == 3:
+                player_father = self._players.pop(i)
+                index = 1
+                if isinstance(player_father, model.AliasPlayer):
+                    player_father.owner.nb_hand += 1
+                    for k in range(0, 2):
+                        alias_player = model.AliasPlayer(player_father.owner, player_father.index_hand + k * index)
+                        alias_player.hand.append(player_father.hand[k])
+                        self._players.insert(i, alias_player)
+                        index += self.play_player(alias_player, i)
+                else:
+                    player_father.nb_hand += 1
+                    for k in range(0, 2):
+                        alias_player = model.AliasPlayer(player_father, player_father.nb_hand - (1 - k))
+                        alias_player.hand.append(player_father.hand[k])
+                        self._players.insert(i, alias_player)
+                        index += self.play_player(alias_player, i)
+                return index
         return 0
 
     def play_round(self):

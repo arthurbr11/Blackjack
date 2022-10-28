@@ -63,9 +63,10 @@ class Deck:
         for _ in range(0, nb_decks):
             for color in Color:
                 for rank in Rank:
-                    self._cards.append(Card(color, rank))
+                    if Card(color, rank).value == 10:
+                        self._cards.append(Card(color, rank))
         self._stop_index = random.randrange(
-            52, 52 * (nb_decks - 1)
+            16, 16 * (nb_decks - 1)
         )  # Position of the red card in the deck : the dealer shuffles the deck when drawn
 
     @property
@@ -84,7 +85,7 @@ class Deck:
         self._stop_index += -1
 
     def random_stop_index(self):
-        self._stop_index = random.randrange(52, 52 * (self.nb_decks - 1))
+        self._stop_index = random.randrange(16, 16 * (self.nb_decks - 1))
 
     def reset(self):
         self._cards = []
@@ -101,6 +102,11 @@ class Deck:
         self.random_stop_index()
 
     def draw(self) -> Card:
+        """
+        This function draw a card of the deck
+
+        :return: the card which have been drawn
+        """
         if (
                 self.stop_index > 0
         ):  # If the dealer hasn't reached the red card yet, he draws
@@ -114,7 +120,7 @@ class Deck:
 
 
 class Player:
-    def __init__(self, name):
+    def __init__(self, name: str):
         self._hand = []
         self._name = name
 
@@ -136,7 +142,7 @@ class Player:
 
     def value(self) -> int:
         """
-        Return the maximal possible value of the player's hand, below 21.
+        :return: the maximal possible value of the player's hand, below 21.
         """
         values = [0]  # Stocks the different possible values of the player's hand
         for card in self._hand:
@@ -168,6 +174,13 @@ class Player:
             print(", ", end="")
         print(f"With a value of {self.value()}")
 
+    def show_possibilities(self):
+        print("1st Option : Stand")
+        print("2nd Option : Hit")
+        if self.pair():
+            print("3rd Option : Split")
+        return int(input("Which option do you choose ? (Put the number)"))
+
     def draw(self, deck: Deck):
         """
         The player draws the top card of the deck and adds it to his hand.
@@ -196,7 +209,7 @@ class Dealer(Player):
 
 
 class HumanPlayer(Player):
-    def __init__(self, name):
+    def __init__(self, name: str):
         super().__init__(name)
         self._nb_hand = 1
 
@@ -205,7 +218,7 @@ class HumanPlayer(Player):
         return self._nb_hand
 
     @nb_hand.setter
-    def nb_hand(self, new_nb_hand):
+    def nb_hand(self, new_nb_hand: int):
         self._nb_hand = new_nb_hand
 
     def reset(self):
@@ -214,8 +227,8 @@ class HumanPlayer(Player):
 
 
 class AI(Player):
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, nb: int):
+        super().__init__('IA number' + str(nb))
         self._nb_hand = 1
 
     @property
@@ -223,16 +236,22 @@ class AI(Player):
         return self._nb_hand
 
     @nb_hand.setter
-    def nb_hand(self, new_nb_hand):
+    def nb_hand(self, new_nb_hand: int):
         self._nb_hand = new_nb_hand
 
     def reset(self):
         self._hand = []
         self._nb_hand = 1
 
+    def choose_option_ai(self):  # A faire
+        """"
+        This function will choose for the AI to stand, hit or spilt
+        """
+        return -1
+
 
 class AliasPlayer(Player):
-    def __init__(self, player, i):
+    def __init__(self, player: Player, i: int):
         super().__init__(player.name + f" hand {i}")
         self._index_hand = i
         self._owner = player
@@ -246,5 +265,5 @@ class AliasPlayer(Player):
         return self._index_hand
 
     @owner.setter
-    def owner(self, new_owner):
+    def owner(self, new_owner: Player):
         self._owner = new_owner
