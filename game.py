@@ -80,19 +80,26 @@ class Game:
                 if value_player > 21:
                     results[player.name] = "bust"
                 else:
-                    results[player.name] = "win"
+                    results[player.name] = player.win_money()
         else:
             for player in self.players:
                 value_player = player.value()
                 if value_player > 21:
                     results[player.name] = "bust"
                 elif player.value() > self.dealer.value():
-                    results[player.name] = "win"
+                    results[player.name] = player.win_money()
                 elif player.value() < self.dealer.value():
                     results[player.name] = "loose"
                 else:
-                    results[player.name] = "even"  # The dealer and the player are even
+                    results[player.name] = player.even_money()  # The dealer and the player are even
+
         return results
+
+    def choose_bet(self):
+        for player in self.players:
+            print(f'{player.name}: Your current money is {player.money}')
+            player.bet = int(input("What is your bet ?"))
+            player.money -= player.bet
 
     def first_distribution(self):
         """
@@ -131,13 +138,20 @@ class Game:
                 self.increase_count_Hi_Lo(player.draw(self.deck))
                 if player.value() < 21:
                     keep_going = True
-            elif chosen_option == 3:
+            if chosen_option == 3:
+                player.double()
+                self.increase_count_Hi_Lo(player.draw(self.deck))
+                if player.value() < 21:
+                    keep_going = True
+            elif chosen_option == 4:
                 player_father = self._players.pop(i)
                 index = 1
                 if isinstance(player_father, model.AliasPlayer):
                     player_father.owner.nb_hand += 1
                     for k in range(0, 2):
                         alias_player = model.AliasPlayer(player_father.owner, player_father.index_hand + k * index)
+                        if k == 0:
+                            alias_player.owner.money -= alias_player.bet
                         alias_player.hand.append(player_father.hand[k])
                         self._players.insert(i, alias_player)
                         index += self.play_player(alias_player, i)
@@ -155,6 +169,7 @@ class Game:
         """
         This function is the main loop for each round.
         """
+        self.choose_bet()
         self.first_distribution()
         players_copy = self._players.copy()
         index = 0
