@@ -1,6 +1,8 @@
 import enum
 import random
 
+INITIAL_MONEY = 1000
+
 
 class Color(enum.Enum):
     CLUBS = "clubs"
@@ -63,9 +65,10 @@ class Deck:
         for _ in range(0, nb_decks):
             for color in Color:
                 for rank in Rank:
-                    self._cards.append(Card(color, rank))
+                    if Card(color, rank).value == 10:
+                        self._cards.append(Card(color, rank))
         self._stop_index = random.randrange(
-            52, 52 * (nb_decks - 1)
+            16, 16 * (nb_decks - 1)
         )  # Position of the red card in the deck : the dealer shuffles the deck when drawn
 
     @property
@@ -84,7 +87,7 @@ class Deck:
         self._stop_index += -1
 
     def random_stop_index(self):
-        self._stop_index = random.randrange(52, 52 * (self.nb_decks - 1))
+        self._stop_index = random.randrange(16, 16 * (self.nb_decks - 1))
 
     def reset(self):
         self._cards = []
@@ -123,6 +126,12 @@ class Player:
         self._hand = []
         self._name = name
         self._nb_hand = 1
+        self._money = INITIAL_MONEY
+        self._bet = 0
+
+    @property
+    def owner(self):
+        return self
 
     @property
     def name(self) -> str:
@@ -136,6 +145,22 @@ class Player:
     def nb_hand(self):
         return self._nb_hand
 
+    @property
+    def money(self):
+        return self._money
+
+    @property
+    def bet(self):
+        return self._bet
+
+    @bet.setter
+    def bet(self, new_bet):
+        self._bet = new_bet
+
+    @money.setter
+    def money(self, new_money):
+        self._money = new_money
+
     @nb_hand.setter
     def nb_hand(self, new_nb_hand: int):
         self._nb_hand = new_nb_hand
@@ -148,6 +173,7 @@ class Player:
     def reset(self):
         self._hand = []
         self._nb_hand = 1
+        self.bet = 0
 
     def value(self) -> int:
         """
@@ -181,19 +207,38 @@ class Player:
         for card in self._hand:
             print(card, end="")
             print(", ", end="")
-        print(f"With a value of {self.value()}")
+        print(f"With a value of {self.value()} and a bet of {self._bet}")
 
-    def draw(self, deck: Deck):
+    def draw(self, deck: Deck) -> Card:
         """
         The player draws the top card of the deck and adds it to his hand.
         """
-        self._hand.append(deck.draw())
+        drew_card = deck.draw()
+        self._hand.append(drew_card)
         self.show_hand()
+        return drew_card
+
+    def win_money(self):
+        if len(self.hand) == 2 and self.value() == 21:
+            self.owner.money += 5 / 2 * self.bet
+            return "Blackjack !"
+        else:
+            self.owner.money += 2 * self.bet
+            return "Won !"
+
+    def even_money(self):
+        self.owner.money += self.bet
+        return "Even !"
+
+    def double(self):
+        self.owner.money -= self.bet
+        self.bet += self.bet
 
 
 class Dealer(Player):
     def __init__(self):
         super().__init__("DEALER")
+        self.money = 0
 
     def draw_without_showing(self, deck: Deck):
         """
@@ -217,8 +262,10 @@ class HumanPlayer(Player):
     def show_possibilities(self):
         print("1st Option : Stand")
         print("2nd Option : Hit")
-        if self.pair():
-            print("3rd Option : Split")
+        if self.owner.money >= self.bet:
+            print("3rd Option : Double")
+        if self.pair() and self.owner.money >= self.bet:
+            print("4th Option : Split")
         return int(input("Which option do you choose ? (Put the number)"))
 
 
@@ -231,18 +278,20 @@ class AI(Player):
         This function will choose for the AI to stand, hit or spilt
         """
         if self.pair():
-            return 3
+            return 4
         elif self.value() < 17:
             return 2
         else:
             return 1
 
 
-class AliasPlayer(AI,HumanPlayer):
+class AliasPlayer(AI, HumanPlayer):
     def __init__(self, player, i: int):
-        Player.__init__(self,player.name + f" hand {i}")
+        Player.__init__(self, player.name + f" hand {i}")
         self._index_hand = i
         self._owner = player
+        self.money = -1
+        self.bet = player.bet
 
     @property
     def owner(self):
@@ -252,6 +301,4 @@ class AliasPlayer(AI,HumanPlayer):
     def index_hand(self):
         return self._index_hand
 
-    @owner.setter
-    def owner(self, new_owner: Player):
-        self._owner = new_owner
+

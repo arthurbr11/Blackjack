@@ -8,6 +8,7 @@ class Game:
         self._deck = model.Deck(NB_DECK)
         self._players = players
         self._dealer = model.Dealer()
+        self._count = 0  # Card count, depending on the counting methods
         self.deck.perfect_shuffle()
 
     @property
@@ -22,23 +23,50 @@ class Game:
     def dealer(self) -> model.Dealer:
         return self._dealer
 
+    @property
+    def count(self) -> int:
+        return self._count
+
+    def increase_count_Hi_Lo(self, card: model.Card):
+        if 2 <= card.value <= 6:
+            self._count += 1
+        elif card.value == 1 or card.value == 10:
+            self._count += -1
+
+    def increase_count_KO(self, card: model.Card):
+        if 2 <= card.value <= 7:
+            self._count += 1
+        elif card.value == 1 or card.value == 10:
+            self._count += -1
+
+    def increase_count_omegaII(self, card: model.Card):
+        if card.value == 2 or card.value == 3 or card.value == 7:
+            self._count += 1
+        elif 4 <= card.value <= 6:
+            self._count += 2
+        elif card.value == 9:
+            self._count += -1
+        elif card.value == 10:
+            self._count += -2
+
     def reset(self):
         """
         We set the hand of the dealer and each player empty.
         """
         self._dealer.reset()
 
-        Player_copy = []
+        player_copy = []
         for player in self.players:
             if not isinstance(player, model.AliasPlayer):
                 player.reset()
-                Player_copy.append(player)
+                player_copy.append(player)
             else:
                 if player.index_hand == 1:
                     player.owner.reset()
-                    Player_copy.append(player.owner)
+                    player_copy.append(player.owner)
 
-        self._players = Player_copy.copy()
+        self._players = player_copy.copy()
+        self._count = 0  # When the dealer shuffles the deck, we reset the count to 0
 
     def results(self) -> {str: str}:
         """
@@ -52,19 +80,26 @@ class Game:
                 if value_player > 21:
                     results[player.name] = "bust"
                 else:
-                    results[player.name] = "win"
+                    results[player.name] = player.win_money()
         else:
             for player in self.players:
                 value_player = player.value()
                 if value_player > 21:
                     results[player.name] = "bust"
                 elif player.value() > self.dealer.value():
-                    results[player.name] = "win"
+                    results[player.name] = player.win_money()
                 elif player.value() < self.dealer.value():
                     results[player.name] = "loose"
                 else:
-                    results[player.name] = "even"  # The dealer and the player are even
+                    results[player.name] = player.even_money()  # The dealer and the player are even
+
         return results
+
+    def choose_bet(self):
+        for player in self.players:
+            print(f'{player.name}: Your current money is {player.money}')
+            player.bet = int(input("What is your bet ?"))
+            player.money -= player.bet
 
     def first_distribution(self):
         """
@@ -100,16 +135,23 @@ class Game:
                     isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.AI)):
                 chosen_option = player.choose_option_ai_classic()
             if chosen_option == 2:
-                player.draw(self.deck)
+                self.increase_count_Hi_Lo(player.draw(self.deck))
                 if player.value() < 21:
                     keep_going = True
-            elif chosen_option == 3:
+            if chosen_option == 3:
+                player.double()
+                self.increase_count_Hi_Lo(player.draw(self.deck))
+                if player.value() < 21:
+                    keep_going = True
+            elif chosen_option == 4:
                 player_father = self._players.pop(i)
                 index = 1
                 if isinstance(player_father, model.AliasPlayer):
                     player_father.owner.nb_hand += 1
                     for k in range(0, 2):
                         alias_player = model.AliasPlayer(player_father.owner, player_father.index_hand + k * index)
+                        if k == 0:
+                            alias_player.owner.money -= alias_player.bet
                         alias_player.hand.append(player_father.hand[k])
                         self._players.insert(i, alias_player)
                         index += self.play_player(alias_player, i)
@@ -127,6 +169,7 @@ class Game:
         """
         This function is the main loop for each round.
         """
+        self.choose_bet()
         self.first_distribution()
         players_copy = self._players.copy()
         index = 0
