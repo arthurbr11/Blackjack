@@ -183,12 +183,14 @@ class Player:
             print(", ", end="")
         print(f"With a value of {self.value()}")
 
-    def draw(self, deck: Deck):
+    def draw(self, deck: Deck) -> Card:
         """
         The player draws the top card of the deck and adds it to his hand.
         """
-        self._hand.append(deck.draw())
+        drew_card = deck.draw()
+        self._hand.append(drew_card)
         self.show_hand()
+        return drew_card
 
 
 class Dealer(Player):
@@ -236,6 +238,8 @@ class AI(Player):
             return 2
         else:
             return 1
+
+
 
 
 class AliasPlayer(AI,HumanPlayer):
