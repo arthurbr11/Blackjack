@@ -80,7 +80,7 @@ class Game:
         """
         This function make a player play.
         To test if the split method work well change 52 by
-        16 in the classe deck and add a condition that card.value==10 we will ve the possibility to split each time
+        16 in the classe deck and add a condition that card.value==10 we will have the possibility to split each time
 
         :param i: this index allow us to know where we are in the list to pop the good element
         :param player: this is the player who is about to play
@@ -93,14 +93,12 @@ class Game:
         while keep_going:
             keep_going = False
             chosen_option = 0
-            if (isinstance(player, model.HumanPlayer) or (
-                    isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.HumanPlayer))):
+            if (isinstance(player, model.HumanPlayer) and not isinstance(player, model.AliasPlayer)) or (
+                    isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.HumanPlayer)):
                 chosen_option = player.show_possibilities()
-            elif isinstance(player, model.AI):
-                chosen_option = player.choose_option_ai()
-            elif isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.AI):
-                chosen_option = player.owner.chose_option_ai()
-
+            elif isinstance(player, model.AI) or (
+                    isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.AI)):
+                chosen_option = player.choose_option_ai_classic()
             if chosen_option == 2:
                 player.draw(self.deck)
                 if player.value() < 21:
