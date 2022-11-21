@@ -65,9 +65,10 @@ class Deck:
         for _ in range(0, nb_decks):
             for color in Color:
                 for rank in Rank:
-                    self._cards.append(Card(color, rank))
+                    if Card(color, rank).value == 10:
+                        self._cards.append(Card(color, rank))
         self._stop_index = random.randrange(
-            52, 52 * (nb_decks - 1)
+            16, 16 * (nb_decks - 1)
         )  # Position of the red card in the deck : the dealer shuffles the deck when drawn
 
     @property
@@ -86,7 +87,7 @@ class Deck:
         self._stop_index += -1
 
     def random_stop_index(self):
-        self._stop_index = random.randrange(52, 52 * (self.nb_decks - 1))
+        self._stop_index = random.randrange(16, 16 * (self.nb_decks - 1))
 
     def reset(self):
         self._cards = []
@@ -129,6 +130,10 @@ class Player:
         self._bet = 0
 
     @property
+    def owner(self):
+        return self
+
+    @property
     def name(self) -> str:
         return self._name
 
@@ -168,6 +173,7 @@ class Player:
     def reset(self):
         self._hand = []
         self._nb_hand = 1
+        self.bet = 0
 
     def value(self) -> int:
         """
@@ -212,6 +218,22 @@ class Player:
         self.show_hand()
         return drew_card
 
+    def win_money(self):
+        if len(self.hand) == 2 and self.value() == 21:
+            self.owner.money += 5 / 2 * self.bet
+            return "Blackjack !"
+        else:
+            self.owner.money += 2 * self.bet
+            return "Won !"
+
+    def even_money(self):
+        self.owner.money += self.bet
+        return "Even !"
+
+    def double(self):
+        self.owner.money -= self.bet
+        self.bet += self.bet
+
 
 class Dealer(Player):
     def __init__(self):
@@ -240,9 +262,9 @@ class HumanPlayer(Player):
     def show_possibilities(self):
         print("1st Option : Stand")
         print("2nd Option : Hit")
-        if self.money >= self.bet:
+        if self.owner.money >= self.bet:
             print("3rd Option : Double")
-        if self.pair() and self.money >= self.bet:
+        if self.pair() and self.owner.money >= self.bet:
             print("4th Option : Split")
         return int(input("Which option do you choose ? (Put the number)"))
 
@@ -268,7 +290,6 @@ class AliasPlayer(AI, HumanPlayer):
         Player.__init__(self, player.name + f" hand {i}")
         self._index_hand = i
         self._owner = player
-        player.money -= player.bet
         self.money = -1
         self.bet = player.bet
 
@@ -279,4 +300,5 @@ class AliasPlayer(AI, HumanPlayer):
     @property
     def index_hand(self):
         return self._index_hand
+
 
