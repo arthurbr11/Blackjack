@@ -2,6 +2,9 @@ import enum
 import random
 
 INITIAL_MONEY = 1000
+SIZE_DECK = 52
+
+COUNT_MIN = 6
 
 
 class Color(enum.Enum):
@@ -65,10 +68,10 @@ class Deck:
         for _ in range(0, nb_decks):
             for color in Color:
                 for rank in Rank:
-                    if Card(color, rank).value == 10:
-                        self._cards.append(Card(color, rank))
+                    # if Card(color, rank).value == 10:
+                    self._cards.append(Card(color, rank))
         self._stop_index = random.randrange(
-            16, 16 * (nb_decks - 1)
+            SIZE_DECK, SIZE_DECK * (nb_decks - 1)
         )  # Position of the red card in the deck : the dealer shuffles the deck when drawn
 
     @property
@@ -87,7 +90,7 @@ class Deck:
         self._stop_index += -1
 
     def random_stop_index(self):
-        self._stop_index = random.randrange(16, 16 * (self.nb_decks - 1))
+        self._stop_index = random.randrange(SIZE_DECK, SIZE_DECK * (self.nb_decks - 1))
 
     def reset(self):
         self._cards = []
@@ -273,12 +276,27 @@ class AI(Player):
     def __init__(self, nb: int):
         super().__init__('IA number' + str(nb))
 
-    def choose_option_ai_classic(self):  # A faire
+    def choose_option_ai_classic(self) -> int:  # A faire
         """"
         This function will choose for the AI to stand, hit or spilt
         """
         if self.pair():
             return 4
+        elif self.value() < 17:
+            return 2
+        else:
+            return 1
+
+    def choose_option_ai_cheat(self, count: int) -> int:
+        """"
+        This function will choose for the AI to stand, hit or spilt while counting cards
+        """
+        if self.pair():
+            return 4
+        elif self.value() < 14 and count > COUNT_MIN:
+            return 3
+        elif self.value() > 14 and count < -COUNT_MIN:
+            return 1
         elif self.value() < 17:
             return 2
         else:
@@ -300,5 +318,3 @@ class AliasPlayer(AI, HumanPlayer):
     @property
     def index_hand(self):
         return self._index_hand
-
-
