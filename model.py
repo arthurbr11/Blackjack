@@ -122,6 +122,7 @@ class Player:
     def __init__(self, name: str):
         self._hand = []
         self._name = name
+        self._nb_hand = 1
 
     @property
     def name(self) -> str:
@@ -131,6 +132,14 @@ class Player:
     def hand(self) -> [Card]:
         return self._hand
 
+    @property
+    def nb_hand(self):
+        return self._nb_hand
+
+    @nb_hand.setter
+    def nb_hand(self, new_nb_hand: int):
+        self._nb_hand = new_nb_hand
+
     def pair(self) -> bool:
         if len(self.hand) != 2:
             return False
@@ -138,6 +147,7 @@ class Player:
 
     def reset(self):
         self._hand = []
+        self._nb_hand = 1
 
     def value(self) -> int:
         """
@@ -173,13 +183,6 @@ class Player:
             print(", ", end="")
         print(f"With a value of {self.value()}")
 
-    def show_possibilities(self):
-        print("1st Option : Stand")
-        print("2nd Option : Hit")
-        if self.pair():
-            print("3rd Option : Split")
-        return int(input("Which option do you choose ? (Put the number)"))
-
     def draw(self, deck: Deck):
         """
         The player draws the top card of the deck and adds it to his hand.
@@ -210,48 +213,34 @@ class Dealer(Player):
 class HumanPlayer(Player):
     def __init__(self, name: str):
         super().__init__(name)
-        self._nb_hand = 1
 
-    @property
-    def nb_hand(self):
-        return self._nb_hand
-
-    @nb_hand.setter
-    def nb_hand(self, new_nb_hand: int):
-        self._nb_hand = new_nb_hand
-
-    def reset(self):
-        self._hand = []
-        self._nb_hand = 1
+    def show_possibilities(self):
+        print("1st Option : Stand")
+        print("2nd Option : Hit")
+        if self.pair():
+            print("3rd Option : Split")
+        return int(input("Which option do you choose ? (Put the number)"))
 
 
 class AI(Player):
     def __init__(self, nb: int):
         super().__init__('IA number' + str(nb))
-        self._nb_hand = 1
 
-    @property
-    def nb_hand(self):
-        return self._nb_hand
-
-    @nb_hand.setter
-    def nb_hand(self, new_nb_hand: int):
-        self._nb_hand = new_nb_hand
-
-    def reset(self):
-        self._hand = []
-        self._nb_hand = 1
-
-    def choose_option_ai(self):  # A faire
+    def choose_option_ai_classic(self):  # A faire
         """"
         This function will choose for the AI to stand, hit or spilt
         """
-        return -1
+        if self.pair():
+            return 3
+        elif self.value() < 17:
+            return 2
+        else:
+            return 1
 
 
-class AliasPlayer(Player):
-    def __init__(self, player: Player, i: int):
-        super().__init__(player.name + f" hand {i}")
+class AliasPlayer(AI,HumanPlayer):
+    def __init__(self, player, i: int):
+        Player.__init__(self,player.name + f" hand {i}")
         self._index_hand = i
         self._owner = player
 
