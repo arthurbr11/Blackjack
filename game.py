@@ -27,19 +27,19 @@ class Game:
     def count(self) -> int:
         return self._count
 
-    def increase_count_Hi_Lo(self, card: model.Card):
+    def increase_count_hi_lo(self, card: model.Card):
         if 2 <= card.value <= 6:
             self._count += 1
         elif card.value == 1 or card.value == 10:
             self._count += -1
 
-    def increase_count_KO(self, card: model.Card):
+    def increase_count_ko(self, card: model.Card):
         if 2 <= card.value <= 7:
             self._count += 1
         elif card.value == 1 or card.value == 10:
             self._count += -1
 
-    def increase_count_omegaII(self, card: model.Card):
+    def increase_count_omega2(self, card: model.Card):
         if card.value == 2 or card.value == 3 or card.value == 7:
             self._count += 1
         elif 4 <= card.value <= 6:
@@ -97,8 +97,11 @@ class Game:
 
     def choose_bet(self):
         for player in self.players:
-            print(f'{player.name}: Your current money is {player.money}')
-            player.bet = int(input("What is your bet ?"))
+            if isinstance(player, model.HumanPlayer):
+                print(f'{player.name}: Your current money is {player.money}')
+                player.bet = int(input("What is your bet ?"))
+            elif isinstance(player, model.AI):
+                player.bet = player.money/10 * (1+(self.count/NB_DECK))
             player.money -= player.bet
 
     def first_distribution(self):
@@ -135,12 +138,12 @@ class Game:
                     isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.AI)):
                 chosen_option = player.choose_option_ai_classic()
             if chosen_option == 2:
-                self.increase_count_Hi_Lo(player.draw(self.deck))
+                self.increase_count_hi_lo(player.draw(self.deck))
                 if player.value() < 21:
                     keep_going = True
             if chosen_option == 3:
                 player.double()
-                self.increase_count_Hi_Lo(player.draw(self.deck))
+                self.increase_count_hi_lo(player.draw(self.deck))
                 if player.value() < 21:
                     keep_going = True
             elif chosen_option == 4:
