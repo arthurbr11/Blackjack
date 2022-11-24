@@ -145,23 +145,23 @@ class Player:
         return self._hand
 
     @property
-    def nb_hand(self):
+    def nb_hand(self) -> int:
         return self._nb_hand
 
     @property
-    def money(self):
+    def money(self) -> int:
         return self._money
 
     @property
-    def bet(self):
+    def bet(self) -> int:
         return self._bet
 
     @bet.setter
-    def bet(self, new_bet):
+    def bet(self, new_bet: int):
         self._bet = new_bet
 
     @money.setter
-    def money(self, new_money):
+    def money(self, new_money: int):
         self._money = new_money
 
     @nb_hand.setter
@@ -221,7 +221,7 @@ class Player:
         self.show_hand()
         return drew_card
 
-    def win_money(self):
+    def win_money(self) -> str:
         if len(self.hand) == 2 and self.value() == 21:
             self.owner.money += 5 / 2 * self.bet
             return "Blackjack !"
@@ -229,7 +229,7 @@ class Player:
             self.owner.money += 2 * self.bet
             return "Won !"
 
-    def even_money(self):
+    def even_money(self) -> str:
         self.owner.money += self.bet
         return "Even !"
 
@@ -262,7 +262,7 @@ class HumanPlayer(Player):
     def __init__(self, name: str):
         super().__init__(name)
 
-    def show_possibilities(self):
+    def show_possibilities(self) -> int:
         print("1st Option : Stand")
         print("2nd Option : Hit")
         if self.owner.money >= self.bet:
@@ -316,5 +316,5 @@ class AliasPlayer(AI, HumanPlayer):
         return self._owner
 
     @property
-    def index_hand(self):
+    def index_hand(self) -> int:
         return self._index_hand
