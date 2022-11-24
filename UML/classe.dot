@@ -1,0 +1,37 @@
+digraph "classes" {
+charset="utf-8"
+rankdir=BT
+"0" [label="{Game|players\ldealer\ldeck\lcount\l|choose_bet()\lfirst_distribution()\lincrease_count_hi_lo(card)\lincrease_count_ko(card)\lincrease_count_omega2(card)\lplay_player(player, i)\lplay_round()\lreset()\lresults()\l}", shape="record"];
+
+"1" [label="{Deck|cards\lnb_decks\lstop_index\l|draw()\lperfect_shuffle()\lrandom_stop_index()\lreset()\lstop_index_decrease()\l}", shape="record"];
+"2" [label="{Card|color\lrank\lvalue\l|}", shape="record"];
+"3" [label="{Color|name\l|}", shape="record"];
+"4" [label="{Rank|name\l|}", shape="record"];
+
+"5" [label="{Player|name\lhand\lmoney\lbet\lnb_hand\lowner\l|show_hand()\lvalue()\lpair()\ldouble()\ldraw(deck)\leven_money()\lwin_money()\lreset()\l}", shape="record"];
+"6" [label="{Dealer|\l|draw_without_showing(deck)\lplay(deck)\l}", shape="record"];
+"7" [label="{HumanPlayer|\l|show_possibilities()\l}", shape="record"];
+"8" [label="{AI|\l|choose_option_ai_cheat(count)\lchoose_option_ai_classic()\l}", shape="record"];
+"9" [label="{AliasPlayer|\l|}", shape="record"];
+
+
+
+
+"8" -> "5" [arrowhead="empty", arrowtail="none"];
+"6" -> "5" [arrowhead="empty", arrowtail="none"];
+"7" -> "5" [arrowhead="empty", arrowtail="none"];
+
+"9" -> "7" [arrowhead="empty", arrowtail="none"];
+"9" -> "8" [arrowhead="empty", arrowtail="none"];
+
+"6" -> "0" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...1 (dealer)", style="solid"];
+"5" -> "0" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...n (players)", style="solid"];
+"1" -> "0" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...1 (deck)" , style="solid"];
+
+"2" -> "1" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...n (cards)", style="solid"];
+
+"2" -> "5" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...n (hand)", style="solid"];
+
+"3" -> "2" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...1", style="solid"];
+"4" -> "2" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="1...1", style="solid"];
+}
