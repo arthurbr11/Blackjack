@@ -1,6 +1,6 @@
 import model
 
-NB_DECK = 6
+NB_DECK = 8
 
 
 class Game:
@@ -58,8 +58,11 @@ class Game:
         player_copy = []
         for player in self.players:
             if not isinstance(player, model.AliasPlayer):
-                player.reset()
-                player_copy.append(player)
+                if player.money != 0:
+                    player.reset()
+                    player_copy.append(player)
+                else:
+                    print(f'{player.name} you are out of the game not enough money for you')
             else:
                 if player.index_hand == 1:
                     player.owner.reset()
@@ -67,6 +70,9 @@ class Game:
 
         self._players = player_copy.copy()
         self._count = 0  # When the dealer shuffles the deck, we reset the count to 0
+        if len(self.players) == 0:
+            return True
+        return False
 
     def results(self) -> {str: str}:
         """
@@ -101,7 +107,11 @@ class Game:
                 print(f'{player.name}: Your current money is {player.money}')
                 player.bet = int(input("What is your bet ?"))
             elif isinstance(player, model.AI):
-                player.bet = int(player.money/10 * (1+(self.count/NB_DECK)))
+                bet = int(player.money / 10 * (1 + (self.count / NB_DECK)))
+                if bet != 0:
+                    player.bet = int(player.money / 10 * (1 + (self.count / NB_DECK)))
+                else:
+                    player.bet = player.money
             player.money -= player.bet
 
     def first_distribution(self):

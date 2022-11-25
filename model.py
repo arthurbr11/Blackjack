@@ -287,7 +287,7 @@ class AI(Player):
         """"
         This function will choose for the AI to stand, hit or spilt
         """
-        if self.pair():
+        if self.pair() and self.owner.money >= self.bet:
             return 4
         elif self.value() < 17:
             return 2
@@ -298,9 +298,9 @@ class AI(Player):
         """"
         This function will choose for the AI to stand, hit or spilt while counting cards
         """
-        if self.pair():
+        if self.pair() and self.owner.money >= self.bet:
             return 4
-        elif self.value() < 14 and count > COUNT_MIN:
+        elif self.value() < 14 and count > COUNT_MIN and self.owner.money >= self.bet:
             return 3
         elif self.value() > 14 and count < -COUNT_MIN:
             return 1
