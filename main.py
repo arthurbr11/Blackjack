@@ -17,11 +17,14 @@ def play():
     party = game.Game(players)
     while True:
         party.play_round()
+        is_empty = party.reset()
+        if is_empty:
+            print("END OF THE GAME NO MORE PLAYER")
+            return
         choice = int(input("Do you want to continue ? (0 Yes, 1 No)"))
         if choice == 1:
             print("END OF THE GAME")
             return
-        party.reset()
 
 
 if __name__ == "__main__":
