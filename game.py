@@ -101,7 +101,7 @@ class Game:
                 print(f'{player.name}: Your current money is {player.money}')
                 player.bet = int(input("What is your bet ?"))
             elif isinstance(player, model.AI):
-                player.bet = player.money/10 * (1+(self.count/NB_DECK))
+                player.bet = int(player.money/10 * (1+(self.count/NB_DECK)))
             player.money -= player.bet
 
     def first_distribution(self):
@@ -136,7 +136,7 @@ class Game:
                 chosen_option = player.show_possibilities()
             elif isinstance(player, model.AI) or (
                     isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.AI)):
-                chosen_option = player.choose_option_ai_classic()
+                chosen_option = player.choose_option_ai_cheat(self.count)
             if chosen_option == 2:
                 self.increase_count_hi_lo(player.draw(self.deck))
                 if player.value() < 21:

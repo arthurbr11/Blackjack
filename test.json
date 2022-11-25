@@ -1,0 +1,119 @@
+{
+  "parameters": {
+    "nb_players": 2,
+    "nb_round": 10
+  },
+  "round 0": {
+    "IA number0": {
+      "bet": 100,
+      "money": 900
+    },
+    "IA number1 hand 2": {
+      "bet": 100
+    },
+    "IA number1 hand 1": {
+      "bet": 100
+    },
+    "IA number1": {
+      "money": 900
+    }
+  },
+  "round 1": {
+    "IA number0": {
+      "bet": 90,
+      "money": 810
+    },
+    "IA number1": {
+      "bet": 90,
+      "money": 810
+    }
+  },
+  "round 2": {
+    "IA number0": {
+      "bet": 81,
+      "money": 891
+    },
+    "IA number1": {
+      "bet": 81,
+      "money": 891
+    }
+  },
+  "round 3": {
+    "IA number0": {
+      "bet": 89,
+      "money": 802
+    },
+    "IA number1": {
+      "bet": 89,
+      "money": 1024
+    }
+  },
+  "round 4": {
+    "IA number0": {
+      "bet": 80,
+      "money": 722
+    },
+    "IA number1": {
+      "bet": 102,
+      "money": 922
+    }
+  },
+  "round 5": {
+    "IA number0": {
+      "bet": 72,
+      "money": 650
+    },
+    "IA number1 hand 3": {
+      "bet": 92
+    },
+    "IA number1 hand 2": {
+      "bet": 92
+    },
+    "IA number1 hand 1": {
+      "bet": 92
+    },
+    "IA number1": {
+      "money": 830
+    }
+  },
+  "round 6": {
+    "IA number0": {
+      "bet": 65,
+      "money": 715
+    },
+    "IA number1": {
+      "bet": 83,
+      "money": 747
+    }
+  },
+  "round 7": {
+    "IA number0": {
+      "bet": 71,
+      "money": 715
+    },
+    "IA number1": {
+      "bet": 74,
+      "money": 673
+    }
+  },
+  "round 8": {
+    "IA number0": {
+      "bet": 71,
+      "money": 644
+    },
+    "IA number1": {
+      "bet": 67,
+      "money": 673
+    }
+  },
+  "round 9": {
+    "IA number0": {
+      "bet": 64,
+      "money": 580
+    },
+    "IA number1": {
+      "bet": 67,
+      "money": 606
+    }
+  }
+}

@@ -223,7 +223,7 @@ class Player:
 
     def win_money(self) -> str:
         if len(self.hand) == 2 and self.value() == 21:
-            self.owner.money += 5 / 2 * self.bet
+            self.owner.money += int(5 / 2 * self.bet)
             return "Blackjack !"
         else:
             self.owner.money += 2 * self.bet
@@ -256,6 +256,13 @@ class Dealer(Player):
         self.show_hand()
         while self.value() < 17:
             self.draw(deck)
+
+    def show_hand(self):
+        print(self._name + ": have ", end="")
+        for card in self._hand:
+            print(card, end="")
+            print(", ", end="")
+        print(f"With a value of {self.value()}")
 
 
 class HumanPlayer(Player):
