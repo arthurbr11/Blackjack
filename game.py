@@ -194,3 +194,4 @@ class Game:
 
         for player_name, message in results.items():
             print(player_name + " you have " + message)
+        return results
