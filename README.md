@@ -25,3 +25,33 @@ To modelize the BlackJack game, we structured it through two main files :
 # 3. Interface graphique
 Nous avons ensuite la volonté de produire une interface graphique pour permettre à l'utilisateur de jouer. Nous utilisons pour ceci la bibliothèque pygame.
 
+
+# 1. Introduction
+
+1. **Objectifs** :
+    - Executable(Joueur humain, IA)
+    - IA avec comptage de cartes
+
+2. **Cheminement** :
+    - Structure de base
+    - BlackJack fonctionnel sur le terminal sans mise
+    - ajout des mises
+    - ajout IA comptage de carte
+    - Interface graphique
+   2-  Features
+
+# 2. Structure du jeu 
+    - model.py (classes et methodes expliquées)
+    - game.py
+    
+# 3. Interface Graphique 
+
+# 4. Data Analysis
+
+# 5. Features 
+    - Music
+    - Aide au joueur avec IA (tickets bonus)
+
+# 6. Conclusion
+ 
+
