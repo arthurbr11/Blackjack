@@ -38,7 +38,7 @@ Nous avons ensuite la volonté de produire une interface graphique pour permettr
     - ajout des mises
     - ajout IA comptage de carte
     - Interface graphique
-   2-  Features
+    -  Features
 
 # 2. Structure du jeu 
     - model.py (classes et methodes expliquées)
