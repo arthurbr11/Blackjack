@@ -61,7 +61,7 @@ class Game:
                 if player.money != 0:
                     player.reset()
                     player_copy.append(player)
-                else:
+                elif model.SHOW:
                     print(f'{player.name} you are out of the game not enough money for you')
             else:
                 if player.index_hand == 1:

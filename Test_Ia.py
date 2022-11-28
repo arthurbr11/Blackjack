@@ -2,8 +2,11 @@ import game
 import model
 import tools_json
 import matplotlib.pyplot as plt
+from tqdm import tqdm
 
-model.SHOW=False
+model.SHOW = False
+
+
 def play_extract_data_ia(nb_players, nb_round_theoric):
     nb_player = nb_players
     players = []
@@ -73,3 +76,21 @@ plot_money(list_result)
 
 list_better = limit_rate_reward(list_result, 1.5)
 print(list_better)
+
+
+def compute_proba_superior_rate(nb_joueur, nb_partie, rate):
+    P = [0] * nb_joueur
+    for _ in tqdm(range(nb_partie)):
+        data = play_extract_data_ia(nb_joueur, 100000)
+        list_of_result = get_list_of_ia_money(data)
+        list_of_better = limit_rate_reward(list_of_result, rate)
+        for i in range(nb_joueur):
+            if list_of_better[i]:
+                P[i] += 1
+    for i in range(nb_joueur):
+        P[i] = P[i] / nb_partie
+    print(P)
+    return P
+
+
+compute_proba_superior_rate(4, 30, 2)
