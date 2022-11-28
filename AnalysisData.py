@@ -20,6 +20,7 @@ def play_extract_data_ia(nb_players, nb_round_theoric):
     for k in range(nb_round_theoric):
         data[f'round {k}'] = {}
         result = party.play_round()
+        data[f'round {k}']['Count'] = party.count
         for i in range(len(party.players)):
             data[f'round {k}'][f'{party.players[i].name}'] = {}
             data[f'round {k}'][f'{party.players[i].name}']['bet'] = party.players[i].bet
@@ -93,4 +94,4 @@ def compute_proba_superior_rate(nb_joueur, nb_partie, rate):
     return P
 
 
-compute_proba_superior_rate(4, 30, 2)
+compute_proba_superior_rate(4, 500, 2)
