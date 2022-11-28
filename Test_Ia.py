@@ -3,7 +3,7 @@ import model
 import tools_json
 import matplotlib.pyplot as plt
 
-
+model.SHOW=False
 def play_extract_data_ia(nb_players, nb_round_theoric):
     nb_player = nb_players
     players = []
@@ -43,8 +43,6 @@ def get_list_of_ia_money(data):
                 List_ia_money[i].append(data[f'round {k}'][f'IA number{i}']['money'])
             else:
                 List_ia_money[i].append(0)
-        print(List_ia_money)
-
     return List_ia_money
 
 
@@ -71,7 +69,6 @@ data_ia = play_extract_data_ia(nb_players_ask, nb_round_theo)
 tools_json.create_json(data_ia, 'test')
 
 list_result = get_list_of_ia_money(data_ia)
-"""print(list_result)"""
 plot_money(list_result)
 
 list_better = limit_rate_reward(list_result, 1.5)

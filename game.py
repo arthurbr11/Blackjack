@@ -135,8 +135,9 @@ class Game:
         :return: the number of elements we have add to the list
 
         """
-        print(player.name + ": it's your turn to play !!")
-        player.show_hand()
+        if model.SHOW:
+            print(player.name + ": it's your turn to play !!")
+            player.show_hand()
         keep_going = True
         while keep_going:
             keep_going = False
@@ -192,6 +193,7 @@ class Game:
         self.dealer.play(self.deck)
         results = self.results()
 
-        for player_name, message in results.items():
-            print(player_name + " you have " + message)
+        if model.SHOW:
+            for player_name, message in results.items():
+                print(player_name + " you have " + message)
         return results
