@@ -6,6 +6,8 @@ SIZE_DECK = 52
 
 COUNT_MIN = 6
 
+SHOW=True
+
 
 class Color(enum.Enum):
     CLUBS = "clubs"
@@ -218,7 +220,8 @@ class Player:
         """
         drew_card = deck.draw()
         self._hand.append(drew_card)
-        self.show_hand()
+        if SHOW:
+            self.show_hand()
         return drew_card
 
     def win_money(self) -> str:
@@ -253,7 +256,8 @@ class Dealer(Player):
         """
         This function make a dealer play.
         """
-        self.show_hand()
+        if SHOW:
+            self.show_hand()
         while self.value() < 17:
             self.draw(deck)
 
