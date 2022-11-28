@@ -2,33 +2,38 @@ import game
 import model
 import tools_json
 import matplotlib.pyplot as plt
+from tqdm import tqdm
+
+model.SHOW = False
 
 
-def play_ia(nb_players, nb_round_theoric):
+def play_extract_data_ia(nb_players, nb_round_theoric):
     nb_player = nb_players
     players = []
     nb_IA = 0
     for i in range(nb_player):
         players.append(model.AI(nb_IA))
         nb_IA += 1
-    data = {'parameters': {'nb_players': nb_players, 'nb_round_theo': nb_round_theoric, 'nb_round_reel': nb_round_theoric}}
+    data = {
+        'parameters': {'nb_players': nb_players, 'nb_round_theo': nb_round_theoric, 'nb_round_reel': nb_round_theoric}}
     party = game.Game(players)
     for k in range(nb_round_theoric):
         data[f'round {k}'] = {}
-        party.play_round()
+        result = party.play_round()
         for i in range(len(party.players)):
             data[f'round {k}'][f'{party.players[i].name}'] = {}
             data[f'round {k}'][f'{party.players[i].name}']['bet'] = party.players[i].bet
+            data[f'round {k}'][f'{party.players[i].name}']['result'] = result[f'{party.players[i].name}']
             if party.players[i].money != -1:
                 data[f'round {k}'][f'{party.players[i].name}']['money'] = party.players[i].money
         party.reset()
         for i in range(len(party.players)):
             if f'{party.players[i].name}' not in data[f'round {k}'].keys():
-                print("here")
                 data[f'round {k}'][f'{party.players[i].name}'] = {'money': party.players[i].money}
         if len(party.players) == 0:
             data['parameters']['nb_round_reel'] = k
             return data
+
     return data
 
 
@@ -41,8 +46,6 @@ def get_list_of_ia_money(data):
                 List_ia_money[i].append(data[f'round {k}'][f'IA number{i}']['money'])
             else:
                 List_ia_money[i].append(0)
-        print(List_ia_money)
-
     return List_ia_money
 
 
@@ -65,12 +68,29 @@ def limit_rate_reward(List_ia_money, rate):
 nb_players_ask = int(input('Nb_players'))
 nb_round_theo = int(input('Nb_round'))
 
-data_ia = play_ia(nb_players_ask, nb_round_theo)
+data_ia = play_extract_data_ia(nb_players_ask, nb_round_theo)
 tools_json.create_json(data_ia, 'test')
 
 list_result = get_list_of_ia_money(data_ia)
-"""print(list_result)"""
 plot_money(list_result)
 
 list_better = limit_rate_reward(list_result, 1.5)
 print(list_better)
+
+
+def compute_proba_superior_rate(nb_joueur, nb_partie, rate):
+    P = [0] * nb_joueur
+    for _ in tqdm(range(nb_partie)):
+        data = play_extract_data_ia(nb_joueur, 100000)
+        list_of_result = get_list_of_ia_money(data)
+        list_of_better = limit_rate_reward(list_of_result, rate)
+        for i in range(nb_joueur):
+            if list_of_better[i]:
+                P[i] += 1
+    for i in range(nb_joueur):
+        P[i] = P[i] / nb_partie
+    print(P)
+    return P
+
+
+compute_proba_superior_rate(4, 30, 2)

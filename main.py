@@ -5,12 +5,12 @@ import model
 def play():
     nb_player = int(input("Number of players"))
     players = []
-    nb_IA = 0
+    nb_ia = 0
     for i in range(nb_player):
         mode = int(input("Ia or human ? (0 IA, 1 human)"))
         if mode == 0:
-            players.append(model.AI(nb_IA))
-            nb_IA += 1
+            players.append(model.AI(nb_ia))
+            nb_ia += 1
         else:
             name = input("Name player : ")
             players.append(model.HumanPlayer(name))
