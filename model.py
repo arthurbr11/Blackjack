@@ -4,7 +4,7 @@ import random
 INITIAL_MONEY = 1000
 SIZE_DECK = 52
 
-COUNT_MIN = 6
+COUNT_MIN = 4
 
 SHOW=True
 

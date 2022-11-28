@@ -149,12 +149,12 @@ class Game:
                     isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.AI)):
                 chosen_option = player.choose_option_ai_cheat(self.count)
             if chosen_option == 2:
-                self.increase_count_hi_lo(player.draw(self.deck))
+                self.increase_count_omega2(player.draw(self.deck))
                 if player.value() < 21:
                     keep_going = True
             if chosen_option == 3:
                 player.double()
-                self.increase_count_hi_lo(player.draw(self.deck))
+                self.increase_count_omega2(player.draw(self.deck))
                 if player.value() < 21:
                     keep_going = True
             elif chosen_option == 4:
