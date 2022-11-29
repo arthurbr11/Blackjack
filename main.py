@@ -2,7 +2,9 @@ import game
 import model
 
 
-def play():
+def play_with_terminal():
+    model.SHOW_TERMINAL = True
+    model.SHOW_PYGAME = False
     nb_player = int(input("Number of players"))
     players = []
     nb_ia = 0
@@ -27,5 +29,22 @@ def play():
             return
 
 
+def play_with_pygame():
+    model.SHOW_TERMINAL = False
+    model.SHOW_PYGAME = True
+    list_players = []  # display.get_start() retourne une liste avec chaque element etant une liste de la forme [0,
+    # 'nom'] si humain et [1] si Ia
+    nb_ia = 0
+    players = []
+    for i in range(len(list_players)):
+        if len(list_players[i]) == 1:
+            players.append(model.AI(nb_ia))
+            nb_ia += 1
+        else:
+            players.append(model.HumanPlayer(list_players[i][1]))
+    party = game.Game(players)
+    # boucle principal a faire
+
+
 if __name__ == "__main__":
-    play()
+    play_with_terminal()

@@ -6,7 +6,8 @@ SIZE_DECK = 52
 
 COUNT_MIN = 4
 
-SHOW=True
+SHOW_TERMINAL = False
+SHOW_PYGAME = False
 
 
 class Color(enum.Enum):
@@ -220,7 +221,7 @@ class Player:
         """
         drew_card = deck.draw()
         self._hand.append(drew_card)
-        if SHOW:
+        if SHOW_TERMINAL:
             self.show_hand()
         return drew_card
 
@@ -256,7 +257,7 @@ class Dealer(Player):
         """
         This function make a dealer play.
         """
-        if SHOW:
+        if SHOW_TERMINAL:
             self.show_hand()
         while self.value() < 17:
             self.draw(deck)
