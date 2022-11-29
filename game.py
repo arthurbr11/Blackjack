@@ -61,7 +61,7 @@ class Game:
                 if player.money != 0:
                     player.reset()
                     player_copy.append(player)
-                elif model.SHOW:
+                elif model.SHOW_TERMINAL:
                     print(f'{player.name} you are out of the game not enough money for you')
             else:
                 if player.index_hand == 1:
@@ -135,7 +135,7 @@ class Game:
         :return: the number of elements we have add to the list
 
         """
-        if model.SHOW:
+        if model.SHOW_TERMINAL:
             print(player.name + ": it's your turn to play !!")
             player.show_hand()
         keep_going = True
@@ -193,7 +193,7 @@ class Game:
         self.dealer.play(self.deck)
         results = self.results()
 
-        if model.SHOW:
+        if model.SHOW_TERMINAL:
             for player_name, message in results.items():
                 print(player_name + " you have " + message)
         return results

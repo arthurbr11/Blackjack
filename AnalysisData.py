@@ -4,7 +4,8 @@ import tools_json
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-model.SHOW = False
+model.SHOW_TERMINAL = False
+model.SHOW_PYGAME = False
 
 
 def play_extract_data_ia(nb_players, nb_round_theoric):
