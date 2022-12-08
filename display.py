@@ -13,6 +13,14 @@ white=(255,255,255)
 class Images():
     def __init__(self,x,y,name_file):
         self._x=x
+        self._y=y
+        self._image=pygame.image.load(name_file).convert_alpha()
+    
+    def reshape(self,width,height):
+        self._image = pygame.transform.scale(self._image, (width,height))
+    
+    def display(self, window):
+        window.blit(self._image, (self._x,self._y))
         
 
 class Rectangle():
@@ -111,16 +119,29 @@ class disp_cards():
 im_fond = Image.open('fond_vert.jpg')
 fond_width,fond_height=im_fond.size
 
+
+
 #Ouverture de la fenêtre Pygame
 window_width=1000
 prop_fond=window_width/fond_width
-window_height=int(prop_fond*fond_height)
+fond_width=int(prop_fond*fond_width)
+fond_height=int(prop_fond*fond_height)
+
+#dim rect
+white_rect_width=fond_width
+white_rect_height=white_rect_width/15
+white_rect_x=0
+white_rect_y=fond_height
+white_rect=pygame.Rect(white_rect_x,white_rect_y,white_rect_width,white_rect_height)
+
+window_height=fond_height+white_rect_height
 window = pygame.display.set_mode((window_width,window_height))
 window.fill(white)
 
 
-
-
+grey=(200,200,200)
+black_grey=(100,100,100)
+font = pygame.font.Font(pygame.font.get_default_font(), 36)
 
 ######## PREMIERE PAGE ###############
 
@@ -137,18 +158,15 @@ question = Rectangle(window_width/2,2*window_height/5,window_width/3,window_heig
 Rect_page_nb_joueurs+=[question]
 
 ### NB JOUEURS ###
-buttons_nb_players_font = pygame.font.Font(pygame.font.get_default_font(), 36)
 buttons_nb_player_size=int(window_width//9)
-buttons_nb_players_color=(200,200,200)
-buttons_nb_players_cover_color=(100,100,100)
 buttons_nb_players=np.empty((6),dtype=Button)
 
 for k in range (3):
     x=(5/2)*buttons_nb_player_size+(2*k*buttons_nb_player_size)
     y1=int(3*window_height/5)
     y2=int(4*window_height/5)
-    buttons_nb_players[k]=Button(x, y1, buttons_nb_player_size, buttons_nb_player_size, buttons_nb_players_color,  str(k+1), black, buttons_nb_players_font, buttons_nb_players_cover_color)
-    buttons_nb_players[k+3]=Button(x, y2, buttons_nb_player_size, buttons_nb_player_size, buttons_nb_players_color, str(k+4), black, buttons_nb_players_font, buttons_nb_players_cover_color)
+    buttons_nb_players[k]=Button(x, y1, buttons_nb_player_size, buttons_nb_player_size, grey,  str(k+1), black, font, black_grey)
+    buttons_nb_players[k+3]=Button(x, y2, buttons_nb_player_size, buttons_nb_player_size, grey, str(k+4), black, font, black_grey)
 
 
 
@@ -157,9 +175,7 @@ for k in range (3):
 red=(255,0,0)
 black_red=(200,0,0)
 
-grey=(200,200,200)
-black_grey=(100,100,100)
-font = pygame.font.Font(pygame.font.get_default_font(), 36)
+
 
 Rect_page_nom_joueur=[]
 Butt_page_nom_joueur=[]
@@ -179,6 +195,58 @@ rect_nom_joueur = Rectangle(window_width/2,3*window_height/4,window_width/3,wind
 Rect_page_nom_joueur+=[rect_num_joueur]
 # button_type_joueur = Button(x, y2, buttons_nb_player_size, buttons_nb_player_size, buttons_nb_players_color, str(k+4), black, buttons_nb_players_font, buttons_nb_players_cover_color)
 
+
+################ TROISIEME PAGE #################
+
+#fond
+fond=Images(0,0,"fond_vert.jpg")
+fond.reshape(fond_width,fond_height)
+
+
+#dim jeton
+taille_jeton=white_rect_height/2
+jetons_y=white_rect_y+(white_rect_height/4)
+jeton1_x=white_rect_height/2
+jeton5_x=white_rect_height*5/4
+jeton10_x=white_rect_height*2
+jeton25_x=white_rect_height*11/4
+jeton100_x=white_rect_height*7/2
+
+#jetons
+#1
+jeton1 = Images(jeton1_x,jetons_y,"jeton.png")
+jeton1.reshape(taille_jeton,taille_jeton)
+jeton5 = Images(jeton5_x,jetons_y,"jeton.png")
+jeton5.reshape(taille_jeton,taille_jeton)
+jeton10 = Images(jeton10_x,jetons_y,"jeton.png")
+jeton10.reshape(taille_jeton,taille_jeton)
+jeton25 = Images(jeton25_x,jetons_y,"jeton.png")
+jeton25.reshape(taille_jeton,taille_jeton)
+jeton100 = Images(jeton100_x,jetons_y,"jeton.png")
+jeton100.reshape(taille_jeton,taille_jeton)
+
+jetons=[jeton1,jeton5,jeton10,jeton25,jeton100]
+
+#dim boutons
+button_width=white_rect_height*(3/2)
+button_height=white_rect_height/2
+button_y=white_rect_y+white_rect_height/2
+button_doubler_x=23*white_rect_height/4
+button_rester_x=white_rect_height*15/2
+button_tirer_x=white_rect_height*37/4
+
+#boutons
+button_doubler=Button(button_doubler_x,button_y,button_width,button_height, grey, "Doubler", black, font, black_grey)
+button_rester=Button(button_rester_x,button_y,button_width,button_height, grey, "Rester", black, font, black_grey)
+button_tirer=Button(button_tirer_x,button_y,button_width,button_height, grey, "Tirer", black, font, black_grey)
+Butt_page_jeu=[button_doubler,button_rester,button_tirer]
+
+#dim argent
+rect_argent_x=25*white_rect_height/2
+rect_argent_y=white_rect_y+white_rect_height/2
+rect_argent_width=3*white_rect_height
+rect_argent_height=white_rect_height/2
+rect_argent = Rectangle(rect_argent_x,rect_argent_y,rect_argent_width,rect_argent_height,grey,"Argent : 1000 euros",black,font)
 
 
 
@@ -211,12 +279,8 @@ while window_open :
         
         elif page_nom_joueur:
             if i==nb_players:
-                print(Joueurs)
-                print(i)
                 page_nom_joueur=False
                 page_jeu=True
-                print(page_nom_joueur)
-                print(page_jeu)
             else:
                 window.fill(white)
                 rect_num_joueur.set_text("Joueur "+str(i+1))
@@ -231,14 +295,11 @@ while window_open :
                     type_joueur=0
                     Joueurs[i]=[0]
                     i+=1
-                    print(i)
                     type_joueur=-1
                 elif type_joueur==1:
                     rect_nom_joueur.display(window)
                     if event.type == pygame.KEYDOWN:
-                        # Check for backspace
                         if event.key == pygame.K_BACKSPACE:
-                            # get text input from 0 to -1 i.e. end.
                             if len(user_text)==1:
                                 user_text=" "
                             else :
@@ -246,10 +307,8 @@ while window_open :
                         elif event.key==pygame.K_RETURN:
                             Joueurs[i]=[1,user_text]
                             i+=1
-                            print(i)
                             type_joueur=-1
                             user_text=" "
-                        # Unicode standard is used for string formation
                         else:
                             user_text += event.unicode
                         rect_nom_joueur.set_text(user_text)
@@ -266,6 +325,13 @@ while window_open :
             
         elif page_jeu:
             window.fill(white)
+            fond.display(window)
+            for jeton in jetons :
+                jeton.display(window)
+            for butt in Butt_page_jeu :
+                butt.display(window,event)
+            rect_argent.display(window)
+            
             pygame.display.flip() 
             
         if event.type == QUIT:
