@@ -248,6 +248,21 @@ rect_argent_width=3*white_rect_height
 rect_argent_height=white_rect_height/2
 rect_argent = Rectangle(rect_argent_x,rect_argent_y,rect_argent_width,rect_argent_height,grey,"Argent : 1000 euros",black,font)
 
+#loading cartes
+
+#dimension
+im_carte = Image.open("cartes/1_clubs.png")
+carte_ini_width,carte_ini_height=im_carte.size
+carte_height=int(window_height/6)
+prop_carte=carte_height/carte_ini_height
+carte_width=int(prop_carte*carte_ini_width)
+
+rank=1
+color="spades"
+nom_carte=str(rank)+"_"+str(color)
+chemin_acces="cartes/"+nom_carte+".png"
+carte_test=Images(0,0,chemin_acces)
+carte_test.reshape(carte_width,carte_height)
 
 
 
@@ -290,13 +305,13 @@ while window_open :
                     elem.display(window,event)
                 
                 if button_humain.click(event):
-                    type_joueur=1
-                elif button_IA.click(event):
                     type_joueur=0
-                    Joueurs[i]=[0]
+                elif button_IA.click(event):
+                    type_joueur=1
+                    Joueurs[i]=[1]
                     i+=1
                     type_joueur=-1
-                elif type_joueur==1:
+                elif type_joueur==0:
                     rect_nom_joueur.display(window)
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_BACKSPACE:
@@ -305,7 +320,7 @@ while window_open :
                             else :
                                 user_text = user_text[:-1]
                         elif event.key==pygame.K_RETURN:
-                            Joueurs[i]=[1,user_text]
+                            Joueurs[i]=[0,user_text]
                             i+=1
                             type_joueur=-1
                             user_text=" "
@@ -326,6 +341,7 @@ while window_open :
         elif page_jeu:
             window.fill(white)
             fond.display(window)
+            carte_test.display(window)
             for jeton in jetons :
                 jeton.display(window)
             for butt in Butt_page_jeu :
