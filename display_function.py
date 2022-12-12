@@ -118,7 +118,7 @@ class disp_cards():
 
 def init_display(window_width=1000):
     # chargement image fond pour recuperer la taille
-    im_fond = Image.open('fond_vert.jpg')
+    im_fond = Image.open('assets/fond_vert.jpg')
     fond_width, fond_height = im_fond.size
 
     # Ouverture de la fenetre Pygame

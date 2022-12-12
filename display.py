@@ -214,15 +214,15 @@ jeton100_x=white_rect_height*7/2
 
 #jetons
 #1
-jeton1 = Images(jeton1_x,jetons_y,"jeton.png")
+jeton1 = Images(jeton1_x, jetons_y, "assets/jeton.png")
 jeton1.reshape(taille_jeton,taille_jeton)
-jeton5 = Images(jeton5_x,jetons_y,"jeton.png")
+jeton5 = Images(jeton5_x, jetons_y, "assets/jeton.png")
 jeton5.reshape(taille_jeton,taille_jeton)
-jeton10 = Images(jeton10_x,jetons_y,"jeton.png")
+jeton10 = Images(jeton10_x, jetons_y, "assets/jeton.png")
 jeton10.reshape(taille_jeton,taille_jeton)
-jeton25 = Images(jeton25_x,jetons_y,"jeton.png")
+jeton25 = Images(jeton25_x, jetons_y, "assets/jeton.png")
 jeton25.reshape(taille_jeton,taille_jeton)
-jeton100 = Images(jeton100_x,jetons_y,"jeton.png")
+jeton100 = Images(jeton100_x, jetons_y, "assets/jeton.png")
 jeton100.reshape(taille_jeton,taille_jeton)
 
 jetons=[jeton1,jeton5,jeton10,jeton25,jeton100]
