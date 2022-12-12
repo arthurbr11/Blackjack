@@ -2,7 +2,8 @@ import game
 import model
 
 
-def play(test=False, test_players=[], nb_round=-1):
+def play(test=False, split=False, test_players=[], nb_round=-1, counting_method=0):  # Parameters used in the case of
+    # a test (in game_test.py)
     if test:
         nb_player = len(test_players)
     else:
@@ -26,7 +27,7 @@ def play(test=False, test_players=[], nb_round=-1):
             else:
                 players.append(model.HumanPlayer(player_name))
 
-    party = game.Game(players)
+    party = game.Game(players, test=test, split=split, counting_method=counting_method)
     turn = 0
 
     while nb_round == -1 or turn < nb_round:
