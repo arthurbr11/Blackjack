@@ -2,42 +2,26 @@ import game
 import model
 
 
-def play(test=False, test_players=[], nb_round=-1):
-    if not test:
-        nb_player = int(input("Number of players"))
-    else:
-        nb_player = len(test_players)
-    nb_ia = 0
+def play():
+    nb_player = int(input("Number of players"))
     players = []
-    if not test:
-        for i in range(nb_player):
-            mode = int(input("Ia or human ? (0 IA, 1 human)"))
-            if mode == 0:
-                players.append(model.AI(nb_ia))
-                nb_ia += 1
-            else:
-                name = input("Name player : ")
-                players.append(model.HumanPlayer(name))
-    else:
-        for player_name in test_players:
-            if player_name == "IA":
-                players.append(model.AI(nb_ia))
-                nb_ia += 1
-            else:
-                players.append(model.HumanPlayer(player_name))
-
+    nb_ia = 0
+    for i in range(nb_player):
+        mode = int(input("Ia or human ? (0 IA, 1 human)"))
+        if mode == 0:
+            players.append(model.AI(nb_ia))
+            nb_ia += 1
+        else:
+            name = input("Name player : ")
+            players.append(model.HumanPlayer(name))
     party = game.Game(players)
-    turn = 0
-    while turn < nb_round or nb_round == -1:
-        turn += 1
+    while True:
         party.play_round()
         is_empty = party.reset()
         if is_empty:
             print("END OF THE GAME NO MORE PLAYER")
             return
-        choice = 0
-        if not test:
-            choice = int(input("Do you want to continue ? (0 Yes, 1 No)"))
+        choice = int(input("Do you want to continue ? (0 Yes, 1 No)"))
         if choice == 1:
             print("END OF THE GAME")
             return
