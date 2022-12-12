@@ -101,11 +101,13 @@ class Game:
 
         return results
 
-    def choose_bet(self):
+    def choose_bet(self, test=False):
         for player in self.players:
-            if isinstance(player, model.HumanPlayer):
+            if isinstance(player, model.HumanPlayer) and not test:
                 print(f'{player.name}: Your current money is {player.money}')
                 player.bet = int(input("What is your bet ?"))
+            elif isinstance(player, model.HumanPlayer) and test:  # Used to test the function in test_model.py
+                player.bet = player.money // 2
             elif isinstance(player, model.AI):
                 bet = int(player.money / 10 * (1 + (self.count / NB_DECK)))
                 if bet != 0:
