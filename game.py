@@ -104,8 +104,11 @@ class Game:
     def choose_bet(self):
         for player in self.players:
             if isinstance(player, model.HumanPlayer):
-                print(f'{player.name}: Your current money is {player.money}')
-                player.bet = int(input("What is your bet ?"))
+                if model.SHOW_TERMINAL:
+                    print(f'{player.name}: Your current money is {player.money}')
+                    player.bet = int(input("What is your bet ?"))
+                else:
+                    player.bet =0#display.get_bet(player) A faire afficher les jetons actuels avce le nom du gars et quel est son bet retourne un entier
             elif isinstance(player, model.AI):
                 bet = int(player.money / 10 * (1 + (self.count / NB_DECK)))
                 if bet != 0:
@@ -138,6 +141,8 @@ class Game:
         if model.SHOW_TERMINAL:
             print(player.name + ": it's your turn to play !!")
             player.show_hand()
+        else:
+            0# display.round_of(player)
         keep_going = True
         while keep_going:
             keep_going = False
@@ -196,4 +201,6 @@ class Game:
         if model.SHOW_TERMINAL:
             for player_name, message in results.items():
                 print(player_name + " you have " + message)
+        else:
+            0#display.show_results(results)
         return results

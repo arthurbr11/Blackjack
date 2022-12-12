@@ -7,7 +7,6 @@ SIZE_DECK = 52
 COUNT_MIN = 4
 
 SHOW_TERMINAL = False
-SHOW_PYGAME = False
 
 
 class Color(enum.Enum):
@@ -209,11 +208,14 @@ class Player:
                 return values[len(values) - 1]
 
     def show_hand(self):
-        print(self._name + ": have ", end="")
-        for card in self._hand:
-            print(card, end="")
-            print(", ", end="")
-        print(f"With a value of {self.value()} and a bet of {self._bet}")
+        if SHOW_TERMINAL:
+            print(self._name + ": have ", end="")
+            for card in self._hand:
+                print(card, end="")
+                print(", ", end="")
+            print(f"With a value of {self.value()} and a bet of {self._bet}")
+        else:
+            0  # display.show_hand_player(self:(player))
 
     def draw(self, deck: Deck) -> Card:
         """
@@ -221,8 +223,7 @@ class Player:
         """
         drew_card = deck.draw()
         self._hand.append(drew_card)
-        if SHOW_TERMINAL:
-            self.show_hand()
+        self.show_hand()
         return drew_card
 
     def win_money(self) -> str:
@@ -247,27 +248,40 @@ class Dealer(Player):
         super().__init__("DEALER")
         self.money = 0
 
+    def draw(self, deck: Deck) -> Card:
+        """
+        The dealer draws the top card of the deck and adds it to his hand.
+        """
+        drew_card = deck.draw()
+        self._hand.append(drew_card)
+        self.show_hand()
+        return drew_card
+
     def draw_without_showing(self, deck: Deck):
         """
         The dealer draws the top card of the deck and adds it to his hand without showing because it's his 2nd card.
         """
         self._hand.append(deck.draw())
+        if not SHOW_TERMINAL:
+            0#display.show_hand_dealer_back(self:(dealer))
 
     def play(self, deck: Deck):
         """
         This function make a dealer play.
         """
-        if SHOW_TERMINAL:
-            self.show_hand()
+        self.show_hand()
         while self.value() < 17:
             self.draw(deck)
 
     def show_hand(self):
-        print(self._name + ": have ", end="")
-        for card in self._hand:
-            print(card, end="")
-            print(", ", end="")
-        print(f"With a value of {self.value()}")
+        if SHOW_TERMINAL:
+            print(self._name + ": have ", end="")
+            for card in self._hand:
+                print(card, end="")
+                print(", ", end="")
+            print(f"With a value of {self.value()}")
+        else:
+            0  # display.show_hand_dealer(self:(dealer))
 
 
 class HumanPlayer(Player):
@@ -275,13 +289,16 @@ class HumanPlayer(Player):
         super().__init__(name)
 
     def show_possibilities(self) -> int:
-        print("1st Option : Stand")
-        print("2nd Option : Hit")
-        if self.owner.money >= self.bet:
-            print("3rd Option : Double")
-        if self.pair() and self.owner.money >= self.bet:
-            print("4th Option : Split")
-        return int(input("Which option do you choose ? (Put the number)"))
+        if SHOW_TERMINAL:
+            print("1st Option : Stand")
+            print("2nd Option : Hit")
+            if self.owner.money >= self.bet:
+                print("3rd Option : Double")
+            if self.pair() and self.owner.money >= self.bet:
+                print("4th Option : Split")
+            return int(input("Which option do you choose ? (Put the number)"))
+        else:
+            0#return(display.show_possibilities(self(HumanPlayer)))
 
 
 class AI(Player):
