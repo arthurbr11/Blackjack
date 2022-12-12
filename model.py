@@ -7,6 +7,7 @@ SIZE_DECK = 52
 COUNT_MIN = 4
 
 SHOW_TERMINAL = False
+SHOW_PYGAME = False
 
 
 class Color(enum.Enum):
@@ -64,14 +65,16 @@ class Card:
 
 
 class Deck:
-    def __init__(self, nb_decks: int):
+    def __init__(self, nb_decks: int, split=False):
         self._nb_decks = nb_decks
         self._cards = []
         for _ in range(0, nb_decks):
             for color in Color:
                 for rank in Rank:
-                    # if Card(color, rank).value == 10:
-                    self._cards.append(Card(color, rank))
+                    if Card(color,
+                            rank).value == 10 or not split:  # When we test the split function, we keep in the deck
+                        # only cards with a value of 10
+                        self._cards.append(Card(color, rank))
         self._stop_index = random.randrange(
             SIZE_DECK, SIZE_DECK * (nb_decks - 1)
         )  # Position of the red card in the deck : the dealer shuffles the deck when drawn
@@ -133,6 +136,7 @@ class Player:
         self._nb_hand = 1
         self._money = INITIAL_MONEY
         self._bet = 0
+        self.stop_splitting = False  # We stop splitting when the player reaches 20 hands : used in test functions
 
     @property
     def owner(self):
@@ -214,7 +218,7 @@ class Player:
                 print(card, end="")
                 print(", ", end="")
             print(f"With a value of {self.value()} and a bet of {self._bet}")
-        else:
+        elif SHOW_PYGAME:
             0  # display.show_hand_player(self:(player),WINDOWS)
 
     def draw(self, deck: Deck,WINDOWS) -> Card:
@@ -262,7 +266,7 @@ class Dealer(Player):
         The dealer draws the top card of the deck and adds it to his hand without showing because it's his 2nd card.
         """
         self._hand.append(deck.draw())
-        if not SHOW_TERMINAL:
+        if SHOW_PYGAME:
             0#display.show_hand_dealer_back(self:(dealer),WINDOWS)
 
     def play(self, deck: Deck,WINDOWS):
@@ -280,7 +284,7 @@ class Dealer(Player):
                 print(card, end="")
                 print(", ", end="")
             print(f"With a value of {self.value()}")
-        else:
+        elif SHOW_PYGAME:
             0  # display.show_hand_dealer(self:(dealer),WINDOWS)
 
 
@@ -297,8 +301,19 @@ class HumanPlayer(Player):
             if self.pair() and self.owner.money >= self.bet:
                 print("4th Option : Split")
             return int(input("Which option do you choose ? (Put the number)"))
-        else:
+        elif SHOW_PYGAME:
             0#return(display.show_possibilities(self(HumanPlayer)),WINDOWS)
+
+    def choose_option_test_classic(self) -> int:  # A faire
+        """"
+        This function will simulate a player choosing to stand, hit or spilt
+        """
+        if self.pair() and self.owner.money >= self.bet and not self.stop_splitting:
+            return 4
+        elif self.value() < 17:
+            return 2
+        else:
+            return 1
 
 
 class AI(Player):
@@ -309,7 +324,7 @@ class AI(Player):
         """"
         This function will choose for the AI to stand, hit or spilt
         """
-        if self.pair() and self.owner.money >= self.bet:
+        if self.pair() and self.owner.money >= self.bet and not self.stop_splitting:
             return 4
         elif self.value() < 17:
             return 2
@@ -320,7 +335,7 @@ class AI(Player):
         """"
         This function will choose for the AI to stand, hit or spilt while counting cards
         """
-        if self.pair() and self.owner.money >= self.bet:
+        if self.pair() and self.owner.money >= self.bet and not self.stop_splitting:
             return 4
         elif self.value() < 14 and count > COUNT_MIN and self.owner.money >= self.bet:
             return 3
@@ -339,6 +354,9 @@ class AliasPlayer(AI, HumanPlayer):
         self._owner = player
         self.money = -1
         self.bet = player.bet
+        if i == 20:
+            player.stop_splitting = True  # After 20 splits, a player can't split anymore (only reached on tests
+            # functions)
 
     @property
     def owner(self):

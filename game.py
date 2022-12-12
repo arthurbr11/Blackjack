@@ -4,12 +4,16 @@ NB_DECK = 8
 
 
 class Game:
-    def __init__(self, players: [model.Player]):
-        self._deck = model.Deck(NB_DECK)
+    def __init__(self, players: [model.Player], counting_method=0, test=False, split=False):
+        self._deck = model.Deck(NB_DECK, split=split)
         self._players = players
         self._dealer = model.Dealer()
         self._count = 0  # Card count, depending on the counting methods
         self.deck.perfect_shuffle()
+        self._test = test
+        self._counting_method = counting_method
+        if split:
+            model.SIZE_DECK = 16
 
     @property
     def deck(self) -> model.Deck:
@@ -48,6 +52,17 @@ class Game:
             self._count += -1
         elif card.value == 10:
             self._count += -2
+    def increase_count(self, card: model.Card):
+        """
+        Select the counting_method to increase the count of the game (_counting_method = 0 : no counting)
+        :param card: the card that has been drawn
+        """
+        if self._counting_method == 1:
+            self.increase_count_hi_lo(self, card)
+        elif self._counting_method == 2:
+            self.increase_count_ko(self, card)
+        elif self._counting_method == 3:
+            self.increase_count_omega2(self, card)
 
     def reset(self,WINDOWS=0):
         """
@@ -63,7 +78,7 @@ class Game:
                     player_copy.append(player)
                 elif model.SHOW_TERMINAL:
                     print(f'{player.name} you are out of the game not enough money for you')
-                else:
+                elif model.SHOW_PYGAME:
                     0#display.show_looser(player,WINDOWS)
             else:
                 if player.index_hand == 1:
@@ -109,7 +124,7 @@ class Game:
                 if model.SHOW_TERMINAL:
                     print(f'{player.name}: Your current money is {player.money}')
                     player.bet = int(input("What is your bet ?"))
-                else:
+                elif model.SHOW_PYGAME:
                     player.bet = 0  # display.get_bet(player,WINDOWS) A faire afficher les jetons actuels avce le nom du gars et quel est son bet retourne un entier
             elif isinstance(player, model.HumanPlayer) and test:  # Used to test the function in test_model.py
                 player.bet = player.money // 2
@@ -145,7 +160,7 @@ class Game:
         if model.SHOW_TERMINAL:
             print(player.name + ": it's your turn to play !!")
             player.show_hand(WINDOWS)
-        else:
+        elif model.SHOW_PYGAME:
             0# display.round_of(player,WINDOWS)
         keep_going = True
         while keep_going:
@@ -153,17 +168,20 @@ class Game:
             chosen_option = 0
             if (isinstance(player, model.HumanPlayer) and not isinstance(player, model.AliasPlayer)) or (
                     isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.HumanPlayer)):
-                chosen_option = player.show_possibilities(WINDOWS)
+                if not self._test:
+                    chosen_option = player.show_possibilities(WINDOWS)
+                else:
+                    chosen_option = player.choose_option_test_classic(self.count)
             elif isinstance(player, model.AI) or (
                     isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.AI)):
                 chosen_option = player.choose_option_ai_cheat(self.count)
             if chosen_option == 2:
-                self.increase_count_omega2(player.draw(self.deck,WINDOWS))
+                self.increase_count(player.draw(self.deck,WINDOWS))
                 if player.value() < 21:
                     keep_going = True
             if chosen_option == 3:
                 player.double()
-                self.increase_count_omega2(player.draw(self.deck,WINDOWS))
+                self.increase_count(player.draw(self.deck,WINDOWS))
                 if player.value() < 21:
                     keep_going = True
             elif chosen_option == 4:
@@ -205,6 +223,7 @@ class Game:
         if model.SHOW_TERMINAL:
             for player_name, message in results.items():
                 print(player_name + " you have " + message)
-        else:
+        elif model.SHOW_PYGAME:
             0#display.show_results(results,WINDOWS)
+
         return results

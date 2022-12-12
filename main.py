@@ -2,11 +2,15 @@ import game
 import model
 
 
-def play_with_terminal(test=False, test_players=[], nb_round=-1):
-    model.SHOW_TERMINAL = True
+def play(test=False, split=False, test_players=[], nb_round=-1, counting_method=0):  # Parameters used in the case of
+    # a test (in test.py)
+    model.SHOW_PYGAME = False
+
     if test:
+        model.SHOW_TERMINAL=False
         nb_player = len(test_players)
     else:
+        model.SHOW_TERMINAL=True
         nb_player = int(input("Number of players"))
     players = []
     nb_ia = 0
@@ -27,7 +31,7 @@ def play_with_terminal(test=False, test_players=[], nb_round=-1):
             else:
                 players.append(model.HumanPlayer(player_name))
 
-    party = game.Game(players)
+    party = game.Game(players, test=test, split=split, counting_method=counting_method)
     turn = 0
 
     while nb_round == -1 or turn < nb_round:
@@ -48,6 +52,8 @@ def play_with_terminal(test=False, test_players=[], nb_round=-1):
 def play_with_pygame():
     import display_function
     model.SHOW_TERMINAL = False
+    model.SHOW_PYGAME = True
+
     window, window_height, window_width, white_rect, white_rect_height = display_function.init_display()
     WINDOWS = [window, window_height, window_width, white_rect, white_rect_height]
 
@@ -73,4 +79,4 @@ def play_with_pygame():
 
 
 if __name__ == "__main__":
-    play_with_pygame()
+    play()
