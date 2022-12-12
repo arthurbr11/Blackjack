@@ -103,14 +103,16 @@ class Game:
 
         return results
 
-    def choose_bet(self,WINDOWS):
+    def choose_bet(self,WINDOWS,test=False):
         for player in self.players:
-            if isinstance(player, model.HumanPlayer):
+            if isinstance(player, model.HumanPlayer) and not test:
                 if model.SHOW_TERMINAL:
                     print(f'{player.name}: Your current money is {player.money}')
                     player.bet = int(input("What is your bet ?"))
                 else:
-                    player.bet =0#display.get_bet(player,WINDOWS) A faire afficher les jetons actuels avce le nom du gars et quel est son bet retourne un entier
+                    player.bet = 0  # display.get_bet(player,WINDOWS) A faire afficher les jetons actuels avce le nom du gars et quel est son bet retourne un entier
+            elif isinstance(player, model.HumanPlayer) and test:  # Used to test the function in test_model.py
+                player.bet = player.money // 2
             elif isinstance(player, model.AI):
                 bet = int(player.money / 10 * (1 + (self.count / NB_DECK)))
                 if bet != 0:
