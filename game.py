@@ -1,4 +1,5 @@
 import model
+import display_function
 
 NB_DECK = 8
 
@@ -52,6 +53,7 @@ class Game:
             self._count += -1
         elif card.value == 10:
             self._count += -2
+
     def increase_count(self, card: model.Card):
         """
         Select the counting_method to increase the count of the game (_counting_method = 0 : no counting)
@@ -64,7 +66,7 @@ class Game:
         elif self._counting_method == 3:
             self.increase_count_omega2(self, card)
 
-    def reset(self,WINDOWS=0):
+    def reset(self, WINDOWS=0):
         """
         We set the hand of the dealer and each player empty.
         """
@@ -79,7 +81,7 @@ class Game:
                 elif model.SHOW_TERMINAL:
                     print(f'{player.name} you are out of the game not enough money for you')
                 elif model.SHOW_PYGAME:
-                    0#display.show_looser(player,WINDOWS)
+                    0  # display.show_looser(player,WINDOWS)
             else:
                 if player.index_hand == 1:
                     player.owner.reset()
@@ -118,14 +120,15 @@ class Game:
 
         return results
 
-    def choose_bet(self,WINDOWS,test=False):
+    def choose_bet(self, WINDOWS, test=False):
         for player in self.players:
             if isinstance(player, model.HumanPlayer) and not test:
                 if model.SHOW_TERMINAL:
                     print(f'{player.name}: Your current money is {player.money}')
                     player.bet = int(input("What is your bet ?"))
                 elif model.SHOW_PYGAME:
-                    player.bet = 0  # display.get_bet(player,WINDOWS) A faire afficher les jetons actuels avce le nom du gars et quel est son bet retourne un entier
+                    player.bet = display_function.get_bet(player,
+                                                          WINDOWS)  # A faire afficher les jetons actuels avce le nom du gars et quel est son bet retourne un entier
             elif isinstance(player, model.HumanPlayer) and test:  # Used to test the function in test_model.py
                 player.bet = player.money // 2
             elif isinstance(player, model.AI):
@@ -136,17 +139,17 @@ class Game:
                     player.bet = player.money
             player.money -= player.bet
 
-    def first_distribution(self,WINDOWS):
+    def first_distribution(self, WINDOWS):
         """
         The dealer distributes one card for his self and two cards for each players and after his second card.
         """
-        self._dealer.draw(self.deck,WINDOWS)  # The dealer draws one
+        self._dealer.draw(self.deck, WINDOWS)  # The dealer draws one
         for i in range(0, 2):  # Each player draws two cards
             for player in self.players:
-                player.draw(self.deck,WINDOWS)
-        self._dealer.draw_without_showing(self.deck,WINDOWS)
+                player.draw(self.deck, WINDOWS)
+        self._dealer.draw_without_showing(self.deck, WINDOWS)
 
-    def play_player(self, player: model.Player, i: int,WINDOWS) -> int:
+    def play_player(self, player: model.Player, i: int, WINDOWS) -> int:
         """
         This function make a player play.
         To test if the split method work well change 52 by
@@ -161,7 +164,7 @@ class Game:
             print(player.name + ": it's your turn to play !!")
             player.show_hand(WINDOWS)
         elif model.SHOW_PYGAME:
-            0# display.round_of(player,WINDOWS)
+            0  # display.round_of(player,WINDOWS)
         keep_going = True
         while keep_going:
             keep_going = False
@@ -176,12 +179,12 @@ class Game:
                     isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.AI)):
                 chosen_option = player.choose_option_ai_cheat(self.count)
             if chosen_option == 2:
-                self.increase_count(player.draw(self.deck,WINDOWS))
+                self.increase_count(player.draw(self.deck, WINDOWS))
                 if player.value() < 21:
                     keep_going = True
             if chosen_option == 3:
                 player.double()
-                self.increase_count(player.draw(self.deck,WINDOWS))
+                self.increase_count(player.draw(self.deck, WINDOWS))
                 if player.value() < 21:
                     keep_going = True
             elif chosen_option == 4:
@@ -195,35 +198,36 @@ class Game:
                             alias_player.owner.money -= alias_player.bet
                         alias_player.hand.append(player_father.hand[k])
                         self._players.insert(i, alias_player)
-                        index += self.play_player(alias_player, i,WINDOWS)
+                        index += self.play_player(alias_player, i, WINDOWS)
                 else:
                     player_father.nb_hand += 1
                     for k in range(0, 2):
                         alias_player = model.AliasPlayer(player_father, player_father.nb_hand - (1 - k))
                         alias_player.hand.append(player_father.hand[k])
                         self._players.insert(i, alias_player)
-                        index += self.play_player(alias_player, i,WINDOWS)
+                        index += self.play_player(alias_player, i, WINDOWS)
                 return index
         return 0
 
-    def play_round(self,WINDOWS=0):
+    def play_round(self, WINDOWS=0):
         """
         This function is the main loop for each round.
         """
         self.choose_bet(WINDOWS)
+        int(input('chose bet pass'))
         self.first_distribution(WINDOWS)
         players_copy = self._players.copy()
         index = 0
         for (i, player) in enumerate(players_copy):
-            index += self.play_player(player, i + index,WINDOWS)
+            index += self.play_player(player, i + index, WINDOWS)
 
-        self.dealer.play(self.deck,WINDOWS)
+        self.dealer.play(self.deck, WINDOWS)
         results = self.results()
 
         if model.SHOW_TERMINAL:
             for player_name, message in results.items():
                 print(player_name + " you have " + message)
         elif model.SHOW_PYGAME:
-            0#display.show_results(results,WINDOWS)
+            0  # display.show_results(results,WINDOWS)
 
         return results

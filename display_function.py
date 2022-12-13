@@ -1,4 +1,4 @@
-from model import *
+import model
 import pygame
 from pygame.locals import *
 from PIL import Image
@@ -27,7 +27,7 @@ class Images:
         window.blit(self._image, (self._x, self._y))
 
 
-class Rectangle():
+class Rectangle:
     def __init__(self, x, y, width, height, color, text, text_color, font):
         self._x = x
         self._y = y
@@ -136,7 +136,20 @@ def init_display(window_width=1000):
     window_height = fond_height + white_rect_height
     window = pygame.display.set_mode((window_width, window_height))
 
-    return window, window_height,window_width, white_rect, white_rect_height
+    #fond
+    im_fond = Image.open('assets/fond_vert.jpg')
+    fond_width, fond_height = im_fond.size
+
+    prop_fond = window_width / fond_width
+    fond_width = int(prop_fond * fond_width)
+    fond_height = int(prop_fond * fond_height)
+    fond=Images(0,0,"assets/fond_vert.jpg")
+    prop_fond = window_width / fond_width
+    fond_width = int(prop_fond * fond_width)
+    fond_height = int(prop_fond * fond_height)
+    fond.reshape(fond_width,fond_height)
+
+    return window, window_height,window_width, white_rect, white_rect_height,fond
 
 
 def init_page_nb_players(window_width, window_height):
@@ -193,16 +206,13 @@ def init_page_name_player(window_width, window_height):
     return Butt_page_nom_joueur, Rect_page_nom_joueur
 
 
-type_joueur = -1
-
-
 def get_nb_players(window, window_width, window_height, white_rect, white_rect_height, Rect_page_nb_joueurs,
                    buttons_nb_players):
     activated = True
     while activated:
         for event in pygame.event.get():
             for elem in Rect_page_nb_joueurs:
-                elem.display(window)
+                elem.display(window, )
             for k in range(len(buttons_nb_players)):
                 buttons_nb_players[k].display(window, event)
                 if buttons_nb_players[k].click(event):
@@ -213,8 +223,7 @@ def get_nb_players(window, window_width, window_height, white_rect, white_rect_h
 
             if event.type == QUIT:
                 pygame.quit()
-                activated = False
-                return False, 0
+                exit()
             pygame.display.flip()
 
 
@@ -234,7 +243,7 @@ def get_name_players(nb_players, window, window_width, window_height, white_rect
             else:
                 window.fill(white)
                 Rect_page_nom_joueur[0].set_text("Joueur " + str(i + 1))
-                Rect_page_nom_joueur[0].display(window)
+                Rect_page_nom_joueur[0].display(window, )
                 for elem in Butt_page_nom_joueur:
                     elem.display(window, event)
 
@@ -246,7 +255,7 @@ def get_name_players(nb_players, window, window_width, window_height, white_rect
                     i += 1
                     type_joueur = -1
                 elif type_joueur == 0:
-                    Rect_page_nom_joueur[1].display(window)
+                    Rect_page_nom_joueur[1].display(window, )
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_BACKSPACE:
                             if len(user_text) == 1:
@@ -269,14 +278,14 @@ def get_name_players(nb_players, window, window_width, window_height, white_rect
                         i -= 1
                 elif event.type == QUIT:
                     pygame.quit()
-                    activated = False
-                    return None, 0
+                    exit()
+
                 pygame.display.flip()
 
 
 
 def get_start(WINDOWS):
-    [window, window_height,window_width, white_rect, white_rect_height] = WINDOWS
+    [window, window_height,window_width, white_rect, white_rect_height,fond] = WINDOWS
     Rect_page_nb_joueurs, buttons_nb_players = init_page_nb_players(window_width, window_height)
     Butt_page_nom_joueur, Rect_page_nom_joueur = init_page_name_player(window_width, window_height)
 
@@ -306,6 +315,113 @@ def get_start(WINDOWS):
         elif window_open:
             for event in pygame.event.get():
                 if event.type == QUIT:
-                    window_open = False
                     pygame.quit()
-                    return (None)
+                    exit()
+
+def init_jeton(WINDOWS):
+    [window, window_height, window_width, white_rect, white_rect_height,fond] = WINDOWS
+    # dim jeton
+    taille_jeton = white_rect_height / 2
+    jetons_y = white_rect.y + (white_rect_height / 4)
+    jeton1_x = white_rect_height / 2
+    jeton5_x = white_rect_height * 5 / 4
+    jeton10_x = white_rect_height * 2
+    jeton25_x = white_rect_height * 11 / 4
+    jeton100_x = white_rect_height * 7 / 2
+
+    # jetons
+    # 1
+    jeton1 = Images(jeton1_x, jetons_y, "assets/jeton.png")
+    jeton1.reshape(taille_jeton, taille_jeton)
+    jeton5 = Images(jeton5_x, jetons_y, "assets/jeton.png")
+    jeton5.reshape(taille_jeton, taille_jeton)
+    jeton10 = Images(jeton10_x, jetons_y, "assets/jeton.png")
+    jeton10.reshape(taille_jeton, taille_jeton)
+    jeton25 = Images(jeton25_x, jetons_y, "assets/jeton.png")
+    jeton25.reshape(taille_jeton, taille_jeton)
+    jeton100 = Images(jeton100_x, jetons_y, "assets/jeton.png")
+    jeton100.reshape(taille_jeton, taille_jeton)
+
+    return [jeton1, jeton5, jeton10, jeton25, jeton100]
+
+def button_possibilities(WINDOWS):
+    [window, window_height, window_width, white_rect, white_rect_height,fond] = WINDOWS
+    # dim boutons
+    button_width = white_rect_height * (3 / 2)
+    button_height = white_rect_height / 2
+    button_y = white_rect.y + white_rect_height / 2
+    button_doubler_x = 23 * white_rect_height / 4
+    button_rester_x = white_rect_height * 15 / 2
+    button_tirer_x = white_rect_height * 37 / 4
+
+    # boutons
+    button_doubler = Button(button_doubler_x, button_y, button_width, button_height, grey, "Doubler", black, font,
+                            black_grey)
+    button_rester = Button(button_rester_x, button_y, button_width, button_height, grey, "Rester", black, font,
+                           black_grey)
+    button_tirer = Button(button_tirer_x, button_y, button_width, button_height, grey, "Tirer", black, font, black_grey)
+    return [button_doubler, button_rester, button_tirer]
+
+def show_money(WINDOWS):
+    [window, window_height, window_width, white_rect, white_rect_height,fond] = WINDOWS
+    # dim argent
+    rect_argent_x = 25 * white_rect_height / 2
+    rect_argent_y = white_rect.y + white_rect_height / 2
+    rect_argent_width = 3 * white_rect_height
+    rect_argent_height = white_rect_height / 2
+    return Rectangle(rect_argent_x, rect_argent_y, rect_argent_width, rect_argent_height, grey,
+                            "Argent : 1000 euros", black, font)
+def card(WINDOWS):
+    [window, window_height, window_width, white_rect, white_rect_height,fond] = WINDOWS
+
+    #loading cartes
+
+    #dimension
+    im_carte = Image.open("assets/cartes/1_clubs.png")
+    carte_ini_width,carte_ini_height=im_carte.size
+    carte_height=int(window_height/6)
+    prop_carte=carte_height/carte_ini_height
+    carte_width=int(prop_carte*carte_ini_width)
+
+    rank=1
+    color="spades"
+    nom_carte=str(rank)+"_"+str(color)
+    chemin_acces="assets/cartes/"+nom_carte+".png"
+    carte_test=Images(0,0,chemin_acces)
+    carte_test.reshape(carte_width,carte_height)
+    return carte_test
+
+def init_display_main_game(WINDOWS):
+    [window, window_height, window_width, white_rect, white_rect_height,fond] = WINDOWS
+    pygame.display.flip()
+    window.fill(white)
+    fond.display(window)
+    return
+
+
+
+
+def get_bet(player,WINDOWS):
+    [window, window_height, window_width, white_rect, white_rect_height,fond] = WINDOWS
+
+    ### QUESTION ### A faire de maniere plus jolie
+    question_font = pygame.font.Font(pygame.font.get_default_font(), 36)
+    question = Rectangle(window_width / 2, 2 * window_height / 5, window_width / 3, window_height / 6, white,
+                         f'Quel est ton bet {player.name}?', black, question_font)
+    rect_argent=show_money(WINDOWS)
+    rect_bet = Rectangle(window_width / 2, 3 * window_height / 4, window_width / 3, window_height / 10, grey,
+                                " ", black, font)
+    window_open = True
+    page_choix = True
+    while window_open:
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if page_choix:
+                window.fill(white)
+                fond.display(window)
+                rect_argent.display(window)
+                question.display(window)
+                #show les jetons en fct de ce qu'on a en money et en faire des buttons clicable
+            if event.type == QUIT:
+                pygame.quit()
+                exit()
