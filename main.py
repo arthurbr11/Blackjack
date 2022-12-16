@@ -71,10 +71,10 @@ def play_with_pygame():
         party.play_round(windows_param)
         is_empty = party.reset(windows_param)
         if is_empty:
-            0  # display.close_the_game(windows_param)
+            display_function.close_the_game(windows_param)
             return
-        if 0 == 0:  # display.ask_want_to_continue()(return true or false):
-            0  # display.close_the_game(windows_param.)
+        if display_function.ask_want_to_continue(windows_param):
+            display_function.close_the_game(windows_param)
             return
 
 
