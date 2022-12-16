@@ -215,7 +215,6 @@ class Game:
         This function is the main loop for each round.
         """
         self.choose_bet(windows_param)
-        int(input('chose bet pass'))
         self.first_distribution(windows_param)
         players_copy = self._players.copy()
         index = 0

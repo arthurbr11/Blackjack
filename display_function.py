@@ -163,7 +163,7 @@ def init_page_nb_players(window_width, window_height):
     rect_page_nb_players += [title_blackjack]
 
     # QUESTION
-    
+
     question_font = pygame.font.Font(pygame.font.get_default_font(), 36)
     question = Rectangle(window_width / 2, 2 * window_height / 5, window_width / 3, window_height / 6, WHITE,
                          "Nombre de players :", BLACK, question_font)
@@ -186,7 +186,6 @@ def init_page_nb_players(window_width, window_height):
 
 
 def init_page_name_player(window_width, window_height):
-
     button_retour = Button(window_width / 10, window_height / 14, window_width / 10, window_height / 14, RED, "RETOUR",
                            BLACK, font, BLACK_RED)
     button_IA = Button(window_width * (1 / 2 - 1 / 9), window_height / 2, window_width / 8, window_height / 12, GREY,
@@ -315,6 +314,84 @@ def get_start(windows_param):
                     exit()
 
 
+def show_money(player, windows_param):
+    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
+    rect_argent_x = 25 * white_rect_height / 2
+    rect_argent_y = white_rect.y + white_rect_height / 2
+    rect_argent_width = 3 * white_rect_height
+    rect_argent_height = white_rect_height / 2
+    return Rectangle(rect_argent_x, rect_argent_y, rect_argent_width, rect_argent_height, GREY,
+                     f'Argent : {player.money} euros', BLACK, font)
+
+
+def get_bet(player,
+            windows_param):  # au lieu d'avoir une question show les jetons en fct de ce qu'on a en money et en faire des buttons clicable
+
+    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
+    # QUESTION  A faire de maniere plus jolie
+
+    question_font = pygame.font.Font(pygame.font.get_default_font(), 36)
+    question = Rectangle(window_width / 2, 2 * window_height / 5, window_width / 3, window_height / 6, WHITE,
+                         f'Quel est ton bet {player.name}?', BLACK, question_font)
+    rect_argent = show_money(player,windows_param)
+    rect_bet = Rectangle(window_width / 2, 3 * window_height / 4, window_width / 3, window_height / 10, GREY,
+                         " ", BLACK, font)
+
+    window_open = True
+    page_bet = True
+    bet = " "
+    background.display(window)
+    rect_argent.display(window)
+    question.display(window)
+    rect_bet.display(window, )
+    while window_open:
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if page_bet:
+                background.display(window)
+                rect_argent.display(window)
+                question.display(window)
+                rect_bet.display(window, )
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_BACKSPACE:
+                        if len(bet) == 1:
+                            bet = " "
+                        else:
+                            bet = bet[:-1]
+                    elif event.key == pygame.K_RETURN:
+                        return int(bet)
+                    else:
+                        bet += event.unicode
+                    rect_bet.text = bet
+            if event.type == QUIT:
+                pygame.quit()
+                exit()
+
+def show_card(x,y,card, windows_param):
+    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
+
+    # loading cartes
+    nom_carte = str(card.rank.value)+"_" + card.color.value
+    path = "assets/cartes/" + nom_carte + ".png"
+    carte_test = Images(x, y, path)
+
+    # dimension
+    im_carte = Image.open(path)
+    carte_ini_width, carte_ini_height = im_carte.size
+    carte_height = int(window_height / 6)
+    prop_carte = carte_height / carte_ini_height
+    carte_width = int(prop_carte * carte_ini_width)
+
+    carte_test.reshape(carte_width, carte_height)
+    return carte_test
+
+def show_hand_dealer(dealer,windows_param):
+    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
+
+    for i,card in enumerate(dealer.hand):
+        show_card(window_height/10,window_width/2+i*40,card,windows_param).display(window)
+
+
 def init_jeton(windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
     # dim jeton
@@ -361,65 +438,4 @@ def button_possibilities(windows_param):
     return [button_doubler, button_rester, button_tirer]
 
 
-def show_money(windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-    # dim argent
-    rect_argent_x = 25 * white_rect_height / 2
-    rect_argent_y = white_rect.y + white_rect_height / 2
-    rect_argent_width = 3 * white_rect_height
-    rect_argent_height = white_rect_height / 2
-    return Rectangle(rect_argent_x, rect_argent_y, rect_argent_width, rect_argent_height, GREY,
-                     "Argent : 1000 euros", BLACK, font)
 
-
-def card(windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-
-    # loading cartes
-
-    # dimension
-    im_carte = Image.open("assets/cartes/1_clubs.png")
-    carte_ini_width, carte_ini_height = im_carte.size
-    carte_height = int(window_height / 6)
-    prop_carte = carte_height / carte_ini_height
-    carte_width = int(prop_carte * carte_ini_width)
-
-    rank = 1
-    color = "spades"
-    nom_carte = str(rank) + "_" + str(color)
-    chemin_acces = "assets/cartes/" + nom_carte + ".png"
-    carte_test = Images(0, 0, chemin_acces)
-    carte_test.reshape(carte_width, carte_height)
-    return carte_test
-
-
-def init_display_main_game(windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-    pygame.display.flip()
-    window.fill(WHITE)
-    background.display(window)
-    return
-
-
-def get_bet(player, windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-
-    # QUESTION  A faire de maniere plus jolie
-
-    question_font = pygame.font.Font(pygame.font.get_default_font(), 36)
-    question = Rectangle(window_width / 2, 2 * window_height / 5, window_width / 3, window_height / 6, WHITE,
-                         f'Quel est ton bet {player.name}?', BLACK, question_font)
-    rect_argent = show_money(windows_param)
-    rect_bet = Rectangle(window_width / 2, 3 * window_height / 4, window_width / 3, window_height / 10, GREY,
-                         " ", BLACK, font)
-    window_open=True
-    while window_open:
-        for event in pygame.event.get():
-            window.fill(WHITE)
-            background.display(window)
-            rect_argent.display(window)
-            question.display(window)
-                # show les jetons en fct de ce qu'on a en money et en faire des buttons clicable
-            if event.type == QUIT:
-                pygame.quit()
-                exit()

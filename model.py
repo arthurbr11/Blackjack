@@ -1,5 +1,6 @@
 import enum
 import random
+import display_function
 
 INITIAL_MONEY = 1000
 SIZE_DECK = 52
@@ -285,7 +286,7 @@ class Dealer(Player):
                 print(", ", end="")
             print(f"With a value of {self.value()}")
         elif SHOW_PYGAME:
-            0  # display.show_hand_dealer(self:(dealer),windows_param)
+            display_function.show_hand_dealer(self,windows_param)
 
 
 class HumanPlayer(Player):
