@@ -1,18 +1,18 @@
 digraph "classes" {
 charset="utf-8"
 rankdir=BT
-"0" [label="{Game|players\ldealer\ldeck\lcount\l|choose_bet()\lfirst_distribution()\lincrease_count_hi_lo(card)\lincrease_count_ko(card)\lincrease_count_omega2(card)\lplay_player(player, i)\lplay_round()\lreset()\lresults()\l}", shape="record"];
+"0" [label="{Game|players\ldealer\ldeck\lcount\ltest\lcounting_method\l|choose_bet(windows_param, test)\lfirst_distribution(windows_param)\lincrease_count_hi_lo(card)\lincrease_count_ko(card)\lincrease_count_omega2(card)\lincrease_count\lplay_player(player, i, windows_param)\lplay_round(windows_param)\lreset()\lresults()\l}", shape="record"];
 
 "1" [label="{Deck|cards\lnb_decks\lstop_index\l|draw()\lperfect_shuffle()\lrandom_stop_index()\lreset()\lstop_index_decrease()\l}", shape="record"];
 "2" [label="{Card|color\lrank\lvalue\l|}", shape="record"];
 "3" [label="{Color|name\l|}", shape="record"];
 "4" [label="{Rank|name\l|}", shape="record"];
 
-"5" [label="{Player|name\lhand\lmoney\lbet\lnb_hand\lowner\l|show_hand()\lvalue()\lpair()\ldouble()\ldraw(deck)\leven_money()\lwin_money()\lreset()\l}", shape="record"];
-"6" [label="{Dealer|\l|draw_without_showing(deck)\lplay(deck)\l}", shape="record"];
-"7" [label="{HumanPlayer|\l|show_possibilities()\l}", shape="record"];
+"5" [label="{Player|name\lhand\lmoney\lbet\lnb_hand\lowner\l|show_hand(windows_param)\lvalue()\lpair()\ldouble()\ldraw(deck,windows_param)\leven_money()\lwin_money()\lreset()\l}", shape="record"];
+"6" [label="{Dealer|\l|draw_without_showing(deck,windows_param)\lplay(deck,windows_param)\l}", shape="record"];
+"7" [label="{HumanPlayer|\l|show_possibilities(windows_param)\lchoose_option_test_classic()}", shape="record"];
 "8" [label="{AI|\l|choose_option_ai_cheat(count)\lchoose_option_ai_classic()\l}", shape="record"];
-"9" [label="{AliasPlayer|\l|}", shape="record"];
+"9" [label="{AliasPlayer|index_hand|}", shape="record"];
 
 
 
