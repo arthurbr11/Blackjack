@@ -55,9 +55,9 @@ def play_with_pygame():
     model.SHOW_PYGAME = True
 
     window, window_height, window_width, white_rect, white_rect_height, background = display_function.init_display()
-    WINDOWS = [window, window_height, window_width, white_rect, white_rect_height, background]
+    windows_param = [window, window_height, window_width, white_rect, white_rect_height, background]
 
-    list_players = display_function.get_start(WINDOWS)[1]
+    list_players = display_function.get_start(windows_param)[1]
     nb_ia = 0
     players = []
     for i in range(len(list_players)):
@@ -67,15 +67,14 @@ def play_with_pygame():
         else:
             players.append(model.HumanPlayer(list_players[i][1]))
     party = game.Game(players)
-    display_function.init_display_main_game(WINDOWS)
     while True:
-        party.play_round(WINDOWS)
-        is_empty = party.reset(WINDOWS)
+        party.play_round(windows_param)
+        is_empty = party.reset(windows_param)
         if is_empty:
-            0  # display.close_the_game(WINDOWS)
+            display_function.close_the_game(windows_param)
             return
-        if 0 == 0:  # display.ask_want_to_continue()(return true or false):
-            0  # display.close_the_game(WINDOWS)
+        if display_function.ask_want_to_continue(windows_param):
+            display_function.close_the_game(windows_param)
             return
 
 

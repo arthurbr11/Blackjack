@@ -81,7 +81,7 @@ class Game:
                 elif model.SHOW_TERMINAL:
                     print(f'{player.name} you are out of the game not enough money for you')
                 elif model.SHOW_PYGAME:
-                    0  # display.show_looser(player,windows_param)
+                    display_function.show_looser(player,windows_param)
             else:
                 if player.index_hand == 1:
                     player.owner.reset()
@@ -165,7 +165,7 @@ class Game:
             print(player.name + ": it's your turn to play !!")
             player.show_hand(windows_param)
         elif model.SHOW_PYGAME:
-            0  # display.round_of(player,windows_param)
+            display_function.round_of(self.dealer,player,windows_param)
         keep_going = True
         while keep_going:
             keep_going = False
@@ -204,6 +204,8 @@ class Game:
                     player_father.nb_hand += 1
                     for k in range(0, 2):
                         alias_player = model.AliasPlayer(player_father, player_father.nb_hand - (1 - k))
+                        if k == 0:
+                            alias_player.owner.money -= alias_player.bet
                         alias_player.hand.append(player_father.hand[k])
                         self._players.insert(i, alias_player)
                         index += self.play_player(alias_player, i, windows_param)
@@ -215,7 +217,6 @@ class Game:
         This function is the main loop for each round.
         """
         self.choose_bet(windows_param)
-        int(input('chose bet pass'))
         self.first_distribution(windows_param)
         players_copy = self._players.copy()
         index = 0
@@ -229,6 +230,6 @@ class Game:
             for player_name, message in results.items():
                 print(player_name + " you have " + message)
         elif model.SHOW_PYGAME:
-            0  # display.show_results(results,windows_param)
+            display_function.show_results(self.dealer,results,windows_param)
 
         return results
