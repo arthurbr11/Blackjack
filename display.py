@@ -116,7 +116,7 @@ class disp_cards():
 #Ecran d'acceuil
 
 #chargement image fond pour recuperer la taille
-im_fond = Image.open('fond_vert.jpg')
+im_fond = Image.open('assets/fond_vert.jpg')
 fond_width,fond_height=im_fond.size
 
 
@@ -199,7 +199,7 @@ Rect_page_nom_joueur+=[rect_num_joueur]
 ################ TROISIEME PAGE #################
 
 #fond
-fond=Images(0,0,"fond_vert.jpg")
+fond=Images(0,0,"assets/fond_vert.jpg")
 fond.reshape(fond_width,fond_height)
 
 
@@ -251,7 +251,7 @@ rect_argent = Rectangle(rect_argent_x,rect_argent_y,rect_argent_width,rect_argen
 #loading cartes
 
 #dimension
-im_carte = Image.open("cartes/1_clubs.png")
+im_carte = Image.open("assets/cartes/1_clubs.png")
 carte_ini_width,carte_ini_height=im_carte.size
 carte_height=int(window_height/6)
 prop_carte=carte_height/carte_ini_height
@@ -260,7 +260,7 @@ carte_width=int(prop_carte*carte_ini_width)
 rank=1
 color="spades"
 nom_carte=str(rank)+"_"+str(color)
-chemin_acces="cartes/"+nom_carte+".png"
+chemin_acces="assets/cartes/"+nom_carte+".png"
 carte_test=Images(0,0,chemin_acces)
 carte_test.reshape(carte_width,carte_height)
 
@@ -277,9 +277,9 @@ while window_open :
     for event in pygame.event.get():
         if page_nb_joueurs:
             for elem in Rect_page_nb_joueurs:
-                elem.display(window)
+                elem.display(window, )
             for k in range (len(buttons_nb_players)) :
-                buttons_nb_players[k].display(window,event)
+                buttons_nb_players[k].display(window, event)
                 if buttons_nb_players[k].click(event):
                     nb_players=k+1
                     print(nb_players)
@@ -300,9 +300,9 @@ while window_open :
                 window.fill(white)
                 rect_num_joueur.set_text("Joueur "+str(i+1))
                 for elem in Rect_page_nom_joueur:
-                    elem.display(window)
+                    elem.display(window, )
                 for elem in Butt_page_nom_joueur:
-                    elem.display(window,event)
+                    elem.display(window, event)
                 
                 if button_humain.click(event):
                     type_joueur=0

@@ -7,10 +7,10 @@ def play(test=False, split=False, test_players=[], nb_round=-1, counting_method=
     model.SHOW_PYGAME = False
 
     if test:
-        model.SHOW_TERMINAL=False
+        model.SHOW_TERMINAL = False
         nb_player = len(test_players)
     else:
-        model.SHOW_TERMINAL=True
+        model.SHOW_TERMINAL = True
         nb_player = int(input("Number of players"))
     players = []
     nb_ia = 0
@@ -54,8 +54,8 @@ def play_with_pygame():
     model.SHOW_TERMINAL = False
     model.SHOW_PYGAME = True
 
-    window, window_height, window_width, white_rect, white_rect_height = display_function.init_display()
-    WINDOWS = [window, window_height, window_width, white_rect, white_rect_height]
+    window, window_height, window_width, white_rect, white_rect_height, background = display_function.init_display()
+    WINDOWS = [window, window_height, window_width, white_rect, white_rect_height, background]
 
     list_players = display_function.get_start(WINDOWS)[1]
     nb_ia = 0
@@ -67,6 +67,7 @@ def play_with_pygame():
         else:
             players.append(model.HumanPlayer(list_players[i][1]))
     party = game.Game(players)
+    display_function.init_display_main_game(WINDOWS)
     while True:
         party.play_round(WINDOWS)
         is_empty = party.reset(WINDOWS)
@@ -79,4 +80,4 @@ def play_with_pygame():
 
 
 if __name__ == "__main__":
-    play()
+    play_with_pygame()
