@@ -22,6 +22,10 @@ class Images:
 
     def reshape(self, width, height):
         self._image = pygame.transform.scale(self._image, (width, height))
+        
+    def move(self, new_x, new_y):
+        self._x = new_x
+        self._y = new_y
 
     def display(self, window):
         window.blit(self._image, (self._x, self._y))
@@ -403,6 +407,58 @@ def show_back_card(x, y, windows_param):
 
     back_card.reshape(carte_width, carte_height)
     return back_card
+
+def moveflip_card(windows_param, card, card_width, card_height, x_ini, y_ini, x_fin, y_fin):
+    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
+    back_card = show_back_card(x_ini, y_ini, windows_param)
+    back_card.display(window)
+    time = 800
+    nb_steps = 80
+    card_x = x_ini
+    card_y = y_ini
+    dist_x = x_fin - x_ini
+    speed_x = dist_x / time
+    dist_y = y_fin - y_ini
+    speed_y = dist_y / time
+    dt = int(time / nb_steps)
+    for step in range (nb_steps):
+        card_x += speed_x * dt
+        card_y += speed_y * dt
+        back_card.move(card_x, card_y)
+        window.fill(WHITE)
+        background.display(window)
+        back_card.display(window)
+        pygame.display.flip()
+        pygame.time.delay(dt)
+    time = 100
+    nb_steps = 10
+    step_width = carte_width / nb_steps
+    dt = int(time / nb_steps)
+    for step in range (nb_steps):
+        card_x = card_x + (step_width / 2)
+        back_card.move(card_x, card_y)
+        back_card.reshape(carte_width - (step * step_width), carte_height)
+        window.fill(WHITE)
+        background.display(window)
+        back_card.display(window)
+        pygame.display.flip()
+        pygame.time.delay(dt)
+    for step in range (nb_steps):
+        card_x = card_x - (step_width / 2)
+        new_card = card
+        new_card.move(card_x, card_y)
+        new_card.reshape((step+1) * step_width, carte_height)
+        window.fill(WHITE)
+        background.display(window)
+        new_card.display(window)
+        pygame.display.flip()
+        pygame.time.delay(dt)
+
+
+
+def show_deck(windows_param):
+    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
+    return show_back_card(window_width - (2 * carte_width), (window_height - carte_height) / 2)
 
 
 def show_hand_dealer(dealer, windows_param):  # affiche au clique car normalement animation
