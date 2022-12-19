@@ -81,7 +81,7 @@ class Game:
                 elif model.SHOW_TERMINAL:
                     print(f'{player.name} you are out of the game not enough money for you')
                 elif model.SHOW_PYGAME:
-                    display_function.show_looser(player,windows_param)
+                    display_function.show_looser(player, windows_param)
             else:
                 if player.index_hand == 1:
                     player.owner.reset()
@@ -143,11 +143,13 @@ class Game:
         """
         The dealer distributes one card for his self and two cards for each players and after his second card.
         """
-        self._dealer.draw(self.deck, windows_param,self.dealer)  # The dealer draws one
+        self._dealer.draw(self, windows_param,True)  # The dealer draws one
         for i in range(0, 2):  # Each player draws two cards
             for player in self.players:
-                player.draw(self.deck, windows_param,self.dealer)
-        self._dealer.draw_without_showing(self.deck, windows_param)
+                player.draw(self, windows_param, True)
+        self._dealer.draw_without_showing(self, windows_param)
+        if model.SHOW_PYGAME:
+            display_function.show_first_ditirbution(self, windows_param)
 
     def play_player(self, player: model.Player, i: int, windows_param) -> int:
         """
@@ -163,9 +165,9 @@ class Game:
         """
         if model.SHOW_TERMINAL:
             print(player.name + ": it's your turn to play !!")
-            player.show_hand(windows_param,self.dealer)
+            player.show_hand(windows_param, self.dealer)
         elif model.SHOW_PYGAME:
-            display_function.round_of(self.dealer,player,windows_param)
+            display_function.round_of(player,self, windows_param)
         keep_going = True
         while keep_going:
             keep_going = False
@@ -180,12 +182,12 @@ class Game:
                     isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.AI)):
                 chosen_option = player.choose_option_ai_cheat(self.count)
             if chosen_option == 2:
-                self.increase_count(player.draw(self.deck, windows_param,self.dealer))
+                self.increase_count(player.draw(self, windows_param))
                 if player.value() < 21:
                     keep_going = True
             if chosen_option == 3:
                 player.double()
-                self.increase_count(player.draw(self.deck, windows_param,self.dealer))
+                self.increase_count(player.draw(self, windows_param))
                 if player.value() < 21:
                     keep_going = True
             elif chosen_option == 4:
@@ -223,13 +225,13 @@ class Game:
         for (i, player) in enumerate(players_copy):
             index += self.play_player(player, i + index, windows_param)
 
-        self.dealer.play(self.deck, windows_param)
+        self.dealer.play(self, windows_param)
         results = self.results()
 
         if model.SHOW_TERMINAL:
             for player_name, message in results.items():
                 print(player_name + " you have " + message)
         elif model.SHOW_PYGAME:
-            display_function.show_results(self.dealer,results,windows_param)
+            display_function.show_results(self,results, windows_param)
 
         return results
