@@ -143,10 +143,10 @@ class Game:
         """
         The dealer distributes one card for his self and two cards for each players and after his second card.
         """
-        self._dealer.draw(self.deck, windows_param)  # The dealer draws one
+        self._dealer.draw(self.deck, windows_param,self.dealer)  # The dealer draws one
         for i in range(0, 2):  # Each player draws two cards
             for player in self.players:
-                player.draw(self.deck, windows_param)
+                player.draw(self.deck, windows_param,self.dealer)
         self._dealer.draw_without_showing(self.deck, windows_param)
 
     def play_player(self, player: model.Player, i: int, windows_param) -> int:
@@ -163,7 +163,7 @@ class Game:
         """
         if model.SHOW_TERMINAL:
             print(player.name + ": it's your turn to play !!")
-            player.show_hand(windows_param)
+            player.show_hand(windows_param,self.dealer)
         elif model.SHOW_PYGAME:
             display_function.round_of(self.dealer,player,windows_param)
         keep_going = True
@@ -180,12 +180,12 @@ class Game:
                     isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.AI)):
                 chosen_option = player.choose_option_ai_cheat(self.count)
             if chosen_option == 2:
-                self.increase_count(player.draw(self.deck, windows_param))
+                self.increase_count(player.draw(self.deck, windows_param,self.dealer))
                 if player.value() < 21:
                     keep_going = True
             if chosen_option == 3:
                 player.double()
-                self.increase_count(player.draw(self.deck, windows_param))
+                self.increase_count(player.draw(self.deck, windows_param,self.dealer))
                 if player.value() < 21:
                     keep_going = True
             elif chosen_option == 4:

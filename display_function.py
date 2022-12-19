@@ -388,54 +388,42 @@ def show_card(x, y, card, windows_param):
     return carte_test
 
 
-def show_hand_dealer(dealer, windows_param):  # affiche au clique car normalement animation
-
+def show_back_card(x, y, windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-
-    c = 0
-
-    while True:
-        pygame.display.flip()
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                c += 1
-                for i, card in enumerate(dealer.hand):
-                    show_card(2 * window_width / 5 + (i * window_width * 300) / (726 * 10), window_height / 10, card,
-                              windows_param).display(window)
-                    pygame.display.flip()
-                if c == 2:
-                    return
-            if event.type == QUIT:
-                pygame.quit()
-                exit()
-
-
-def show_hand_dealer_back(dealer, windows_param):  # affiche au clique car normalement animation
-
-    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-
     # loading card
     path = "assets/dos_carte.png"
-    back_card = Images(2 * window_width / 5 + (window_width * 300) / (726 * 10), window_height / 10, path)
+    back_card = Images(x, y, path)
 
     # dimension
     im_carte = Image.open(path)
     carte_ini_width, carte_ini_height = im_carte.size
     carte_height = int(window_height / 10)
     prop_carte = carte_height / carte_ini_height
-    carte_width = int(prop_carte * carte_ini_width)  #
+    carte_width = int(prop_carte * carte_ini_width)
 
     back_card.reshape(carte_width, carte_height)
-    c = 0
+    return back_card
 
+
+def show_hand_dealer(dealer, windows_param):  # affiche au clique car normalement animation
+
+    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
+
+    show_back_card(window_width / 5, window_height / 8, windows_param).display(window)
+    c = 0
+    for i in range(len(dealer.hand) - 1):
+        show_card(2 * window_width / 5 + (i * window_width * 300) / (726 * 10), window_height / 10, dealer.hand[i],
+                  windows_param).display(window)
+        pygame.display.flip()
     while True:
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 c += 1
-                show_card(2 * window_width / 5, window_height / 10, dealer.hand[0], windows_param).display(window)
-                pygame.display.flip()
-                back_card.display(window)
+                show_card(2 * window_width / 5 + ((len(dealer.hand) - 1) * window_width * 300) / (726 * 10),
+                          window_height / 10,
+                          dealer.hand[-1],
+                          windows_param).display(window)
                 pygame.display.flip()
                 if c == 2:
                     return
@@ -444,22 +432,64 @@ def show_hand_dealer_back(dealer, windows_param):  # affiche au clique car norma
                 exit()
 
 
-def show_hand_player(player, windows_param):  # affiche au clique car normalement animation
+def show_hand_dealer_instant(dealer, windows_param):  # affiche au clique car normalement animation
+
+    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
+    show_card(2 * window_width / 5 , window_height / 10, dealer.hand[0],
+              windows_param).display(window)
+
+    if len(dealer.hand) == 2:
+        show_back_card(2 * window_width / 5 + (window_width * 300) / (726 * 10), window_height / 10,
+                       windows_param).display(
+            window)
+    pygame.display.flip()
+
+
+def show_hand_dealer_back(dealer, windows_param):  # affiche au clique car normalement animation
+
+    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
+
+    c = 0
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                c += 1
+                show_back_card(2 * window_width / 5 + (window_width * 300) / (726 * 10), window_height / 10,
+                               windows_param).display(window)
+                pygame.display.flip()
+                if c == 2:
+                    return
+            if event.type == QUIT:
+                pygame.quit()
+                exit()
+
+
+def show_hand_player(player, dealer, windows_param):  # affiche au clique car normalement animation
 
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
     rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3, window_height / 10, WHITE,
                                  player.name, BLACK, font)
+
+    window.fill(WHITE)
+    background.display(window)
+    show_back_card(window_width / 5, window_height / 8, windows_param).display(window)
+    show_hand_dealer_instant(dealer, windows_param)
     rect_name_player.display(window)
     show_money(player, windows_param).display(window)
+    for i in range(len(player.hand) - 1):
+        show_card(2 * window_width / 5 + (i * window_width * 300) / (726 * 10), window_height / 2, player.hand[i],
+                  windows_param).display(window)
     c = 0
     while True:
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 c += 1
-                for i, card in enumerate(player.hand):
-                    show_card(2 * window_width / 5 + (i * window_width * 300) / (726 * 10), window_height / 2, card,
-                              windows_param).display(window)
+                show_card(2 * window_width / 5 + ((len(player.hand) - 1) * window_width * 300) / (726 * 10),
+                          window_height / 2,
+                          player.hand[-1],
+                          windows_param).display(window)
                 if c == 2:
                     return
             if event.type == QUIT:
@@ -471,14 +501,14 @@ def round_of(dealer, player, windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
 
     rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3, window_height / 10, WHITE,
-                                 player.name + " It's  your turn", BLACK, font)
+                                 player.name, BLACK, font)
     window.fill(WHITE)
     background.display(window)
-    show_hand_dealer(dealer, windows_param)
+    show_back_card(window_width / 5, window_height / 8, windows_param).display(window)
+    show_hand_dealer_instant(dealer, windows_param)
     rect_name_player.display(window)
     show_money(player, windows_param).display(window)
     for i, card in enumerate(player.hand):
-        pygame.display.flip()
         show_card(2 * window_width / 5 + (i * window_width * 300) / (726 * 10), window_height / 2, card,
                   windows_param).display(window)
 
@@ -521,6 +551,7 @@ def show_possibilities(player, windows_param):
             for k, button in enumerate(buttons):
                 button.display(window, event)
                 if button.click(event):
+                    print('here')
                     return k + 1
             if event.type == QUIT:
                 pygame.quit()
@@ -576,6 +607,8 @@ def show_looser(player, windows_param):
                 pygame.quit()
                 exit()
             pygame.display.flip()
+
+
 def ask_want_to_continue(windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
     window.fill(WHITE)
@@ -586,9 +619,9 @@ def ask_want_to_continue(windows_param):
                                  "CONTINUE ?", BLACK, font)
     rect_name_player.display(window)
     button_yes = Button(window_width * (1 / 2 - 1 / 9), window_height / 2, window_width / 8, window_height / 12, GREY,
-                       "YES", BLACK, font, BLACK_GREY)
+                        "YES", BLACK, font, BLACK_GREY)
     button_no = Button(window_width * (1 / 2 + 1 / 9), window_height / 2, window_width / 8, window_height / 12,
-                           GREY, "NO", BLACK, font, BLACK_GREY)
+                       GREY, "NO", BLACK, font, BLACK_GREY)
     while True:
         for event in pygame.event.get():
             button_yes.display(window, event)
@@ -608,9 +641,9 @@ def close_the_game(windows_param):
     window.fill(WHITE)
     background.display(window)
     rect_end = Rectangle(window_width / 2, window_height / 3, window_width / 3,
-                                 window_height / 10,
-                                 WHITE,
-                                 "END click to close", BLACK, font)
+                         window_height / 10,
+                         WHITE,
+                         "END click to close", BLACK, font)
     rect_end.display(window)
     while True:
         for event in pygame.event.get():
@@ -620,6 +653,7 @@ def close_the_game(windows_param):
                 pygame.quit()
                 exit()
             pygame.display.flip()
+
 
 def init_jeton(windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param

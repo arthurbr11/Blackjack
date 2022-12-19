@@ -212,7 +212,7 @@ class Player:
                         return values[i - 1]
                 return values[len(values) - 1]
 
-    def show_hand(self, windows_param):
+    def show_hand(self,windows_param,dealer=None):
         if SHOW_TERMINAL:
             print(self._name + ": have ", end="")
             for card in self._hand:
@@ -220,15 +220,15 @@ class Player:
                 print(", ", end="")
             print(f"With a value of {self.value()} and a bet of {self._bet}")
         elif SHOW_PYGAME:
-            display_function.show_hand_player(self,windows_param)
+            display_function.show_hand_player(self,dealer,windows_param)
 
-    def draw(self, deck: Deck, windows_param) -> Card:
+    def draw(self, deck: Deck, windows_param,dealer=None) -> Card:
         """
         The player draws the top card of the deck and adds it to his hand.
         """
         drew_card = deck.draw()
         self._hand.append(drew_card)
-        self.show_hand(windows_param)
+        self.show_hand(windows_param,dealer)
         return drew_card
 
     def win_money(self) -> str:
@@ -253,13 +253,13 @@ class Dealer(Player):
         super().__init__("DEALER")
         self.money = 0
 
-    def draw(self, deck: Deck, windows_param) -> Card:
+    def draw(self, deck: Deck, windows_param,dealer=None) -> Card:
         """
         The dealer draws the top card of the deck and adds it to his hand.
         """
         drew_card = deck.draw()
         self._hand.append(drew_card)
-        self.show_hand(windows_param)
+        self.show_hand(windows_param,dealer)
         return drew_card
 
     def draw_without_showing(self, deck: Deck, windows_param):
@@ -276,9 +276,9 @@ class Dealer(Player):
         """
         self.show_hand(windows_param)
         while self.value() < 17:
-            self.draw(deck, windows_param)
+            self.draw(deck, windows_param,self)
 
-    def show_hand(self, windows_param):
+    def show_hand(self, windows_param,dealer=None):
         if SHOW_TERMINAL:
             print(self._name + ": have ", end="")
             for card in self._hand:
