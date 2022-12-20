@@ -2,8 +2,8 @@ import game
 import model
 
 
-def play(test=False, split=False, test_players=[], nb_round=-1, counting_method=0):  # Parameters used in the case of
-    # a test (in test.py)
+def play(test: bool = False, split: bool = False, test_players: list = None, nb_round: int = -1,
+         counting_method: int = 0):  # Parameters used in the case of a test (in test.py)
     model.SHOW_PYGAME = False
 
     if test:
@@ -56,7 +56,6 @@ def play_with_pygame():
 
     window, window_height, window_width, white_rect, white_rect_height, background = display_function.init_display()
     windows_param = [window, window_height, window_width, white_rect, white_rect_height, background]
-
     list_players = display_function.get_start(windows_param)[1]
     nb_ia = 0
     players = []
