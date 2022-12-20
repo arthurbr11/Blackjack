@@ -212,7 +212,7 @@ class Player:
                         return values[i - 1]
                 return values[len(values) - 1]
 
-    def show_hand(self,game,windows_param):
+    def show_hand(self, party, windows_param: list):
         if SHOW_TERMINAL:
             print(self._name + ": have ", end="")
             for card in self._hand:
@@ -220,16 +220,16 @@ class Player:
                 print(", ", end="")
             print(f"With a value of {self.value()} and a bet of {self._bet}")
         elif SHOW_PYGAME:
-            display_function.show_hand_player(self,game,windows_param)
+            display_function.show_hand_player(self, party, windows_param)
 
-    def draw(self,game, windows_param,first_distribution=False) -> Card:
+    def draw(self, party, windows_param: list, first_distribution=False) -> Card:
         """
         The player draws the top card of the deck and adds it to his hand.
         """
-        drew_card = game.deck.draw()
+        drew_card = party.deck.draw()
         self._hand.append(drew_card)
         if not first_distribution:
-            self.show_hand(game,windows_param)
+            self.show_hand(party, windows_param)
         return drew_card
 
     def win_money(self) -> str:
@@ -254,32 +254,31 @@ class Dealer(Player):
         super().__init__("DEALER")
         self.money = 0
 
-    def draw(self, game, windows_param,first_distribution=False) -> Card:
+    def draw(self, party, windows_param, first_distribution=False) -> Card:
         """
         The dealer draws the top card of the deck and adds it to his hand.
         """
-        drew_card = game.deck.draw()
+        drew_card = party.deck.draw()
         self._hand.append(drew_card)
         if not first_distribution:
-            self.show_hand(game,windows_param)
+            self.show_hand(party, windows_param)
         return drew_card
 
-    def draw_without_showing(self, game, windows_param):
+    def draw_without_showing(self, party):
         """
         The dealer draws the top card of the deck and adds it to his hand without showing because it's his 2nd card.
         """
-        self._hand.append(game.deck.draw())
+        self._hand.append(party.deck.draw())
 
-
-    def play(self,game, windows_param):
+    def play(self, party, windows_param: list):
         """
         This function make a dealer play.
         """
-        self.show_hand(game,windows_param)
+        self.show_hand(party, windows_param)
         while self.value() < 17:
-            self.draw(game, windows_param)
+            self.draw(party, windows_param)
 
-    def show_hand(self, game,windows_param):
+    def show_hand(self, party, windows_param: list):
         if SHOW_TERMINAL:
             print(self._name + ": have ", end="")
             for card in self._hand:
@@ -287,14 +286,14 @@ class Dealer(Player):
                 print(", ", end="")
             print(f"With a value of {self.value()}")
         elif SHOW_PYGAME:
-            display_function.show_hand_dealer(game,windows_param)
+            display_function.show_hand_dealer(party, windows_param)
 
 
 class HumanPlayer(Player):
     def __init__(self, name: str):
         super().__init__(name)
 
-    def show_possibilities(self, windows_param) -> int:
+    def show_possibilities(self, windows_param: list) -> int:
         if SHOW_TERMINAL:
             print("1st Option : Stand")
             print("2nd Option : Hit")
@@ -304,7 +303,7 @@ class HumanPlayer(Player):
                 print("4th Option : Split")
             return int(input("Which option do you choose ? (Put the number)"))
         elif SHOW_PYGAME:
-            return display_function.show_possibilities(self,windows_param)
+            return display_function.show_possibilities(self, windows_param)
 
     def choose_option_test_classic(self) -> int:  # A faire
         """"

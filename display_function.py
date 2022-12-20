@@ -1,4 +1,3 @@
-import model
 import pygame
 from pygame.locals import *
 from PIL import Image
@@ -11,7 +10,7 @@ GREY = (200, 200, 200)
 BLACK_GREY = (100, 100, 100)
 RED = (255, 0, 0)
 BLACK_RED = (200, 0, 0)
-font = pygame.font.Font(pygame.font.get_default_font(), 36)
+FONT = pygame.font.Font(pygame.font.get_default_font(), 36)
 CARD_WIDTH, CARD_HEIGHT = 50, 75
 
 
@@ -79,7 +78,7 @@ class Button(Rectangle):
     #     super().__init(x, y, width, height, color, text, text_color, font)
     #     self._cover_color = self._color
 
-    def cove_red(self, event):  # true si couvert false sinon
+    def cove_red(self, event):  # true if cover 
         if event.type == MOUSEMOTION:
             if (self._x + (self._width / 2)) > event.pos[0] > self._x - (self._width / 2) and \
                     self._y - (self._height / 2) < event.pos[1] < (self._y + (self._height / 2)):
@@ -141,48 +140,48 @@ def init_page_nb_players(window_width, window_height):
 
     # TITRE
 
-    title_blackjack_font = pygame.font.Font(pygame.font.get_default_font(), 36)
+    title_blackjack_font = FONT
     title_blackjack = Rectangle(window_width / 2, window_height / 5, window_width / 2, window_height / 6, BLACK,
                                 "blackJack", WHITE, title_blackjack_font)
     rect_page_nb_players += [title_blackjack]
 
     # QUESTION
 
-    question_font = pygame.font.Font(pygame.font.get_default_font(), 36)
+    question_font = FONT
     question = Rectangle(window_width / 2, 2 * window_height / 5, window_width / 3, window_height / 6, WHITE,
-                         "Nombre de players :", BLACK, question_font)
+                         "Numbers of players:", BLACK, question_font)
     rect_page_nb_players += [question]
 
     # NB playerS
     buttons_nb_player_size = int(window_width // 9)
-    buttons_nb_players = np.empty((6), dtype=Button)
+    buttons_nb_players = np.empty(6, dtype=Button)
 
     for k in range(3):
         x = (5 / 2) * buttons_nb_player_size + (2 * k * buttons_nb_player_size)
         y1 = int(3 * window_height / 5)
         y2 = int(4 * window_height / 5)
         buttons_nb_players[k] = Button(x, y1, buttons_nb_player_size, buttons_nb_player_size, GREY, str(k + 1), BLACK,
-                                       font, BLACK_GREY)
+                                       FONT, BLACK_GREY)
         buttons_nb_players[k + 3] = Button(x, y2, buttons_nb_player_size, buttons_nb_player_size, GREY, str(k + 4),
-                                           BLACK, font, BLACK_GREY)
+                                           BLACK, FONT, BLACK_GREY)
 
     return rect_page_nb_players, buttons_nb_players
 
 
 def init_page_name_player(window_width, window_height):
-    button_retour = Button(window_width / 10, window_height / 14, window_width / 10, window_height / 14, RED, "RETOUR",
-                           BLACK, font, BLACK_RED)
+    button_return = Button(window_width / 10, window_height / 14, window_width / 10, window_height / 14, RED, "RETURN",
+                           BLACK, FONT, BLACK_RED)
     button_IA = Button(window_width * (1 / 2 - 1 / 9), window_height / 2, window_width / 8, window_height / 12, GREY,
-                       "IA", BLACK, font, BLACK_GREY)
-    button_humain = Button(window_width * (1 / 2 + 1 / 9), window_height / 2, window_width / 8, window_height / 12,
-                           GREY, "HUMAIN", BLACK, font, BLACK_GREY)
+                       "IA", BLACK, FONT, BLACK_GREY)
+    button_human = Button(window_width * (1 / 2 + 1 / 9), window_height / 2, window_width / 8, window_height / 12,
+                           GREY, "HUMAN", BLACK, FONT, BLACK_GREY)
 
-    butt_page_nom_player = [button_retour, button_IA, button_humain]
+    butt_page_nom_player = [button_return, button_IA, button_human]
 
     rect_num_player = Rectangle(window_width / 2, window_height / 4, window_width / 3, window_height / 10, WHITE,
-                                "player k", BLACK, font)
+                                "Player k", BLACK, FONT)
     rect_nom_player = Rectangle(window_width / 2, 3 * window_height / 4, window_width / 3, window_height / 10, GREY,
-                                " ", BLACK, font)
+                                " ", BLACK, FONT)
 
     rect_page_nom_player = [rect_num_player, rect_nom_player]
 
@@ -305,21 +304,21 @@ def show_money(player, windows_param):
     rect_argent_width = 3 * white_rect_height
     rect_argent_height = white_rect_height / 2
     return Rectangle(rect_argent_x, rect_argent_y, rect_argent_width, rect_argent_height, GREY,
-                     f'Argent : {player.owner.money} euros', BLACK, font)
+                     f'Argent : {player.owner.money} euros', BLACK, FONT)
 
 
 def get_bet(player,
-            windows_param):  # au lieu d'avoir une question show les jetons en fct de ce qu'on a en money et en faire des buttons clicable
+            windows_param):  # instead of a question show token in fct of the amount of money we have and make clickable button
 
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-    # QUESTION  A faire de maniere plus jolie
+    # QUESTION  Make look it better
 
-    question_font = pygame.font.Font(pygame.font.get_default_font(), 36)
+    question_font = FONT
     question = Rectangle(window_width / 2, 2 * window_height / 5, window_width / 3, window_height / 6, WHITE,
-                         f'Quel est ton bet {player.name}?', BLACK, question_font)
+                         f'What is your bet {player.name}?', BLACK, question_font)
     rect_argent = show_money(player, windows_param)
     rect_bet = Rectangle(window_width / 2, 3 * window_height / 4, window_width / 3, window_height / 10, GREY,
-                         " ", BLACK, font)
+                         " ", BLACK, FONT)
 
     window_open = True
     page_bet = True
@@ -353,30 +352,26 @@ def get_bet(player,
                 exit()
 
 
-def show_card(x, y, card, windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-
+def Image_from_card(x, y, card):
     # loading card
-    nom_carte = str(card.rank.value) + "_" + card.color.value
-    path = "assets/cartes/" + nom_carte + ".png"
-    carte_test = Images(x, y, path)
-    carte_test.reshape(CARD_WIDTH, CARD_HEIGHT)
-    return carte_test
+    if card is not None:
+        nom_carte = str(card.rank.value) + "_" + card.color.value
+        path = "assets/cartes/" + nom_carte + ".png"
+        carte_test = Images(x, y, path)
+        carte_test.reshape(CARD_WIDTH, CARD_HEIGHT)
+        return carte_test
+    else:
+        # loading card
+        path = "assets/dos_carte.png"
+        back_card = Images(x, y, path)
+        back_card.reshape(CARD_WIDTH, CARD_HEIGHT)
+        return back_card
 
 
-def show_back_card(x, y, windows_param):
+def moveflip_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-    # loading card
-    path = "assets/dos_carte.png"
-    back_card = Images(x, y, path)
-    back_card.reshape(CARD_WIDTH, CARD_HEIGHT)
-    return back_card
 
-
-def moveflip_card(windows_param, card, card_width, card_height, x_ini, y_ini, x_fin, y_fin):
-    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-    back_card = show_back_card(x_ini, y_ini, windows_param)
-    back_card.display(window)
+    back_card = Image_from_card(x_ini, y_ini, None)
     time = 800
     nb_steps = 80
     card_x = x_ini
@@ -392,196 +387,170 @@ def moveflip_card(windows_param, card, card_width, card_height, x_ini, y_ini, x_
         back_card.move(card_x, card_y)
         window.fill(WHITE)
         background.display(window)
+        show_deck(windows_param)
+        for elem in to_show:
+            elem.display(window)
         back_card.display(window)
         pygame.display.flip()
         pygame.time.delay(dt)
-    time = 100
-    nb_steps = 10
-    step_width = CARD_WIDTH / nb_steps
-    dt = int(time / nb_steps)
-    for step in range(nb_steps):
-        card_x = card_x + (step_width / 2)
-        back_card.move(card_x, card_y)
-        back_card.reshape(CARD_WIDTH - (step * step_width), CARD_HEIGHT)
-        window.fill(WHITE)
-        background.display(window)
-        back_card.display(window)
-        pygame.display.flip()
-        pygame.time.delay(dt)
-    for step in range(nb_steps):
-        card_x = card_x - (step_width / 2)
-        new_card = card
-        new_card.move(card_x, card_y)
-        new_card.reshape((step + 1) * step_width, CARD_HEIGHT)
-        window.fill(WHITE)
-        background.display(window)
-        new_card.display(window)
-        pygame.display.flip()
-        pygame.time.delay(dt)
+    if card is not None:
+        time = 100
+        nb_steps = 10
+        step_width = CARD_WIDTH / nb_steps
+        dt = int(time / nb_steps)
+        for step in range(nb_steps):
+            card_x = card_x + (step_width / 2)
+            back_card.move(card_x, card_y)
+            back_card.reshape(CARD_WIDTH - (step * step_width), CARD_HEIGHT)
+            window.fill(WHITE)
+            background.display(window)
+            for elem in to_show:
+                elem.display(window)
+            back_card.display(window)
+            pygame.display.flip()
+            pygame.time.delay(dt)
+        for step in range(nb_steps):
+            card_x = card_x - (step_width / 2)
+            new_card = Image_from_card(card_x, card_y, card)
+            new_card.move(card_x, card_y)
+            new_card.reshape((step + 1) * step_width, CARD_HEIGHT)
+            window.fill(WHITE)
+            background.display(window)
+            for elem in to_show:
+                elem.display(window)
+            new_card.display(window)
+            pygame.display.flip()
+            pygame.time.delay(dt)
+    pygame.time.delay(800)
 
 
 def show_deck(windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-    return show_back_card(CARD_WIDTH, (window_height - CARD_HEIGHT) / 2,windows_param)
+    return Image_from_card(CARD_WIDTH, (window_height - CARD_HEIGHT) / 2, None)
 
 
-def show_hand_dealer(game, windows_param):  # affiche au clique car normalement animation
-
+def show_hand_dealer(game, windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
     window.fill(WHITE)
     background.display(window)
-    show_deck(windows_param).display(window)
-    c = 0
+    to_show=[show_deck(windows_param)]
     for i in range(len(game.dealer.hand) - 1):
-        show_card(2 * window_width / 5 + i * CARD_WIDTH, window_height / 10, game.dealer.hand[i],
-                  windows_param).display(window)
-        pygame.display.flip()
-    while True:
-        pygame.display.flip()
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                c += 1
-                show_card(2 * window_width / 5 + (len(game.dealer.hand) - 1) * CARD_WIDTH,
-                          window_height / 10,
-                          game.dealer.hand[-1],
-                          windows_param).display(window)
-                pygame.display.flip()
-                if c == 2:
-                    return
-            if event.type == QUIT:
-                pygame.quit()
-                exit()
+        to_show+=[Image_from_card(2 * window_width / 5 + i * CARD_WIDTH, window_height / 10, game.dealer.hand[i])]
+    for elem in to_show:
+        elem.display(window)
+    moveflip_card(windows_param, game.dealer.hand[-1], CARD_WIDTH, (window_height - CARD_HEIGHT) / 2,
+                  2 * window_width / 5 + (len(game.dealer.hand) - 1) * CARD_WIDTH,
+                  window_height / 10, to_show)
 
-
-def show_hand_dealer_with_black_instant(game, windows_param):  # affiche au clique car normalement animation
+def show_hand_dealer_with_black_instant(game, windows_param):
 
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-    show_card(2 * window_width / 5, window_height / 10, game.dealer.hand[0],
-              windows_param).display(window)
-    show_back_card(2 * window_width / 5 + (window_width * 300) / (726 * 10), window_height / 10,
-                   windows_param).display(
-        window)
-    pygame.display.flip()
+    card1 = Image_from_card(2 * window_width / 5, window_height / 10, game.dealer.hand[0])
+    card2 = Image_from_card(2 * window_width / 5 + (window_width * 300) / (726 * 10), window_height / 10, None)
+    return [card1, card2]
 
-def show_hand_dealer_instant(game,windows_param):
+
+def show_hand_dealer_instant(game, windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
 
     for i in range(len(game.dealer.hand)):
-        show_card(2 * window_width / 5 + i * CARD_WIDTH, window_height / 10, game.dealer.hand[i],
-                  windows_param).display(window)
+        Image_from_card(2 * window_width / 5 + i * CARD_WIDTH, window_height / 10, game.dealer.hand[i]).display(window)
     pygame.display.flip()
 
 
-def show_hand_player(player, game, windows_param):  # affiche au clique car normalement animation
-
+def show_hand_player(player, game, windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
+
     rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3, window_height / 10, WHITE,
-                                 player.name, BLACK, font)
+                                 player.name, BLACK, FONT)
 
     window.fill(WHITE)
     background.display(window)
-    show_deck(windows_param).display(window)
-    show_hand_dealer_with_black_instant(game, windows_param)
-    rect_name_player.display(window)
-    show_money(player, windows_param).display(window)
-    show_side_hand_instant(game, windows_param)
+    to_show = [rect_name_player, show_deck(windows_param), show_money(player, windows_param)] + show_hand_dealer_with_black_instant(game,
+                                                                                                             windows_param)
+
     for i in range(len(player.hand) - 1):
-        show_card(2 * window_width / 5 + i * CARD_WIDTH, window_height / 2-CARD_HEIGHT, player.hand[i],
-                  windows_param).display(window)
-    c = 0
-    while True:
-        pygame.display.flip()
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                c += 1
-                show_card(2 * window_width / 5 + (len(player.hand) - 1) * CARD_WIDTH,
-                          window_height / 2-CARD_HEIGHT,
-                          player.hand[-1],
-                          windows_param).display(window)
-                if c == 2:
-                    return
-            if event.type == QUIT:
-                pygame.quit()
-                exit()
+        to_show += [Image_from_card(2 * window_width / 5 + i * CARD_WIDTH, window_height / 2 - CARD_HEIGHT,
+                                    player.hand[i])]
+    for elem in to_show:
+        elem.display(window)
 
-def init_rect_name(game,windows_param):
+    moveflip_card(windows_param, player.hand[-1], CARD_WIDTH, (window_height - CARD_HEIGHT) / 2,
+                  2 * window_width / 5 + (len(player.hand) - 1) * CARD_WIDTH,
+                  window_height / 2 - CARD_HEIGHT, to_show)
+
+
+def init_rect_name(game, windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-    rect_name=[]
+    rect_name = []
+    names = []
     for i in range(len(game.players)):
-        rect_name+= [Rectangle(window_width/10 + (3*i+1)*CARD_WIDTH,3*window_height / 5+3*CARD_HEIGHT/2,2*CARD_WIDTH,CARD_HEIGHT/4, WHITE,
-                                 game.players[i].name, BLACK, font)]
-    return rect_name
-def show_first_ditirbution(game, windows_param):
+        if 'hand' not in game.players[i].name:
+            rect_name += [
+                Rectangle(window_width / 10 + (3 * i + 1) * CARD_WIDTH, 3 * window_height / 5 + 3 * CARD_HEIGHT / 2,
+                          2 * CARD_WIDTH, CARD_HEIGHT / 4, WHITE,
+                          game.players[i].name, BLACK, FONT)]
+            names += [game.players[i].name]
+        else:
+            name = game.players[i].name.split(" ")[0]
+            if name not in names:
+                rect_name += [
+                    Rectangle(window_width / 10 + (3 * i + 1) * CARD_WIDTH, 3 * window_height / 5 + 3 * CARD_HEIGHT / 2,
+                              2 * CARD_WIDTH, CARD_HEIGHT / 4, WHITE,
+                              name, BLACK, FONT)]
+                names += [game.players[i].name]
 
+    return rect_name
+
+
+def show_first_distribution(game, windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
 
-    rect_name=init_rect_name(game, windows_param)
+    rect_name = init_rect_name(game, windows_param)
 
     window.fill(WHITE)
     background.display(window)
-    show_deck(windows_param).display(window)
-    for rect in rect_name:
-        rect.display(window)
+    to_show = rect_name + [show_deck(windows_param)]
+    for elem in to_show:
+        elem.display(window)
 
-    c = 0
-    nb_player=len(game.players)
-    while True:
-        pygame.display.flip()
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if c == 0:
-                    show_card(2 * window_width / 5,
-                          window_height / 10,
-                          game.dealer.hand[0],
-                          windows_param).display(window)
-                elif c == 2*nb_player+1:
-                    show_back_card(2 * window_width / 5 + CARD_WIDTH,
-                          window_height / 10,
-                          windows_param).display(window)
-                elif c<2*nb_player+1:
-                    show_card(window_width/10 + 3*CARD_WIDTH*((c-1)%nb_player)+((c-1)//nb_player)*CARD_WIDTH,   3*window_height / 5,
-                game.players[(c-1)%nb_player].hand[(c-1)//nb_player],
-                windows_param).display(window)
-
-                c += 1
-
-                if c == 2*nb_player+3:
-                    return
-            if event.type == QUIT:
-                pygame.quit()
-                exit()
-
-def show_side_hand_instant(game, windows_param):
-
-    [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-
-    rect_name=init_rect_name(game, windows_param)
+    nb_player = len(game.players)
+    for c in range(2 * nb_player + 2):
+        if c == 0:
+            moveflip_card(windows_param, game.dealer.hand[0], CARD_WIDTH, (window_height - CARD_HEIGHT) / 2,
+                          2 * window_width / 5, window_height / 10, to_show)
+            to_show += [Image_from_card(2 * window_width / 5, window_height / 10, game.dealer.hand[0])]
+        elif c == 2 * nb_player + 1:
+            moveflip_card(windows_param, None, CARD_WIDTH,
+                          (window_height - CARD_HEIGHT) / 2, 2 * window_width / 5 + CARD_WIDTH,
+                          window_height / 10, to_show)
+            to_show += [Image_from_card(2 * window_width / 5 + CARD_WIDTH,
+                                        window_height / 10, None)]
+        elif c < 2 * nb_player + 1:
+            moveflip_card(windows_param, game.players[(c - 1) % nb_player].hand[(c - 1) // nb_player], CARD_WIDTH,
+                          (window_height - CARD_HEIGHT) / 2,
+                          window_width / 10 + 3 * CARD_WIDTH * ((c - 1) % nb_player) + (
+                                  (c - 1) // nb_player) * CARD_WIDTH, 3 * window_height / 5, to_show)
+            to_show += [Image_from_card(window_width / 10 + 3 * CARD_WIDTH * ((c - 1) % nb_player) + (
+                    (c - 1) // nb_player) * CARD_WIDTH, 3 * window_height / 5,
+                                        game.players[(c - 1) % nb_player].hand[(c - 1) // nb_player])]
+    return
 
 
-    for i,rect in enumerate(rect_name):
-        rect.display(window)
-        show_card(window_width/10 + 3*CARD_WIDTH*i,   3*window_height / 5,
-                game.players[i].hand[0],
-                windows_param).display(window)
-        show_card(window_width/10 + 3*CARD_WIDTH*i+CARD_WIDTH,   3*window_height / 5,
-                game.players[i].hand[1],
-                windows_param).display(window)
-
-def round_of(player,game,windows_param):
+def round_of(player, game, windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
 
     rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3, window_height / 10, WHITE,
-                                 player.name, BLACK, font)
+                                 player.name, BLACK, FONT)
     window.fill(WHITE)
     background.display(window)
-    show_deck(windows_param).display(window)
-    show_hand_dealer_with_black_instant(game, windows_param)
-    rect_name_player.display(window)
-    show_money(player, windows_param).display(window)
-    show_side_hand_instant(game, windows_param)
+    to_show = [show_deck(windows_param), rect_name_player,
+               show_money(player, windows_param)] + show_hand_dealer_with_black_instant(game, windows_param)
     for i, card in enumerate(player.hand):
-        show_card(2 * window_width / 5 + i*CARD_WIDTH, window_height / 2-CARD_HEIGHT, card,
-                  windows_param).display(window)
+        to_show += [Image_from_card(2 * window_width / 5 + i * CARD_WIDTH, window_height / 2 - CARD_HEIGHT, card)]
+    for elem in to_show:
+        elem.display(window)
+    return
 
 
 def button_possibilities(windows_param):
@@ -599,12 +568,12 @@ def button_possibilities(windows_param):
 
     # buttons
 
-    button_hit = Button(button_hit_x, button_y, button_width, button_height, GREY, "HIT", BLACK, font, BLACK_GREY)
-    button_stand = Button(button_stand_x, button_y, button_width, button_height, GREY, "STAND", BLACK, font,
+    button_hit = Button(button_hit_x, button_y, button_width, button_height, GREY, "HIT", BLACK, FONT, BLACK_GREY)
+    button_stand = Button(button_stand_x, button_y, button_width, button_height, GREY, "STAND", BLACK, FONT,
                           BLACK_GREY)
-    button_double = Button(button_double_x, button_y, button_width, button_height, GREY, "DOUBLE", BLACK, font,
+    button_double = Button(button_double_x, button_y, button_width, button_height, GREY, "DOUBLE", BLACK, FONT,
                            BLACK_GREY)
-    button_split = Button(button_split_x, button_y, button_width, button_height, GREY, "SPLIT", BLACK, font, BLACK_GREY)
+    button_split = Button(button_split_x, button_y, button_width, button_height, GREY, "SPLIT", BLACK, FONT, BLACK_GREY)
 
     return [button_stand, button_hit, button_double, button_split]
 
@@ -612,7 +581,7 @@ def button_possibilities(windows_param):
 def show_possibilities(player, windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
     buttons = button_possibilities(windows_param)
-    if player.money < player.bet:
+    if player.owner.money < player.bet:
         buttons.pop(2)
     if not player.pair() or player.owner.money < player.bet:
         buttons.pop(len(buttons) - 1)
@@ -629,7 +598,7 @@ def show_possibilities(player, windows_param):
             pygame.display.flip()
 
 
-def show_results(game,results, windows_param):
+def show_results(game, results, windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
     window.fill(WHITE)
     background.display(window)
@@ -645,10 +614,13 @@ def show_results(game,results, windows_param):
                     count = 0
                     for player_name in results.keys():
                         if count == c:
+                            for i in range(len(game.players[count].hand)):
+                                Image_from_card(2 * window_width / 5 + i * CARD_WIDTH, window_height / 2 - CARD_HEIGHT,
+                                                game.players[count].hand[i]).display(window)
                             rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3,
                                                          window_height / 10,
                                                          WHITE,
-                                                         player_name + " " + results[player_name], BLACK, font)
+                                                         player_name + " " + results[player_name], BLACK, FONT)
                             rect_name_player.display(window)
                             c += 1
                             break
@@ -670,7 +642,7 @@ def show_looser(player, windows_param):
     rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3,
                                  window_height / 10,
                                  WHITE,
-                                 player.name + " you are out of the game", BLACK, font)
+                                 player.name + " you are out of the game", BLACK, FONT)
     rect_name_player.display(window)
     while True:
         for event in pygame.event.get():
@@ -689,12 +661,12 @@ def ask_want_to_continue(windows_param):
     rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3,
                                  window_height / 10,
                                  WHITE,
-                                 "CONTINUE ?", BLACK, font)
+                                 "CONTINUE ?", BLACK, FONT)
     rect_name_player.display(window)
     button_yes = Button(window_width * (1 / 2 - 1 / 9), window_height / 2, window_width / 8, window_height / 12, GREY,
-                        "YES", BLACK, font, BLACK_GREY)
+                        "YES", BLACK, FONT, BLACK_GREY)
     button_no = Button(window_width * (1 / 2 + 1 / 9), window_height / 2, window_width / 8, window_height / 12,
-                       GREY, "NO", BLACK, font, BLACK_GREY)
+                       GREY, "NO", BLACK, FONT, BLACK_GREY)
     while True:
         for event in pygame.event.get():
             button_yes.display(window, event)
@@ -716,7 +688,7 @@ def close_the_game(windows_param):
     rect_end = Rectangle(window_width / 2, window_height / 3, window_width / 3,
                          window_height / 10,
                          WHITE,
-                         "END click to close", BLACK, font)
+                         "END click to close", BLACK, FONT)
     rect_end.display(window)
     while True:
         for event in pygame.event.get():
@@ -728,28 +700,28 @@ def close_the_game(windows_param):
             pygame.display.flip()
 
 
-def init_jeton(windows_param):
+def init_token(windows_param):
     [window, window_height, window_width, white_rect, white_rect_height, background] = windows_param
-    # dim jeton
-    taille_jeton = white_rect_height / 2
-    jetons_y = white_rect.y + (white_rect_height / 4)
-    jeton1_x = white_rect_height / 2
-    jeton5_x = white_rect_height * 5 / 4
-    jeton10_x = white_rect_height * 2
-    jeton25_x = white_rect_height * 11 / 4
-    jeton100_x = white_rect_height * 7 / 2
+    # dim token
+    size_token = white_rect_height / 2
+    tokens_y = white_rect.y + (white_rect_height / 4)
+    token1_x = white_rect_height / 2
+    token5_x = white_rect_height * 5 / 4
+    token10_x = white_rect_height * 2
+    token25_x = white_rect_height * 11 / 4
+    token100_x = white_rect_height * 7 / 2
 
-    # jetons
+    # tokens
     # 1
-    jeton1 = Images(jeton1_x, jetons_y, "assets/jeton.png")
-    jeton1.reshape(taille_jeton, taille_jeton)
-    jeton5 = Images(jeton5_x, jetons_y, "assets/jeton.png")
-    jeton5.reshape(taille_jeton, taille_jeton)
-    jeton10 = Images(jeton10_x, jetons_y, "assets/jeton.png")
-    jeton10.reshape(taille_jeton, taille_jeton)
-    jeton25 = Images(jeton25_x, jetons_y, "assets/jeton.png")
-    jeton25.reshape(taille_jeton, taille_jeton)
-    jeton100 = Images(jeton100_x, jetons_y, "assets/jeton.png")
-    jeton100.reshape(taille_jeton, taille_jeton)
+    token1 = Images(token1_x, tokens_y, "assets/token.png")
+    token1.reshape(size_token, size_token)
+    token5 = Images(token5_x, tokens_y, "assets/token.png")
+    token5.reshape(size_token, size_token)
+    token10 = Images(token10_x, tokens_y, "assets/token.png")
+    token10.reshape(size_token, size_token)
+    token25 = Images(token25_x, tokens_y, "assets/token.png")
+    token25.reshape(size_token, size_token)
+    token100 = Images(token100_x, tokens_y, "assets/token.png")
+    token100.reshape(size_token, size_token)
 
-    return [jeton1, jeton5, jeton10, jeton25, jeton100]
+    return [token1, token5, token10, token25, token100]

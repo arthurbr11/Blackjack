@@ -79,6 +79,3 @@ def compute_proba_superior_rate(nb_player, nb_round, rate, counting_method):
         proba[i] = proba[i] / nb_round
     print(proba)
     return proba
-
-
-

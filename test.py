@@ -34,7 +34,7 @@ def split_test():
               nb_round=10)
 
 
-def proba_plot_test(nb_players_ask, nb_round_theo, counting_method, limit_rate):
+def proba_plot_test(nb_players_ask: int, nb_round_theo: int, counting_method: int, limit_rate: float):
     data_ia = analysis_proba.play_extract_data_ia(nb_players_ask, nb_round_theo)
     analysis_proba.tools_json.create_json(data_ia,
                                           f'test with {nb_players_ask} players playing with the counting method number '
@@ -47,7 +47,7 @@ def proba_plot_test(nb_players_ask, nb_round_theo, counting_method, limit_rate):
     analysis_proba.plot_money(list_result)  # plots the evolution of the money of each AI during the game
 
     list_better = analysis_proba.limit_rate_reward(list_result, limit_rate)
-    print(list_better)  # returns a list of bools, where list_better[i] is True if the ith player has exceeded k
+    print(list_better)  # returns a list of bool, where list_better[i] is True if the ith player has exceeded k
     # times his initial stake  and False in the other case
 
 
