@@ -54,8 +54,9 @@ def play_with_pygame():
     model.SHOW_TERMINAL = False
     model.SHOW_PYGAME = True
 
-    window, window_height, window_width, white_rect, white_rect_height, background = display_function.init_display()
-    windows_param = [window, window_height, window_width, white_rect, white_rect_height, background]
+    window, window_height, window_width, white_rect, white_rect_height, background, card_width, card_height = display_function.init_display()
+    windows_param = [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
+                     card_height]
     list_players = display_function.get_start(windows_param)[1]
     nb_ia = 0
     players = []
