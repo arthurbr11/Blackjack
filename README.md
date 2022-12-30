@@ -16,13 +16,10 @@ After that, a class is defined for the Deck. The classe modelizes the BlackJack 
 We then have players classes which define AI or human player because the two can play to this game.
     
 2.2. **game.py**:  From a more global standpoint, gathers all the methods and objects to have a functionnal usable game. 
-In this file, the players, the dealer and their decks are described with the previous methods. It then describes the overall operations of the game. Finally, we return the winner of the game 
+In this file, the players, the dealer and their decks are described with the previous methods. It then describes the overall operations of the game. Finally, we return the winner of the game, the one closest to 21 who also beat the dealer.
             
                  
 
-
-# 3. Interface graphique
-Nous avons ensuite la volonté de produire une interface graphique pour permettre à l'utilisateur de jouer. Nous utilisons pour ceci la bibliothèque pygame.
 
 
 # 1. Introduction
