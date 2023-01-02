@@ -3,6 +3,7 @@ from pygame.locals import *
 from PIL import Image
 import numpy as np
 import math
+import os
 
 pygame.init()
 BLACK = (0, 0, 0)
@@ -13,6 +14,7 @@ RED = (255, 0, 0)
 BLACK_RED = (200, 0, 0)
 FONT = pygame.font.Font(pygame.font.get_default_font(), 36)
 SPEED = 5
+PATH = os.getcwd().rstrip('src')
 
 
 class Rectangle:
@@ -169,7 +171,7 @@ def init_display(window_width=1000) -> list:
     """
     # load background image to get the size
 
-    im_background = Image.open('assets/fond_vert.jpg')
+    im_background = Image.open(PATH + 'assets/fond_vert.jpg')
     background_width, background_height = im_background.size
 
     # Set the size of the window
@@ -192,11 +194,11 @@ def init_display(window_width=1000) -> list:
     window = pygame.display.set_mode((window_width, window_height))
 
     # background
-    background = Images(0, 0, "assets/fond_vert.jpg")
+    background = Images(0, 0, PATH + "assets/fond_vert.jpg")
     background.reshape(background_width, background_height)
 
     # card
-    im_card = Image.open('assets/cartes/1_hearts.png')
+    im_card = Image.open(PATH + 'assets/cartes/1_hearts.png')
     card_width_ini, card_height_ini = im_card.size
 
     # Set the size of the window
@@ -438,15 +440,15 @@ def init_token(windows_param, money) -> list[Images]:
 
     # tokens
     # 1
-    token1 = Images(token1_x, tokens_y, "assets/token/token_1.png", True)
+    token1 = Images(token1_x, tokens_y, PATH + "assets/token/token_1.png", True)
     token1.reshape(size_token, size_token)
-    token5 = Images(token5_x, tokens_y, "assets/token/token_5.png", True)
+    token5 = Images(token5_x, tokens_y, PATH + "assets/token/token_5.png", True)
     token5.reshape(size_token, size_token)
-    token10 = Images(token10_x, tokens_y, "assets/token/token_10.png", True)
+    token10 = Images(token10_x, tokens_y, PATH + "assets/token/token_10.png", True)
     token10.reshape(size_token, size_token)
-    token25 = Images(token25_x, tokens_y, "assets/token/token_25.png", True)
+    token25 = Images(token25_x, tokens_y, PATH + "assets/token/token_25.png", True)
     token25.reshape(size_token, size_token)
-    token100 = Images(token100_x, tokens_y, "assets/token/token_100.png", True)
+    token100 = Images(token100_x, tokens_y, PATH + "assets/token/token_100.png", True)
     token100.reshape(size_token, size_token)
 
     if money >= 100:
@@ -549,13 +551,13 @@ def image_from_card(windows_param, x, y, card) -> Images:
     # loading card
     if card is not None:
         nom_carte = str(card.rank.value) + "_" + card.color.value
-        path = "assets/cartes/" + nom_carte + ".png"
+        path = PATH + "assets/cartes/" + nom_carte + ".png"
         carte_test = Images(x, y, path)
         carte_test.reshape(card_width, card_height)
         return carte_test
     else:
         # loading card
-        path = "assets/dos_carte.png"
+        path = PATH + "assets/dos_carte.png"
         back_card = Images(x, y, path)
         back_card.reshape(card_width, card_height)
         return back_card
