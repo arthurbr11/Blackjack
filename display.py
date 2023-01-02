@@ -523,6 +523,8 @@ def get_bet(player, windows_param) -> int:
                 if token.button.click(event):
                     bet += value_token(i)
                     current_money = player.owner.money - bet
+                    if current_money == 0:
+                        return bet
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     if bet != 0:
@@ -743,7 +745,15 @@ def show_hand_dealer_instant(game, windows_param):
     pygame.display.flip()
 
 
-def show_hand_player(player, game, windows_param):
+def show_hand_player(player, game, windows_param) -> None:
+    """
+    This function show the hand of a player with the animation of a drawing card for the last one
+
+    :param player:
+    :param game:
+    :param windows_param:
+    :return:
+    """
     [window, window_height, window_width, _, _, background, card_width, card_height] = windows_param
 
     rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3, window_height / 10, WHITE,
@@ -766,7 +776,17 @@ def show_hand_player(player, game, windows_param):
                   window_height / 2 - card_height, to_show)
 
 
-def is_pass(player, player_ref, player_pass, alias):  # 0 u ve play, 2 u dont , 1 u are playing ,3 u ve multiple hands
+def is_pass(player, player_ref, player_pass, alias) -> tuple[bool, int]:
+    """
+    This function tell if you are the player who play (with the boolean) and the int is to say: 0 you have play,
+    2 you dont, 1 you are playing ,3 you have multiple hands
+
+    :param player:
+    :param player_ref:
+    :param player_pass:
+    :param alias:
+    :return: a boolean and a int
+    """
     if player is None:
         return player_pass, 2
     if alias:
@@ -783,7 +803,16 @@ def is_pass(player, player_ref, player_pass, alias):  # 0 u ve play, 2 u dont , 
             return player_pass, 0
 
 
-def init_rect_name(game, windows_param, player_ref=None):
+def init_rect_name(game, windows_param, player_ref=None) -> tuple[list, list]:
+    """
+    This function is to set rectangles of the name of  players and their positions and their statues
+
+    :param game:
+    :param windows_param:
+    :param player_ref:
+    :return rect_names: list of rectangle for the name
+    :return statues: list of player with the statue associate
+    """
     [_, window_height, window_width, _, _, _, card_width, card_height] = windows_param
     rect_names = []
     statues = []
@@ -811,7 +840,14 @@ def init_rect_name(game, windows_param, player_ref=None):
     return rect_names, statues
 
 
-def show_first_distribution(game, windows_param):
+def show_first_distribution(game, windows_param) -> None:
+    """
+    This function make the animation for the first distribution of the game
+
+    :param game:
+    :param windows_param:
+    :return:
+    """
     [window, window_height, window_width, _, _, background, card_width,
      card_height] = windows_param
 
@@ -848,7 +884,17 @@ def show_first_distribution(game, windows_param):
     return
 
 
-def show_side(game, windows_param, player=None):
+def show_side(game, windows_param, player=None) -> tuple[list, list]:
+    """
+    This function is to know every block we have to show on the side and witch hand we have to show to the top (
+    player who play)
+
+    :param game:
+    :param windows_param:
+    :param player:
+    :return side_element:
+    :return hand_to_show:
+    """
     [_, window_height, _, _, _, _, card_width,
      card_height] = windows_param
     rect_names, statues = init_rect_name(game, windows_param, player)
@@ -875,7 +921,15 @@ def show_side(game, windows_param, player=None):
     return side_element, hand_to_show
 
 
-def round_of(player, game, windows_param):
+def round_of(player, game, windows_param) -> None:
+    """
+    This function initialise the display for the round of the player
+
+    :param player:
+    :param game:
+    :param windows_param:
+    :return:
+    """
     [window, window_height, window_width, _, _, background, card_width,
      card_height] = windows_param
 
@@ -909,7 +963,12 @@ def round_of(player, game, windows_param):
     return
 
 
-def button_possibilities(windows_param):
+def button_possibilities(windows_param) -> list[Button]:
+    """
+    This function return the list of button to choose what we want to play
+    :param windows_param:
+    :return: a list of button
+    """
     [_, _, _, white_rect, white_rect_height, _, _, _] = windows_param
 
     # dim buttons
@@ -934,7 +993,15 @@ def button_possibilities(windows_param):
     return [button_stand, button_hit, button_double, button_split]
 
 
-def show_possibilities(player, windows_param):
+def show_possibilities(player, windows_param) -> int:
+    """
+    This function display just the button that we could play and if the player click on it we return the number
+    associate to this choose
+
+    :param player:
+    :param windows_param:
+    :return: a int
+    """
     [window, _, _, _, _, _, _, _] = windows_param
     buttons = button_possibilities(windows_param)
     if player.owner.money < player.bet:
@@ -957,7 +1024,15 @@ def show_possibilities(player, windows_param):
             pygame.display.flip()
 
 
-def show_results(game, results, windows_param):
+def show_results(game, results, windows_param) -> None:
+    """
+    This function display the result for each player and we have to click to pass to an other result
+
+    :param game:
+    :param results:
+    :param windows_param:
+    :return:
+    """
     [window, window_height, window_width, _, _, background, card_width, card_height] = windows_param
     window.fill(WHITE)
     background.display(window)
@@ -985,8 +1060,9 @@ def show_results(game, results, windows_param):
                             rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3,
                                                          window_height / 10,
                                                          WHITE,
-                                                         player_name + " " + results[player_name], BLACK, FONT)
+                                                         player_name + " " + results[player_name][0], BLACK, FONT)
                             rect_name_player.display(window)
+                            show_money(None, windows_param, results[player_name][1]).display(window)
                             c += 1
                             break
 
@@ -1000,7 +1076,14 @@ def show_results(game, results, windows_param):
             pygame.display.flip()
 
 
-def show_looser(player, windows_param):
+def show_looser(player, windows_param) -> None:
+    """
+    This function show people who can't play anymore
+
+    :param player:
+    :param windows_param:
+    :return:
+    """
     [window, window_height, window_width, _, _, background, _, _] = windows_param
     window.fill(WHITE)
     background.display(window)
@@ -1019,7 +1102,13 @@ def show_looser(player, windows_param):
             pygame.display.flip()
 
 
-def ask_want_to_continue(windows_param):
+def ask_want_to_continue(windows_param) -> bool:
+    """
+    This function ask if we want to continue and return the answer
+
+    :param windows_param:
+    :return: a boolean
+    """
     [window, window_height, window_width, _, _, background, _, _] = windows_param
     window.fill(WHITE)
     background.display(window)
@@ -1046,7 +1135,13 @@ def ask_want_to_continue(windows_param):
             pygame.display.flip()
 
 
-def close_the_game(windows_param):
+def close_the_game(windows_param) -> None:
+    """
+    This function is the screen for closing
+
+    :param windows_param:
+    :return:
+    """
     [window, window_height, window_width, _, _, background, _, _] = windows_param
     window.fill(WHITE)
     background.display(window)
