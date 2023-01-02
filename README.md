@@ -24,7 +24,7 @@ These two files describe all the technical part of the code to make the game wor
     
 # 3. Graphical interface 
 The graphical interface is strongly linked to the structure of the code. In fact, players' actions in the graphical interface are directly treated by the two main  files to make the game work. This part has been done page by page in relation to the structure of the code to make each page work before moving on to the next
-The file that describes all of these operations is **display_function**. In this file there are a lot of classes and functions to describe all the graphical part of the game. For instance, at the beginning the class button describes all the buttons on which players can pressed to trigger an action. 
+The file that describes all of these operations is **display**. In this file there are a lot of classes and functions to describe all the graphical part of the game. For instance, at the beginning the class button describes all the buttons on which players can pressed to trigger an action. 
 For the first and second pages, functions describe the number of players, their type (AI or Human) and their name if they are human.
 Then, the game starts and the rest of the code describes the dynamic of the game with the movement of card, the bets, the actions of players...
 At the end, the player can choose both to continue of to stop the game.
