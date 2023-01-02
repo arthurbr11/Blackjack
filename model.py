@@ -1,6 +1,6 @@
 import enum
 import random
-import display_function
+import display
 
 INITIAL_MONEY = 1000
 SIZE_DECK = 52
@@ -220,7 +220,7 @@ class Player:
                 print(", ", end="")
             print(f"With a value of {self.value()} and a bet of {self._bet}")
         elif SHOW_PYGAME:
-            display_function.show_hand_player(self, party, windows_param)
+            display.show_hand_player(self, party, windows_param)
 
     def draw(self, party, windows_param: list, first_distribution=False) -> Card:
         """
@@ -286,7 +286,7 @@ class Dealer(Player):
                 print(", ", end="")
             print(f"With a value of {self.value()}")
         elif SHOW_PYGAME:
-            display_function.show_hand_dealer(party, windows_param)
+            display.show_hand_dealer(party, windows_param)
 
 
 class HumanPlayer(Player):
@@ -303,7 +303,7 @@ class HumanPlayer(Player):
                 print("4th Option : Split")
             return int(input("Which option do you choose ? (Put the number)"))
         elif SHOW_PYGAME:
-            return display_function.show_possibilities(self, windows_param)
+            return display.show_possibilities(self, windows_param)
 
     def choose_option_test_classic(self) -> int:  # A faire
         """"

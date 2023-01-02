@@ -26,7 +26,7 @@ class Rectangle:
         self._text_color = text_color
         self._font = font
 
-    def display(self, window):
+    def display(self, window) -> None:
         """
         This function display the rectangle
         :param window:
@@ -50,19 +50,19 @@ class Rectangle:
         window.blit(object_text, text_rect)
 
     @property
-    def x(self):
+    def x(self) -> int:
         return self._x
 
     @property
-    def y(self):
+    def y(self) -> int:
         return self._y
 
     @property
-    def text(self):
+    def text(self) -> str:
         return self._text
 
     @text.setter
-    def text(self, new_text):
+    def text(self, new_text: str):
         self._text = new_text
 
 
@@ -71,19 +71,19 @@ class Button(Rectangle):
         super().__init__(x, y, width, height, color, text, text_color, font)
         self._cover_color = cover_color
 
-    def is_in(self, event):
+    def is_in(self, event) -> bool:
         """
         This function return True if the mouse is in the rectangle (else False)
 
         :param event:
-        :return bool:
+        :return: a boolean
         """
         if (self._x + (self._width / 2)) > event.pos[0] > self._x - (self._width / 2) and \
                 self._y - (self._height / 2) < event.pos[1] < (self._y + (self._height / 2)):
             return True
         return False
 
-    def display(self, window, event=None):
+    def display(self, window, event=None) -> None:
         """
         This function display the button with the method of the rectangle and if the mouse is on the button we change
         the color by cover color (like an hoover)
@@ -92,7 +92,7 @@ class Button(Rectangle):
         :param event:
         :return:
         """
-        if event == MOUSEMOTION and self.is_in(event):
+        if event is not None and event.type == MOUSEMOTION and self.is_in(event):
             temp_color = self._color
             self._color = self._cover_color
             super().display(window)
@@ -100,12 +100,12 @@ class Button(Rectangle):
         else:
             super().display(window)
 
-    def click(self, event):
+    def click(self, event) -> bool:
         """
         This function return True if there is a right click in the rectangle (else False)
 
         :param event:
-        :return bool:
+        :return: a boolean
         """
         if event.type == MOUSEBUTTONDOWN and event.button == 1 and self.is_in(event):
             return True
@@ -122,7 +122,7 @@ class Images:
             self._button = Button(x + self._image.get_width() / 2, y + self._image.get_height(),
                                   self._image.get_width(), self._image.get_height(), None, None, None, None, None)
 
-    def reshape(self, width, height):
+    def reshape(self, width, height) -> None:
         """
         This function reshape the image and the button associate if there is one
 
@@ -135,7 +135,7 @@ class Images:
             self._button = Button(self._x + self._image.get_width() / 2, self._y + self._image.get_height() / 2,
                                   self._image.get_width(), self._image.get_height(), None, None, None, None, None)
 
-    def move(self, new_x, new_y):
+    def move(self, new_x, new_y) -> None:
         """
         This function move the card to a new position
 
@@ -146,7 +146,7 @@ class Images:
         self._x = new_x
         self._y = new_y
 
-    def display(self, window):
+    def display(self, window) -> None:
         """
         Display the image
 
@@ -156,16 +156,16 @@ class Images:
         window.blit(self._image, (self._x, self._y))
 
     @property
-    def button(self):
+    def button(self) -> Button:
         return self._button
 
 
-def init_display(window_width=1000):
+def init_display(window_width=1000) -> list:
     """
     This function initialize all the variables for the start of the game
 
     :param window_width:
-    :return windows_params:
+    :return windows_params: a list of all parameters
     """
     # load background image to get the size
 
@@ -206,13 +206,16 @@ def init_display(window_width=1000):
     return [window, window_height, window_width, white_rect, white_rect_height, background, card_width, card_height]
 
 
-def init_page_nb_players(window_width, window_height):
+def init_page_nb_players(windows_param) -> tuple[list, np.ndarray]:
     """
-    We
-    :param window_width:
-    :param window_height:
-    :return:
+    We initialise all the block we will use for the page which display the numbers of players
+
+    :param windows_param:
+    :return rect_page_nb_players: all the rectangle of the page
+    :return buttons_nb_players: all the button of the page
     """
+    [_, window_height, window_width, _, _, _, _, _] = windows_param
+
     rect_page_nb_players = []
     # TITRE
 
@@ -244,7 +247,16 @@ def init_page_nb_players(window_width, window_height):
     return rect_page_nb_players, buttons_nb_players
 
 
-def init_page_name_player(window_width, window_height):
+def init_page_name_player(windows_param) -> tuple[list, list]:
+    """
+    We initialise all the block we will use for the page which display the name of players
+
+    :param windows_param:
+    :return rect_page_name_players: all the rectangle of the page
+    :return buttons_name_players: all the button of the page
+    """
+    [_, window_height, window_width, _, _, _, _, _] = windows_param
+
     button_return = Button(window_width / 10, window_height / 14, window_width / 10, window_height / 14, RED, "RETURN",
                            BLACK, FONT, BLACK_RED)
     button_IA = Button(window_width * (1 / 2 - 1 / 9), window_height / 2, window_width / 8, window_height / 12, GREY,
@@ -252,22 +264,27 @@ def init_page_name_player(window_width, window_height):
     button_human = Button(window_width * (1 / 2 + 1 / 9), window_height / 2, window_width / 8, window_height / 12,
                           GREY, "HUMAN", BLACK, FONT, BLACK_GREY)
 
-    butt_page_nom_player = [button_return, button_IA, button_human]
+    butt_page_name_player = [button_return, button_IA, button_human]
 
     rect_num_player = Rectangle(window_width / 2, window_height / 4, window_width / 3, window_height / 10, WHITE,
                                 "Player k", BLACK, FONT)
     rect_nom_player = Rectangle(window_width / 2, 3 * window_height / 4, window_width / 3, window_height / 10, GREY,
                                 " ", BLACK, FONT)
 
-    rect_page_nom_player = [rect_num_player, rect_nom_player]
+    rect_page_name_player = [rect_num_player, rect_nom_player]
 
-    return butt_page_nom_player, rect_page_nom_player
+    return butt_page_name_player, rect_page_name_player
 
 
-def get_nb_players(window, window_width, window_height, white_rect, white_rect_height, rect_page_nb_players,
-                   buttons_nb_players):
-    activated = True
-    while activated:
+def get_nb_players(window, rect_page_nb_players, buttons_nb_players) -> int:
+    """
+    This function get the numbers of players who want to play
+    :param window:
+    :param rect_page_nb_players:
+    :param buttons_nb_players:
+    :return nb_players: the numbers of players who play
+    """
+    while True:
         for event in pygame.event.get():
             for elem in rect_page_nb_players:
                 elem.display(window)
@@ -276,8 +293,7 @@ def get_nb_players(window, window_width, window_height, white_rect, white_rect_h
                 if buttons_nb_players[k].click(event):
                     nb_players = k + 1
                     window.fill(WHITE)
-                    activated = False
-                    return True, nb_players
+                    return nb_players
 
             if event.type == QUIT:
                 pygame.quit()
@@ -285,22 +301,30 @@ def get_nb_players(window, window_width, window_height, white_rect, white_rect_h
             pygame.display.flip()
 
 
-def get_name_players(nb_players, window, window_width, window_height, white_rect, white_rect_height,
-                     butt_page_nom_player, rect_page_nom_player):
-    activated = True
+def get_name_players(nb_players, window, butt_page_nom_player, rect_page_nom_player) -> tuple[bool, list]:
+    """
+    This function get the type and the name of each player who wants to play
+
+    :param nb_players:
+    :param window:
+    :param butt_page_nom_player:
+    :param rect_page_nom_player:
+    :return players: it's a list of list, in which element there is the type of the player (0:human,1:ia) and if it's an
+    human there is also is name (a string)
+    """
     window.fill(WHITE)
     user_text = " "
     i = 0
     type_player = -1
-    players = [[] for j in range(nb_players)]
-    while activated:
+    players = [[] for _ in range(nb_players)]
+    while True:
         for event in pygame.event.get():
             if i == nb_players:
                 return True, players
             else:
                 window.fill(WHITE)
                 rect_page_nom_player[0].text = "player " + str(i + 1)
-                rect_page_nom_player[0].display(window, )
+                rect_page_nom_player[0].display(window)
                 for elem in butt_page_nom_player:
                     elem.display(window, event)
 
@@ -311,7 +335,7 @@ def get_name_players(nb_players, window, window_width, window_height, white_rect
                     i += 1
                     type_player = -1
                 elif type_player == 0:
-                    rect_page_nom_player[1].display(window, )
+                    rect_page_nom_player[1].display(window)
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_BACKSPACE:
                             if len(user_text) == 1:
@@ -329,7 +353,7 @@ def get_name_players(nb_players, window, window_width, window_height, white_rect
                 elif butt_page_nom_player[0].click(event):
                     if i == 0:
                         window.fill(WHITE)
-                        return False, 0
+                        return False, []
                     else:
                         i -= 1
                 elif event.type == QUIT:
@@ -339,44 +363,49 @@ def get_name_players(nb_players, window, window_width, window_height, white_rect
                 pygame.display.flip()
 
 
-def get_start(windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
-    rect_page_nb_players, buttons_nb_players = init_page_nb_players(window_width, window_height)
-    butt_page_nom_player, rect_page_nom_player = init_page_name_player(window_width, window_height)
+def get_start(windows_param) -> tuple[int, list]:
+    """
+    This function display the 2 first page of starts to get the start parameters of the game
 
-    window_open = True
+    :param windows_param:
+    :return nb_players, players:
+    """
+    [window, _, _, _, _, _, _, _] = windows_param
+
+    rect_page_nb_players, buttons_nb_players = init_page_nb_players(windows_param)
+    butt_page_nom_player, rect_page_nom_player = init_page_name_player(windows_param)
+
     page_nb_players = True
     page_name_players = False
     nb_players = 0
-    while window_open:
+    while True:
         window.fill(WHITE)
         if page_nb_players:
-            test, nb_players = get_nb_players(window, window_width, window_height, white_rect, white_rect_height,
-                                              rect_page_nb_players, buttons_nb_players)
+            nb_players = get_nb_players(window, rect_page_nb_players, buttons_nb_players)
             page_nb_players = False
             page_name_players = True
-            window_open = test
         elif page_name_players:
-            test, players = get_name_players(nb_players, window, window_width, window_height, white_rect,
-                                             white_rect_height, butt_page_nom_player, rect_page_nom_player)
-            if test is None:
-                window_open = False
-            else:
-                page_name_players = False
-                page_nb_players = not test
-                if test:
-                    return nb_players, players
-        elif window_open:
-            for event in pygame.event.get():
-                if event.type == QUIT:
-                    pygame.quit()
-                    exit()
+            test, players = get_name_players(nb_players, window, butt_page_nom_player, rect_page_nom_player)
+            page_name_players = False
+            page_nb_players = not test
+            if test:
+                return nb_players, players
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                exit()
 
 
-def show_money(player, windows_param, money=None):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def show_money(player, windows_param, money=None) -> Rectangle:
+    """
+    This function return the rectangle to show the current money of the player by default it's use the player money
+
+    :param player:
+    :param windows_param:
+    :param money: if we want to display an other amount of money
+    :return:
+    """
+    [_, _, _, white_rect, white_rect_height, _, _, _] = windows_param
     rect_argent_x = 25 * white_rect_height / 2
     rect_argent_y = white_rect.y + white_rect_height / 2
     rect_argent_width = 3 * white_rect_height
@@ -388,10 +417,17 @@ def show_money(player, windows_param, money=None):
                      f'Argent : {money} euros', BLACK, FONT)
 
 
-def init_token(windows_param, money):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
-    # dim token
+def init_token(windows_param, money) -> list[Images]:
+    """
+    This function return all the token the player could bet with is money
+
+    :param windows_param:
+    :param money:
+    :return: a list of Images(which represent token)
+    """
+    [_, _, _, white_rect, white_rect_height, _, _, _] = windows_param
+
+    # dimension token
     size_token = 3 * white_rect_height / 5
     tokens_y = white_rect.y + (white_rect_height / 4)
     token1_x = white_rect_height / 2
@@ -425,7 +461,13 @@ def init_token(windows_param, money):
         return [token1]
 
 
-def value_token(i):
+def value_token(i) -> int:
+    """
+    Return the amount of money for the index of the token in the list of token
+
+    :param i:
+    :return:
+    """
     if i == 0:
         return 1
     elif i == 1:
@@ -438,12 +480,17 @@ def value_token(i):
         return 100
 
 
-def get_bet(player,
-            windows_param):  # instead of a question show token in fct of the amount of money we have and make clickable button
+def get_bet(player, windows_param) -> int:
+    """
+    This function get the bet of the player
 
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
-    # QUESTION  Make look it better
+    :param player:
+    :param windows_param:
+    :return bet:
+    """
+    [window, window_height, window_width, _, _, background, _, _] = windows_param
+
+    # QUESTION
 
     question_font = FONT
     question = Rectangle(window_width / 2, 2 * window_height / 5, window_width / 3, window_height / 6, WHITE,
@@ -453,49 +500,51 @@ def get_bet(player,
                          "0", BLACK, FONT)
     rect_enter = Rectangle(window_width / 2, window_height / 5, window_width / 3, window_height / 10, WHITE,
                            "enter to continue", BLACK, FONT)
-    window_open = True
-    page_bet = True
     bet = 0
-    background.display(window)
-    rect_argent.display(window)
-    question.display(window)
-    rect_bet.display(window)
-    rect_enter.display(window)
     current_money = player.owner.money
+    to_show = [background, rect_enter, question, rect_bet, rect_argent]
+    for elem in to_show:
+        elem.display(window)
     list_token = init_token(windows_param, current_money)
     for token in list_token:
         token.display(window)
-    while window_open:
+    while True:
         pygame.display.flip()
         for event in pygame.event.get():
-            if page_bet:
-                window.fill(WHITE)
-                background.display(window)
-                show_money(player, windows_param, current_money).display(window)
-                question.display(window)
-                rect_bet = Rectangle(window_width / 2, 3 * window_height / 5, window_width / 3, window_height / 10,
-                                     WHITE,
-                                     str(bet), BLACK, FONT)
-                rect_bet.display(window)
-                rect_enter.display(window)
-                list_token = init_token(windows_param, current_money)
-                for i, token in enumerate(list_token):
-                    token.display(window)
-                    if token.button.click(event):
-                        bet += value_token(i)
-                        current_money = player.owner.money - bet
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_RETURN:
-                        if bet != 0:
-                            return bet
+            to_show[4] = show_money(player, windows_param, current_money)
+            to_show[3] = Rectangle(window_width / 2, 3 * window_height / 5, window_width / 3, window_height / 10, WHITE,
+                                   str(bet), BLACK, FONT)
+            window.fill(WHITE)
+            for elem in to_show:
+                elem.display(window)
+            list_token = init_token(windows_param, current_money)
+            for i, token in enumerate(list_token):
+                token.display(window)
+                if token.button.click(event):
+                    bet += value_token(i)
+                    current_money = player.owner.money - bet
+                    if current_money == 0:
+                        return bet
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    if bet != 0:
+                        return bet
             if event.type == QUIT:
                 pygame.quit()
                 exit()
 
 
-def image_from_card(windows_param, x, y, card):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def image_from_card(windows_param, x, y, card) -> Images:
+    """
+    This function return an Image of the card
+
+    :param windows_param:
+    :param x:
+    :param y:
+    :param card: if it's None we show the back Card
+    :return:
+    """
+    [_, _, _, _, _, _, card_width, card_height] = windows_param
 
     # loading card
     if card is not None:
@@ -512,9 +561,18 @@ def image_from_card(windows_param, x, y, card):
         return back_card
 
 
-def flip_card(windows_param, card, x_ini, y_ini, to_show):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def flip_card(windows_param, card, x_ini, y_ini, to_show) -> None:
+    """
+    This function make a card flip
+
+    :param windows_param:
+    :param card:
+    :param x_ini:
+    :param y_ini:
+    :param to_show:
+    :return:
+    """
+    [window, _, _, _, _, background, card_width, card_height] = windows_param
 
     back_card = image_from_card(windows_param, x_ini, y_ini, None)
     time = 100
@@ -523,31 +581,22 @@ def flip_card(windows_param, card, x_ini, y_ini, to_show):
     dt = int(time / nb_steps)
     card_x = x_ini
     while True:
-        for step in range(nb_steps):
-            card_x = card_x + (step_width / 2)
-            back_card.move(card_x, y_ini)
-            back_card.reshape(card_width - (step * step_width), card_height)
+        for step in range(2 * nb_steps):
             window.fill(WHITE)
             background.display(window)
             for elem in to_show:
                 elem.display(window)
-            back_card.display(window)
-            for event in pygame.event.get():
-                if event.type == QUIT:
-                    pygame.quit()
-                    exit()
-            pygame.display.flip()
-            pygame.time.delay(dt)
-        for step in range(nb_steps):
-            card_x = card_x - (step_width / 2)
-            new_card = image_from_card(windows_param, card_x, y_ini, card)
-            new_card.move(card_x, y_ini)
-            new_card.reshape((step + 1) * step_width, card_height)
-            window.fill(WHITE)
-            background.display(window)
-            for elem in to_show:
-                elem.display(window)
-            new_card.display(window)
+            if step >= nb_steps:
+                card_x = card_x - (step_width / 2)
+                new_card = image_from_card(windows_param, card_x, y_ini, card)
+                new_card.move(card_x, y_ini)
+                new_card.reshape((step - nb_steps + 1) * step_width, card_height)
+                new_card.display(window)
+            else:
+                card_x = card_x + (step_width / 2)
+                back_card.move(card_x, y_ini)
+                back_card.reshape(card_width - (step * step_width), card_height)
+                back_card.display(window)
             for event in pygame.event.get():
                 if event.type == QUIT:
                     pygame.quit()
@@ -559,9 +608,20 @@ def flip_card(windows_param, card, x_ini, y_ini, to_show):
         return None
 
 
-def move_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def move_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show) -> None:
+    """
+    This function  move a card from a position to an other
+
+    :param windows_param:
+    :param card:
+    :param x_ini:
+    :param y_ini:
+    :param x_fin:
+    :param y_fin:
+    :param to_show:
+    :return:
+    """
+    [window, _, _, _, _, background, _, _] = windows_param
 
     card_to_show = image_from_card(windows_param, x_ini, y_ini, card)
     card_x = x_ini
@@ -595,25 +655,48 @@ def move_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show):
         return None
 
 
-def moveflip_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show):
+def moveflip_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show) -> None:
+    """
+    This function move and flip the card when it's arrived
+
+    :param windows_param:
+    :param card:
+    :param x_ini:
+    :param y_ini:
+    :param x_fin:
+    :param y_fin:
+    :param to_show:
+    :return:
+    """
     move_card(windows_param, None, x_ini, y_ini, x_fin, y_fin, to_show)
     if card is not None:
         flip_card(windows_param, card, x_fin, y_fin, to_show)
 
 
-def show_deck(windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def show_deck(windows_param) -> Images:
+    """
+    This function show the deck
+
+    :param windows_param:
+    :return:
+    """
+    [_, window_height, _, _, _, _, card_width, card_height] = windows_param
     return image_from_card(windows_param, card_width, (window_height - card_height) / 2, None)
 
 
-def show_hand_dealer(game, windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def show_hand_dealer(game, windows_param) -> None:
+    """
+    This function show the hand of the dealer
+
+    :param game:
+    :param windows_param:
+    :return:
+    """
+    [window, window_height, window_width, _, _, background, card_width, card_height] = windows_param
     window.fill(WHITE)
     background.display(window)
     to_show = [show_deck(windows_param)] + show_side(game, windows_param)[0]
-    if len(game.dealer.hand) == 2:
+    if len(game.dealer.hand) == 2:  # We have to flip the deck on the back
         to_show += [image_from_card(windows_param, 2 * window_width / 5, window_height / 10, game.dealer.hand[0])]
         for elem in to_show:
             elem.display(window)
@@ -631,9 +714,15 @@ def show_hand_dealer(game, windows_param):
                       window_height / 10, to_show)
 
 
-def show_hand_dealer_with_black_instant(game, windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def show_hand_dealer_with_black_instant(game, windows_param) -> list[Images, Images]:
+    """
+    This function return a list with the two card of the dealer with the second on the back
+
+    :param game:
+    :param windows_param:
+    :return:
+    """
+    [_, window_height, window_width, _, _, _, _, _] = windows_param
     card1 = image_from_card(windows_param, 2 * window_width / 5, window_height / 10, game.dealer.hand[0])
     card2 = image_from_card(windows_param, 2 * window_width / 5 + (window_width * 300) / (726 * 10), window_height / 10,
                             None)
@@ -641,8 +730,14 @@ def show_hand_dealer_with_black_instant(game, windows_param):
 
 
 def show_hand_dealer_instant(game, windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+    """
+    This function display the hand of the dealer instantly (without any animation)
+
+    :param game:
+    :param windows_param:
+    :return:
+    """
+    [window, window_height, window_width, _, _, _, card_width, _] = windows_param
 
     for i in range(len(game.dealer.hand)):
         image_from_card(windows_param, 2 * window_width / 5 + i * card_width, window_height / 10,
@@ -650,19 +745,24 @@ def show_hand_dealer_instant(game, windows_param):
     pygame.display.flip()
 
 
-def show_hand_player(player, game, windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def show_hand_player(player, game, windows_param) -> None:
+    """
+    This function show the hand of a player with the animation of a drawing card for the last one
+
+    :param player:
+    :param game:
+    :param windows_param:
+    :return:
+    """
+    [window, window_height, window_width, _, _, background, card_width, card_height] = windows_param
 
     rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3, window_height / 10, WHITE,
                                  player.name, BLACK, FONT)
 
     window.fill(WHITE)
     background.display(window)
-    to_show = [rect_name_player, show_deck(windows_param),
-               show_money(player, windows_param)] + show_hand_dealer_with_black_instant(game,
-                                                                                        windows_param) + \
-              show_side(game, windows_param, player)[0]
+    to_show = [rect_name_player, show_deck(windows_param), show_money(player, windows_param)]
+    to_show += show_hand_dealer_with_black_instant(game, windows_param) + show_side(game, windows_param, player)[0]
 
     for i in range(len(player.hand) - 1):
         to_show += [
@@ -676,7 +776,17 @@ def show_hand_player(player, game, windows_param):
                   window_height / 2 - card_height, to_show)
 
 
-def is_pass(player, player_ref, player_pass, alias):  # 0 u ve play, 2 u dont , 1 u are playing ,3 u ve multiple hands
+def is_pass(player, player_ref, player_pass, alias) -> tuple[bool, int]:
+    """
+    This function tell if you are the player who play (with the boolean) and the int is to say: 0 you have play,
+    2 you dont, 1 you are playing ,3 you have multiple hands
+
+    :param player:
+    :param player_ref:
+    :param player_pass:
+    :param alias:
+    :return: a boolean and a int
+    """
     if player is None:
         return player_pass, 2
     if alias:
@@ -693,9 +803,17 @@ def is_pass(player, player_ref, player_pass, alias):  # 0 u ve play, 2 u dont , 
             return player_pass, 0
 
 
-def init_rect_name(game, windows_param, player_ref=None):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def init_rect_name(game, windows_param, player_ref=None) -> tuple[list, list]:
+    """
+    This function is to set rectangles of the name of  players and their positions and their statues
+
+    :param game:
+    :param windows_param:
+    :param player_ref:
+    :return rect_names: list of rectangle for the name
+    :return statues: list of player with the statue associate
+    """
+    [_, window_height, window_width, _, _, _, card_width, card_height] = windows_param
     rect_names = []
     statues = []
     names = []
@@ -722,8 +840,15 @@ def init_rect_name(game, windows_param, player_ref=None):
     return rect_names, statues
 
 
-def show_first_distribution(game, windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
+def show_first_distribution(game, windows_param) -> None:
+    """
+    This function make the animation for the first distribution of the game
+
+    :param game:
+    :param windows_param:
+    :return:
+    """
+    [window, window_height, window_width, _, _, background, card_width,
      card_height] = windows_param
 
     rect_names = init_rect_name(game, windows_param)[0]
@@ -759,8 +884,18 @@ def show_first_distribution(game, windows_param):
     return
 
 
-def show_side(game, windows_param, player=None):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
+def show_side(game, windows_param, player=None) -> tuple[list, list]:
+    """
+    This function is to know every block we have to show on the side and witch hand we have to show to the top (
+    player who play)
+
+    :param game:
+    :param windows_param:
+    :param player:
+    :return side_element:
+    :return hand_to_show:
+    """
+    [_, window_height, _, _, _, _, card_width,
      card_height] = windows_param
     rect_names, statues = init_rect_name(game, windows_param, player)
     side_element = rect_names
@@ -786,8 +921,16 @@ def show_side(game, windows_param, player=None):
     return side_element, hand_to_show
 
 
-def round_of(player, game, windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
+def round_of(player, game, windows_param) -> None:
+    """
+    This function initialise the display for the round of the player
+
+    :param player:
+    :param game:
+    :param windows_param:
+    :return:
+    """
+    [window, window_height, window_width, _, _, background, card_width,
      card_height] = windows_param
 
     rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3, window_height / 10, WHITE,
@@ -820,9 +963,13 @@ def round_of(player, game, windows_param):
     return
 
 
-def button_possibilities(windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def button_possibilities(windows_param) -> list[Button]:
+    """
+    This function return the list of button to choose what we want to play
+    :param windows_param:
+    :return: a list of button
+    """
+    [_, _, _, white_rect, white_rect_height, _, _, _] = windows_param
 
     # dim buttons
 
@@ -846,9 +993,16 @@ def button_possibilities(windows_param):
     return [button_stand, button_hit, button_double, button_split]
 
 
-def show_possibilities(player, windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def show_possibilities(player, windows_param) -> int:
+    """
+    This function display just the button that we could play and if the player click on it we return the number
+    associate to this choose
+
+    :param player:
+    :param windows_param:
+    :return: a int
+    """
+    [window, _, _, _, _, _, _, _] = windows_param
     buttons = button_possibilities(windows_param)
     if player.owner.money < player.bet:
         buttons.pop(2)
@@ -870,9 +1024,16 @@ def show_possibilities(player, windows_param):
             pygame.display.flip()
 
 
-def show_results(game, results, windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def show_results(game, results, windows_param) -> None:
+    """
+    This function display the result for each player and we have to click to pass to an other result
+
+    :param game:
+    :param results:
+    :param windows_param:
+    :return:
+    """
+    [window, window_height, window_width, _, _, background, card_width, card_height] = windows_param
     window.fill(WHITE)
     background.display(window)
     show_hand_dealer_instant(game, windows_param)
@@ -899,8 +1060,9 @@ def show_results(game, results, windows_param):
                             rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3,
                                                          window_height / 10,
                                                          WHITE,
-                                                         player_name + " " + results[player_name], BLACK, FONT)
+                                                         player_name + " " + results[player_name][0], BLACK, FONT)
                             rect_name_player.display(window)
+                            show_money(None, windows_param, results[player_name][1]).display(window)
                             c += 1
                             break
 
@@ -914,9 +1076,15 @@ def show_results(game, results, windows_param):
             pygame.display.flip()
 
 
-def show_looser(player, windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def show_looser(player, windows_param) -> None:
+    """
+    This function show people who can't play anymore
+
+    :param player:
+    :param windows_param:
+    :return:
+    """
+    [window, window_height, window_width, _, _, background, _, _] = windows_param
     window.fill(WHITE)
     background.display(window)
     rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3,
@@ -934,9 +1102,14 @@ def show_looser(player, windows_param):
             pygame.display.flip()
 
 
-def ask_want_to_continue(windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def ask_want_to_continue(windows_param) -> bool:
+    """
+    This function ask if we want to continue and return the answer
+
+    :param windows_param:
+    :return: a boolean
+    """
+    [window, window_height, window_width, _, _, background, _, _] = windows_param
     window.fill(WHITE)
     background.display(window)
     rect_name_player = Rectangle(window_width / 2, window_height / 3, window_width / 3,
@@ -962,9 +1135,14 @@ def ask_want_to_continue(windows_param):
             pygame.display.flip()
 
 
-def close_the_game(windows_param):
-    [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-     card_height] = windows_param
+def close_the_game(windows_param) -> None:
+    """
+    This function is the screen for closing
+
+    :param windows_param:
+    :return:
+    """
+    [window, window_height, window_width, _, _, background, _, _] = windows_param
     window.fill(WHITE)
     background.display(window)
     rect_end = Rectangle(window_width / 2, window_height / 3, window_width / 3,
