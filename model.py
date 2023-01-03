@@ -248,6 +248,21 @@ class Player:
         self.owner.money -= self.bet
         self.bet += self.bet
 
+    def choose_option_ai_cheat(self, count: int) -> int:
+        """"
+        This function will choose for the AI to stand, hit or spilt while counting cards
+        """
+        if self.pair() and self.owner.money >= self.bet and not self.stop_splitting:
+            return 4
+        elif self.value() < 14 and count > COUNT_MIN and self.owner.money >= self.bet:
+            return 3
+        elif self.value() > 14 and count < -COUNT_MIN:
+            return 1
+        elif self.value() < 17:
+            return 2
+        else:
+            return 1
+
 
 class Dealer(Player):
     def __init__(self):
@@ -327,21 +342,6 @@ class AI(Player):
         """
         if self.pair() and self.owner.money >= self.bet and not self.stop_splitting:
             return 4
-        elif self.value() < 17:
-            return 2
-        else:
-            return 1
-
-    def choose_option_ai_cheat(self, count: int) -> int:
-        """"
-        This function will choose for the AI to stand, hit or spilt while counting cards
-        """
-        if self.pair() and self.owner.money >= self.bet and not self.stop_splitting:
-            return 4
-        elif self.value() < 14 and count > COUNT_MIN and self.owner.money >= self.bet:
-            return 3
-        elif self.value() > 14 and count < -COUNT_MIN:
-            return 1
         elif self.value() < 17:
             return 2
         else:

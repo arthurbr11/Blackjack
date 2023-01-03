@@ -35,7 +35,7 @@ def split_test():
 
 
 def proba_plot_test(nb_players_ask: int, nb_round_theo: int, counting_method: int, limit_rate: float):
-    data_ia = analysis_proba.play_extract_data_ia(nb_players_ask, nb_round_theo)
+    data_ia = analysis_proba.play_extract_data_ia(nb_players_ask, nb_round_theo, counting_method)
     analysis_proba.tools_json.create_json(data_ia,
                                           f'test with {nb_players_ask} players playing with the counting method number '
                                           f'{counting_method} during {nb_round_theo} rounds if they still have money')
@@ -52,4 +52,10 @@ def proba_plot_test(nb_players_ask: int, nb_round_theo: int, counting_method: in
 
 
 def counting_method_efficiency_test(counting_method):
-    analysis_proba.compute_proba_superior_rate(4, 500, 2, counting_method)
+    analysis_proba.compute_proba_superior_rate(4, 500, 1.5, counting_method)
+
+
+global_game_test()
+# split_test()
+# proba_plot_test(3, 500, 0, 1.5)
+counting_method_efficiency_test(1)
