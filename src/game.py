@@ -1,5 +1,5 @@
 import model
-import display_function
+import display
 
 NB_DECK = 8
 
@@ -81,7 +81,7 @@ class Game:
                 elif model.SHOW_TERMINAL:
                     print(f'{player.name} you are out of the game not enough money for you')
                 elif model.SHOW_PYGAME:
-                    display_function.show_looser(player, windows_param)
+                    display.show_looser(player, windows_param)
             else:
                 if player.index_hand == 1:
                     player.owner.reset()
@@ -93,9 +93,10 @@ class Game:
             return True
         return False
 
-    def results(self) -> {str: str}:
+    def results(self) -> {str: [str, int]}:
         """
-        :return: a dictionary with the player's name for key and his result for value.
+        :return: a dictionary with the player's name for key and his result and the money the owner have after this
+        round for value.
         """
         results = {}
         value_dealer = self.dealer.value()
@@ -103,18 +104,18 @@ class Game:
             for player in self.players:
                 value_player = player.value()
                 if value_player > 21:
-                    results[player.name] = "bust"
+                    results[player.name] = ["bust", player.owner.money]
                 else:
-                    results[player.name] = player.win_money()
+                    results[player.name] = [player.win_money(), player.owner.money]
         else:
             for player in self.players:
                 value_player = player.value()
                 if value_player > 21:
-                    results[player.name] = "bust"
+                    results[player.name] = ["bust", player.owner.money]
                 elif player.value() > self.dealer.value():
-                    results[player.name] = player.win_money()
+                    results[player.name] = [player.win_money(), player.owner.money]
                 elif player.value() < self.dealer.value():
-                    results[player.name] = "loose"
+                    results[player.name] = ["loose", player.owner.money]
                 else:
                     results[player.name] = player.even_money()  # The dealer and the player are even
 
@@ -127,8 +128,8 @@ class Game:
                     print(f'{player.name}: Your current money is {player.money}')
                     player.bet = int(input("What is your bet ?"))
                 elif model.SHOW_PYGAME:
-                    player.bet = display_function.get_bet(player,
-                                                          windows_param)
+                    player.bet = display.get_bet(player,
+                                                 windows_param)
             elif isinstance(player, model.HumanPlayer) and test:  # Used to test the function in test_model.py
                 player.bet = player.money // 2
             elif isinstance(player, model.AI):
@@ -149,7 +150,7 @@ class Game:
                 player.draw(self, windows_param, True)
         self._dealer.draw_without_showing(self)
         if model.SHOW_PYGAME:
-            display_function.show_first_distribution(self, windows_param)
+            display.show_first_distribution(self, windows_param)
 
     def play_player(self, player: model.Player, i: int, windows_param: list) -> int:
         """
@@ -167,7 +168,7 @@ class Game:
             print(player.name + ": it's your turn to play !!")
             player.show_hand(self, windows_param)
         elif model.SHOW_PYGAME:
-            display_function.round_of(player, self, windows_param)
+            display.round_of(player, self, windows_param)
         keep_going = True
         while keep_going:
             keep_going = False
@@ -229,9 +230,9 @@ class Game:
         results = self.results()
 
         if model.SHOW_TERMINAL:
-            for player_name, message in results.items():
+            for player_name, [message, _] in results.items():
                 print(player_name + " you have " + message)
         elif model.SHOW_PYGAME:
-            display_function.show_results(self, results, windows_param)
+            display.show_results(self, results, windows_param)
 
         return results

@@ -1,5 +1,5 @@
-import game
-import model
+import src.game as game
+import src.model as model
 import tools_json
 import matplotlib.pyplot as plt
 from tqdm import tqdm
@@ -24,7 +24,7 @@ def play_extract_data_ia(nb_players, nb_round_theoric, counting_method):
         for i in range(len(party.players)):
             data[f'round {k}'][f'{party.players[i].name}'] = {}
             data[f'round {k}'][f'{party.players[i].name}']['bet'] = party.players[i].bet
-            data[f'round {k}'][f'{party.players[i].name}']['result'] = result[f'{party.players[i].name}']
+            data[f'round {k}'][f'{party.players[i].name}']['result'] = result[f'{party.players[i].name}'][0]
             if party.players[i].money != -1:
                 data[f'round {k}'][f'{party.players[i].name}']['money'] = party.players[i].money
         party.reset()

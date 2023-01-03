@@ -50,14 +50,12 @@ def play(test: bool = False, split: bool = False, test_players: list = None, nb_
 
 
 def play_with_pygame():
-    import display_function
+    import display
     model.SHOW_TERMINAL = False
     model.SHOW_PYGAME = True
 
-    window, window_height, window_width, white_rect, white_rect_height, background, card_width, card_height = display_function.init_display()
-    windows_param = [window, window_height, window_width, white_rect, white_rect_height, background, card_width,
-                     card_height]
-    list_players = display_function.get_start(windows_param)[1]
+    windows_param = display.init_display()
+    list_players = display.get_start(windows_param)[1]
     nb_ia = 0
     players = []
     for i in range(len(list_players)):
@@ -71,10 +69,10 @@ def play_with_pygame():
         party.play_round(windows_param)
         is_empty = party.reset(windows_param)
         if is_empty:
-            display_function.close_the_game(windows_param)
+            display.close_the_game(windows_param)
             return
-        if display_function.ask_want_to_continue(windows_param):
-            display_function.close_the_game(windows_param)
+        if display.ask_want_to_continue(windows_param):
+            display.close_the_game(windows_param)
             return
 
 

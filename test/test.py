@@ -1,6 +1,6 @@
-import main
-import model
-import analysis_proba
+import src.main as main
+import src.model as model
+import data.analysis_proba as analysis_proba
 
 
 def global_game_test():
@@ -39,7 +39,7 @@ def proba_plot_test(nb_players_ask: int, nb_round_theo: int, counting_method: in
     analysis_proba.tools_json.create_json(data_ia,
                                           f'test with {nb_players_ask} players playing with the counting method number '
                                           f'{counting_method} during {nb_round_theo} rounds if they still have money')
-    # Creates a JSON file with all the data of the game that has been played.
+    # Creates a JSON file with all the src of the game that has been played.
     # One can check on this JSON file the evolution of the game, especially the evolutions of bets and money of
     # each player.
 
