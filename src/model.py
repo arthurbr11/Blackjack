@@ -250,7 +250,8 @@ class Player:
 
     def choose_option_ai_cheat(self, count: int) -> int:
         """"
-        This function will choose for the AI to stand, hit or spilt while counting cards
+        This function will choose for the AI (or any kind of player, if used in the tests or data analysis module) to
+        stand, hit or spilt while counting cards.
         """
         if self.pair() and self.owner.money >= self.bet and not self.stop_splitting:
             return 4

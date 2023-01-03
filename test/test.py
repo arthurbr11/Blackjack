@@ -18,6 +18,7 @@ def global_game_test():
     main.play(test=True, test_players=["IA"], nb_round=10, counting_method=1)  # Hi-Lo method
     main.play(test=True, test_players=["IA"], nb_round=10, counting_method=2)  # Ko method
     main.play(test=True, test_players=["IA"], nb_round=10, counting_method=3)  # Omega II method
+    print("1")
 
 
 def split_test():
