@@ -4,3 +4,4 @@ matplotlib==3.5.2
 numpy==1.21.6
 pygame==2.1.2
 tqdm==4.64.1
+pillow~=9.2.0
