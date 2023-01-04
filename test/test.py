@@ -27,6 +27,7 @@ def split_test():
     NB : players stop splitting when they reach 20 hands. We chose arbitrarily chose 20 since it is highly unlikely and
     should be sufficient to detect any bug.
     """
+    model.SIZE_DECK=16
     model.SHOW_TERMINAL = True
     main.play(test=True, split=True, test_players=["IA"], nb_round=10)
     main.play(test=True, split=True, test_players=["Human1"], nb_round=10)
