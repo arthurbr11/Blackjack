@@ -55,4 +55,5 @@ def proba_plot_test(nb_players_ask: int, nb_round_theo: int, counting_method: in
 def counting_method_efficiency_test(counting_method):
     analysis_proba.compute_proba_superior_rate(4, 500, 2, counting_method)
 
+
 split_test()
