@@ -1,6 +1,6 @@
 import src.game as game
 import src.model as model
-import tools_json
+import data.tools_json as tools_json
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
