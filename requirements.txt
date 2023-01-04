@@ -4,3 +4,10 @@ matplotlib==3.5.2
 numpy==1.21.6
 pygame==2.1.2
 tqdm==4.64.1
+pillow~=9.2.0
+isort==5.10.1
+mypy~=0.961
+pycodestyle==2.8.0
+pydocstyle==6.1.1
+pylint==2.12.1
+vulture==2.3
