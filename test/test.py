@@ -56,4 +56,7 @@ def counting_method_efficiency_test(counting_method):
     analysis_proba.compute_proba_superior_rate(4, 500, 2, counting_method)
 
 
+global_game_test()
+proba_plot_test(4, 500, 1, 1.5)
 split_test()
+counting_method_efficiency_test(1)
