@@ -1,5 +1,6 @@
+black==22.6.0
+flake8==4.0.1
 matplotlib==3.5.2
 numpy==1.21.6
-Pillow==9.4.0
 pygame==2.1.2
 tqdm==4.64.1
