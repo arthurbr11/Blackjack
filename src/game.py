@@ -117,7 +117,7 @@ class Game:
                 elif player.value() < self.dealer.value():
                     results[player.name] = ["loose", player.owner.money]
                 else:
-                    results[player.name] = player.even_money()  # The dealer and the player are even
+                    results[player.name] = [player.even_money(),player.owner.money]  # The dealer and the player are even
 
         return results
 
