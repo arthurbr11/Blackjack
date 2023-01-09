@@ -1,4 +1,4 @@
-import src.game as game
+import src.game as  game
 import src.model as model
 
 
@@ -33,7 +33,6 @@ def play(test: bool = False, split: bool = False, test_players: list = None, nb_
 
     party = game.Game(players, test=test, split=split, counting_method=counting_method)
     turn = 0
-    print(party.players)
 
     while nb_round == -1 or turn < nb_round:
         turn += 1

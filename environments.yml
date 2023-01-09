@@ -1,0 +1,12 @@
+name: Blackjack
+channels:
+  - default
+  - conda-forge
+dependencies:
+  - black=22.6.0
+  - flake8=4.0.1
+  - numpy=1.21.6
+  - python=3.9
+  - matplotlib=3.5.2
+  - pygame==2.1.2
+  - tqdm==4.64.1

@@ -18,7 +18,6 @@ def global_game_test():
     main.play(test=True, test_players=["IA"], nb_round=10, counting_method=1)  # Hi-Lo method
     main.play(test=True, test_players=["IA"], nb_round=10, counting_method=2)  # Ko method
     main.play(test=True, test_players=["IA"], nb_round=10, counting_method=3)  # Omega II method
-    print("1")
 
 
 def split_test():
@@ -28,7 +27,7 @@ def split_test():
     NB : players stop splitting when they reach 20 hands. We chose arbitrarily chose 20 since it is highly unlikely and
     should be sufficient to detect any bug.
     """
-    model.SIZE_DECK=16
+    model.SIZE_DECK = 16
     model.SHOW_TERMINAL = True
     main.play(test=True, split=True, test_players=["IA"], nb_round=10)
     main.play(test=True, split=True, test_players=["Human1"], nb_round=10)
@@ -54,10 +53,10 @@ def proba_plot_test(nb_players_ask: int, nb_round_theo: int, counting_method: in
 
 
 def counting_method_efficiency_test(counting_method):
-    analysis_proba.compute_proba_superior_rate(4, 500, 1.5, counting_method)
+    analysis_proba.compute_proba_superior_rate(4, 500, 2, counting_method)
 
 
-#global_game_test()
+global_game_test()
+proba_plot_test(4, 500, 1, 1.5)
 split_test()
-# proba_plot_test(3, 500, 0, 1.5)
 counting_method_efficiency_test(1)

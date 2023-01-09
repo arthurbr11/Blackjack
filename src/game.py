@@ -178,7 +178,7 @@ class Game:
                 if not self._test:
                     chosen_option = player.show_possibilities(windows_param)
                 else:
-                    chosen_option = player.choose_option_ai_cheat(self.count)
+                    chosen_option = player.choose_option_test_classic()
             elif isinstance(player, model.AI) or (
                     isinstance(player, model.AliasPlayer) and isinstance(player.owner, model.AI)):
                 chosen_option = player.choose_option_ai_cheat(self.count)

@@ -1,0 +1,58 @@
+name: test - BlackJack
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+
+jobs:
+  checks:
+    name: Generating report on code
+    runs-on: ubuntu-latest
+    #continue-on-error: true
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+    - name: Check out source repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # This is necessary to get the commits
+    - name: Set up Python environment
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.9"
+    - name: Get changed python files between base and head
+      run: >
+        echo "CHANGED_FILES=$(echo $(git diff --name-only ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} -- | grep \.py))" >> $GITHUB_ENV
+    - if: ${{ env.CHANGED_FILES }}
+      uses: marian-code/python-lint-annotate@v3
+      with:
+        python-root-list: ${{ env.CHANGED_FILES }}
+        use-black: true
+        extra-pylint-options: "--disable=R,C"
+        extra-pydocstyle-options: "--ignore=D1"  # Missing doctrings http://www.pydocstyle.org/en/stable/error_codes.html#grouping
+  errors:
+    name: Cheking for errors
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+    - name: Check out source repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # This is necessary to get the commits
+    - name: Set up Python environment
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.9"
+    - run: pip install -r requirements.txt
+    - name: Get changed python files between base and head
+      run: >
+        echo "CHANGED_FILES=$(echo $(git diff --name-only ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} -- | grep \.py))" >> $GITHUB_ENV
+    - name: Errors
+      if: ${{ env.CHANGED_FILES }}
+      run: |
+        pylint --disable=C,R,W ${{ env.CHANGED_FILES }}
