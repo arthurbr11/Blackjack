@@ -1,5 +1,5 @@
-import model
-import display
+import src.model as model
+import src.display as display
 
 NB_DECK = 8
 

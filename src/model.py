@@ -1,6 +1,6 @@
 import enum
 import random
-import display
+import src.display as display
 
 INITIAL_MONEY = 1000
 SIZE_DECK = 52
