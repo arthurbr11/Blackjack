@@ -75,7 +75,7 @@ class Button(Rectangle):
 
     def is_in(self, event) -> bool:
         """
-        This function return True if the mouse is in the rectangle (else False)
+        This function returns True if the mouse is in the rectangle (else False)
 
         :param event:
         :return: a boolean
@@ -87,7 +87,7 @@ class Button(Rectangle):
 
     def display(self, window, event=None) -> None:
         """
-        This function display the button with the method of the rectangle and if the mouse is on the button we change
+        This function displays the button with the method of the rectangle and if the mouse is on the button we change
         the color by cover color (like an hoover)
 
         :param window:
@@ -104,7 +104,7 @@ class Button(Rectangle):
 
     def click(self, event) -> bool:
         """
-        This function return True if there is a right click in the rectangle (else False)
+        This function returns True if there is a right click in the rectangle (else False)
 
         :param event:
         :return: a boolean
@@ -126,7 +126,7 @@ class Images:
 
     def reshape(self, width, height) -> None:
         """
-        This function reshape the image and the button associate if there is one
+        This function reshapes the image and the button associate if there is one
 
         :param width:
         :param height:
@@ -139,7 +139,7 @@ class Images:
 
     def move(self, new_x, new_y) -> None:
         """
-        This function move the card to a new position
+        This function moves the card to a new position
 
         :param new_x:
         :param new_y:
@@ -164,7 +164,7 @@ class Images:
 
 def init_display(window_width=1000) -> list:
     """
-    This function initialize all the variables for the start of the game
+    This function initializes all the variables for the start of the game
 
     :param window_width:
     :return windows_params: a list of all parameters
@@ -210,7 +210,7 @@ def init_display(window_width=1000) -> list:
 
 def init_page_nb_players(windows_param) -> tuple[list, np.ndarray]:
     """
-    We initialise all the block we will use for the page which display the numbers of players
+    One initialise all the block that will be used for the page which display the numbers of players
 
     :param windows_param:
     :return rect_page_nb_players: all the rectangle of the page
@@ -280,7 +280,7 @@ def init_page_name_player(windows_param) -> tuple[list, list]:
 
 def get_nb_players(window, rect_page_nb_players, buttons_nb_players) -> int:
     """
-    This function get the numbers of players who want to play
+    This function gets the numbers of players who want to play
     :param window:
     :param rect_page_nb_players:
     :param buttons_nb_players:
@@ -305,7 +305,7 @@ def get_nb_players(window, rect_page_nb_players, buttons_nb_players) -> int:
 
 def get_name_players(nb_players, window, butt_page_nom_player, rect_page_nom_player) -> tuple[bool, list]:
     """
-    This function get the type and the name of each player who wants to play
+    This function gets the type and the name of each player who wants to play
 
     :param nb_players:
     :param window:
@@ -367,7 +367,7 @@ def get_name_players(nb_players, window, butt_page_nom_player, rect_page_nom_pla
 
 def get_start(windows_param) -> tuple[int, list]:
     """
-    This function display the 2 first page of starts to get the start parameters of the game
+    This function displays the 2 first page of starts to get the start parameters of the game
 
     :param windows_param:
     :return nb_players, players:
@@ -400,7 +400,7 @@ def get_start(windows_param) -> tuple[int, list]:
 
 def show_money(player, windows_param, money=None) -> Rectangle:
     """
-    This function return the rectangle to show the current money of the player by default it's use the player money
+    This function returns the rectangle to show the current money of the player by default it's use the player money
 
     :param player:
     :param windows_param:
@@ -421,7 +421,7 @@ def show_money(player, windows_param, money=None) -> Rectangle:
 
 def init_token(windows_param, money) -> list[Images]:
     """
-    This function return all the token the player could bet with is money
+    This function returns all the token the player could bet with is money
 
     :param windows_param:
     :param money:
@@ -484,7 +484,7 @@ def value_token(i) -> int:
 
 def get_bet(player, windows_param) -> int:
     """
-    This function get the bet of the player
+    This function gets the bet of the player
 
     :param player:
     :param windows_param:
@@ -538,7 +538,7 @@ def get_bet(player, windows_param) -> int:
 
 def image_from_card(windows_param, x, y, card) -> Images:
     """
-    This function return an Image of the card
+    This function returns an Image of the card
 
     :param windows_param:
     :param x:
@@ -565,7 +565,7 @@ def image_from_card(windows_param, x, y, card) -> Images:
 
 def flip_card(windows_param, card, x_ini, y_ini, to_show) -> None:
     """
-    This function make a card flip
+    This function makes a card flip
 
     :param windows_param:
     :param card:
@@ -612,7 +612,7 @@ def flip_card(windows_param, card, x_ini, y_ini, to_show) -> None:
 
 def move_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show) -> None:
     """
-    This function  move a card from a position to an other
+    This function  moves a card from a position to an other
 
     :param windows_param:
     :param card:
@@ -659,7 +659,7 @@ def move_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show) -> None:
 
 def moveflip_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show) -> None:
     """
-    This function move and flip the card when it's arrived
+    This function moves and flip the card when it's arrived
 
     :param windows_param:
     :param card:
@@ -677,7 +677,7 @@ def moveflip_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show) -> N
 
 def show_deck(windows_param) -> Images:
     """
-    This function show the deck
+    This function shows the deck
 
     :param windows_param:
     :return:
@@ -688,7 +688,7 @@ def show_deck(windows_param) -> Images:
 
 def show_hand_dealer(game, windows_param) -> None:
     """
-    This function show the hand of the dealer
+    This function shows the hand of the dealer
 
     :param game:
     :param windows_param:
@@ -718,7 +718,7 @@ def show_hand_dealer(game, windows_param) -> None:
 
 def show_hand_dealer_with_black_instant(game, windows_param) -> list[Images, Images]:
     """
-    This function return a list with the two card of the dealer with the second on the back
+    This function returns a list with the two card of the dealer with the second on the back
 
     :param game:
     :param windows_param:
@@ -733,7 +733,7 @@ def show_hand_dealer_with_black_instant(game, windows_param) -> list[Images, Ima
 
 def show_hand_dealer_instant(game, windows_param):
     """
-    This function display the hand of the dealer instantly (without any animation)
+    This function displays the hand of the dealer instantly (without any animation)
 
     :param game:
     :param windows_param:
@@ -749,7 +749,7 @@ def show_hand_dealer_instant(game, windows_param):
 
 def show_hand_player(player, game, windows_param) -> None:
     """
-    This function show the hand of a player with the animation of a drawing card for the last one
+    This function shows the hand of a player with the animation of a drawing card for the last one
 
     :param player:
     :param game:
@@ -780,7 +780,7 @@ def show_hand_player(player, game, windows_param) -> None:
 
 def is_pass(player, player_ref, player_pass, alias) -> tuple[bool, int]:
     """
-    This function tell if you are the player who play (with the boolean) and the int is to say: 0 you have play,
+    This function tells if you are the player who play (with the boolean) and the int is to say: 0 you have play,
     2 you dont, 1 you are playing ,3 you have multiple hands
 
     :param player:
@@ -844,7 +844,7 @@ def init_rect_name(game, windows_param, player_ref=None) -> tuple[list, list]:
 
 def show_first_distribution(game, windows_param) -> None:
     """
-    This function make the animation for the first distribution of the game
+    This function makes the animation for the first distribution of the game
 
     :param game:
     :param windows_param:
@@ -925,7 +925,7 @@ def show_side(game, windows_param, player=None) -> tuple[list, list]:
 
 def round_of(player, game, windows_param) -> None:
     """
-    This function initialise the display for the round of the player
+    This function initializes the display for the round of the player
 
     :param player:
     :param game:
@@ -967,7 +967,7 @@ def round_of(player, game, windows_param) -> None:
 
 def button_possibilities(windows_param) -> list[Button]:
     """
-    This function return the list of button to choose what we want to play
+    This function returns the list of button to choose what we want to play
     :param windows_param:
     :return: a list of button
     """
@@ -997,7 +997,7 @@ def button_possibilities(windows_param) -> list[Button]:
 
 def show_possibilities(player, windows_param) -> int:
     """
-    This function display just the button that we could play and if the player click on it we return the number
+    This function displays just the button that we could play and if the player click on it we return the number
     associate to this choose
 
     :param player:
@@ -1028,7 +1028,7 @@ def show_possibilities(player, windows_param) -> int:
 
 def show_results(game, results, windows_param) -> None:
     """
-    This function display the result for each player and we have to click to pass to an other result
+    This function displays the result for each player and we have to click to pass to an other result
 
     :param game:
     :param results:
@@ -1080,7 +1080,7 @@ def show_results(game, results, windows_param) -> None:
 
 def show_looser(player, windows_param) -> None:
     """
-    This function show people who can't play anymore
+    This function shows people who can't play anymore
 
     :param player:
     :param windows_param:
@@ -1106,7 +1106,7 @@ def show_looser(player, windows_param) -> None:
 
 def ask_want_to_continue(windows_param) -> bool:
     """
-    This function ask if we want to continue and return the answer
+    This function asks if we want to continue and return the answer
 
     :param windows_param:
     :return: a boolean
