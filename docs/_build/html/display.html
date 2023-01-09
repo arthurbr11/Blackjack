@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>display module &mdash; BlackJack 2.1.4 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BlackJack
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">display module</a><ul>
+<li><a class="reference internal" href="#src.display.Button"><code class="docutils literal notranslate"><span class="pre">Button</span></code></a><ul>
+<li><a class="reference internal" href="#src.display.Button.click"><code class="docutils literal notranslate"><span class="pre">Button.click()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Button.display"><code class="docutils literal notranslate"><span class="pre">Button.display()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Button.is_in"><code class="docutils literal notranslate"><span class="pre">Button.is_in()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.display.Images"><code class="docutils literal notranslate"><span class="pre">Images</span></code></a><ul>
+<li><a class="reference internal" href="#src.display.Images.button"><code class="docutils literal notranslate"><span class="pre">Images.button</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Images.display"><code class="docutils literal notranslate"><span class="pre">Images.display()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Images.move"><code class="docutils literal notranslate"><span class="pre">Images.move()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Images.reshape"><code class="docutils literal notranslate"><span class="pre">Images.reshape()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.display.Rectangle"><code class="docutils literal notranslate"><span class="pre">Rectangle</span></code></a><ul>
+<li><a class="reference internal" href="#src.display.Rectangle.display"><code class="docutils literal notranslate"><span class="pre">Rectangle.display()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Rectangle.text"><code class="docutils literal notranslate"><span class="pre">Rectangle.text</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Rectangle.x"><code class="docutils literal notranslate"><span class="pre">Rectangle.x</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Rectangle.y"><code class="docutils literal notranslate"><span class="pre">Rectangle.y</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.display.ask_want_to_continue"><code class="docutils literal notranslate"><span class="pre">ask_want_to_continue()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.button_possibilities"><code class="docutils literal notranslate"><span class="pre">button_possibilities()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.close_the_game"><code class="docutils literal notranslate"><span class="pre">close_the_game()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.flip_card"><code class="docutils literal notranslate"><span class="pre">flip_card()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.get_bet"><code class="docutils literal notranslate"><span class="pre">get_bet()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.get_name_players"><code class="docutils literal notranslate"><span class="pre">get_name_players()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.get_nb_players"><code class="docutils literal notranslate"><span class="pre">get_nb_players()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.get_start"><code class="docutils literal notranslate"><span class="pre">get_start()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.image_from_card"><code class="docutils literal notranslate"><span class="pre">image_from_card()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.init_display"><code class="docutils literal notranslate"><span class="pre">init_display()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.init_page_name_player"><code class="docutils literal notranslate"><span class="pre">init_page_name_player()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.init_page_nb_players"><code class="docutils literal notranslate"><span class="pre">init_page_nb_players()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.init_rect_name"><code class="docutils literal notranslate"><span class="pre">init_rect_name()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.init_token"><code class="docutils literal notranslate"><span class="pre">init_token()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.is_pass"><code class="docutils literal notranslate"><span class="pre">is_pass()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.move_card"><code class="docutils literal notranslate"><span class="pre">move_card()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.moveflip_card"><code class="docutils literal notranslate"><span class="pre">moveflip_card()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.round_of"><code class="docutils literal notranslate"><span class="pre">round_of()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_deck"><code class="docutils literal notranslate"><span class="pre">show_deck()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_first_distribution"><code class="docutils literal notranslate"><span class="pre">show_first_distribution()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_hand_dealer"><code class="docutils literal notranslate"><span class="pre">show_hand_dealer()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_hand_dealer_instant"><code class="docutils literal notranslate"><span class="pre">show_hand_dealer_instant()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_hand_dealer_with_black_instant"><code class="docutils literal notranslate"><span class="pre">show_hand_dealer_with_black_instant()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_hand_player"><code class="docutils literal notranslate"><span class="pre">show_hand_player()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_looser"><code class="docutils literal notranslate"><span class="pre">show_looser()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_money"><code class="docutils literal notranslate"><span class="pre">show_money()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_possibilities"><code class="docutils literal notranslate"><span class="pre">show_possibilities()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_results"><code class="docutils literal notranslate"><span class="pre">show_results()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_side"><code class="docutils literal notranslate"><span class="pre">show_side()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.value_token"><code class="docutils literal notranslate"><span class="pre">value_token()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BlackJack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">display module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/display.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.display">
+<span id="display-module"></span><h1>display module<a class="headerlink" href="#module-src.display" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.display.Button">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">Button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cover_color</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/display.html#Button"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Button" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="index.html#src.display.Rectangle" title="src.display.Rectangle"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rectangle</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Button.click">
+<span class="sig-name descname"><span class="pre">click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/src/display.html#Button.click"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Button.click" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns True if there is a right click in the rectangle (else False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Button.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#Button.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Button.display" title="Permalink to this definition"></a></dt>
+<dd><p>This function displays the button with the method of the rectangle and if the mouse is on the button we change
+the color by cover color (like an hoover)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> – </p></li>
+<li><p><strong>event</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Button.is_in">
+<span class="sig-name descname"><span class="pre">is_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/src/display.html#Button.is_in"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Button.is_in" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns True if the mouse is in the rectangle (else False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.display.Images">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">Images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_button</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/display.html#Images"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Images" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="src.display.Images.button">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">button</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="index.html#src.display.Button" title="src.display.Button"><span class="pre">Button</span></a></em><a class="headerlink" href="#src.display.Images.button" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Images.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#Images.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Images.display" title="Permalink to this definition"></a></dt>
+<dd><p>Display the image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>window</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Images.move">
+<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_y</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#Images.move"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Images.move" title="Permalink to this definition"></a></dt>
+<dd><p>This function moves the card to a new position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>new_x</strong> – </p></li>
+<li><p><strong>new_y</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Images.reshape">
+<span class="sig-name descname"><span class="pre">reshape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#Images.reshape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Images.reshape" title="Permalink to this definition"></a></dt>
+<dd><p>This function reshapes the image and the button associate if there is one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> – </p></li>
+<li><p><strong>height</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.display.Rectangle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">Rectangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/display.html#Rectangle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Rectangle" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Rectangle.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#Rectangle.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Rectangle.display" title="Permalink to this definition"></a></dt>
+<dd><p>This function display the rectangle
+:param window:
+:return:</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.display.Rectangle.text">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#src.display.Rectangle.text" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.display.Rectangle.x">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.display.Rectangle.x" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.display.Rectangle.y">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.display.Rectangle.y" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.ask_want_to_continue">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">ask_want_to_continue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/src/display.html#ask_want_to_continue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.ask_want_to_continue" title="Permalink to this definition"></a></dt>
+<dd><p>This function asks if we want to continue and return the answer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>windows_param</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.button_possibilities">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">button_possibilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="index.html#src.display.Button" title="src.display.Button"><span class="pre">src.display.Button</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#button_possibilities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.button_possibilities" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns the list of button to choose what we want to play
+:param windows_param:
+:return: a list of button</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.close_the_game">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">close_the_game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#close_the_game"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.close_the_game" title="Permalink to this definition"></a></dt>
+<dd><p>This function is the screen for closing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>windows_param</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.flip_card">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">flip_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_show</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#flip_card"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.flip_card" title="Permalink to this definition"></a></dt>
+<dd><p>This function makes a card flip</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>card</strong> – </p></li>
+<li><p><strong>x_ini</strong> – </p></li>
+<li><p><strong>y_ini</strong> – </p></li>
+<li><p><strong>to_show</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.get_bet">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">get_bet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/display.html#get_bet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.get_bet" title="Permalink to this definition"></a></dt>
+<dd><p>This function gets the bet of the player</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return bet</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.get_name_players">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">get_name_players</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">butt_page_nom_player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rect_page_nom_player</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#get_name_players"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.get_name_players" title="Permalink to this definition"></a></dt>
+<dd><p>This function gets the type and the name of each player who wants to play</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nb_players</strong> – </p></li>
+<li><p><strong>window</strong> – </p></li>
+<li><p><strong>butt_page_nom_player</strong> – </p></li>
+<li><p><strong>rect_page_nom_player</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return players</dt>
+<dd class="field-even"><p>it’s a list of list, in which element there is the type of the player (0:human,1:ia) and if it’s an</p>
+</dd>
+</dl>
+<p>human there is also is name (a string)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.get_nb_players">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">get_nb_players</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rect_page_nb_players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buttons_nb_players</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/display.html#get_nb_players"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.get_nb_players" title="Permalink to this definition"></a></dt>
+<dd><p>This function gets the numbers of players who want to play
+:param window:
+:param rect_page_nb_players:
+:param buttons_nb_players:
+:return nb_players: the numbers of players who play</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.get_start">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">get_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#get_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.get_start" title="Permalink to this definition"></a></dt>
+<dd><p>This function displays the 2 first page of starts to get the start parameters of the game</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>windows_param</strong> – </p>
+</dd>
+<dt class="field-even">Return nb_players, players</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.image_from_card">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">image_from_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="index.html#src.display.Images" title="src.display.Images"><span class="pre">Images</span></a></span></span><a class="reference internal" href="_modules/src/display.html#image_from_card"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.image_from_card" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns an Image of the card</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>x</strong> – </p></li>
+<li><p><strong>y</strong> – </p></li>
+<li><p><strong>card</strong> – if it’s None we show the back Card</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.init_display">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">init_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/src/display.html#init_display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.init_display" title="Permalink to this definition"></a></dt>
+<dd><p>This function initializes all the variables for the start of the game</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>window_width</strong> – </p>
+</dd>
+<dt class="field-even">Return windows_params</dt>
+<dd class="field-even"><p>a list of all parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.init_page_name_player">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">init_page_name_player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#init_page_name_player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.init_page_name_player" title="Permalink to this definition"></a></dt>
+<dd><p>We initialise all the block we will use for the page which display the name of players</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>windows_param</strong> – </p>
+</dd>
+<dt class="field-even">Return rect_page_name_players</dt>
+<dd class="field-even"><p>all the rectangle of the page</p>
+</dd>
+<dt class="field-odd">Return buttons_name_players</dt>
+<dd class="field-odd"><p>all the button of the page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.init_page_nb_players">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">init_page_nb_players</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#init_page_nb_players"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.init_page_nb_players" title="Permalink to this definition"></a></dt>
+<dd><p>One initialise all the block that will be used for the page which display the numbers of players</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>windows_param</strong> – </p>
+</dd>
+<dt class="field-even">Return rect_page_nb_players</dt>
+<dd class="field-even"><p>all the rectangle of the page</p>
+</dd>
+<dt class="field-odd">Return buttons_nb_players</dt>
+<dd class="field-odd"><p>all the button of the page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.init_rect_name">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">init_rect_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#init_rect_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.init_rect_name" title="Permalink to this definition"></a></dt>
+<dd><p>This function is to set rectangles of the name of  players and their positions and their statues</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>player_ref</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return rect_names</dt>
+<dd class="field-even"><p>list of rectangle for the name</p>
+</dd>
+<dt class="field-odd">Return statues</dt>
+<dd class="field-odd"><p>list of player with the statue associate</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.init_token">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">init_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">money</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="index.html#src.display.Images" title="src.display.Images"><span class="pre">src.display.Images</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#init_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.init_token" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns all the token the player could bet with is money</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>money</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list of Images(which represent token)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.is_pass">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">is_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_pass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alias</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#is_pass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.is_pass" title="Permalink to this definition"></a></dt>
+<dd><p>This function tells if you are the player who play (with the boolean) and the int is to say: 0 you have play,
+2 you dont, 1 you are playing ,3 you have multiple hands</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>player_ref</strong> – </p></li>
+<li><p><strong>player_pass</strong> – </p></li>
+<li><p><strong>alias</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a boolean and a int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.move_card">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">move_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_show</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#move_card"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.move_card" title="Permalink to this definition"></a></dt>
+<dd><p>This function  moves a card from a position to an other</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>card</strong> – </p></li>
+<li><p><strong>x_ini</strong> – </p></li>
+<li><p><strong>y_ini</strong> – </p></li>
+<li><p><strong>x_fin</strong> – </p></li>
+<li><p><strong>y_fin</strong> – </p></li>
+<li><p><strong>to_show</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.moveflip_card">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">moveflip_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_show</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#moveflip_card"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.moveflip_card" title="Permalink to this definition"></a></dt>
+<dd><p>This function moves and flip the card when it’s arrived</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>card</strong> – </p></li>
+<li><p><strong>x_ini</strong> – </p></li>
+<li><p><strong>y_ini</strong> – </p></li>
+<li><p><strong>x_fin</strong> – </p></li>
+<li><p><strong>y_fin</strong> – </p></li>
+<li><p><strong>to_show</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.round_of">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">round_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#round_of"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.round_of" title="Permalink to this definition"></a></dt>
+<dd><p>This function initializes the display for the round of the player</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_deck">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_deck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="index.html#src.display.Images" title="src.display.Images"><span class="pre">Images</span></a></span></span><a class="reference internal" href="_modules/src/display.html#show_deck"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_deck" title="Permalink to this definition"></a></dt>
+<dd><p>This function shows the deck</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>windows_param</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_first_distribution">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_first_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#show_first_distribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_first_distribution" title="Permalink to this definition"></a></dt>
+<dd><p>This function makes the animation for the first distribution of the game</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_hand_dealer">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_hand_dealer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#show_hand_dealer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_hand_dealer" title="Permalink to this definition"></a></dt>
+<dd><p>This function shows the hand of the dealer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_hand_dealer_instant">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_hand_dealer_instant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/display.html#show_hand_dealer_instant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_hand_dealer_instant" title="Permalink to this definition"></a></dt>
+<dd><p>This function displays the hand of the dealer instantly (without any animation)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_hand_dealer_with_black_instant">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_hand_dealer_with_black_instant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="index.html#src.display.Images" title="src.display.Images"><span class="pre">src.display.Images</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="index.html#src.display.Images" title="src.display.Images"><span class="pre">src.display.Images</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#show_hand_dealer_with_black_instant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_hand_dealer_with_black_instant" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns a list with the two card of the dealer with the second on the back</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_hand_player">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_hand_player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#show_hand_player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_hand_player" title="Permalink to this definition"></a></dt>
+<dd><p>This function shows the hand of a player with the animation of a drawing card for the last one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_looser">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_looser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#show_looser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_looser" title="Permalink to this definition"></a></dt>
+<dd><p>This function shows people who can’t play anymore</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_money">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_money</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">money</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="index.html#src.display.Rectangle" title="src.display.Rectangle"><span class="pre">Rectangle</span></a></span></span><a class="reference internal" href="_modules/src/display.html#show_money"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_money" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns the rectangle to show the current money of the player by default it’s use the player money</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>money</strong> – if we want to display an other amount of money</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_possibilities">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_possibilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/display.html#show_possibilities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_possibilities" title="Permalink to this definition"></a></dt>
+<dd><p>This function displays just the button that we could play and if the player click on it we return the number
+associate to this choose</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_results">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#show_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_results" title="Permalink to this definition"></a></dt>
+<dd><p>This function displays the result for each player and we have to click to pass to an other result</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>results</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_side">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_side</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#show_side"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_side" title="Permalink to this definition"></a></dt>
+<dd><p>This function is to know every block we have to show on the side and witch hand we have to show to the top (
+player who play)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>player</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return side_element</dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Return hand_to_show</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.value_token">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">value_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/display.html#value_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.value_token" title="Permalink to this definition"></a></dt>
+<dd><p>Return the amount of money for the index of the token in the list of token</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>i</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Henon-Just Guillaume, Bresnu Arthur, Pic Emilie, Merlen Gauthier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

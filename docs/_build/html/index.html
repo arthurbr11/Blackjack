@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to BlackJack’s documentation! &mdash; BlackJack 2.1.4 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> BlackJack
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to BlackJack’s documentation!</a></li>
+<li><a class="reference internal" href="#module-src.display">display module</a><ul>
+<li><a class="reference internal" href="#src.display.Button"><code class="docutils literal notranslate"><span class="pre">Button</span></code></a><ul>
+<li><a class="reference internal" href="#src.display.Button.click"><code class="docutils literal notranslate"><span class="pre">Button.click()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Button.display"><code class="docutils literal notranslate"><span class="pre">Button.display()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Button.is_in"><code class="docutils literal notranslate"><span class="pre">Button.is_in()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.display.Images"><code class="docutils literal notranslate"><span class="pre">Images</span></code></a><ul>
+<li><a class="reference internal" href="#src.display.Images.button"><code class="docutils literal notranslate"><span class="pre">Images.button</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Images.display"><code class="docutils literal notranslate"><span class="pre">Images.display()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Images.move"><code class="docutils literal notranslate"><span class="pre">Images.move()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Images.reshape"><code class="docutils literal notranslate"><span class="pre">Images.reshape()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.display.Rectangle"><code class="docutils literal notranslate"><span class="pre">Rectangle</span></code></a><ul>
+<li><a class="reference internal" href="#src.display.Rectangle.display"><code class="docutils literal notranslate"><span class="pre">Rectangle.display()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Rectangle.text"><code class="docutils literal notranslate"><span class="pre">Rectangle.text</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Rectangle.x"><code class="docutils literal notranslate"><span class="pre">Rectangle.x</span></code></a></li>
+<li><a class="reference internal" href="#src.display.Rectangle.y"><code class="docutils literal notranslate"><span class="pre">Rectangle.y</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.display.ask_want_to_continue"><code class="docutils literal notranslate"><span class="pre">ask_want_to_continue()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.button_possibilities"><code class="docutils literal notranslate"><span class="pre">button_possibilities()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.close_the_game"><code class="docutils literal notranslate"><span class="pre">close_the_game()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.flip_card"><code class="docutils literal notranslate"><span class="pre">flip_card()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.get_bet"><code class="docutils literal notranslate"><span class="pre">get_bet()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.get_name_players"><code class="docutils literal notranslate"><span class="pre">get_name_players()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.get_nb_players"><code class="docutils literal notranslate"><span class="pre">get_nb_players()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.get_start"><code class="docutils literal notranslate"><span class="pre">get_start()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.image_from_card"><code class="docutils literal notranslate"><span class="pre">image_from_card()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.init_display"><code class="docutils literal notranslate"><span class="pre">init_display()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.init_page_name_player"><code class="docutils literal notranslate"><span class="pre">init_page_name_player()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.init_page_nb_players"><code class="docutils literal notranslate"><span class="pre">init_page_nb_players()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.init_rect_name"><code class="docutils literal notranslate"><span class="pre">init_rect_name()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.init_token"><code class="docutils literal notranslate"><span class="pre">init_token()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.is_pass"><code class="docutils literal notranslate"><span class="pre">is_pass()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.move_card"><code class="docutils literal notranslate"><span class="pre">move_card()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.moveflip_card"><code class="docutils literal notranslate"><span class="pre">moveflip_card()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.round_of"><code class="docutils literal notranslate"><span class="pre">round_of()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_deck"><code class="docutils literal notranslate"><span class="pre">show_deck()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_first_distribution"><code class="docutils literal notranslate"><span class="pre">show_first_distribution()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_hand_dealer"><code class="docutils literal notranslate"><span class="pre">show_hand_dealer()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_hand_dealer_instant"><code class="docutils literal notranslate"><span class="pre">show_hand_dealer_instant()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_hand_dealer_with_black_instant"><code class="docutils literal notranslate"><span class="pre">show_hand_dealer_with_black_instant()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_hand_player"><code class="docutils literal notranslate"><span class="pre">show_hand_player()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_looser"><code class="docutils literal notranslate"><span class="pre">show_looser()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_money"><code class="docutils literal notranslate"><span class="pre">show_money()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_possibilities"><code class="docutils literal notranslate"><span class="pre">show_possibilities()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_results"><code class="docutils literal notranslate"><span class="pre">show_results()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.show_side"><code class="docutils literal notranslate"><span class="pre">show_side()</span></code></a></li>
+<li><a class="reference internal" href="#src.display.value_token"><code class="docutils literal notranslate"><span class="pre">value_token()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.game">game module</a><ul>
+<li><a class="reference internal" href="#src.game.Game"><code class="docutils literal notranslate"><span class="pre">Game</span></code></a><ul>
+<li><a class="reference internal" href="#src.game.Game.choose_bet"><code class="docutils literal notranslate"><span class="pre">Game.choose_bet()</span></code></a></li>
+<li><a class="reference internal" href="#src.game.Game.count"><code class="docutils literal notranslate"><span class="pre">Game.count</span></code></a></li>
+<li><a class="reference internal" href="#src.game.Game.dealer"><code class="docutils literal notranslate"><span class="pre">Game.dealer</span></code></a></li>
+<li><a class="reference internal" href="#src.game.Game.deck"><code class="docutils literal notranslate"><span class="pre">Game.deck</span></code></a></li>
+<li><a class="reference internal" href="#src.game.Game.first_distribution"><code class="docutils literal notranslate"><span class="pre">Game.first_distribution()</span></code></a></li>
+<li><a class="reference internal" href="#src.game.Game.increase_count"><code class="docutils literal notranslate"><span class="pre">Game.increase_count()</span></code></a></li>
+<li><a class="reference internal" href="#src.game.Game.increase_count_hi_lo"><code class="docutils literal notranslate"><span class="pre">Game.increase_count_hi_lo()</span></code></a></li>
+<li><a class="reference internal" href="#src.game.Game.increase_count_ko"><code class="docutils literal notranslate"><span class="pre">Game.increase_count_ko()</span></code></a></li>
+<li><a class="reference internal" href="#src.game.Game.increase_count_omega2"><code class="docutils literal notranslate"><span class="pre">Game.increase_count_omega2()</span></code></a></li>
+<li><a class="reference internal" href="#src.game.Game.play_player"><code class="docutils literal notranslate"><span class="pre">Game.play_player()</span></code></a></li>
+<li><a class="reference internal" href="#src.game.Game.play_round"><code class="docutils literal notranslate"><span class="pre">Game.play_round()</span></code></a></li>
+<li><a class="reference internal" href="#src.game.Game.players"><code class="docutils literal notranslate"><span class="pre">Game.players</span></code></a></li>
+<li><a class="reference internal" href="#src.game.Game.reset"><code class="docutils literal notranslate"><span class="pre">Game.reset()</span></code></a></li>
+<li><a class="reference internal" href="#src.game.Game.results"><code class="docutils literal notranslate"><span class="pre">Game.results()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.model">model module</a><ul>
+<li><a class="reference internal" href="#src.model.AI"><code class="docutils literal notranslate"><span class="pre">AI</span></code></a><ul>
+<li><a class="reference internal" href="#src.model.AI.choose_option_ai_classic"><code class="docutils literal notranslate"><span class="pre">AI.choose_option_ai_classic()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.model.AliasPlayer"><code class="docutils literal notranslate"><span class="pre">AliasPlayer</span></code></a><ul>
+<li><a class="reference internal" href="#src.model.AliasPlayer.index_hand"><code class="docutils literal notranslate"><span class="pre">AliasPlayer.index_hand</span></code></a></li>
+<li><a class="reference internal" href="#src.model.AliasPlayer.owner"><code class="docutils literal notranslate"><span class="pre">AliasPlayer.owner</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.model.Card"><code class="docutils literal notranslate"><span class="pre">Card</span></code></a><ul>
+<li><a class="reference internal" href="#src.model.Card.color"><code class="docutils literal notranslate"><span class="pre">Card.color</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Card.rank"><code class="docutils literal notranslate"><span class="pre">Card.rank</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Card.value"><code class="docutils literal notranslate"><span class="pre">Card.value</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.model.Color"><code class="docutils literal notranslate"><span class="pre">Color</span></code></a><ul>
+<li><a class="reference internal" href="#src.model.Color.CLUBS"><code class="docutils literal notranslate"><span class="pre">Color.CLUBS</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Color.DIAMONDS"><code class="docutils literal notranslate"><span class="pre">Color.DIAMONDS</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Color.HEARTS"><code class="docutils literal notranslate"><span class="pre">Color.HEARTS</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Color.SPADES"><code class="docutils literal notranslate"><span class="pre">Color.SPADES</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.model.Dealer"><code class="docutils literal notranslate"><span class="pre">Dealer</span></code></a><ul>
+<li><a class="reference internal" href="#src.model.Dealer.draw"><code class="docutils literal notranslate"><span class="pre">Dealer.draw()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Dealer.draw_without_showing"><code class="docutils literal notranslate"><span class="pre">Dealer.draw_without_showing()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Dealer.play"><code class="docutils literal notranslate"><span class="pre">Dealer.play()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Dealer.show_hand"><code class="docutils literal notranslate"><span class="pre">Dealer.show_hand()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.model.Deck"><code class="docutils literal notranslate"><span class="pre">Deck</span></code></a><ul>
+<li><a class="reference internal" href="#src.model.Deck.cards"><code class="docutils literal notranslate"><span class="pre">Deck.cards</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Deck.draw"><code class="docutils literal notranslate"><span class="pre">Deck.draw()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Deck.nb_decks"><code class="docutils literal notranslate"><span class="pre">Deck.nb_decks</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Deck.perfect_shuffle"><code class="docutils literal notranslate"><span class="pre">Deck.perfect_shuffle()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Deck.random_stop_index"><code class="docutils literal notranslate"><span class="pre">Deck.random_stop_index()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Deck.reset"><code class="docutils literal notranslate"><span class="pre">Deck.reset()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Deck.stop_index"><code class="docutils literal notranslate"><span class="pre">Deck.stop_index</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Deck.stop_index_decrease"><code class="docutils literal notranslate"><span class="pre">Deck.stop_index_decrease()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.model.HumanPlayer"><code class="docutils literal notranslate"><span class="pre">HumanPlayer</span></code></a><ul>
+<li><a class="reference internal" href="#src.model.HumanPlayer.choose_option_test_classic"><code class="docutils literal notranslate"><span class="pre">HumanPlayer.choose_option_test_classic()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.HumanPlayer.show_possibilities"><code class="docutils literal notranslate"><span class="pre">HumanPlayer.show_possibilities()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.model.Player"><code class="docutils literal notranslate"><span class="pre">Player</span></code></a><ul>
+<li><a class="reference internal" href="#src.model.Player.bet"><code class="docutils literal notranslate"><span class="pre">Player.bet</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.choose_option_ai_cheat"><code class="docutils literal notranslate"><span class="pre">Player.choose_option_ai_cheat()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.double"><code class="docutils literal notranslate"><span class="pre">Player.double()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.draw"><code class="docutils literal notranslate"><span class="pre">Player.draw()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.even_money"><code class="docutils literal notranslate"><span class="pre">Player.even_money()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.hand"><code class="docutils literal notranslate"><span class="pre">Player.hand</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.money"><code class="docutils literal notranslate"><span class="pre">Player.money</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.name"><code class="docutils literal notranslate"><span class="pre">Player.name</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.nb_hand"><code class="docutils literal notranslate"><span class="pre">Player.nb_hand</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.owner"><code class="docutils literal notranslate"><span class="pre">Player.owner</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.pair"><code class="docutils literal notranslate"><span class="pre">Player.pair()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.reset"><code class="docutils literal notranslate"><span class="pre">Player.reset()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.show_hand"><code class="docutils literal notranslate"><span class="pre">Player.show_hand()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.value"><code class="docutils literal notranslate"><span class="pre">Player.value()</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Player.win_money"><code class="docutils literal notranslate"><span class="pre">Player.win_money()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.model.Rank"><code class="docutils literal notranslate"><span class="pre">Rank</span></code></a><ul>
+<li><a class="reference internal" href="#src.model.Rank.ACE"><code class="docutils literal notranslate"><span class="pre">Rank.ACE</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Rank.EIGHT"><code class="docutils literal notranslate"><span class="pre">Rank.EIGHT</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Rank.FIVE"><code class="docutils literal notranslate"><span class="pre">Rank.FIVE</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Rank.FOUR"><code class="docutils literal notranslate"><span class="pre">Rank.FOUR</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Rank.JACK"><code class="docutils literal notranslate"><span class="pre">Rank.JACK</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Rank.KING"><code class="docutils literal notranslate"><span class="pre">Rank.KING</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Rank.NINE"><code class="docutils literal notranslate"><span class="pre">Rank.NINE</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Rank.QUEEN"><code class="docutils literal notranslate"><span class="pre">Rank.QUEEN</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Rank.SEVEN"><code class="docutils literal notranslate"><span class="pre">Rank.SEVEN</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Rank.SIX"><code class="docutils literal notranslate"><span class="pre">Rank.SIX</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Rank.TEN"><code class="docutils literal notranslate"><span class="pre">Rank.TEN</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Rank.THREE"><code class="docutils literal notranslate"><span class="pre">Rank.THREE</span></code></a></li>
+<li><a class="reference internal" href="#src.model.Rank.TWO"><code class="docutils literal notranslate"><span class="pre">Rank.TWO</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">BlackJack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Welcome to BlackJack’s documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-blackjack-s-documentation">
+<h1>Welcome to BlackJack’s documentation!<a class="headerlink" href="#welcome-to-blackjack-s-documentation" title="Permalink to this heading"></a></h1>
+</section>
+<section id="module-src.display">
+<span id="display-module"></span><h1>display module<a class="headerlink" href="#module-src.display" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.display.Button">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">Button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cover_color</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/display.html#Button"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Button" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.display.Rectangle" title="src.display.Rectangle"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rectangle</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Button.click">
+<span class="sig-name descname"><span class="pre">click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/src/display.html#Button.click"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Button.click" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns True if there is a right click in the rectangle (else False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Button.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#Button.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Button.display" title="Permalink to this definition"></a></dt>
+<dd><p>This function displays the button with the method of the rectangle and if the mouse is on the button we change
+the color by cover color (like an hoover)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> – </p></li>
+<li><p><strong>event</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Button.is_in">
+<span class="sig-name descname"><span class="pre">is_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/src/display.html#Button.is_in"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Button.is_in" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns True if the mouse is in the rectangle (else False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.display.Images">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">Images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_button</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/display.html#Images"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Images" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="src.display.Images.button">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">button</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#src.display.Button" title="src.display.Button"><span class="pre">Button</span></a></em><a class="headerlink" href="#src.display.Images.button" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Images.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#Images.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Images.display" title="Permalink to this definition"></a></dt>
+<dd><p>Display the image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>window</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Images.move">
+<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_y</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#Images.move"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Images.move" title="Permalink to this definition"></a></dt>
+<dd><p>This function moves the card to a new position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>new_x</strong> – </p></li>
+<li><p><strong>new_y</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Images.reshape">
+<span class="sig-name descname"><span class="pre">reshape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#Images.reshape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Images.reshape" title="Permalink to this definition"></a></dt>
+<dd><p>This function reshapes the image and the button associate if there is one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> – </p></li>
+<li><p><strong>height</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.display.Rectangle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">Rectangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/display.html#Rectangle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Rectangle" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.display.Rectangle.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#Rectangle.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.Rectangle.display" title="Permalink to this definition"></a></dt>
+<dd><p>This function display the rectangle
+:param window:
+:return:</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.display.Rectangle.text">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#src.display.Rectangle.text" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.display.Rectangle.x">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.display.Rectangle.x" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.display.Rectangle.y">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.display.Rectangle.y" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.ask_want_to_continue">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">ask_want_to_continue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/src/display.html#ask_want_to_continue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.ask_want_to_continue" title="Permalink to this definition"></a></dt>
+<dd><p>This function asks if we want to continue and return the answer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>windows_param</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.button_possibilities">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">button_possibilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#src.display.Button" title="src.display.Button"><span class="pre">src.display.Button</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#button_possibilities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.button_possibilities" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns the list of button to choose what we want to play
+:param windows_param:
+:return: a list of button</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.close_the_game">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">close_the_game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#close_the_game"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.close_the_game" title="Permalink to this definition"></a></dt>
+<dd><p>This function is the screen for closing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>windows_param</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.flip_card">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">flip_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_show</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#flip_card"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.flip_card" title="Permalink to this definition"></a></dt>
+<dd><p>This function makes a card flip</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>card</strong> – </p></li>
+<li><p><strong>x_ini</strong> – </p></li>
+<li><p><strong>y_ini</strong> – </p></li>
+<li><p><strong>to_show</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.get_bet">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">get_bet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/display.html#get_bet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.get_bet" title="Permalink to this definition"></a></dt>
+<dd><p>This function gets the bet of the player</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return bet</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.get_name_players">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">get_name_players</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">butt_page_nom_player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rect_page_nom_player</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#get_name_players"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.get_name_players" title="Permalink to this definition"></a></dt>
+<dd><p>This function gets the type and the name of each player who wants to play</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nb_players</strong> – </p></li>
+<li><p><strong>window</strong> – </p></li>
+<li><p><strong>butt_page_nom_player</strong> – </p></li>
+<li><p><strong>rect_page_nom_player</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return players</dt>
+<dd class="field-even"><p>it’s a list of list, in which element there is the type of the player (0:human,1:ia) and if it’s an</p>
+</dd>
+</dl>
+<p>human there is also is name (a string)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.get_nb_players">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">get_nb_players</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rect_page_nb_players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buttons_nb_players</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/display.html#get_nb_players"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.get_nb_players" title="Permalink to this definition"></a></dt>
+<dd><p>This function gets the numbers of players who want to play
+:param window:
+:param rect_page_nb_players:
+:param buttons_nb_players:
+:return nb_players: the numbers of players who play</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.get_start">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">get_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#get_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.get_start" title="Permalink to this definition"></a></dt>
+<dd><p>This function displays the 2 first page of starts to get the start parameters of the game</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>windows_param</strong> – </p>
+</dd>
+<dt class="field-even">Return nb_players, players</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.image_from_card">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">image_from_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.display.Images" title="src.display.Images"><span class="pre">Images</span></a></span></span><a class="reference internal" href="_modules/src/display.html#image_from_card"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.image_from_card" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns an Image of the card</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>x</strong> – </p></li>
+<li><p><strong>y</strong> – </p></li>
+<li><p><strong>card</strong> – if it’s None we show the back Card</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.init_display">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">init_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/src/display.html#init_display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.init_display" title="Permalink to this definition"></a></dt>
+<dd><p>This function initializes all the variables for the start of the game</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>window_width</strong> – </p>
+</dd>
+<dt class="field-even">Return windows_params</dt>
+<dd class="field-even"><p>a list of all parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.init_page_name_player">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">init_page_name_player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#init_page_name_player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.init_page_name_player" title="Permalink to this definition"></a></dt>
+<dd><p>We initialise all the block we will use for the page which display the name of players</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>windows_param</strong> – </p>
+</dd>
+<dt class="field-even">Return rect_page_name_players</dt>
+<dd class="field-even"><p>all the rectangle of the page</p>
+</dd>
+<dt class="field-odd">Return buttons_name_players</dt>
+<dd class="field-odd"><p>all the button of the page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.init_page_nb_players">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">init_page_nb_players</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#init_page_nb_players"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.init_page_nb_players" title="Permalink to this definition"></a></dt>
+<dd><p>One initialise all the block that will be used for the page which display the numbers of players</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>windows_param</strong> – </p>
+</dd>
+<dt class="field-even">Return rect_page_nb_players</dt>
+<dd class="field-even"><p>all the rectangle of the page</p>
+</dd>
+<dt class="field-odd">Return buttons_nb_players</dt>
+<dd class="field-odd"><p>all the button of the page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.init_rect_name">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">init_rect_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#init_rect_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.init_rect_name" title="Permalink to this definition"></a></dt>
+<dd><p>This function is to set rectangles of the name of  players and their positions and their statues</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>player_ref</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return rect_names</dt>
+<dd class="field-even"><p>list of rectangle for the name</p>
+</dd>
+<dt class="field-odd">Return statues</dt>
+<dd class="field-odd"><p>list of player with the statue associate</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.init_token">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">init_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">money</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#src.display.Images" title="src.display.Images"><span class="pre">src.display.Images</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#init_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.init_token" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns all the token the player could bet with is money</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>money</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list of Images(which represent token)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.is_pass">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">is_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_pass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alias</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#is_pass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.is_pass" title="Permalink to this definition"></a></dt>
+<dd><p>This function tells if you are the player who play (with the boolean) and the int is to say: 0 you have play,
+2 you dont, 1 you are playing ,3 you have multiple hands</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>player_ref</strong> – </p></li>
+<li><p><strong>player_pass</strong> – </p></li>
+<li><p><strong>alias</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a boolean and a int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.move_card">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">move_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_show</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#move_card"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.move_card" title="Permalink to this definition"></a></dt>
+<dd><p>This function  moves a card from a position to an other</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>card</strong> – </p></li>
+<li><p><strong>x_ini</strong> – </p></li>
+<li><p><strong>y_ini</strong> – </p></li>
+<li><p><strong>x_fin</strong> – </p></li>
+<li><p><strong>y_fin</strong> – </p></li>
+<li><p><strong>to_show</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.moveflip_card">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">moveflip_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_show</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#moveflip_card"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.moveflip_card" title="Permalink to this definition"></a></dt>
+<dd><p>This function moves and flip the card when it’s arrived</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>card</strong> – </p></li>
+<li><p><strong>x_ini</strong> – </p></li>
+<li><p><strong>y_ini</strong> – </p></li>
+<li><p><strong>x_fin</strong> – </p></li>
+<li><p><strong>y_fin</strong> – </p></li>
+<li><p><strong>to_show</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.round_of">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">round_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#round_of"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.round_of" title="Permalink to this definition"></a></dt>
+<dd><p>This function initializes the display for the round of the player</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_deck">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_deck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.display.Images" title="src.display.Images"><span class="pre">Images</span></a></span></span><a class="reference internal" href="_modules/src/display.html#show_deck"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_deck" title="Permalink to this definition"></a></dt>
+<dd><p>This function shows the deck</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>windows_param</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_first_distribution">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_first_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#show_first_distribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_first_distribution" title="Permalink to this definition"></a></dt>
+<dd><p>This function makes the animation for the first distribution of the game</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_hand_dealer">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_hand_dealer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#show_hand_dealer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_hand_dealer" title="Permalink to this definition"></a></dt>
+<dd><p>This function shows the hand of the dealer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_hand_dealer_instant">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_hand_dealer_instant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/display.html#show_hand_dealer_instant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_hand_dealer_instant" title="Permalink to this definition"></a></dt>
+<dd><p>This function displays the hand of the dealer instantly (without any animation)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_hand_dealer_with_black_instant">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_hand_dealer_with_black_instant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#src.display.Images" title="src.display.Images"><span class="pre">src.display.Images</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#src.display.Images" title="src.display.Images"><span class="pre">src.display.Images</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#show_hand_dealer_with_black_instant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_hand_dealer_with_black_instant" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns a list with the two card of the dealer with the second on the back</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_hand_player">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_hand_player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#show_hand_player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_hand_player" title="Permalink to this definition"></a></dt>
+<dd><p>This function shows the hand of a player with the animation of a drawing card for the last one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_looser">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_looser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#show_looser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_looser" title="Permalink to this definition"></a></dt>
+<dd><p>This function shows people who can’t play anymore</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_money">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_money</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">money</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.display.Rectangle" title="src.display.Rectangle"><span class="pre">Rectangle</span></a></span></span><a class="reference internal" href="_modules/src/display.html#show_money"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_money" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns the rectangle to show the current money of the player by default it’s use the player money</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>money</strong> – if we want to display an other amount of money</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_possibilities">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_possibilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/display.html#show_possibilities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_possibilities" title="Permalink to this definition"></a></dt>
+<dd><p>This function displays just the button that we could play and if the player click on it we return the number
+associate to this choose</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_results">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/display.html#show_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_results" title="Permalink to this definition"></a></dt>
+<dd><p>This function displays the result for each player and we have to click to pass to an other result</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>results</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.show_side">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">show_side</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/display.html#show_side"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.show_side" title="Permalink to this definition"></a></dt>
+<dd><p>This function is to know every block we have to show on the side and witch hand we have to show to the top (
+player who play)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game</strong> – </p></li>
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>player</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return side_element</dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">Return hand_to_show</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.display.value_token">
+<span class="sig-prename descclassname"><span class="pre">src.display.</span></span><span class="sig-name descname"><span class="pre">value_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/display.html#value_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.display.value_token" title="Permalink to this definition"></a></dt>
+<dd><p>Return the amount of money for the index of the token in the list of token</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>i</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.game">
+<span id="game-module"></span><h1>game module<a class="headerlink" href="#module-src.game" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.game.Game">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.game.</span></span><span class="sig-name descname"><span class="pre">Game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">players:</span> <span class="pre">[&lt;class</span> <span class="pre">'src.model.Player'&gt;],</span> <span class="pre">counting_method=0,</span> <span class="pre">test=False,</span> <span class="pre">split=False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/game.html#Game"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.game.Game" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.choose_bet">
+<span class="sig-name descname"><span class="pre">choose_bet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/game.html#Game.choose_bet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.game.Game.choose_bet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.game.Game.count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.game.Game.count" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.game.Game.dealer">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dealer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="model.html#src.model.Dealer" title="src.model.Dealer"><span class="pre">Dealer</span></a></em><a class="headerlink" href="#src.game.Game.dealer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.game.Game.deck">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deck</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="model.html#src.model.Deck" title="src.model.Deck"><span class="pre">Deck</span></a></em><a class="headerlink" href="#src.game.Game.deck" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.first_distribution">
+<span class="sig-name descname"><span class="pre">first_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/game.html#Game.first_distribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.game.Game.first_distribution" title="Permalink to this definition"></a></dt>
+<dd><p>The dealer distributes one card for his self and two cards for each players and after his second card.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.increase_count">
+<span class="sig-name descname"><span class="pre">increase_count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.html#src.model.Card" title="src.model.Card"><span class="pre">Card</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/game.html#Game.increase_count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.game.Game.increase_count" title="Permalink to this definition"></a></dt>
+<dd><p>Select the counting_method to increase the count of the game (_counting_method = 0 : no counting)
+:param card: the card that has been drawn</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.increase_count_hi_lo">
+<span class="sig-name descname"><span class="pre">increase_count_hi_lo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.html#src.model.Card" title="src.model.Card"><span class="pre">Card</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/game.html#Game.increase_count_hi_lo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.game.Game.increase_count_hi_lo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.increase_count_ko">
+<span class="sig-name descname"><span class="pre">increase_count_ko</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.html#src.model.Card" title="src.model.Card"><span class="pre">Card</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/game.html#Game.increase_count_ko"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.game.Game.increase_count_ko" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.increase_count_omega2">
+<span class="sig-name descname"><span class="pre">increase_count_omega2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.html#src.model.Card" title="src.model.Card"><span class="pre">Card</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/game.html#Game.increase_count_omega2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.game.Game.increase_count_omega2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.play_player">
+<span class="sig-name descname"><span class="pre">play_player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.html#src.model.Player" title="src.model.Player"><span class="pre">Player</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/game.html#Game.play_player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.game.Game.play_player" title="Permalink to this definition"></a></dt>
+<dd><p>This function make a player play.
+To test if the split method work well change 52 by
+16 in the class deck and add a condition that card.value==10 we will have the possibility to split each time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windows_param</strong> – </p></li>
+<li><p><strong>i</strong> – this index allow us to know where we are in the list to pop the good element</p></li>
+<li><p><strong>player</strong> – this is the player who is about to play</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the number of elements we have add to the list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.play_round">
+<span class="sig-name descname"><span class="pre">play_round</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">{&lt;class</span> <span class="pre">'str'&gt;:</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;}</span></span></span><a class="reference internal" href="_modules/src/game.html#Game.play_round"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.game.Game.play_round" title="Permalink to this definition"></a></dt>
+<dd><p>This function is the main loop for each round.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.game.Game.players">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">players</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'src.model.Player'&gt;]</span></em><a class="headerlink" href="#src.game.Game.players" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/src/game.html#Game.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.game.Game.reset" title="Permalink to this definition"></a></dt>
+<dd><p>We set the hand of the dealer and each player empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.results">
+<span class="sig-name descname"><span class="pre">results</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">{&lt;class</span> <span class="pre">'str'&gt;:</span> <span class="pre">[&lt;class</span> <span class="pre">'str'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;]}</span></span></span><a class="reference internal" href="_modules/src/game.html#Game.results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.game.Game.results" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a dictionary with the player’s name for key and his result and the money the owner have after this</p>
+</dd>
+</dl>
+<p>round for value.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.model">
+<span id="model-module"></span><h1>model module<a class="headerlink" href="#module-src.model" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.model.AI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.model.</span></span><span class="sig-name descname"><span class="pre">AI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#AI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.AI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="model.html#src.model.Player" title="src.model.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.AI.choose_option_ai_classic">
+<span class="sig-name descname"><span class="pre">choose_option_ai_classic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/model.html#AI.choose_option_ai_classic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.AI.choose_option_ai_classic" title="Permalink to this definition"></a></dt>
+<dd><p>”
+This function will choose for the AI to stand, hit or spilt</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.model.AliasPlayer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.model.</span></span><span class="sig-name descname"><span class="pre">AliasPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#AliasPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.AliasPlayer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="model.html#src.model.AI" title="src.model.AI"><code class="xref py py-class docutils literal notranslate"><span class="pre">AI</span></code></a>, <a class="reference internal" href="model.html#src.model.HumanPlayer" title="src.model.HumanPlayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">HumanPlayer</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.AliasPlayer.index_hand">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index_hand</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.model.AliasPlayer.index_hand" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.AliasPlayer.owner">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">owner</span></span><a class="headerlink" href="#src.model.AliasPlayer.owner" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.model.Card">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.model.</span></span><span class="sig-name descname"><span class="pre">Card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.html#src.model.Color" title="src.model.Color"><span class="pre">Color</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.html#src.model.Rank" title="src.model.Rank"><span class="pre">Rank</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Card"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Card" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.Card.color">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">color</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="model.html#src.model.Color" title="src.model.Color"><span class="pre">Color</span></a></em><a class="headerlink" href="#src.model.Card.color" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.Card.rank">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rank</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="model.html#src.model.Rank" title="src.model.Rank"><span class="pre">Rank</span></a></em><a class="headerlink" href="#src.model.Card.rank" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.Card.value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.model.Card.value" title="Permalink to this definition"></a></dt>
+<dd><p>the value of the card, with one for an ace.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>return</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.model.Color">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.model.</span></span><span class="sig-name descname"><span class="pre">Color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Color" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Color.CLUBS">
+<span class="sig-name descname"><span class="pre">CLUBS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'clubs'</span></em><a class="headerlink" href="#src.model.Color.CLUBS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Color.DIAMONDS">
+<span class="sig-name descname"><span class="pre">DIAMONDS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'diamonds'</span></em><a class="headerlink" href="#src.model.Color.DIAMONDS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Color.HEARTS">
+<span class="sig-name descname"><span class="pre">HEARTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'hearts'</span></em><a class="headerlink" href="#src.model.Color.HEARTS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Color.SPADES">
+<span class="sig-name descname"><span class="pre">SPADES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'spades'</span></em><a class="headerlink" href="#src.model.Color.SPADES" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.model.Dealer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.model.</span></span><span class="sig-name descname"><span class="pre">Dealer</span></span><a class="reference internal" href="_modules/src/model.html#Dealer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Dealer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="model.html#src.model.Player" title="src.model.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Dealer.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">party</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_distribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="model.html#src.model.Card" title="src.model.Card"><span class="pre">Card</span></a></span></span><a class="reference internal" href="_modules/src/model.html#Dealer.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Dealer.draw" title="Permalink to this definition"></a></dt>
+<dd><p>The dealer draws the top card of the deck and adds it to his hand.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Dealer.draw_without_showing">
+<span class="sig-name descname"><span class="pre">draw_without_showing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">party</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Dealer.draw_without_showing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Dealer.draw_without_showing" title="Permalink to this definition"></a></dt>
+<dd><p>The dealer draws the top card of the deck and adds it to his hand without showing because it’s his 2nd card.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Dealer.play">
+<span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">party</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Dealer.play"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Dealer.play" title="Permalink to this definition"></a></dt>
+<dd><p>This function make a dealer play.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Dealer.show_hand">
+<span class="sig-name descname"><span class="pre">show_hand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">party</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Dealer.show_hand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Dealer.show_hand" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.model.Deck">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.model.</span></span><span class="sig-name descname"><span class="pre">Deck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_decks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Deck"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Deck" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.Deck.cards">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cards</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'src.model.Card'&gt;]</span></em><a class="headerlink" href="#src.model.Deck.cards" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Deck.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="model.html#src.model.Card" title="src.model.Card"><span class="pre">Card</span></a></span></span><a class="reference internal" href="_modules/src/model.html#Deck.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Deck.draw" title="Permalink to this definition"></a></dt>
+<dd><p>This function draw a card of the deck</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the card which have been drawn</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.Deck.nb_decks">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nb_decks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.model.Deck.nb_decks" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Deck.perfect_shuffle">
+<span class="sig-name descname"><span class="pre">perfect_shuffle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Deck.perfect_shuffle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Deck.perfect_shuffle" title="Permalink to this definition"></a></dt>
+<dd><p>Shuffles the deck in an unpredictable way.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Deck.random_stop_index">
+<span class="sig-name descname"><span class="pre">random_stop_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Deck.random_stop_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Deck.random_stop_index" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Deck.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Deck.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Deck.reset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.Deck.stop_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop_index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.model.Deck.stop_index" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Deck.stop_index_decrease">
+<span class="sig-name descname"><span class="pre">stop_index_decrease</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Deck.stop_index_decrease"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Deck.stop_index_decrease" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.model.HumanPlayer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.model.</span></span><span class="sig-name descname"><span class="pre">HumanPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#HumanPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.HumanPlayer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="model.html#src.model.Player" title="src.model.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.HumanPlayer.choose_option_test_classic">
+<span class="sig-name descname"><span class="pre">choose_option_test_classic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/model.html#HumanPlayer.choose_option_test_classic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.HumanPlayer.choose_option_test_classic" title="Permalink to this definition"></a></dt>
+<dd><p>”
+This function will simulate a player choosing to stand, hit or spilt</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.HumanPlayer.show_possibilities">
+<span class="sig-name descname"><span class="pre">show_possibilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windows_param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/model.html#HumanPlayer.show_possibilities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.HumanPlayer.show_possibilities" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.model.Player">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.model.</span></span><span class="sig-name descname"><span class="pre">Player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Player" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.Player.bet">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bet</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.model.Player.bet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Player.choose_option_ai_cheat">
+<span class="sig-name descname"><span class="pre">choose_option_ai_cheat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/model.html#Player.choose_option_ai_cheat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Player.choose_option_ai_cheat" title="Permalink to this definition"></a></dt>
+<dd><p>”
+This function will choose for the AI (or any kind of player, if used in the tests or data analysis module) to
+stand, hit or spilt while counting cards.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Player.double">
+<span class="sig-name descname"><span class="pre">double</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Player.double"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Player.double" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Player.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">party</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_distribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="model.html#src.model.Card" title="src.model.Card"><span class="pre">Card</span></a></span></span><a class="reference internal" href="_modules/src/model.html#Player.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Player.draw" title="Permalink to this definition"></a></dt>
+<dd><p>The player draws the top card of the deck and adds it to his hand.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Player.even_money">
+<span class="sig-name descname"><span class="pre">even_money</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/src/model.html#Player.even_money"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Player.even_money" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.Player.hand">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hand</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'src.model.Card'&gt;]</span></em><a class="headerlink" href="#src.model.Player.hand" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.Player.money">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">money</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.model.Player.money" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.Player.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#src.model.Player.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.Player.nb_hand">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nb_hand</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.model.Player.nb_hand" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.model.Player.owner">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">owner</span></span><a class="headerlink" href="#src.model.Player.owner" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Player.pair">
+<span class="sig-name descname"><span class="pre">pair</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/src/model.html#Player.pair"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Player.pair" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Player.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Player.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Player.reset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Player.show_hand">
+<span class="sig-name descname"><span class="pre">show_hand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">party</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windows_param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Player.show_hand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Player.show_hand" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Player.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/model.html#Player.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Player.value" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the maximal possible value of the player’s hand, below 21.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.model.Player.win_money">
+<span class="sig-name descname"><span class="pre">win_money</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/src/model.html#Player.win_money"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Player.win_money" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.model.Rank">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.model.</span></span><span class="sig-name descname"><span class="pre">Rank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/model.html#Rank"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.Rank" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Rank.ACE">
+<span class="sig-name descname"><span class="pre">ACE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#src.model.Rank.ACE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Rank.EIGHT">
+<span class="sig-name descname"><span class="pre">EIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#src.model.Rank.EIGHT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Rank.FIVE">
+<span class="sig-name descname"><span class="pre">FIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#src.model.Rank.FIVE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Rank.FOUR">
+<span class="sig-name descname"><span class="pre">FOUR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#src.model.Rank.FOUR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Rank.JACK">
+<span class="sig-name descname"><span class="pre">JACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#src.model.Rank.JACK" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Rank.KING">
+<span class="sig-name descname"><span class="pre">KING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#src.model.Rank.KING" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Rank.NINE">
+<span class="sig-name descname"><span class="pre">NINE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#src.model.Rank.NINE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Rank.QUEEN">
+<span class="sig-name descname"><span class="pre">QUEEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#src.model.Rank.QUEEN" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Rank.SEVEN">
+<span class="sig-name descname"><span class="pre">SEVEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#src.model.Rank.SEVEN" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Rank.SIX">
+<span class="sig-name descname"><span class="pre">SIX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#src.model.Rank.SIX" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Rank.TEN">
+<span class="sig-name descname"><span class="pre">TEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#src.model.Rank.TEN" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Rank.THREE">
+<span class="sig-name descname"><span class="pre">THREE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#src.model.Rank.THREE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.model.Rank.TWO">
+<span class="sig-name descname"><span class="pre">TWO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#src.model.Rank.TWO" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Henon-Just Guillaume, Bresnu Arthur, Pic Emilie, Merlen Gauthier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

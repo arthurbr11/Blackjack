@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.model &mdash; BlackJack 2.1.4 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> BlackJack
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BlackJack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.model</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.model</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">enum</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">src.display</span> <span class="k">as</span> <span class="nn">display</span>
+
+<span class="n">INITIAL_MONEY</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">SIZE_DECK</span> <span class="o">=</span> <span class="mi">52</span>
+
+<span class="n">COUNT_MIN</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">SHOW_TERMINAL</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">SHOW_PYGAME</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<div class="viewcode-block" id="Color"><a class="viewcode-back" href="../../model.html#src.model.Color">[docs]</a><span class="k">class</span> <span class="nc">Color</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">CLUBS</span> <span class="o">=</span> <span class="s2">&quot;clubs&quot;</span>
+    <span class="n">DIAMONDS</span> <span class="o">=</span> <span class="s2">&quot;diamonds&quot;</span>
+    <span class="n">HEARTS</span> <span class="o">=</span> <span class="s2">&quot;hearts&quot;</span>
+    <span class="n">SPADES</span> <span class="o">=</span> <span class="s2">&quot;spades&quot;</span></div>
+
+
+<div class="viewcode-block" id="Rank"><a class="viewcode-back" href="../../model.html#src.model.Rank">[docs]</a><span class="k">class</span> <span class="nc">Rank</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">ACE</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">TWO</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">THREE</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">FOUR</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">FIVE</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">SIX</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">SEVEN</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">EIGHT</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">NINE</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">TEN</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">JACK</span> <span class="o">=</span> <span class="mi">11</span>
+    <span class="n">QUEEN</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="n">KING</span> <span class="o">=</span> <span class="mi">13</span></div>
+
+
+<div class="viewcode-block" id="Card"><a class="viewcode-back" href="../../model.html#src.model.Card">[docs]</a><span class="k">class</span> <span class="nc">Card</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span> <span class="n">Color</span><span class="p">,</span> <span class="n">rank</span><span class="p">:</span> <span class="n">Rank</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_color</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rank</span> <span class="o">=</span> <span class="n">rank</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Color</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_color</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">rank</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Rank</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rank</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the value of the card, with one for an ace.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_rank</span> <span class="o">==</span> <span class="n">Rank</span><span class="o">.</span><span class="n">JACK</span>
+                <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rank</span> <span class="o">==</span> <span class="n">Rank</span><span class="o">.</span><span class="n">QUEEN</span>
+                <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rank</span> <span class="o">==</span> <span class="n">Rank</span><span class="o">.</span><span class="n">KING</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="mi">10</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rank</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">)</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;Rank.&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; of &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="Deck"><a class="viewcode-back" href="../../model.html#src.model.Deck">[docs]</a><span class="k">class</span> <span class="nc">Deck</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nb_decks</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nb_decks</span> <span class="o">=</span> <span class="n">nb_decks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cards</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nb_decks</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">Color</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">rank</span> <span class="ow">in</span> <span class="n">Rank</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">Card</span><span class="p">(</span><span class="n">color</span><span class="p">,</span>
+                            <span class="n">rank</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="mi">10</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">split</span><span class="p">:</span>  <span class="c1"># When we test the split function, we keep in the deck</span>
+                        <span class="c1"># only cards with a value of 10</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_cards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Card</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">rank</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stop_index</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span>
+            <span class="n">SIZE_DECK</span><span class="p">,</span> <span class="n">SIZE_DECK</span> <span class="o">*</span> <span class="p">(</span><span class="n">nb_decks</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">)</span>  <span class="c1"># Position of the red card in the deck : the dealer shuffles the deck when drawn</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cards</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">Card</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cards</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">stop_index</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stop_index</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nb_decks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nb_decks</span>
+
+<div class="viewcode-block" id="Deck.stop_index_decrease"><a class="viewcode-back" href="../../model.html#src.model.Deck.stop_index_decrease">[docs]</a>    <span class="k">def</span> <span class="nf">stop_index_decrease</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stop_index</span> <span class="o">+=</span> <span class="o">-</span><span class="mi">1</span></div>
+
+<div class="viewcode-block" id="Deck.random_stop_index"><a class="viewcode-back" href="../../model.html#src.model.Deck.random_stop_index">[docs]</a>    <span class="k">def</span> <span class="nf">random_stop_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stop_index</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="n">SIZE_DECK</span><span class="p">,</span> <span class="n">SIZE_DECK</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nb_decks</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Deck.reset"><a class="viewcode-back" href="../../model.html#src.model.Deck.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cards</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_decks</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">Color</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">rank</span> <span class="ow">in</span> <span class="n">Rank</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_cards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Card</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">rank</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Deck.perfect_shuffle"><a class="viewcode-back" href="../../model.html#src.model.Deck.perfect_shuffle">[docs]</a>    <span class="k">def</span> <span class="nf">perfect_shuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Shuffles the deck in an unpredictable way.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cards</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_stop_index</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Deck.draw"><a class="viewcode-back" href="../../model.html#src.model.Deck.draw">[docs]</a>    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Card</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function draw a card of the deck</span>
+
+<span class="sd">        :return: the card which have been drawn</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stop_index</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="p">):</span>  <span class="c1"># If the dealer hasn&#39;t reached the red card yet, he draws</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stop_index_decrease</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cards</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Else he shuffles the deck and then draws one</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">perfect_shuffle</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stop_index_decrease</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cards</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="Player"><a class="viewcode-back" href="../../model.html#src.model.Player">[docs]</a><span class="k">class</span> <span class="nc">Player</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hand</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nb_hand</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_money</span> <span class="o">=</span> <span class="n">INITIAL_MONEY</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bet</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop_splitting</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># We stop splitting when the player reaches 20 hands : used in test functions</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">owner</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">hand</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">Card</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hand</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nb_hand</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nb_hand</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">money</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_money</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">bet</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bet</span>
+
+    <span class="nd">@bet</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">bet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_bet</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bet</span> <span class="o">=</span> <span class="n">new_bet</span>
+
+    <span class="nd">@money</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">money</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_money</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_money</span> <span class="o">=</span> <span class="n">new_money</span>
+
+    <span class="nd">@nb_hand</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">nb_hand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_nb_hand</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nb_hand</span> <span class="o">=</span> <span class="n">new_nb_hand</span>
+
+<div class="viewcode-block" id="Player.pair"><a class="viewcode-back" href="../../model.html#src.model.Player.pair">[docs]</a>    <span class="k">def</span> <span class="nf">pair</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hand</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hand</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">hand</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value</span></div>
+
+<div class="viewcode-block" id="Player.reset"><a class="viewcode-back" href="../../model.html#src.model.Player.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hand</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nb_hand</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bet</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="Player.value"><a class="viewcode-back" href="../../model.html#src.model.Player.value">[docs]</a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the maximal possible value of the player&#39;s hand, below 21.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Stocks the different possible values of the player&#39;s hand</span>
+        <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hand</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">card</span><span class="o">.</span><span class="n">rank</span> <span class="o">==</span> <span class="n">Rank</span><span class="o">.</span><span class="n">ACE</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)):</span>
+                    <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">card</span><span class="o">.</span><span class="n">value</span>  <span class="c1"># We value the ace as 1 here</span>
+                    <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># Or it can be valued as 11</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)):</span>
+                    <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">card</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">values</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">21</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># The player&#39;s hand value is beyond 21</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span>
+                        <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+                <span class="p">):</span>  <span class="c1"># We compute the maximal possible value of the player&#39;s hand below 21</span>
+                    <span class="k">if</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">21</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Player.show_hand"><a class="viewcode-back" href="../../model.html#src.model.Player.show_hand">[docs]</a>    <span class="k">def</span> <span class="nf">show_hand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">party</span><span class="p">,</span> <span class="n">windows_param</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">SHOW_TERMINAL</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">+</span> <span class="s2">&quot;: have &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hand</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">card</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;With a value of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="si">}</span><span class="s2"> and a bet of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_bet</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">SHOW_PYGAME</span><span class="p">:</span>
+            <span class="n">display</span><span class="o">.</span><span class="n">show_hand_player</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">party</span><span class="p">,</span> <span class="n">windows_param</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Player.draw"><a class="viewcode-back" href="../../model.html#src.model.Player.draw">[docs]</a>    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">party</span><span class="p">,</span> <span class="n">windows_param</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">first_distribution</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Card</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The player draws the top card of the deck and adds it to his hand.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">drew_card</span> <span class="o">=</span> <span class="n">party</span><span class="o">.</span><span class="n">deck</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hand</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">drew_card</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">first_distribution</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">show_hand</span><span class="p">(</span><span class="n">party</span><span class="p">,</span> <span class="n">windows_param</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">drew_card</span></div>
+
+<div class="viewcode-block" id="Player.win_money"><a class="viewcode-back" href="../../model.html#src.model.Player.win_money">[docs]</a>    <span class="k">def</span> <span class="nf">win_money</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hand</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">21</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">money</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">bet</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;Blackjack !&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">money</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">bet</span>
+            <span class="k">return</span> <span class="s2">&quot;Won !&quot;</span></div>
+
+<div class="viewcode-block" id="Player.even_money"><a class="viewcode-back" href="../../model.html#src.model.Player.even_money">[docs]</a>    <span class="k">def</span> <span class="nf">even_money</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">money</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bet</span>
+        <span class="k">return</span> <span class="s2">&quot;Even !&quot;</span></div>
+
+<div class="viewcode-block" id="Player.double"><a class="viewcode-back" href="../../model.html#src.model.Player.double">[docs]</a>    <span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">money</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bet</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bet</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bet</span></div>
+
+<div class="viewcode-block" id="Player.choose_option_ai_cheat"><a class="viewcode-back" href="../../model.html#src.model.Player.choose_option_ai_cheat">[docs]</a>    <span class="k">def</span> <span class="nf">choose_option_ai_cheat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;&quot;</span>
+<span class="sd">        This function will choose for the AI (or any kind of player, if used in the tests or data analysis module) to</span>
+<span class="sd">        stand, hit or spilt while counting cards.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pair</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">money</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bet</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop_splitting</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">4</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">14</span> <span class="ow">and</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">COUNT_MIN</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">money</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bet</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">3</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">14</span> <span class="ow">and</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">COUNT_MIN</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span></div></div>
+
+
+<div class="viewcode-block" id="Dealer"><a class="viewcode-back" href="../../model.html#src.model.Dealer">[docs]</a><span class="k">class</span> <span class="nc">Dealer</span><span class="p">(</span><span class="n">Player</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;DEALER&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">money</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="Dealer.draw"><a class="viewcode-back" href="../../model.html#src.model.Dealer.draw">[docs]</a>    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">party</span><span class="p">,</span> <span class="n">windows_param</span><span class="p">,</span> <span class="n">first_distribution</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Card</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The dealer draws the top card of the deck and adds it to his hand.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">drew_card</span> <span class="o">=</span> <span class="n">party</span><span class="o">.</span><span class="n">deck</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hand</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">drew_card</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">first_distribution</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">show_hand</span><span class="p">(</span><span class="n">party</span><span class="p">,</span> <span class="n">windows_param</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">drew_card</span></div>
+
+<div class="viewcode-block" id="Dealer.draw_without_showing"><a class="viewcode-back" href="../../model.html#src.model.Dealer.draw_without_showing">[docs]</a>    <span class="k">def</span> <span class="nf">draw_without_showing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">party</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The dealer draws the top card of the deck and adds it to his hand without showing because it&#39;s his 2nd card.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hand</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">party</span><span class="o">.</span><span class="n">deck</span><span class="o">.</span><span class="n">draw</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Dealer.play"><a class="viewcode-back" href="../../model.html#src.model.Dealer.play">[docs]</a>    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">party</span><span class="p">,</span> <span class="n">windows_param</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function make a dealer play.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show_hand</span><span class="p">(</span><span class="n">party</span><span class="p">,</span> <span class="n">windows_param</span><span class="p">)</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">party</span><span class="p">,</span> <span class="n">windows_param</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dealer.show_hand"><a class="viewcode-back" href="../../model.html#src.model.Dealer.show_hand">[docs]</a>    <span class="k">def</span> <span class="nf">show_hand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">party</span><span class="p">,</span> <span class="n">windows_param</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">SHOW_TERMINAL</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">+</span> <span class="s2">&quot;: have &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hand</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">card</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;With a value of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">SHOW_PYGAME</span><span class="p">:</span>
+            <span class="n">display</span><span class="o">.</span><span class="n">show_hand_dealer</span><span class="p">(</span><span class="n">party</span><span class="p">,</span> <span class="n">windows_param</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="HumanPlayer"><a class="viewcode-back" href="../../model.html#src.model.HumanPlayer">[docs]</a><span class="k">class</span> <span class="nc">HumanPlayer</span><span class="p">(</span><span class="n">Player</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<div class="viewcode-block" id="HumanPlayer.show_possibilities"><a class="viewcode-back" href="../../model.html#src.model.HumanPlayer.show_possibilities">[docs]</a>    <span class="k">def</span> <span class="nf">show_possibilities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">windows_param</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">SHOW_TERMINAL</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1st Option : Stand&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2nd Option : Hit&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">money</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bet</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3rd Option : Double&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pair</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">money</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bet</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4th Option : Split&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Which option do you choose ? (Put the number)&quot;</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">SHOW_PYGAME</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">display</span><span class="o">.</span><span class="n">show_possibilities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">windows_param</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HumanPlayer.choose_option_test_classic"><a class="viewcode-back" href="../../model.html#src.model.HumanPlayer.choose_option_test_classic">[docs]</a>    <span class="k">def</span> <span class="nf">choose_option_test_classic</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>  <span class="c1"># A faire</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;&quot;</span>
+<span class="sd">        This function will simulate a player choosing to stand, hit or spilt</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pair</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">money</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bet</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop_splitting</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">4</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span></div></div>
+
+
+<div class="viewcode-block" id="AI"><a class="viewcode-back" href="../../model.html#src.model.AI">[docs]</a><span class="k">class</span> <span class="nc">AI</span><span class="p">(</span><span class="n">Player</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nb</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;IA number&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">nb</span><span class="p">))</span>
+
+<div class="viewcode-block" id="AI.choose_option_ai_classic"><a class="viewcode-back" href="../../model.html#src.model.AI.choose_option_ai_classic">[docs]</a>    <span class="k">def</span> <span class="nf">choose_option_ai_classic</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>  <span class="c1"># A faire</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;&quot;</span>
+<span class="sd">        This function will choose for the AI to stand, hit or spilt</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pair</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">money</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bet</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop_splitting</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">4</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span></div></div>
+
+
+<div class="viewcode-block" id="AliasPlayer"><a class="viewcode-back" href="../../model.html#src.model.AliasPlayer">[docs]</a><span class="k">class</span> <span class="nc">AliasPlayer</span><span class="p">(</span><span class="n">AI</span><span class="p">,</span> <span class="n">HumanPlayer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">Player</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot; hand </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_index_hand</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_owner</span> <span class="o">=</span> <span class="n">player</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">money</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bet</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">bet</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">20</span><span class="p">:</span>
+            <span class="n">player</span><span class="o">.</span><span class="n">stop_splitting</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># After 20 splits, a player can&#39;t split anymore (only reached on tests</span>
+            <span class="c1"># functions)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">owner</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_owner</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">index_hand</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index_hand</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Henon-Just Guillaume, Bresnu Arthur, Pic Emilie, Merlen Gauthier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
