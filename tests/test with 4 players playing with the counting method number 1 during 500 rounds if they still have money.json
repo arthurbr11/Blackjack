@@ -1,0 +1,6681 @@
+{
+  "parameters": {
+    "nb_players": 4,
+    "nb_round_theo": 500,
+    "nb_round_reel": 282
+  },
+  "round 0": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 100,
+      "result": "E",
+      "money": 1000
+    },
+    "IA number1": {
+      "bet": 100,
+      "result": "Won !",
+      "money": 1100
+    },
+    "IA number2 hand 2": {
+      "bet": 100,
+      "result": "E"
+    },
+    "IA number2 hand 1": {
+      "bet": 100,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "bet": 100,
+      "result": "Won !",
+      "money": 1100
+    },
+    "IA number2": {
+      "money": 1100
+    }
+  },
+  "round 1": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 100,
+      "result": "loose",
+      "money": 900
+    },
+    "IA number1": {
+      "bet": 110,
+      "result": "Won !",
+      "money": 1210
+    },
+    "IA number2": {
+      "bet": 110,
+      "result": "bust",
+      "money": 990
+    },
+    "IA number3": {
+      "bet": 110,
+      "result": "loose",
+      "money": 990
+    }
+  },
+  "round 2": {
+    "Count": -3,
+    "IA number0": {
+      "bet": 90,
+      "result": "Won !",
+      "money": 990
+    },
+    "IA number1": {
+      "bet": 121,
+      "result": "bust",
+      "money": 1089
+    },
+    "IA number2": {
+      "bet": 99,
+      "result": "bust",
+      "money": 891
+    },
+    "IA number3": {
+      "bet": 99,
+      "result": "Won !",
+      "money": 1089
+    }
+  },
+  "round 3": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 99,
+      "result": "Won !",
+      "money": 1089
+    },
+    "IA number1": {
+      "bet": 108,
+      "result": "Won !",
+      "money": 1197
+    },
+    "IA number2": {
+      "bet": 89,
+      "result": "bust",
+      "money": 802
+    },
+    "IA number3": {
+      "bet": 108,
+      "result": "bust",
+      "money": 981
+    }
+  },
+  "round 4": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 108,
+      "result": "E",
+      "money": 1089
+    },
+    "IA number1": {
+      "bet": 119,
+      "result": "loose",
+      "money": 1078
+    },
+    "IA number2 hand 2": {
+      "bet": 80,
+      "result": "bust"
+    },
+    "IA number2 hand 1": {
+      "bet": 80,
+      "result": "loose"
+    },
+    "IA number3": {
+      "bet": 98,
+      "result": "bust",
+      "money": 883
+    },
+    "IA number2": {
+      "money": 642
+    }
+  },
+  "round 5": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 108,
+      "result": "Won !",
+      "money": 1197
+    },
+    "IA number1": {
+      "bet": 107,
+      "result": "Won !",
+      "money": 1185
+    },
+    "IA number2": {
+      "bet": 64,
+      "result": "Blackjack !",
+      "money": 738
+    },
+    "IA number3": {
+      "bet": 88,
+      "result": "Blackjack !",
+      "money": 1015
+    }
+  },
+  "round 6": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 119,
+      "result": "loose",
+      "money": 1078
+    },
+    "IA number1": {
+      "bet": 118,
+      "result": "bust",
+      "money": 1067
+    },
+    "IA number2": {
+      "bet": 73,
+      "result": "bust",
+      "money": 665
+    },
+    "IA number3": {
+      "bet": 101,
+      "result": "loose",
+      "money": 914
+    }
+  },
+  "round 7": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 107,
+      "result": "loose",
+      "money": 971
+    },
+    "IA number1": {
+      "bet": 106,
+      "result": "E",
+      "money": 1067
+    },
+    "IA number2": {
+      "bet": 66,
+      "result": "loose",
+      "money": 599
+    },
+    "IA number3": {
+      "bet": 91,
+      "result": "E",
+      "money": 914
+    }
+  },
+  "round 8": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 97,
+      "result": "Blackjack !",
+      "money": 1116
+    },
+    "IA number1": {
+      "bet": 106,
+      "result": "bust",
+      "money": 961
+    },
+    "IA number2": {
+      "bet": 59,
+      "result": "Won !",
+      "money": 658
+    },
+    "IA number3": {
+      "bet": 91,
+      "result": "bust",
+      "money": 823
+    }
+  },
+  "round 9": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 111,
+      "result": "bust",
+      "money": 1005
+    },
+    "IA number1": {
+      "bet": 96,
+      "result": "bust",
+      "money": 865
+    },
+    "IA number2": {
+      "bet": 65,
+      "result": "bust",
+      "money": 593
+    },
+    "IA number3": {
+      "bet": 82,
+      "result": "Won !",
+      "money": 905
+    }
+  },
+  "round 10": {
+    "Count": -3,
+    "IA number0 hand 4": {
+      "bet": 100,
+      "result": "bust"
+    },
+    "IA number0 hand 3": {
+      "bet": 100,
+      "result": "E"
+    },
+    "IA number0 hand 2": {
+      "bet": 100,
+      "result": "loose"
+    },
+    "IA number0 hand 1": {
+      "bet": 100,
+      "result": "loose"
+    },
+    "IA number1": {
+      "bet": 86,
+      "result": "loose",
+      "money": 779
+    },
+    "IA number2": {
+      "bet": 59,
+      "result": "loose",
+      "money": 534
+    },
+    "IA number3": {
+      "bet": 90,
+      "result": "bust",
+      "money": 815
+    },
+    "IA number0": {
+      "money": 705
+    }
+  },
+  "round 11": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 70,
+      "result": "loose",
+      "money": 635
+    },
+    "IA number1": {
+      "bet": 77,
+      "result": "bust",
+      "money": 702
+    },
+    "IA number2": {
+      "bet": 53,
+      "result": "loose",
+      "money": 481
+    },
+    "IA number3": {
+      "bet": 81,
+      "result": "bust",
+      "money": 734
+    }
+  },
+  "round 12": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 63,
+      "result": "bust",
+      "money": 572
+    },
+    "IA number1": {
+      "bet": 70,
+      "result": "Won !",
+      "money": 772
+    },
+    "IA number2": {
+      "bet": 48,
+      "result": "Won !",
+      "money": 529
+    },
+    "IA number3 hand 2": {
+      "bet": 73,
+      "result": "Won !"
+    },
+    "IA number3 hand 1": {
+      "bet": 73,
+      "result": "bust"
+    },
+    "IA number3": {
+      "money": 734
+    }
+  },
+  "round 13": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 57,
+      "result": "bust",
+      "money": 515
+    },
+    "IA number1": {
+      "bet": 77,
+      "result": "loose",
+      "money": 695
+    },
+    "IA number2": {
+      "bet": 52,
+      "result": "Won !",
+      "money": 581
+    },
+    "IA number3": {
+      "bet": 73,
+      "result": "bust",
+      "money": 661
+    }
+  },
+  "round 14": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 51,
+      "result": "loose",
+      "money": 464
+    },
+    "IA number1 hand 7": {
+      "bet": 69,
+      "result": "E"
+    },
+    "IA number1 hand 6": {
+      "bet": 69,
+      "result": "Won !"
+    },
+    "IA number1 hand 5": {
+      "bet": 69,
+      "result": "Blackjack !"
+    },
+    "IA number1 hand 4": {
+      "bet": 69,
+      "result": "bust"
+    },
+    "IA number1 hand 3": {
+      "bet": 69,
+      "result": "bust"
+    },
+    "IA number1 hand 2": {
+      "bet": 69,
+      "result": "E"
+    },
+    "IA number1 hand 1": {
+      "bet": 69,
+      "result": "bust"
+    },
+    "IA number2 hand 2": {
+      "bet": 58,
+      "result": "bust"
+    },
+    "IA number2 hand 1": {
+      "bet": 58,
+      "result": "loose"
+    },
+    "IA number3": {
+      "bet": 66,
+      "result": "bust",
+      "money": 595
+    },
+    "IA number1": {
+      "money": 660
+    },
+    "IA number2": {
+      "money": 465
+    }
+  },
+  "round 15": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 46,
+      "result": "Blackjack !",
+      "money": 533
+    },
+    "IA number1": {
+      "bet": 66,
+      "result": "Won !",
+      "money": 726
+    },
+    "IA number2 hand 3": {
+      "bet": 46,
+      "result": "loose"
+    },
+    "IA number2 hand 2": {
+      "bet": 46,
+      "result": "loose"
+    },
+    "IA number2 hand 1": {
+      "bet": 46,
+      "result": "loose"
+    },
+    "IA number3 hand 2": {
+      "bet": 59,
+      "result": "E"
+    },
+    "IA number3 hand 1": {
+      "bet": 59,
+      "result": "bust"
+    },
+    "IA number2": {
+      "money": 327
+    },
+    "IA number3": {
+      "money": 536
+    }
+  },
+  "round 16": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 53,
+      "result": "Won !",
+      "money": 586
+    },
+    "IA number1": {
+      "bet": 72,
+      "result": "Won !",
+      "money": 798
+    },
+    "IA number2": {
+      "bet": 32,
+      "result": "Won !",
+      "money": 359
+    },
+    "IA number3": {
+      "bet": 53,
+      "result": "Won !",
+      "money": 589
+    }
+  },
+  "round 17": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 58,
+      "result": "Won !",
+      "money": 644
+    },
+    "IA number1": {
+      "bet": 79,
+      "result": "Won !",
+      "money": 877
+    },
+    "IA number2": {
+      "bet": 35,
+      "result": "E",
+      "money": 359
+    },
+    "IA number3": {
+      "bet": 58,
+      "result": "Won !",
+      "money": 647
+    }
+  },
+  "round 18": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 64,
+      "result": "Won !",
+      "money": 708
+    },
+    "IA number1": {
+      "bet": 87,
+      "result": "Won !",
+      "money": 964
+    },
+    "IA number2": {
+      "bet": 35,
+      "result": "bust",
+      "money": 324
+    },
+    "IA number3": {
+      "bet": 64,
+      "result": "Blackjack !",
+      "money": 743
+    }
+  },
+  "round 19": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 70,
+      "result": "Won !",
+      "money": 778
+    },
+    "IA number1": {
+      "bet": 96,
+      "result": "loose",
+      "money": 868
+    },
+    "IA number2": {
+      "bet": 32,
+      "result": "loose",
+      "money": 292
+    },
+    "IA number3": {
+      "bet": 74,
+      "result": "bust",
+      "money": 669
+    }
+  },
+  "round 20": {
+    "Count": 1,
+    "IA number0 hand 2": {
+      "bet": 77,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 77,
+      "result": "bust"
+    },
+    "IA number1": {
+      "bet": 86,
+      "result": "Won !",
+      "money": 954
+    },
+    "IA number2": {
+      "bet": 29,
+      "result": "Won !",
+      "money": 321
+    },
+    "IA number3": {
+      "bet": 66,
+      "result": "bust",
+      "money": 603
+    },
+    "IA number0": {
+      "money": 624
+    }
+  },
+  "round 21": {
+    "Count": 1,
+    "IA number0 hand 3": {
+      "bet": 62,
+      "result": "bust"
+    },
+    "IA number0 hand 2": {
+      "bet": 62,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 62,
+      "result": "E"
+    },
+    "IA number1": {
+      "bet": 95,
+      "result": "bust",
+      "money": 859
+    },
+    "IA number2": {
+      "bet": 32,
+      "result": "E",
+      "money": 321
+    },
+    "IA number3": {
+      "bet": 60,
+      "result": "Blackjack !",
+      "money": 693
+    },
+    "IA number0": {
+      "money": 500
+    }
+  },
+  "round 22": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 50,
+      "result": "Won !",
+      "money": 550
+    },
+    "IA number1": {
+      "bet": 85,
+      "result": "bust",
+      "money": 774
+    },
+    "IA number2": {
+      "bet": 32,
+      "result": "Blackjack !",
+      "money": 369
+    },
+    "IA number3": {
+      "bet": 69,
+      "result": "Won !",
+      "money": 762
+    }
+  },
+  "round 23": {
+    "Count": 4,
+    "IA number0 hand 2": {
+      "bet": 55,
+      "result": "Won !"
+    },
+    "IA number0 hand 1": {
+      "bet": 55,
+      "result": "E"
+    },
+    "IA number1": {
+      "bet": 77,
+      "result": "bust",
+      "money": 697
+    },
+    "IA number2": {
+      "bet": 36,
+      "result": "Won !",
+      "money": 405
+    },
+    "IA number3 hand 2": {
+      "bet": 304,
+      "result": "bust"
+    },
+    "IA number3 hand 1": {
+      "bet": 152,
+      "result": "bust"
+    },
+    "IA number0": {
+      "money": 605
+    },
+    "IA number3": {
+      "money": 306
+    }
+  },
+  "round 24": {
+    "Count": 1,
+    "IA number0 hand 2": {
+      "bet": 60,
+      "result": "loose"
+    },
+    "IA number0 hand 1": {
+      "bet": 60,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "bet": 69,
+      "result": "E",
+      "money": 697
+    },
+    "IA number2": {
+      "bet": 40,
+      "result": "bust",
+      "money": 365
+    },
+    "IA number3": {
+      "bet": 30,
+      "result": "E",
+      "money": 306
+    },
+    "IA number0": {
+      "money": 605
+    }
+  },
+  "round 25": {
+    "Count": -2,
+    "IA number0 hand 9": {
+      "bet": 60,
+      "result": "bust"
+    },
+    "IA number0 hand 8": {
+      "bet": 60,
+      "result": "Won !"
+    },
+    "IA number0 hand 7": {
+      "bet": 60,
+      "result": "Won !"
+    },
+    "IA number0 hand 6": {
+      "bet": 60,
+      "result": "Won !"
+    },
+    "IA number0 hand 5": {
+      "bet": 60,
+      "result": "Won !"
+    },
+    "IA number0 hand 4": {
+      "bet": 60,
+      "result": "Won !"
+    },
+    "IA number0 hand 3": {
+      "bet": 60,
+      "result": "bust"
+    },
+    "IA number0 hand 2": {
+      "bet": 60,
+      "result": "Won !"
+    },
+    "IA number0 hand 1": {
+      "bet": 60,
+      "result": "bust"
+    },
+    "IA number1": {
+      "bet": 69,
+      "result": "Won !",
+      "money": 766
+    },
+    "IA number2": {
+      "bet": 36,
+      "result": "bust",
+      "money": 329
+    },
+    "IA number3": {
+      "bet": 30,
+      "result": "bust",
+      "money": 276
+    },
+    "IA number0": {
+      "money": 785
+    }
+  },
+  "round 26": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 78,
+      "result": "bust",
+      "money": 707
+    },
+    "IA number1": {
+      "bet": 76,
+      "result": "Won !",
+      "money": 842
+    },
+    "IA number2": {
+      "bet": 32,
+      "result": "Won !",
+      "money": 361
+    },
+    "IA number3": {
+      "bet": 27,
+      "result": "bust",
+      "money": 249
+    }
+  },
+  "round 27": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 70,
+      "result": "bust",
+      "money": 637
+    },
+    "IA number1 hand 2": {
+      "bet": 84,
+      "result": "Blackjack !"
+    },
+    "IA number1 hand 1": {
+      "bet": 84,
+      "result": "Won !"
+    },
+    "IA number2": {
+      "bet": 36,
+      "result": "Won !",
+      "money": 397
+    },
+    "IA number3": {
+      "bet": 24,
+      "result": "Won !",
+      "money": 273
+    },
+    "IA number1": {
+      "money": 1052
+    }
+  },
+  "round 28": {
+    "Count": -1,
+    "IA number0 hand 2": {
+      "bet": 63,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 63,
+      "result": "bust"
+    },
+    "IA number1": {
+      "bet": 105,
+      "result": "loose",
+      "money": 947
+    },
+    "IA number2": {
+      "bet": 39,
+      "result": "bust",
+      "money": 358
+    },
+    "IA number3": {
+      "bet": 27,
+      "result": "loose",
+      "money": 246
+    },
+    "IA number0": {
+      "money": 511
+    }
+  },
+  "round 29": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 51,
+      "result": "E",
+      "money": 511
+    },
+    "IA number1": {
+      "bet": 94,
+      "result": "bust",
+      "money": 853
+    },
+    "IA number2": {
+      "bet": 35,
+      "result": "bust",
+      "money": 323
+    },
+    "IA number3": {
+      "bet": 24,
+      "result": "bust",
+      "money": 222
+    }
+  },
+  "round 30": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 51,
+      "result": "loose",
+      "money": 460
+    },
+    "IA number1": {
+      "bet": 85,
+      "result": "E",
+      "money": 853
+    },
+    "IA number2": {
+      "bet": 32,
+      "result": "E",
+      "money": 323
+    },
+    "IA number3": {
+      "bet": 22,
+      "result": "loose",
+      "money": 200
+    }
+  },
+  "round 31": {
+    "Count": 4,
+    "IA number0 hand 3": {
+      "bet": 46,
+      "result": "bust"
+    },
+    "IA number0 hand 2": {
+      "bet": 46,
+      "result": "loose"
+    },
+    "IA number0 hand 1": {
+      "bet": 46,
+      "result": "loose"
+    },
+    "IA number1": {
+      "bet": 85,
+      "result": "Won !",
+      "money": 938
+    },
+    "IA number2": {
+      "bet": 32,
+      "result": "loose",
+      "money": 291
+    },
+    "IA number3": {
+      "bet": 20,
+      "result": "Blackjack !",
+      "money": 230
+    },
+    "IA number0": {
+      "money": 322
+    }
+  },
+  "round 32": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 32,
+      "result": "Won !",
+      "money": 354
+    },
+    "IA number1": {
+      "bet": 93,
+      "result": "bust",
+      "money": 845
+    },
+    "IA number2": {
+      "bet": 29,
+      "result": "E",
+      "money": 291
+    },
+    "IA number3": {
+      "bet": 23,
+      "result": "Won !",
+      "money": 253
+    }
+  },
+  "round 33": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 35,
+      "result": "Won !",
+      "money": 389
+    },
+    "IA number1": {
+      "bet": 84,
+      "result": "Won !",
+      "money": 929
+    },
+    "IA number2": {
+      "bet": 29,
+      "result": "Won !",
+      "money": 320
+    },
+    "IA number3": {
+      "bet": 25,
+      "result": "Won !",
+      "money": 278
+    }
+  },
+  "round 34": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 38,
+      "result": "loose",
+      "money": 351
+    },
+    "IA number1": {
+      "bet": 92,
+      "result": "loose",
+      "money": 837
+    },
+    "IA number2": {
+      "bet": 32,
+      "result": "bust",
+      "money": 288
+    },
+    "IA number3": {
+      "bet": 27,
+      "result": "loose",
+      "money": 251
+    }
+  },
+  "round 35": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 35,
+      "result": "Won !",
+      "money": 386
+    },
+    "IA number1": {
+      "bet": 83,
+      "result": "bust",
+      "money": 754
+    },
+    "IA number2": {
+      "bet": 28,
+      "result": "Won !",
+      "money": 316
+    },
+    "IA number3": {
+      "bet": 25,
+      "result": "Blackjack !",
+      "money": 288
+    }
+  },
+  "round 36": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 38,
+      "result": "Won !",
+      "money": 424
+    },
+    "IA number1": {
+      "bet": 75,
+      "result": "loose",
+      "money": 679
+    },
+    "IA number2": {
+      "bet": 31,
+      "result": "bust",
+      "money": 285
+    },
+    "IA number3": {
+      "bet": 28,
+      "result": "Blackjack !",
+      "money": 330
+    }
+  },
+  "round 37": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 42,
+      "result": "loose",
+      "money": 382
+    },
+    "IA number1": {
+      "bet": 67,
+      "result": "E",
+      "money": 679
+    },
+    "IA number2": {
+      "bet": 28,
+      "result": "Won !",
+      "money": 313
+    },
+    "IA number3": {
+      "bet": 33,
+      "result": "bust",
+      "money": 297
+    }
+  },
+  "round 38": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 38,
+      "result": "Won !",
+      "money": 420
+    },
+    "IA number1": {
+      "bet": 67,
+      "result": "Won !",
+      "money": 746
+    },
+    "IA number2": {
+      "bet": 31,
+      "result": "Won !",
+      "money": 344
+    },
+    "IA number3": {
+      "bet": 29,
+      "result": "bust",
+      "money": 268
+    }
+  },
+  "round 39": {
+    "Count": -5,
+    "IA number0": {
+      "bet": 42,
+      "result": "bust",
+      "money": 378
+    },
+    "IA number1": {
+      "bet": 74,
+      "result": "E",
+      "money": 746
+    },
+    "IA number2 hand 8": {
+      "bet": 34,
+      "result": "Blackjack !"
+    },
+    "IA number2 hand 7": {
+      "bet": 34,
+      "result": "loose"
+    },
+    "IA number2 hand 6": {
+      "bet": 34,
+      "result": "E"
+    },
+    "IA number2 hand 5": {
+      "bet": 34,
+      "result": "loose"
+    },
+    "IA number2 hand 4": {
+      "bet": 34,
+      "result": "Blackjack !"
+    },
+    "IA number2 hand 3": {
+      "bet": 34,
+      "result": "bust"
+    },
+    "IA number2 hand 2": {
+      "bet": 34,
+      "result": "bust"
+    },
+    "IA number2 hand 1": {
+      "bet": 34,
+      "result": "bust"
+    },
+    "IA number3": {
+      "bet": 26,
+      "result": "bust",
+      "money": 242
+    },
+    "IA number2": {
+      "money": 276
+    }
+  },
+  "round 40": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 37,
+      "result": "Won !",
+      "money": 415
+    },
+    "IA number1": {
+      "bet": 74,
+      "result": "Blackjack !",
+      "money": 857
+    },
+    "IA number2": {
+      "bet": 27,
+      "result": "bust",
+      "money": 249
+    },
+    "IA number3 hand 2": {
+      "bet": 24,
+      "result": "bust"
+    },
+    "IA number3 hand 1": {
+      "bet": 24,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "money": 242
+    }
+  },
+  "round 41": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 41,
+      "result": "Won !",
+      "money": 456
+    },
+    "IA number1": {
+      "bet": 85,
+      "result": "loose",
+      "money": 772
+    },
+    "IA number2": {
+      "bet": 24,
+      "result": "loose",
+      "money": 225
+    },
+    "IA number3": {
+      "bet": 24,
+      "result": "bust",
+      "money": 218
+    }
+  },
+  "round 42": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 45,
+      "result": "Won !",
+      "money": 501
+    },
+    "IA number1": {
+      "bet": 77,
+      "result": "bust",
+      "money": 695
+    },
+    "IA number2": {
+      "bet": 22,
+      "result": "loose",
+      "money": 203
+    },
+    "IA number3": {
+      "bet": 21,
+      "result": "bust",
+      "money": 197
+    }
+  },
+  "round 43": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 50,
+      "result": "loose",
+      "money": 451
+    },
+    "IA number1": {
+      "bet": 69,
+      "result": "loose",
+      "money": 626
+    },
+    "IA number2": {
+      "bet": 20,
+      "result": "loose",
+      "money": 183
+    },
+    "IA number3": {
+      "bet": 19,
+      "result": "bust",
+      "money": 178
+    }
+  },
+  "round 44": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 45,
+      "result": "E",
+      "money": 451
+    },
+    "IA number1": {
+      "bet": 62,
+      "result": "Blackjack !",
+      "money": 719
+    },
+    "IA number2": {
+      "bet": 18,
+      "result": "loose",
+      "money": 165
+    },
+    "IA number3": {
+      "bet": 17,
+      "result": "loose",
+      "money": 161
+    }
+  },
+  "round 45": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 45,
+      "result": "Won !",
+      "money": 496
+    },
+    "IA number1": {
+      "bet": 71,
+      "result": "Won !",
+      "money": 790
+    },
+    "IA number2": {
+      "bet": 16,
+      "result": "Won !",
+      "money": 181
+    },
+    "IA number3": {
+      "bet": 16,
+      "result": "Won !",
+      "money": 177
+    }
+  },
+  "round 46": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 49,
+      "result": "bust",
+      "money": 447
+    },
+    "IA number1": {
+      "bet": 79,
+      "result": "Won !",
+      "money": 869
+    },
+    "IA number2": {
+      "bet": 18,
+      "result": "loose",
+      "money": 163
+    },
+    "IA number3": {
+      "bet": 17,
+      "result": "Won !",
+      "money": 194
+    }
+  },
+  "round 47": {
+    "Count": -1,
+    "IA number0 hand 5": {
+      "bet": 44,
+      "result": "loose"
+    },
+    "IA number0 hand 4": {
+      "bet": 44,
+      "result": "loose"
+    },
+    "IA number0 hand 3": {
+      "bet": 44,
+      "result": "bust"
+    },
+    "IA number0 hand 2": {
+      "bet": 44,
+      "result": "loose"
+    },
+    "IA number0 hand 1": {
+      "bet": 44,
+      "result": "loose"
+    },
+    "IA number1": {
+      "bet": 86,
+      "result": "bust",
+      "money": 783
+    },
+    "IA number2": {
+      "bet": 16,
+      "result": "bust",
+      "money": 147
+    },
+    "IA number3": {
+      "bet": 19,
+      "result": "loose",
+      "money": 175
+    },
+    "IA number0": {
+      "money": 227
+    }
+  },
+  "round 48": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 22,
+      "result": "Won !",
+      "money": 249
+    },
+    "IA number1": {
+      "bet": 78,
+      "result": "bust",
+      "money": 705
+    },
+    "IA number2": {
+      "bet": 14,
+      "result": "bust",
+      "money": 133
+    },
+    "IA number3": {
+      "bet": 17,
+      "result": "bust",
+      "money": 158
+    }
+  },
+  "round 49": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 24,
+      "result": "bust",
+      "money": 225
+    },
+    "IA number1": {
+      "bet": 70,
+      "result": "Won !",
+      "money": 775
+    },
+    "IA number2": {
+      "bet": 13,
+      "result": "loose",
+      "money": 120
+    },
+    "IA number3": {
+      "bet": 15,
+      "result": "loose",
+      "money": 143
+    }
+  },
+  "round 50": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 22,
+      "result": "loose",
+      "money": 203
+    },
+    "IA number1": {
+      "bet": 77,
+      "result": "E",
+      "money": 775
+    },
+    "IA number2 hand 3": {
+      "bet": 12,
+      "result": "bust"
+    },
+    "IA number2 hand 2": {
+      "bet": 12,
+      "result": "loose"
+    },
+    "IA number2 hand 1": {
+      "bet": 12,
+      "result": "loose"
+    },
+    "IA number3": {
+      "bet": 14,
+      "result": "loose",
+      "money": 129
+    },
+    "IA number2": {
+      "money": 84
+    }
+  },
+  "round 51": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 20,
+      "result": "loose",
+      "money": 183
+    },
+    "IA number1": {
+      "bet": 77,
+      "result": "Won !",
+      "money": 852
+    },
+    "IA number2": {
+      "bet": 8,
+      "result": "Won !",
+      "money": 92
+    },
+    "IA number3 hand 3": {
+      "bet": 12,
+      "result": "loose"
+    },
+    "IA number3 hand 2": {
+      "bet": 12,
+      "result": "bust"
+    },
+    "IA number3 hand 1": {
+      "bet": 12,
+      "result": "Blackjack !"
+    },
+    "IA number3": {
+      "money": 123
+    }
+  },
+  "round 52": {
+    "Count": -3,
+    "IA number0": {
+      "bet": 18,
+      "result": "Won !",
+      "money": 201
+    },
+    "IA number1": {
+      "bet": 85,
+      "result": "Won !",
+      "money": 937
+    },
+    "IA number2": {
+      "bet": 9,
+      "result": "Won !",
+      "money": 101
+    },
+    "IA number3 hand 2": {
+      "bet": 12,
+      "result": "Won !"
+    },
+    "IA number3 hand 1": {
+      "bet": 12,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "money": 147
+    }
+  },
+  "round 53": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 20,
+      "result": "Won !",
+      "money": 221
+    },
+    "IA number1": {
+      "bet": 93,
+      "result": "E",
+      "money": 937
+    },
+    "IA number2": {
+      "bet": 10,
+      "result": "bust",
+      "money": 91
+    },
+    "IA number3": {
+      "bet": 14,
+      "result": "Won !",
+      "money": 161
+    }
+  },
+  "round 54": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 22,
+      "result": "loose",
+      "money": 199
+    },
+    "IA number1": {
+      "bet": 93,
+      "result": "bust",
+      "money": 844
+    },
+    "IA number2": {
+      "bet": 9,
+      "result": "bust",
+      "money": 82
+    },
+    "IA number3": {
+      "bet": 16,
+      "result": "loose",
+      "money": 145
+    }
+  },
+  "round 55": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 19,
+      "result": "loose",
+      "money": 180
+    },
+    "IA number1": {
+      "bet": 84,
+      "result": "Won !",
+      "money": 928
+    },
+    "IA number2": {
+      "bet": 8,
+      "result": "bust",
+      "money": 74
+    },
+    "IA number3": {
+      "bet": 14,
+      "result": "loose",
+      "money": 131
+    }
+  },
+  "round 56": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 18,
+      "result": "Won !",
+      "money": 198
+    },
+    "IA number1": {
+      "bet": 92,
+      "result": "bust",
+      "money": 836
+    },
+    "IA number2": {
+      "bet": 7,
+      "result": "Won !",
+      "money": 81
+    },
+    "IA number3": {
+      "bet": 13,
+      "result": "Won !",
+      "money": 144
+    }
+  },
+  "round 57": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 19,
+      "result": "Won !",
+      "money": 217
+    },
+    "IA number1": {
+      "bet": 83,
+      "result": "Won !",
+      "money": 919
+    },
+    "IA number2": {
+      "bet": 8,
+      "result": "Won !",
+      "money": 89
+    },
+    "IA number3": {
+      "bet": 14,
+      "result": "bust",
+      "money": 130
+    }
+  },
+  "round 58": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 21,
+      "result": "bust",
+      "money": 196
+    },
+    "IA number1": {
+      "bet": 91,
+      "result": "loose",
+      "money": 828
+    },
+    "IA number2": {
+      "bet": 8,
+      "result": "loose",
+      "money": 81
+    },
+    "IA number3": {
+      "bet": 13,
+      "result": "bust",
+      "money": 117
+    }
+  },
+  "round 59": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 19,
+      "result": "Won !",
+      "money": 215
+    },
+    "IA number1": {
+      "bet": 82,
+      "result": "Won !",
+      "money": 910
+    },
+    "IA number2": {
+      "bet": 8,
+      "result": "Won !",
+      "money": 89
+    },
+    "IA number3": {
+      "bet": 11,
+      "result": "Won !",
+      "money": 128
+    }
+  },
+  "round 60": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 21,
+      "result": "E",
+      "money": 215
+    },
+    "IA number1": {
+      "bet": 91,
+      "result": "loose",
+      "money": 819
+    },
+    "IA number2": {
+      "bet": 8,
+      "result": "bust",
+      "money": 81
+    },
+    "IA number3": {
+      "bet": 12,
+      "result": "E",
+      "money": 128
+    }
+  },
+  "round 61": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 21,
+      "result": "bust",
+      "money": 194
+    },
+    "IA number1": {
+      "bet": 81,
+      "result": "bust",
+      "money": 738
+    },
+    "IA number2": {
+      "bet": 8,
+      "result": "bust",
+      "money": 73
+    },
+    "IA number3 hand 2": {
+      "bet": 12,
+      "result": "loose"
+    },
+    "IA number3 hand 1": {
+      "bet": 12,
+      "result": "E"
+    },
+    "IA number3": {
+      "money": 116
+    }
+  },
+  "round 62": {
+    "Count": 5,
+    "IA number0 hand 2": {
+      "bet": 19,
+      "result": "Won !"
+    },
+    "IA number0 hand 1": {
+      "bet": 19,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "bet": 73,
+      "result": "bust",
+      "money": 665
+    },
+    "IA number2": {
+      "bet": 7,
+      "result": "bust",
+      "money": 66
+    },
+    "IA number3": {
+      "bet": 11,
+      "result": "Won !",
+      "money": 127
+    },
+    "IA number0": {
+      "money": 232
+    }
+  },
+  "round 63": {
+    "Count": -3,
+    "IA number0": {
+      "bet": 23,
+      "result": "E",
+      "money": 232
+    },
+    "IA number1": {
+      "bet": 66,
+      "result": "E",
+      "money": 665
+    },
+    "IA number2": {
+      "bet": 6,
+      "result": "bust",
+      "money": 60
+    },
+    "IA number3": {
+      "bet": 12,
+      "result": "Won !",
+      "money": 139
+    }
+  },
+  "round 64": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 23,
+      "result": "Won !",
+      "money": 255
+    },
+    "IA number1": {
+      "bet": 66,
+      "result": "bust",
+      "money": 599
+    },
+    "IA number2": {
+      "bet": 6,
+      "result": "loose",
+      "money": 54
+    },
+    "IA number3 hand 2": {
+      "bet": 13,
+      "result": "Blackjack !"
+    },
+    "IA number3 hand 1": {
+      "bet": 13,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "money": 171
+    }
+  },
+  "round 65": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 25,
+      "result": "bust",
+      "money": 230
+    },
+    "IA number1": {
+      "bet": 59,
+      "result": "loose",
+      "money": 540
+    },
+    "IA number2": {
+      "bet": 5,
+      "result": "bust",
+      "money": 49
+    },
+    "IA number3 hand 2": {
+      "bet": 17,
+      "result": "loose"
+    },
+    "IA number3 hand 1": {
+      "bet": 17,
+      "result": "bust"
+    },
+    "IA number3": {
+      "money": 137
+    }
+  },
+  "round 66": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 23,
+      "result": "loose",
+      "money": 207
+    },
+    "IA number1": {
+      "bet": 54,
+      "result": "loose",
+      "money": 486
+    },
+    "IA number2": {
+      "bet": 4,
+      "result": "Won !",
+      "money": 53
+    },
+    "IA number3": {
+      "bet": 13,
+      "result": "bust",
+      "money": 124
+    }
+  },
+  "round 67": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 20,
+      "result": "loose",
+      "money": 187
+    },
+    "IA number1": {
+      "bet": 48,
+      "result": "Blackjack !",
+      "money": 558
+    },
+    "IA number2": {
+      "bet": 5,
+      "result": "Won !",
+      "money": 58
+    },
+    "IA number3": {
+      "bet": 12,
+      "result": "loose",
+      "money": 112
+    }
+  },
+  "round 68": {
+    "Count": 1,
+    "IA number0 hand 2": {
+      "bet": 18,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 18,
+      "result": "bust"
+    },
+    "IA number1": {
+      "bet": 55,
+      "result": "bust",
+      "money": 503
+    },
+    "IA number2": {
+      "bet": 5,
+      "result": "bust",
+      "money": 53
+    },
+    "IA number3": {
+      "bet": 11,
+      "result": "loose",
+      "money": 101
+    },
+    "IA number0": {
+      "money": 151
+    }
+  },
+  "round 69": {
+    "Count": 3,
+    "IA number0": {
+      "bet": 15,
+      "result": "Won !",
+      "money": 166
+    },
+    "IA number1": {
+      "bet": 50,
+      "result": "bust",
+      "money": 453
+    },
+    "IA number2": {
+      "bet": 5,
+      "result": "Won !",
+      "money": 58
+    },
+    "IA number3": {
+      "bet": 10,
+      "result": "Won !",
+      "money": 111
+    }
+  },
+  "round 70": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 16,
+      "result": "Won !",
+      "money": 182
+    },
+    "IA number1": {
+      "bet": 45,
+      "result": "loose",
+      "money": 408
+    },
+    "IA number2": {
+      "bet": 5,
+      "result": "Blackjack !",
+      "money": 65
+    },
+    "IA number3": {
+      "bet": 11,
+      "result": "Won !",
+      "money": 122
+    }
+  },
+  "round 71": {
+    "Count": 7,
+    "IA number0": {
+      "bet": 18,
+      "result": "Blackjack !",
+      "money": 209
+    },
+    "IA number1 hand 3": {
+      "bet": 40,
+      "result": "loose"
+    },
+    "IA number1 hand 2": {
+      "bet": 40,
+      "result": "loose"
+    },
+    "IA number1 hand 1": {
+      "bet": 40,
+      "result": "Won !"
+    },
+    "IA number2": {
+      "bet": 12,
+      "result": "loose",
+      "money": 53
+    },
+    "IA number3 hand 2": {
+      "bet": 48,
+      "result": "Won !"
+    },
+    "IA number3 hand 1": {
+      "bet": 48,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "money": 368
+    },
+    "IA number3": {
+      "money": 218
+    }
+  },
+  "round 72": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 20,
+      "result": "Won !",
+      "money": 229
+    },
+    "IA number1": {
+      "bet": 36,
+      "result": "Won !",
+      "money": 404
+    },
+    "IA number2": {
+      "bet": 5,
+      "result": "Won !",
+      "money": 58
+    },
+    "IA number3": {
+      "bet": 21,
+      "result": "bust",
+      "money": 197
+    }
+  },
+  "round 73": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 22,
+      "result": "loose",
+      "money": 207
+    },
+    "IA number1 hand 5": {
+      "bet": 40,
+      "result": "Blackjack !"
+    },
+    "IA number1 hand 4": {
+      "bet": 40,
+      "result": "loose"
+    },
+    "IA number1 hand 3": {
+      "bet": 40,
+      "result": "loose"
+    },
+    "IA number1 hand 2": {
+      "bet": 40,
+      "result": "loose"
+    },
+    "IA number1 hand 1": {
+      "bet": 40,
+      "result": "bust"
+    },
+    "IA number2": {
+      "bet": 5,
+      "result": "bust",
+      "money": 53
+    },
+    "IA number3": {
+      "bet": 19,
+      "result": "bust",
+      "money": 178
+    },
+    "IA number1": {
+      "money": 304
+    }
+  },
+  "round 74": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 20,
+      "result": "bust",
+      "money": 187
+    },
+    "IA number1": {
+      "bet": 30,
+      "result": "Won !",
+      "money": 334
+    },
+    "IA number2": {
+      "bet": 5,
+      "result": "bust",
+      "money": 48
+    },
+    "IA number3": {
+      "bet": 17,
+      "result": "bust",
+      "money": 161
+    }
+  },
+  "round 75": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 18,
+      "result": "loose",
+      "money": 169
+    },
+    "IA number1": {
+      "bet": 33,
+      "result": "Won !",
+      "money": 367
+    },
+    "IA number2": {
+      "bet": 4,
+      "result": "loose",
+      "money": 44
+    },
+    "IA number3": {
+      "bet": 16,
+      "result": "bust",
+      "money": 145
+    }
+  },
+  "round 76": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 16,
+      "result": "bust",
+      "money": 153
+    },
+    "IA number1": {
+      "bet": 36,
+      "result": "E",
+      "money": 367
+    },
+    "IA number2 hand 3": {
+      "bet": 4,
+      "result": "Blackjack !"
+    },
+    "IA number2 hand 2": {
+      "bet": 4,
+      "result": "loose"
+    },
+    "IA number2 hand 1": {
+      "bet": 4,
+      "result": "E"
+    },
+    "IA number3": {
+      "bet": 14,
+      "result": "Blackjack !",
+      "money": 166
+    },
+    "IA number2": {
+      "money": 46
+    }
+  },
+  "round 77": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 15,
+      "result": "bust",
+      "money": 138
+    },
+    "IA number1": {
+      "bet": 36,
+      "result": "bust",
+      "money": 331
+    },
+    "IA number2": {
+      "bet": 4,
+      "result": "loose",
+      "money": 42
+    },
+    "IA number3": {
+      "bet": 16,
+      "result": "loose",
+      "money": 150
+    }
+  },
+  "round 78": {
+    "Count": 3,
+    "IA number0": {
+      "bet": 13,
+      "result": "bust",
+      "money": 125
+    },
+    "IA number1": {
+      "bet": 33,
+      "result": "Won !",
+      "money": 364
+    },
+    "IA number2": {
+      "bet": 4,
+      "result": "bust",
+      "money": 38
+    },
+    "IA number3 hand 2": {
+      "bet": 15,
+      "result": "bust"
+    },
+    "IA number3 hand 1": {
+      "bet": 15,
+      "result": "bust"
+    },
+    "IA number3": {
+      "money": 120
+    }
+  },
+  "round 79": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 12,
+      "result": "bust",
+      "money": 113
+    },
+    "IA number1": {
+      "bet": 36,
+      "result": "Won !",
+      "money": 400
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "bust",
+      "money": 35
+    },
+    "IA number3": {
+      "bet": 12,
+      "result": "bust",
+      "money": 108
+    }
+  },
+  "round 80": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 11,
+      "result": "Won !",
+      "money": 124
+    },
+    "IA number1": {
+      "bet": 40,
+      "result": "Won !",
+      "money": 440
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "Blackjack !",
+      "money": 39
+    },
+    "IA number3": {
+      "bet": 10,
+      "result": "Won !",
+      "money": 118
+    }
+  },
+  "round 81": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 12,
+      "result": "bust",
+      "money": 112
+    },
+    "IA number1": {
+      "bet": 44,
+      "result": "loose",
+      "money": 396
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "bust",
+      "money": 36
+    },
+    "IA number3": {
+      "bet": 11,
+      "result": "E",
+      "money": 118
+    }
+  },
+  "round 82": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 11,
+      "result": "loose",
+      "money": 101
+    },
+    "IA number1": {
+      "bet": 39,
+      "result": "bust",
+      "money": 357
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "loose",
+      "money": 33
+    },
+    "IA number3": {
+      "bet": 11,
+      "result": "E",
+      "money": 118
+    }
+  },
+  "round 83": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 10,
+      "result": "loose",
+      "money": 91
+    },
+    "IA number1": {
+      "bet": 35,
+      "result": "loose",
+      "money": 322
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "loose",
+      "money": 30
+    },
+    "IA number3": {
+      "bet": 11,
+      "result": "bust",
+      "money": 107
+    }
+  },
+  "round 84": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 9,
+      "result": "Won !",
+      "money": 100
+    },
+    "IA number1": {
+      "bet": 32,
+      "result": "Won !",
+      "money": 354
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "bust",
+      "money": 27
+    },
+    "IA number3 hand 5": {
+      "bet": 10,
+      "result": "E"
+    },
+    "IA number3 hand 4": {
+      "bet": 10,
+      "result": "Won !"
+    },
+    "IA number3 hand 3": {
+      "bet": 10,
+      "result": "Won !"
+    },
+    "IA number3 hand 2": {
+      "bet": 10,
+      "result": "bust"
+    },
+    "IA number3 hand 1": {
+      "bet": 10,
+      "result": "E"
+    },
+    "IA number3": {
+      "money": 117
+    }
+  },
+  "round 85": {
+    "Count": -3,
+    "IA number0": {
+      "bet": 10,
+      "result": "bust",
+      "money": 90
+    },
+    "IA number1": {
+      "bet": 35,
+      "result": "bust",
+      "money": 319
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "bust",
+      "money": 25
+    },
+    "IA number3 hand 2": {
+      "bet": 11,
+      "result": "bust"
+    },
+    "IA number3 hand 1": {
+      "bet": 11,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "money": 117
+    }
+  },
+  "round 86": {
+    "Count": 2,
+    "IA number0 hand 2": {
+      "bet": 9,
+      "result": "Won !"
+    },
+    "IA number0 hand 1": {
+      "bet": 9,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "bet": 31,
+      "result": "loose",
+      "money": 288
+    },
+    "IA number2 hand 2": {
+      "bet": 2,
+      "result": "bust"
+    },
+    "IA number2 hand 1": {
+      "bet": 2,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "bet": 11,
+      "result": "loose",
+      "money": 106
+    },
+    "IA number0": {
+      "money": 108
+    },
+    "IA number2": {
+      "money": 25
+    }
+  },
+  "round 87": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 10,
+      "result": "E",
+      "money": 108
+    },
+    "IA number1": {
+      "bet": 28,
+      "result": "E",
+      "money": 288
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "bust",
+      "money": 23
+    },
+    "IA number3": {
+      "bet": 10,
+      "result": "bust",
+      "money": 96
+    }
+  },
+  "round 88": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 10,
+      "result": "loose",
+      "money": 98
+    },
+    "IA number1": {
+      "bet": 28,
+      "result": "bust",
+      "money": 260
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "loose",
+      "money": 21
+    },
+    "IA number3": {
+      "bet": 9,
+      "result": "Won !",
+      "money": 105
+    }
+  },
+  "round 89": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 9,
+      "result": "bust",
+      "money": 89
+    },
+    "IA number1": {
+      "bet": 26,
+      "result": "Won !",
+      "money": 286
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "Won !",
+      "money": 23
+    },
+    "IA number3": {
+      "bet": 10,
+      "result": "Won !",
+      "money": 115
+    }
+  },
+  "round 90": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 8,
+      "result": "Won !",
+      "money": 97
+    },
+    "IA number1": {
+      "bet": 28,
+      "result": "Won !",
+      "money": 314
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "bust",
+      "money": 21
+    },
+    "IA number3": {
+      "bet": 11,
+      "result": "Won !",
+      "money": 126
+    }
+  },
+  "round 91": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 9,
+      "result": "Won !",
+      "money": 106
+    },
+    "IA number1": {
+      "bet": 31,
+      "result": "bust",
+      "money": 283
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "bust",
+      "money": 19
+    },
+    "IA number3": {
+      "bet": 12,
+      "result": "loose",
+      "money": 114
+    }
+  },
+  "round 92": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 10,
+      "result": "Won !",
+      "money": 116
+    },
+    "IA number1": {
+      "bet": 28,
+      "result": "Won !",
+      "money": 311
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 20
+    },
+    "IA number3": {
+      "bet": 11,
+      "result": "bust",
+      "money": 103
+    }
+  },
+  "round 93": {
+    "Count": -3,
+    "IA number0": {
+      "bet": 11,
+      "result": "Won !",
+      "money": 127
+    },
+    "IA number1": {
+      "bet": 31,
+      "result": "bust",
+      "money": 280
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "bust",
+      "money": 18
+    },
+    "IA number3": {
+      "bet": 10,
+      "result": "bust",
+      "money": 93
+    }
+  },
+  "round 94": {
+    "Count": -3,
+    "IA number0": {
+      "bet": 12,
+      "result": "Won !",
+      "money": 139
+    },
+    "IA number1": {
+      "bet": 28,
+      "result": "bust",
+      "money": 252
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 17
+    },
+    "IA number3": {
+      "bet": 9,
+      "result": "loose",
+      "money": 84
+    }
+  },
+  "round 95": {
+    "Count": -1,
+    "IA number0 hand 3": {
+      "bet": 13,
+      "result": "loose"
+    },
+    "IA number0 hand 2": {
+      "bet": 13,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 13,
+      "result": "bust"
+    },
+    "IA number1": {
+      "bet": 25,
+      "result": "loose",
+      "money": 227
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    },
+    "IA number3 hand 2": {
+      "bet": 8,
+      "result": "loose"
+    },
+    "IA number3 hand 1": {
+      "bet": 8,
+      "result": "bust"
+    },
+    "IA number0": {
+      "money": 100
+    },
+    "IA number3": {
+      "money": 68
+    }
+  },
+  "round 96": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 10,
+      "result": "bust",
+      "money": 90
+    },
+    "IA number1": {
+      "bet": 22,
+      "result": "E",
+      "money": 227
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    },
+    "IA number3": {
+      "bet": 6,
+      "result": "Blackjack !",
+      "money": 77
+    }
+  },
+  "round 97": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 9,
+      "result": "loose",
+      "money": 81
+    },
+    "IA number1": {
+      "bet": 22,
+      "result": "bust",
+      "money": 205
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 14
+    },
+    "IA number3": {
+      "bet": 7,
+      "result": "loose",
+      "money": 70
+    }
+  },
+  "round 98": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 8,
+      "result": "loose",
+      "money": 73
+    },
+    "IA number1": {
+      "bet": 20,
+      "result": "bust",
+      "money": 185
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 13
+    },
+    "IA number3": {
+      "bet": 7,
+      "result": "loose",
+      "money": 63
+    }
+  },
+  "round 99": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 7,
+      "result": "Won !",
+      "money": 80
+    },
+    "IA number1": {
+      "bet": 18,
+      "result": "bust",
+      "money": 167
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 12
+    },
+    "IA number3": {
+      "bet": 6,
+      "result": "bust",
+      "money": 57
+    }
+  },
+  "round 100": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 8,
+      "result": "Won !",
+      "money": 88
+    },
+    "IA number1 hand 2": {
+      "bet": 16,
+      "result": "loose"
+    },
+    "IA number1 hand 1": {
+      "bet": 16,
+      "result": "bust"
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 13
+    },
+    "IA number3": {
+      "bet": 5,
+      "result": "bust",
+      "money": 52
+    },
+    "IA number1": {
+      "money": 135
+    }
+  },
+  "round 101": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 8,
+      "result": "bust",
+      "money": 80
+    },
+    "IA number1": {
+      "bet": 13,
+      "result": "bust",
+      "money": 122
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 14
+    },
+    "IA number3": {
+      "bet": 5,
+      "result": "Won !",
+      "money": 57
+    }
+  },
+  "round 102": {
+    "Count": -4,
+    "IA number0": {
+      "bet": 8,
+      "result": "bust",
+      "money": 72
+    },
+    "IA number1": {
+      "bet": 12,
+      "result": "loose",
+      "money": 110
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 13
+    },
+    "IA number3": {
+      "bet": 5,
+      "result": "bust",
+      "money": 52
+    }
+  },
+  "round 103": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 7,
+      "result": "Won !",
+      "money": 79
+    },
+    "IA number1": {
+      "bet": 11,
+      "result": "Won !",
+      "money": 121
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 14
+    },
+    "IA number3": {
+      "bet": 5,
+      "result": "E",
+      "money": 52
+    }
+  },
+  "round 104": {
+    "Count": 3,
+    "IA number0": {
+      "bet": 7,
+      "result": "Won !",
+      "money": 86
+    },
+    "IA number1": {
+      "bet": 12,
+      "result": "bust",
+      "money": 109
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "E",
+      "money": 14
+    },
+    "IA number3": {
+      "bet": 5,
+      "result": "loose",
+      "money": 47
+    }
+  },
+  "round 105": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 8,
+      "result": "bust",
+      "money": 78
+    },
+    "IA number1": {
+      "bet": 10,
+      "result": "Won !",
+      "money": 119
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 15
+    },
+    "IA number3": {
+      "bet": 4,
+      "result": "Won !",
+      "money": 51
+    }
+  },
+  "round 106": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 7,
+      "result": "bust",
+      "money": 71
+    },
+    "IA number1": {
+      "bet": 11,
+      "result": "E",
+      "money": 119
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    },
+    "IA number3": {
+      "bet": 5,
+      "result": "E",
+      "money": 51
+    }
+  },
+  "round 107": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 7,
+      "result": "bust",
+      "money": 64
+    },
+    "IA number1 hand 2": {
+      "bet": 11,
+      "result": "Won !"
+    },
+    "IA number1 hand 1": {
+      "bet": 11,
+      "result": "Won !"
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    },
+    "IA number3 hand 2": {
+      "bet": 5,
+      "result": "Won !"
+    },
+    "IA number3 hand 1": {
+      "bet": 5,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "money": 141
+    },
+    "IA number3": {
+      "money": 61
+    }
+  },
+  "round 108": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 6,
+      "result": "E",
+      "money": 64
+    },
+    "IA number1": {
+      "bet": 14,
+      "result": "Won !",
+      "money": 155
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number3": {
+      "bet": 6,
+      "result": "bust",
+      "money": 55
+    }
+  },
+  "round 109": {
+    "Count": -4,
+    "IA number0": {
+      "bet": 6,
+      "result": "E",
+      "money": 64
+    },
+    "IA number1": {
+      "bet": 15,
+      "result": "bust",
+      "money": 140
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number3": {
+      "bet": 5,
+      "result": "loose",
+      "money": 50
+    }
+  },
+  "round 110": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 6,
+      "result": "E",
+      "money": 64
+    },
+    "IA number1": {
+      "bet": 14,
+      "result": "E",
+      "money": 140
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 16
+    },
+    "IA number3": {
+      "bet": 5,
+      "result": "E",
+      "money": 50
+    }
+  },
+  "round 111": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 6,
+      "result": "bust",
+      "money": 58
+    },
+    "IA number1": {
+      "bet": 14,
+      "result": "bust",
+      "money": 126
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    },
+    "IA number3": {
+      "bet": 5,
+      "result": "bust",
+      "money": 45
+    }
+  },
+  "round 112": {
+    "Count": 0,
+    "IA number0 hand 2": {
+      "bet": 5,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 5,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "bet": 12,
+      "result": "Won !",
+      "money": 138
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    },
+    "IA number3 hand 2": {
+      "bet": 4,
+      "result": "E"
+    },
+    "IA number3 hand 1": {
+      "bet": 4,
+      "result": "Won !"
+    },
+    "IA number0": {
+      "money": 58
+    },
+    "IA number3": {
+      "money": 49
+    }
+  },
+  "round 113": {
+    "Count": 3,
+    "IA number0": {
+      "bet": 5,
+      "result": "Won !",
+      "money": 63
+    },
+    "IA number1 hand 3": {
+      "bet": 13,
+      "result": "Won !"
+    },
+    "IA number1 hand 2": {
+      "bet": 13,
+      "result": "bust"
+    },
+    "IA number1 hand 1": {
+      "bet": 13,
+      "result": "bust"
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    },
+    "IA number3": {
+      "bet": 4,
+      "result": "Won !",
+      "money": 53
+    },
+    "IA number1": {
+      "money": 125
+    }
+  },
+  "round 114": {
+    "Count": -1,
+    "IA number0 hand 2": {
+      "bet": 6,
+      "result": "loose"
+    },
+    "IA number0 hand 1": {
+      "bet": 6,
+      "result": "Blackjack !"
+    },
+    "IA number1": {
+      "bet": 12,
+      "result": "Won !",
+      "money": 137
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 14
+    },
+    "IA number3": {
+      "bet": 5,
+      "result": "bust",
+      "money": 48
+    },
+    "IA number0": {
+      "money": 66
+    }
+  },
+  "round 115": {
+    "Count": -4,
+    "IA number0": {
+      "bet": 6,
+      "result": "loose",
+      "money": 60
+    },
+    "IA number1": {
+      "bet": 13,
+      "result": "E",
+      "money": 137
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 13
+    },
+    "IA number3 hand 6": {
+      "bet": 4,
+      "result": "bust"
+    },
+    "IA number3 hand 5": {
+      "bet": 4,
+      "result": "loose"
+    },
+    "IA number3 hand 4": {
+      "bet": 4,
+      "result": "bust"
+    },
+    "IA number3 hand 3": {
+      "bet": 4,
+      "result": "loose"
+    },
+    "IA number3 hand 2": {
+      "bet": 4,
+      "result": "loose"
+    },
+    "IA number3 hand 1": {
+      "bet": 4,
+      "result": "loose"
+    },
+    "IA number3": {
+      "money": 24
+    }
+  },
+  "round 116": {
+    "Count": -5,
+    "IA number0": {
+      "bet": 6,
+      "result": "bust",
+      "money": 54
+    },
+    "IA number1": {
+      "bet": 13,
+      "result": "bust",
+      "money": 124
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 12
+    },
+    "IA number3 hand 2": {
+      "bet": 2,
+      "result": "loose"
+    },
+    "IA number3 hand 1": {
+      "bet": 2,
+      "result": "bust"
+    },
+    "IA number3": {
+      "money": 20
+    }
+  },
+  "round 117": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 5,
+      "result": "Won !",
+      "money": 59
+    },
+    "IA number1 hand 2": {
+      "bet": 12,
+      "result": "Blackjack !"
+    },
+    "IA number1 hand 1": {
+      "bet": 12,
+      "result": "bust"
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 11
+    },
+    "IA number3": {
+      "bet": 2,
+      "result": "bust",
+      "money": 18
+    },
+    "IA number1": {
+      "money": 130
+    }
+  },
+  "round 118": {
+    "Count": 3,
+    "IA number0": {
+      "bet": 5,
+      "result": "bust",
+      "money": 54
+    },
+    "IA number1": {
+      "bet": 13,
+      "result": "Won !",
+      "money": 143
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 12
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    }
+  },
+  "round 119": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 5,
+      "result": "Won !",
+      "money": 59
+    },
+    "IA number1": {
+      "bet": 14,
+      "result": "bust",
+      "money": 129
+    },
+    "IA number2 hand 2": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number2 hand 1": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    },
+    "IA number2": {
+      "money": 10
+    }
+  },
+  "round 120": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 5,
+      "result": "bust",
+      "money": 54
+    },
+    "IA number1": {
+      "bet": 12,
+      "result": "loose",
+      "money": 117
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "E",
+      "money": 10
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    }
+  },
+  "round 121": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 5,
+      "result": "Blackjack !",
+      "money": 61
+    },
+    "IA number1": {
+      "bet": 11,
+      "result": "loose",
+      "money": 106
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 11
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "E",
+      "money": 17
+    }
+  },
+  "round 122": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 6,
+      "result": "Won !",
+      "money": 67
+    },
+    "IA number1": {
+      "bet": 10,
+      "result": "E",
+      "money": 106
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 10
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    }
+  },
+  "round 123": {
+    "Count": 3,
+    "IA number0 hand 2": {
+      "bet": 6,
+      "result": "loose"
+    },
+    "IA number0 hand 1": {
+      "bet": 6,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "bet": 10,
+      "result": "loose",
+      "money": 96
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 11
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    },
+    "IA number0": {
+      "money": 67
+    }
+  },
+  "round 124": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 6,
+      "result": "Won !",
+      "money": 73
+    },
+    "IA number1": {
+      "bet": 9,
+      "result": "Blackjack !",
+      "money": 109
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 12
+    },
+    "IA number3 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number3 hand 1": {
+      "bet": 1,
+      "result": "E"
+    },
+    "IA number3": {
+      "money": 16
+    }
+  },
+  "round 125": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 7,
+      "result": "E",
+      "money": 73
+    },
+    "IA number1": {
+      "bet": 10,
+      "result": "Won !",
+      "money": 119
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 13
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    }
+  },
+  "round 126": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 7,
+      "result": "bust",
+      "money": 66
+    },
+    "IA number1": {
+      "bet": 11,
+      "result": "bust",
+      "money": 108
+    },
+    "IA number2 hand 2": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number2 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    },
+    "IA number2": {
+      "money": 15
+    }
+  },
+  "round 127": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 6,
+      "result": "bust",
+      "money": 60
+    },
+    "IA number1": {
+      "bet": 10,
+      "result": "bust",
+      "money": 98
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 16
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    }
+  },
+  "round 128": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 6,
+      "result": "loose",
+      "money": 54
+    },
+    "IA number1": {
+      "bet": 9,
+      "result": "bust",
+      "money": 89
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 15
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "loose",
+      "money": 14
+    }
+  },
+  "round 129": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 5,
+      "result": "Won !",
+      "money": 59
+    },
+    "IA number1": {
+      "bet": 8,
+      "result": "bust",
+      "money": 81
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 15
+    }
+  },
+  "round 130": {
+    "Count": 2,
+    "IA number0 hand 2": {
+      "bet": 5,
+      "result": "Won !"
+    },
+    "IA number0 hand 1": {
+      "bet": 5,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "bet": 8,
+      "result": "bust",
+      "money": 73
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 14
+    },
+    "IA number0": {
+      "money": 69
+    }
+  },
+  "round 131": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 6,
+      "result": "bust",
+      "money": 63
+    },
+    "IA number1": {
+      "bet": 7,
+      "result": "bust",
+      "money": 66
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 13
+    }
+  },
+  "round 132": {
+    "Count": -5,
+    "IA number0": {
+      "bet": 6,
+      "result": "bust",
+      "money": 57
+    },
+    "IA number1": {
+      "bet": 6,
+      "result": "Won !",
+      "money": 72
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 14
+    }
+  },
+  "round 133": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 5,
+      "result": "bust",
+      "money": 52
+    },
+    "IA number1": {
+      "bet": 7,
+      "result": "loose",
+      "money": 65
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "loose",
+      "money": 13
+    }
+  },
+  "round 134": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 5,
+      "result": "loose",
+      "money": 47
+    },
+    "IA number1": {
+      "bet": 6,
+      "result": "Blackjack !",
+      "money": 74
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 15
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 14
+    }
+  },
+  "round 135": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 4,
+      "result": "Won !",
+      "money": 51
+    },
+    "IA number1": {
+      "bet": 7,
+      "result": "loose",
+      "money": 67
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "loose",
+      "money": 13
+    }
+  },
+  "round 136": {
+    "Count": 1,
+    "IA number0 hand 4": {
+      "bet": 5,
+      "result": "bust"
+    },
+    "IA number0 hand 3": {
+      "bet": 5,
+      "result": "bust"
+    },
+    "IA number0 hand 2": {
+      "bet": 5,
+      "result": "Won !"
+    },
+    "IA number0 hand 1": {
+      "bet": 5,
+      "result": "bust"
+    },
+    "IA number1": {
+      "bet": 6,
+      "result": "Won !",
+      "money": 73
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 14
+    },
+    "IA number0": {
+      "money": 41
+    }
+  },
+  "round 137": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 4,
+      "result": "Blackjack !",
+      "money": 47
+    },
+    "IA number1 hand 2": {
+      "bet": 7,
+      "result": "Won !"
+    },
+    "IA number1 hand 1": {
+      "bet": 7,
+      "result": "Won !"
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 15
+    },
+    "IA number1": {
+      "money": 87
+    }
+  },
+  "round 138": {
+    "Count": 3,
+    "IA number0": {
+      "bet": 4,
+      "result": "Won !",
+      "money": 51
+    },
+    "IA number1": {
+      "bet": 8,
+      "result": "E",
+      "money": 87
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "E",
+      "money": 18
+    },
+    "IA number3 hand 3": {
+      "bet": 1,
+      "result": "Blackjack !"
+    },
+    "IA number3 hand 2": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number3 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "money": 18
+    }
+  },
+  "round 139": {
+    "Count": 3,
+    "IA number0": {
+      "bet": 5,
+      "result": "bust",
+      "money": 46
+    },
+    "IA number1": {
+      "bet": 8,
+      "result": "bust",
+      "money": 79
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number3 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number3 hand 1": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number3": {
+      "money": 16
+    }
+  },
+  "round 140": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 4,
+      "result": "Won !",
+      "money": 50
+    },
+    "IA number1": {
+      "bet": 7,
+      "result": "bust",
+      "money": 72
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 18
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    }
+  },
+  "round 141": {
+    "Count": 4,
+    "IA number0": {
+      "bet": 5,
+      "result": "bust",
+      "money": 45
+    },
+    "IA number1 hand 2": {
+      "bet": 7,
+      "result": "Won !"
+    },
+    "IA number1 hand 1": {
+      "bet": 7,
+      "result": "Won !"
+    },
+    "IA number2 hand 5": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number2 hand 4": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number2 hand 3": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number2 hand 2": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number2 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    },
+    "IA number1": {
+      "money": 86
+    },
+    "IA number2": {
+      "money": 19
+    }
+  },
+  "round 142": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 4,
+      "result": "loose",
+      "money": 41
+    },
+    "IA number1": {
+      "bet": 8,
+      "result": "loose",
+      "money": 78
+    },
+    "IA number2 hand 6": {
+      "bet": 1,
+      "result": "E"
+    },
+    "IA number2 hand 5": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number2 hand 4": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number2 hand 3": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number2 hand 2": {
+      "bet": 1,
+      "result": "Blackjack !"
+    },
+    "IA number2 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    },
+    "IA number2": {
+      "money": 18
+    }
+  },
+  "round 143": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 4,
+      "result": "Won !",
+      "money": 45
+    },
+    "IA number1": {
+      "bet": 7,
+      "result": "Won !",
+      "money": 85
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number3 hand 3": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number3 hand 2": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number3 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "money": 18
+    }
+  },
+  "round 144": {
+    "Count": -8,
+    "IA number0": {
+      "bet": 4,
+      "result": "bust",
+      "money": 41
+    },
+    "IA number1": {
+      "bet": 8,
+      "result": "E",
+      "money": 85
+    },
+    "IA number2 hand 14": {
+      "bet": 1,
+      "result": "E"
+    },
+    "IA number2 hand 13": {
+      "bet": 1,
+      "result": "Blackjack !"
+    },
+    "IA number2 hand 12": {
+      "bet": 1,
+      "result": "Blackjack !"
+    },
+    "IA number2 hand 11": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number2 hand 10": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number2 hand 9": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number2 hand 8": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number2 hand 7": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number2 hand 6": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number2 hand 5": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number2 hand 4": {
+      "bet": 1,
+      "result": "Blackjack !"
+    },
+    "IA number2 hand 3": {
+      "bet": 1,
+      "result": "Blackjack !"
+    },
+    "IA number2 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number2 hand 1": {
+      "bet": 1,
+      "result": "E"
+    },
+    "IA number3 hand 2": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number3 hand 1": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number2": {
+      "money": 15
+    },
+    "IA number3": {
+      "money": 16
+    }
+  },
+  "round 145": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 4,
+      "result": "Won !",
+      "money": 45
+    },
+    "IA number1": {
+      "bet": 8,
+      "result": "Won !",
+      "money": 93
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    },
+    "IA number3 hand 4": {
+      "bet": 1,
+      "result": "E"
+    },
+    "IA number3 hand 3": {
+      "bet": 1,
+      "result": "Blackjack !"
+    },
+    "IA number3 hand 2": {
+      "bet": 1,
+      "result": "Blackjack !"
+    },
+    "IA number3 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "money": 19
+    }
+  },
+  "round 146": {
+    "Count": 0,
+    "IA number0 hand 2": {
+      "bet": 4,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 4,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "bet": 9,
+      "result": "loose",
+      "money": 84
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "loose",
+      "money": 18
+    },
+    "IA number0": {
+      "money": 45
+    }
+  },
+  "round 147": {
+    "Count": 5,
+    "IA number0": {
+      "bet": 4,
+      "result": "Won !",
+      "money": 49
+    },
+    "IA number1": {
+      "bet": 8,
+      "result": "bust",
+      "money": 76
+    },
+    "IA number2 hand 3": {
+      "bet": 4,
+      "result": "Won !"
+    },
+    "IA number2 hand 2": {
+      "bet": 8,
+      "result": "Won !"
+    },
+    "IA number2 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "bet": 2,
+      "result": "bust",
+      "money": 16
+    },
+    "IA number2": {
+      "money": 28
+    }
+  },
+  "round 148": {
+    "Count": 5,
+    "IA number0 hand 2": {
+      "bet": 4,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 4,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "bet": 7,
+      "result": "E",
+      "money": 76
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "E",
+      "money": 28
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    },
+    "IA number0": {
+      "money": 49
+    }
+  },
+  "round 149": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 4,
+      "result": "Won !",
+      "money": 53
+    },
+    "IA number1 hand 2": {
+      "bet": 7,
+      "result": "Won !"
+    },
+    "IA number1 hand 1": {
+      "bet": 7,
+      "result": "Won !"
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "Blackjack !",
+      "money": 31
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    },
+    "IA number1": {
+      "money": 90
+    }
+  },
+  "round 150": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 5,
+      "result": "Won !",
+      "money": 58
+    },
+    "IA number1 hand 2": {
+      "bet": 9,
+      "result": "Won !"
+    },
+    "IA number1 hand 1": {
+      "bet": 9,
+      "result": "E"
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "Won !",
+      "money": 34
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    },
+    "IA number1": {
+      "money": 99
+    }
+  },
+  "round 151": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 5,
+      "result": "Won !",
+      "money": 63
+    },
+    "IA number1": {
+      "bet": 9,
+      "result": "Won !",
+      "money": 108
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "bust",
+      "money": 31
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 14
+    }
+  },
+  "round 152": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 6,
+      "result": "loose",
+      "money": 57
+    },
+    "IA number1": {
+      "bet": 10,
+      "result": "loose",
+      "money": 98
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "Won !",
+      "money": 34
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 15
+    }
+  },
+  "round 153": {
+    "Count": -2,
+    "IA number0 hand 2": {
+      "bet": 5,
+      "result": "E"
+    },
+    "IA number0 hand 1": {
+      "bet": 5,
+      "result": "bust"
+    },
+    "IA number1": {
+      "bet": 9,
+      "result": "loose",
+      "money": 89
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "bust",
+      "money": 31
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "loose",
+      "money": 14
+    },
+    "IA number0": {
+      "money": 52
+    }
+  },
+  "round 154": {
+    "Count": 3,
+    "IA number0": {
+      "bet": 5,
+      "result": "Won !",
+      "money": 57
+    },
+    "IA number1 hand 2": {
+      "bet": 8,
+      "result": "bust"
+    },
+    "IA number1 hand 1": {
+      "bet": 8,
+      "result": "Won !"
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "E",
+      "money": 31
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 15
+    },
+    "IA number1": {
+      "money": 89
+    }
+  },
+  "round 155": {
+    "Count": 3,
+    "IA number0": {
+      "bet": 5,
+      "result": "Won !",
+      "money": 62
+    },
+    "IA number1 hand 4": {
+      "bet": 8,
+      "result": "bust"
+    },
+    "IA number1 hand 3": {
+      "bet": 8,
+      "result": "bust"
+    },
+    "IA number1 hand 2": {
+      "bet": 8,
+      "result": "loose"
+    },
+    "IA number1 hand 1": {
+      "bet": 8,
+      "result": "Won !"
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "loose",
+      "money": 28
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    },
+    "IA number1": {
+      "money": 73
+    }
+  },
+  "round 156": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 6,
+      "result": "Won !",
+      "money": 68
+    },
+    "IA number1": {
+      "bet": 7,
+      "result": "loose",
+      "money": 66
+    },
+    "IA number2 hand 2": {
+      "bet": 2,
+      "result": "bust"
+    },
+    "IA number2 hand 1": {
+      "bet": 2,
+      "result": "Won !"
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    },
+    "IA number2": {
+      "money": 28
+    }
+  },
+  "round 157": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 6,
+      "result": "bust",
+      "money": 62
+    },
+    "IA number1": {
+      "bet": 6,
+      "result": "Won !",
+      "money": 72
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "Won !",
+      "money": 30
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 14
+    }
+  },
+  "round 158": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 6,
+      "result": "loose",
+      "money": 56
+    },
+    "IA number1": {
+      "bet": 7,
+      "result": "loose",
+      "money": 65
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "Blackjack !",
+      "money": 34
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 13
+    }
+  },
+  "round 159": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 5,
+      "result": "loose",
+      "money": 51
+    },
+    "IA number1": {
+      "bet": 6,
+      "result": "loose",
+      "money": 59
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "bust",
+      "money": 31
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "loose",
+      "money": 12
+    }
+  },
+  "round 160": {
+    "Count": 2,
+    "IA number0 hand 3": {
+      "bet": 5,
+      "result": "loose"
+    },
+    "IA number0 hand 2": {
+      "bet": 5,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 5,
+      "result": "loose"
+    },
+    "IA number1": {
+      "bet": 5,
+      "result": "loose",
+      "money": 54
+    },
+    "IA number2": {
+      "bet": 3,
+      "result": "loose",
+      "money": 28
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "E",
+      "money": 12
+    },
+    "IA number0": {
+      "money": 36
+    }
+  },
+  "round 161": {
+    "Count": 4,
+    "IA number0": {
+      "bet": 3,
+      "result": "Won !",
+      "money": 39
+    },
+    "IA number1 hand 2": {
+      "bet": 10,
+      "result": "loose"
+    },
+    "IA number1 hand 1": {
+      "bet": 5,
+      "result": "loose"
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "E",
+      "money": 28
+    },
+    "IA number3": {
+      "bet": 2,
+      "result": "loose",
+      "money": 10
+    },
+    "IA number1": {
+      "money": 39
+    }
+  },
+  "round 162": {
+    "Count": -3,
+    "IA number0": {
+      "bet": 3,
+      "result": "Won !",
+      "money": 42
+    },
+    "IA number1": {
+      "bet": 3,
+      "result": "bust",
+      "money": 36
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "bust",
+      "money": 26
+    },
+    "IA number3": {
+      "bet": 1,
+      "result": "bust",
+      "money": 9
+    }
+  },
+  "round 163": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 4,
+      "result": "Won !",
+      "money": 46
+    },
+    "IA number1": {
+      "bet": 3,
+      "result": "bust",
+      "money": 33
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "bust",
+      "money": 24
+    },
+    "IA number3": {
+      "bet": 9,
+      "result": "bust",
+      "money": 0
+    }
+  },
+  "round 164": {
+    "Count": -2,
+    "IA number0 hand 2": {
+      "bet": 4,
+      "result": "Won !"
+    },
+    "IA number0 hand 1": {
+      "bet": 4,
+      "result": "bust"
+    },
+    "IA number1 hand 2": {
+      "bet": 3,
+      "result": "Blackjack !"
+    },
+    "IA number1 hand 1": {
+      "bet": 3,
+      "result": "bust"
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "bust",
+      "money": 22
+    },
+    "IA number0": {
+      "money": 46
+    },
+    "IA number1": {
+      "money": 34
+    }
+  },
+  "round 165": {
+    "Count": -3,
+    "IA number0": {
+      "bet": 4,
+      "result": "bust",
+      "money": 42
+    },
+    "IA number1": {
+      "bet": 3,
+      "result": "bust",
+      "money": 31
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "bust",
+      "money": 20
+    }
+  },
+  "round 166": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 4,
+      "result": "loose",
+      "money": 38
+    },
+    "IA number1": {
+      "bet": 3,
+      "result": "bust",
+      "money": 28
+    },
+    "IA number2 hand 2": {
+      "bet": 2,
+      "result": "bust"
+    },
+    "IA number2 hand 1": {
+      "bet": 2,
+      "result": "Won !"
+    },
+    "IA number2": {
+      "money": 20
+    }
+  },
+  "round 167": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 3,
+      "result": "E",
+      "money": 38
+    },
+    "IA number1": {
+      "bet": 2,
+      "result": "loose",
+      "money": 26
+    },
+    "IA number2": {
+      "bet": 2,
+      "result": "bust",
+      "money": 18
+    }
+  },
+  "round 168": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 3,
+      "result": "bust",
+      "money": 35
+    },
+    "IA number1": {
+      "bet": 2,
+      "result": "bust",
+      "money": 24
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 19
+    }
+  },
+  "round 169": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 3,
+      "result": "loose",
+      "money": 32
+    },
+    "IA number1": {
+      "bet": 2,
+      "result": "loose",
+      "money": 22
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 18
+    }
+  },
+  "round 170": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 3,
+      "result": "bust",
+      "money": 29
+    },
+    "IA number1": {
+      "bet": 2,
+      "result": "Blackjack !",
+      "money": 25
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 17
+    }
+  },
+  "round 171": {
+    "Count": 3,
+    "IA number0": {
+      "bet": 2,
+      "result": "bust",
+      "money": 27
+    },
+    "IA number1": {
+      "bet": 2,
+      "result": "Won !",
+      "money": 27
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 16
+    }
+  },
+  "round 172": {
+    "Count": -3,
+    "IA number0": {
+      "bet": 2,
+      "result": "loose",
+      "money": 25
+    },
+    "IA number1": {
+      "bet": 2,
+      "result": "bust",
+      "money": 25
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    }
+  },
+  "round 173": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 2,
+      "result": "bust",
+      "money": 23
+    },
+    "IA number1": {
+      "bet": 2,
+      "result": "Won !",
+      "money": 27
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 14
+    }
+  },
+  "round 174": {
+    "Count": 3,
+    "IA number0 hand 2": {
+      "bet": 2,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 2,
+      "result": "bust"
+    },
+    "IA number1 hand 2": {
+      "bet": 2,
+      "result": "bust"
+    },
+    "IA number1 hand 1": {
+      "bet": 2,
+      "result": "bust"
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 15
+    },
+    "IA number0": {
+      "money": 19
+    },
+    "IA number1": {
+      "money": 23
+    }
+  },
+  "round 175": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 2,
+      "result": "bust",
+      "money": 21
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 14
+    }
+  },
+  "round 176": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 2,
+      "result": "bust",
+      "money": 19
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 15
+    }
+  },
+  "round 177": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1 hand 3": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number1 hand 2": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number1 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    },
+    "IA number1": {
+      "money": 20
+    }
+  },
+  "round 178": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 2,
+      "result": "loose",
+      "money": 18
+    },
+    "IA number2 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number2 hand 1": {
+      "bet": 1,
+      "result": "E"
+    },
+    "IA number2": {
+      "money": 15
+    }
+  },
+  "round 179": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 19
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 14
+    }
+  },
+  "round 180": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 19
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 18
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 15
+    }
+  },
+  "round 181": {
+    "Count": 0,
+    "IA number0 hand 3": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number0 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 14
+    },
+    "IA number0": {
+      "money": 16
+    }
+  },
+  "round 182": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 15
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 13
+    }
+  },
+  "round 183": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "E",
+      "money": 16
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "E",
+      "money": 13
+    }
+  },
+  "round 184": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "E",
+      "money": 16
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 12
+    }
+  },
+  "round 185": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number1 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 13
+    },
+    "IA number1": {
+      "money": 16
+    }
+  },
+  "round 186": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 19
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 14
+    }
+  },
+  "round 187": {
+    "Count": 1,
+    "IA number0 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 1,
+      "result": "E"
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 15
+    },
+    "IA number0": {
+      "money": 18
+    }
+  },
+  "round 188": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "E",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    }
+  },
+  "round 189": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    }
+  },
+  "round 190": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    },
+    "IA number2 hand 2": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number2 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number2": {
+      "money": 19
+    }
+  },
+  "round 191": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 14
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 18
+    }
+  },
+  "round 192": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 15
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    }
+  },
+  "round 193": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 19
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 14
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    }
+  },
+  "round 194": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 13
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    }
+  },
+  "round 195": {
+    "Count": -6,
+    "IA number0 hand 17": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 16": {
+      "bet": 1,
+      "result": "Blackjack !"
+    },
+    "IA number0 hand 15": {
+      "bet": 1,
+      "result": "E"
+    },
+    "IA number0 hand 14": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number0 hand 13": {
+      "bet": 1,
+      "result": "E"
+    },
+    "IA number0 hand 12": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 11": {
+      "bet": 1,
+      "result": "E"
+    },
+    "IA number0 hand 10": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 9": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number0 hand 8": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 7": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 6": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 5": {
+      "bet": 1,
+      "result": "E"
+    },
+    "IA number0 hand 4": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 3": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number0 hand 2": {
+      "bet": 1,
+      "result": "Blackjack !"
+    },
+    "IA number0 hand 1": {
+      "bet": 1,
+      "result": "Blackjack !"
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 12
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 16
+    },
+    "IA number0": {
+      "money": 17
+    }
+  },
+  "round 196": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "E",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 11
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    }
+  },
+  "round 197": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "E",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 10
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    }
+  },
+  "round 198": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 9
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    }
+  },
+  "round 199": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 9,
+      "result": "Blackjack !",
+      "money": 22
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "E",
+      "money": 17
+    }
+  },
+  "round 200": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "E",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 2,
+      "result": "loose",
+      "money": 20
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 16
+    }
+  },
+  "round 201": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 2,
+      "result": "Won !",
+      "money": 22
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    }
+  },
+  "round 202": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 19
+    },
+    "IA number1": {
+      "bet": 2,
+      "result": "loose",
+      "money": 20
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 14
+    }
+  },
+  "round 203": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 18
+    },
+    "IA number1 hand 2": {
+      "bet": 2,
+      "result": "bust"
+    },
+    "IA number1 hand 1": {
+      "bet": 2,
+      "result": "E"
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 15
+    },
+    "IA number1": {
+      "money": 18
+    }
+  },
+  "round 204": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 19
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 19
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    }
+  },
+  "round 205": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 18
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    }
+  },
+  "round 206": {
+    "Count": -3,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    }
+  },
+  "round 207": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 15
+    }
+  },
+  "round 208": {
+    "Count": -3,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 19
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 14
+    }
+  },
+  "round 209": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 14
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 13
+    }
+  },
+  "round 210": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 17
+    },
+    "IA number1 hand 3": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number1 hand 2": {
+      "bet": 1,
+      "result": "E"
+    },
+    "IA number1 hand 1": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 12
+    },
+    "IA number1": {
+      "money": 12
+    }
+  },
+  "round 211": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number1 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number2 hand 2": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number2 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "money": 12
+    },
+    "IA number2": {
+      "money": 14
+    }
+  },
+  "round 212": {
+    "Count": -3,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number1 hand 2": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number1 hand 1": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 13
+    },
+    "IA number1": {
+      "money": 12
+    }
+  },
+  "round 213": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 11
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 12
+    }
+  },
+  "round 214": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 12
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "bust",
+      "money": 11
+    }
+  },
+  "round 215": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 16
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 11
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "E",
+      "money": 11
+    }
+  },
+  "round 216": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    },
+    "IA number1 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number1 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 12
+    },
+    "IA number1": {
+      "money": 11
+    }
+  },
+  "round 217": {
+    "Count": 5,
+    "IA number0 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number1 hand 2": {
+      "bet": 2,
+      "result": "Blackjack !"
+    },
+    "IA number1 hand 1": {
+      "bet": 2,
+      "result": "loose"
+    },
+    "IA number2 hand 3": {
+      "bet": 2,
+      "result": "bust"
+    },
+    "IA number2 hand 2": {
+      "bet": 2,
+      "result": "Won !"
+    },
+    "IA number2 hand 1": {
+      "bet": 2,
+      "result": "Won !"
+    },
+    "IA number0": {
+      "money": 17
+    },
+    "IA number1": {
+      "money": 12
+    },
+    "IA number2": {
+      "money": 13
+    }
+  },
+  "round 218": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 13
+    },
+    "IA number2 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number2 hand 1": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number2": {
+      "money": 11
+    }
+  },
+  "round 219": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 12
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 10
+    }
+  },
+  "round 220": {
+    "Count": 3,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 13
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 11
+    }
+  },
+  "round 221": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 14
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 12
+    }
+  },
+  "round 222": {
+    "Count": -2,
+    "IA number0 hand 2": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 13
+    },
+    "IA number2 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number2 hand 1": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number0": {
+      "money": 17
+    },
+    "IA number2": {
+      "money": 10
+    }
+  },
+  "round 223": {
+    "Count": 2,
+    "IA number0 hand 3": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 14
+    },
+    "IA number2": {
+      "bet": 1,
+      "result": "loose",
+      "money": 9
+    },
+    "IA number0": {
+      "money": 14
+    }
+  },
+  "round 224": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 13
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 13
+    },
+    "IA number2": {
+      "bet": 9,
+      "result": "E",
+      "money": 9
+    }
+  },
+  "round 225": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 14
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 14
+    },
+    "IA number2": {
+      "bet": 9,
+      "result": "bust",
+      "money": 0
+    }
+  },
+  "round 226": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 15
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 15
+    }
+  },
+  "round 227": {
+    "Count": 4,
+    "IA number0 hand 3": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 2": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number0 hand 1": {
+      "bet": 1,
+      "result": "E"
+    },
+    "IA number1 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number1 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number0": {
+      "money": 15
+    },
+    "IA number1": {
+      "money": 15
+    }
+  },
+  "round 228": {
+    "Count": -2,
+    "IA number0 hand 2": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number0 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    },
+    "IA number0": {
+      "money": 17
+    }
+  },
+  "round 229": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    }
+  },
+  "round 230": {
+    "Count": 3,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 19
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    }
+  },
+  "round 231": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    }
+  },
+  "round 232": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 19
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 16
+    }
+  },
+  "round 233": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "E",
+      "money": 16
+    }
+  },
+  "round 234": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    }
+  },
+  "round 235": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    }
+  },
+  "round 236": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    }
+  },
+  "round 237": {
+    "Count": -1,
+    "IA number0 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number0 hand 1": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 14
+    },
+    "IA number0": {
+      "money": 15
+    }
+  },
+  "round 238": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 14
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 13
+    }
+  },
+  "round 239": {
+    "Count": 5,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 13
+    },
+    "IA number1 hand 2": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number1 hand 1": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number1": {
+      "money": 11
+    }
+  },
+  "round 240": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 12
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "E",
+      "money": 11
+    }
+  },
+  "round 241": {
+    "Count": 3,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 11
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 10
+    }
+  },
+  "round 242": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 12
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 11
+    }
+  },
+  "round 243": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 11
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 10
+    }
+  },
+  "round 244": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 10
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "E",
+      "money": 10
+    }
+  },
+  "round 245": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 9
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 9
+    }
+  },
+  "round 246": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 9,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 9,
+      "result": "Won !",
+      "money": 18
+    }
+  },
+  "round 247": {
+    "Count": -3,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 17
+    }
+  },
+  "round 248": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "E",
+      "money": 17
+    }
+  },
+  "round 249": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 19
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    }
+  },
+  "round 250": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 20
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 17
+    }
+  },
+  "round 251": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 2,
+      "result": "loose",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 16
+    }
+  },
+  "round 252": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 17
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 15
+    }
+  },
+  "round 253": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 18
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 14
+    }
+  },
+  "round 254": {
+    "Count": 3,
+    "IA number0 hand 3": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number0 hand 2": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 1": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 13
+    },
+    "IA number0": {
+      "money": 15
+    }
+  },
+  "round 255": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 16
+    },
+    "IA number1 hand 2": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number1 hand 1": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number1": {
+      "money": 13
+    }
+  },
+  "round 256": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 15
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 12
+    }
+  },
+  "round 257": {
+    "Count": -2,
+    "IA number0 hand 2": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number0 hand 1": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 13
+    },
+    "IA number0": {
+      "money": 15
+    }
+  },
+  "round 258": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 14
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "E",
+      "money": 13
+    }
+  },
+  "round 259": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 1,
+      "result": "E",
+      "money": 14
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 12
+    }
+  },
+  "round 260": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 13
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 13
+    }
+  },
+  "round 261": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 12
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 12
+    }
+  },
+  "round 262": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 13
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 13
+    }
+  },
+  "round 263": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 12
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "E",
+      "money": 13
+    }
+  },
+  "round 264": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 11
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 12
+    }
+  },
+  "round 265": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 12
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 11
+    }
+  },
+  "round 266": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 13
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 12
+    }
+  },
+  "round 267": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 12
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 11
+    }
+  },
+  "round 268": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 13
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 12
+    }
+  },
+  "round 269": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 12
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 11
+    }
+  },
+  "round 270": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 11
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "E",
+      "money": 11
+    }
+  },
+  "round 271": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 12
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 12
+    }
+  },
+  "round 272": {
+    "Count": -2,
+    "IA number0": {
+      "bet": 1,
+      "result": "bust",
+      "money": 11
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 11
+    }
+  },
+  "round 273": {
+    "Count": 2,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 10
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 10
+    }
+  },
+  "round 274": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 11
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 11
+    }
+  },
+  "round 275": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 10
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "loose",
+      "money": 10
+    }
+  },
+  "round 276": {
+    "Count": -1,
+    "IA number0": {
+      "bet": 1,
+      "result": "Blackjack !",
+      "money": 11
+    },
+    "IA number1": {
+      "bet": 1,
+      "result": "bust",
+      "money": 9
+    }
+  },
+  "round 277": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "Won !",
+      "money": 12
+    },
+    "IA number1": {
+      "bet": 9,
+      "result": "bust",
+      "money": 0
+    }
+  },
+  "round 278": {
+    "Count": -1,
+    "IA number0 hand 2": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number0 hand 1": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number0": {
+      "money": 12
+    }
+  },
+  "round 279": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 1,
+      "result": "loose",
+      "money": 11
+    }
+  },
+  "round 280": {
+    "Count": 1,
+    "IA number0": {
+      "bet": 1,
+      "result": "E",
+      "money": 11
+    }
+  },
+  "round 281": {
+    "Count": -6,
+    "IA number0 hand 10": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number0 hand 9": {
+      "bet": 1,
+      "result": "Blackjack !"
+    },
+    "IA number0 hand 8": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number0 hand 7": {
+      "bet": 1,
+      "result": "Won !"
+    },
+    "IA number0 hand 6": {
+      "bet": 1,
+      "result": "bust"
+    },
+    "IA number0 hand 5": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 4": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 3": {
+      "bet": 1,
+      "result": "Blackjack !"
+    },
+    "IA number0 hand 2": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0 hand 1": {
+      "bet": 1,
+      "result": "loose"
+    },
+    "IA number0": {
+      "money": 7
+    }
+  },
+  "round 282": {
+    "Count": 0,
+    "IA number0": {
+      "bet": 7,
+      "result": "loose",
+      "money": 0
+    }
+  }
+}
