@@ -222,9 +222,9 @@ class Game:
         self.choose_bet(windows_param)
         self.first_distribution(windows_param)
         players_copy = self._players.copy()
-        index = 0
+        nb_hand_added = 0
         for (i, player) in enumerate(players_copy):
-            index += self.play_player(player, i + index, windows_param)
+            nb_hand_added += self.play_player(player, i + nb_hand_added, windows_param)
 
         self.dealer.play(self, windows_param)
         results = self.results()
