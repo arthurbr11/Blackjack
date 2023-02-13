@@ -104,18 +104,18 @@ class Game:
             for player in self.players:
                 value_player = player.value()
                 if value_player > 21:
-                    results[player.name] = ["bust", player.owner.money]
+                    results[player.name] = ["BUST !", player.owner.money]
                 else:
                     results[player.name] = [player.win_money(), player.owner.money]
         else:
             for player in self.players:
                 value_player = player.value()
                 if value_player > 21:
-                    results[player.name] = ["bust", player.owner.money]
+                    results[player.name] = ["BUST !", player.owner.money]
                 elif player.value() > self.dealer.value():
                     results[player.name] = [player.win_money(), player.owner.money]
                 elif player.value() < self.dealer.value():
-                    results[player.name] = ["loose", player.owner.money]
+                    results[player.name] = ["LOOSE !", player.owner.money]
                 else:
                     results[player.name] = [player.even_money(),player.owner.money]  # The dealer and the player are even
 

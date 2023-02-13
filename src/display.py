@@ -15,6 +15,15 @@ BLACK_RED = (200, 0, 0)
 FONT = pygame.font.Font(pygame.font.get_default_font(), 36)
 SPEED = 5
 PATH = os.getcwd().rstrip('src')
+SOUND_INTRO = pygame.mixer.Sound(PATH + 'assets/son/INTRO.mp3')
+SOUND_CARD = pygame.mixer.Sound(PATH + 'assets/son/CARD.mp3')
+SOUND_TOKEN = pygame.mixer.Sound(PATH + 'assets/son/TOKEN.mp3')
+SOUND_RESULT = {'WiN !': pygame.mixer.Sound(PATH + 'assets/son/WIN.mp3'),
+                'LOOSE !': pygame.mixer.Sound(PATH + 'assets/son/LOOSE.mp3'),
+                'BUST !': pygame.mixer.Sound(PATH + 'assets/son/BUST.mp3'),
+                'EVEN !': pygame.mixer.Sound(PATH + 'assets/son/EVEN.mp3'),
+                'BLACKJACK !': pygame.mixer.Sound(PATH + 'assets/son/BLACKJACK.mp3')}
+SOUND_ANOTHER = pygame.mixer.Sound(PATH + 'assets/son/ANOTHER.mp3')
 
 
 class Rectangle:
@@ -380,6 +389,7 @@ def get_start(windows_param) -> tuple[int, list]:
     page_nb_players = True
     page_name_players = False
     nb_players = 0
+    SOUND_INTRO.play(-1)
     while True:
         window.fill(WHITE)
         if page_nb_players:
@@ -589,7 +599,7 @@ def get_bet(player, windows_param) -> int:
 
                     to_show = to_show_elem + list_token + [make_current_token(j, windows_param) for j in range(5) if
                                                            (list_current_token[j] != 0 and j != i) or (
-                                                                       list_current_token[j] > 1 and j == i)]
+                                                                   list_current_token[j] > 1 and j == i)]
                     move_object(windows_param, 'token', current_token,
                                 window_width / 2 - window_width / 6 + list_pos_token[i],
                                 3 * window_height / 5 + window_height / 20, list_pos_token[i],
@@ -702,8 +712,10 @@ def move_object(windows_param, type_object, object, x_ini, y_ini, x_fin, y_fin, 
     """
     [window, _, _, _, _, background, _, _] = windows_param
     if type_object == 'card':
+        SOUND_CARD.play()
         object_to_show = image_from_card(windows_param, x_ini, y_ini, object)
     else:
+        SOUND_TOKEN.play()
         object_to_show = object
     object_x = x_ini
     object_y = y_ini
@@ -1143,6 +1155,7 @@ def show_results(game, results, windows_param) -> None:
                                                          window_height / 10,
                                                          WHITE,
                                                          player_name + " " + results[player_name][0], BLACK, FONT)
+                            SOUND_RESULT[results[player_name][0]].play()
                             rect_name_player.display(window)
                             show_money(None, windows_param, results[player_name][1]).display(window)
                             c += 1
@@ -1203,15 +1216,19 @@ def ask_want_to_continue(windows_param) -> bool:
                         "YES", BLACK, FONT, BLACK_GREY)
     button_no = Button(window_width * (1 / 2 + 1 / 9), window_height / 2, window_width / 8, window_height / 12,
                        GREY, "NO", BLACK, FONT, BLACK_GREY)
+    SOUND_ANOTHER.play()
     while True:
         for event in pygame.event.get():
             button_yes.display(window, event)
             if button_yes.click(event):
+                SOUND_ANOTHER.stop()
                 return False
             button_no.display(window, event)
             if button_no.click(event):
+                SOUND_ANOTHER.stop()
                 return True
             if event.type == QUIT:
+                SOUND_ANOTHER.stop()
                 pygame.quit()
                 exit()
             pygame.display.flip()
