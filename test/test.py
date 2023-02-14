@@ -57,6 +57,6 @@ def counting_method_efficiency_test(counting_method):
 
 
 global_game_test()
-proba_plot_test(4, 500, 1, 1.5)
+proba_plot_test(2, 500, 2, 1.5)
 split_test()
 counting_method_efficiency_test(1)
