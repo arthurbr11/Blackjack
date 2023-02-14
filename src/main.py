@@ -77,4 +77,4 @@ def play_with_pygame(window_width=1000):
 
 
 if __name__ == "__main__":
-    play_with_pygame(1200)
+    play_with_pygame(1000)
