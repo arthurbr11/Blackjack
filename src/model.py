@@ -235,14 +235,14 @@ class Player:
     def win_money(self) -> str:
         if len(self.hand) == 2 and self.value() == 21:
             self.owner.money += int(5 / 2 * self.bet)
-            return "Blackjack !"
+            return "BLACKJACK !"
         else:
             self.owner.money += 2 * self.bet
-            return "Won !"
+            return "WIN !"
 
     def even_money(self) -> str:
         self.owner.money += self.bet
-        return "Even !"
+        return "EVEN !"
 
     def double(self):
         self.owner.money -= self.bet

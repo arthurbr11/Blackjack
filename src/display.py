@@ -15,6 +15,15 @@ BLACK_RED = (200, 0, 0)
 FONT = pygame.font.Font(pygame.font.get_default_font(), 36)
 SPEED = 5
 PATH = os.getcwd().rstrip('src')
+SOUND_INTRO = pygame.mixer.Sound(PATH + 'assets/son/INTRO.mp3')
+SOUND_CARD = pygame.mixer.Sound(PATH + 'assets/son/CARD.mp3')
+SOUND_TOKEN = pygame.mixer.Sound(PATH + 'assets/son/TOKEN.mp3')
+SOUND_RESULT = {'WiN !': pygame.mixer.Sound(PATH + 'assets/son/WIN.mp3'),
+                'LOOSE !': pygame.mixer.Sound(PATH + 'assets/son/LOOSE.mp3'),
+                'BUST !': pygame.mixer.Sound(PATH + 'assets/son/BUST.mp3'),
+                'EVEN !': pygame.mixer.Sound(PATH + 'assets/son/EVEN.mp3'),
+                'BLACKJACK !': pygame.mixer.Sound(PATH + 'assets/son/BLACKJACK.mp3')}
+SOUND_ANOTHER = pygame.mixer.Sound(PATH + 'assets/son/ANOTHER.mp3')
 
 
 class Rectangle:
@@ -380,6 +389,7 @@ def get_start(windows_param) -> tuple[int, list]:
     page_nb_players = True
     page_name_players = False
     nb_players = 0
+    SOUND_INTRO.play(-1)
     while True:
         window.fill(WHITE)
         if page_nb_players:
@@ -419,6 +429,18 @@ def show_money(player, windows_param, money=None) -> Rectangle:
                      f'Argent : {money} euros', BLACK, FONT)
 
 
+def position_token(windows_param):
+    [_, _, _, _, white_rect_height, _, _, _] = windows_param
+
+    # position token
+    token1_x = white_rect_height / 2
+    token5_x = white_rect_height * 5 / 4
+    token10_x = white_rect_height * 2
+    token25_x = white_rect_height * 11 / 4
+    token100_x = white_rect_height * 7 / 2
+    return [token1_x, token5_x, token10_x, token25_x, token100_x]
+
+
 def init_token(windows_param, money) -> list[Images]:
     """
     This function returns all the token the player could bet with is money
@@ -432,11 +454,7 @@ def init_token(windows_param, money) -> list[Images]:
     # dimension token
     size_token = 3 * white_rect_height / 5
     tokens_y = white_rect.y + (white_rect_height / 4)
-    token1_x = white_rect_height / 2
-    token5_x = white_rect_height * 5 / 4
-    token10_x = white_rect_height * 2
-    token25_x = white_rect_height * 11 / 4
-    token100_x = white_rect_height * 7 / 2
+    token1_x, token5_x, token10_x, token25_x, token100_x = position_token(windows_param)
 
     # tokens
     # 1
@@ -482,6 +500,18 @@ def value_token(i) -> int:
         return 100
 
 
+def make_current_token(index, windows_param):
+    [_, window_height, window_width, _, white_rect_height, _, _, _] = windows_param
+    size_token = 3 * white_rect_height / 5
+    list_pos_token = position_token(windows_param)
+    current_token = Images(window_width / 2 - window_width / 6 + list_pos_token[index],
+                           3 * window_height / 5 + window_height / 20,
+                           PATH + f'assets/token/token_{value_token(index)}.png',
+                           True)
+    current_token.reshape(size_token, size_token)
+    return current_token
+
+
 def get_bet(player, windows_param) -> int:
     """
     This function gets the bet of the player
@@ -490,7 +520,7 @@ def get_bet(player, windows_param) -> int:
     :param windows_param:
     :return bet:
     """
-    [window, window_height, window_width, _, _, background, _, _] = windows_param
+    [window, window_height, window_width, white_rect, white_rect_height, background, _, _] = windows_param
 
     # QUESTION
 
@@ -504,29 +534,85 @@ def get_bet(player, windows_param) -> int:
                            "enter to continue", BLACK, FONT)
     bet = 0
     current_money = player.owner.money
-    to_show = [background, rect_enter, question, rect_bet, rect_argent]
+    to_show_elem = [background, rect_enter, question, rect_bet, rect_argent]
+
+    list_token = init_token(windows_param, current_money)
+    list_pos_token = position_token(windows_param)
+
+    list_current_token = [0] * 5
+    to_show = to_show_elem + list_token + [make_current_token(i, windows_param) for i in range(5) if
+                                           list_current_token[i] != 0]
     for elem in to_show:
         elem.display(window)
-    list_token = init_token(windows_param, current_money)
-    for token in list_token:
-        token.display(window)
+
     while True:
         pygame.display.flip()
         for event in pygame.event.get():
-            to_show[4] = show_money(player, windows_param, current_money)
-            to_show[3] = Rectangle(window_width / 2, 3 * window_height / 5, window_width / 3, window_height / 10, WHITE,
-                                   str(bet), BLACK, FONT)
             window.fill(WHITE)
+
+            to_show = to_show_elem + list_token + [make_current_token(j, windows_param) for j in range(5) if
+                                                   list_current_token[j] != 0]
             for elem in to_show:
                 elem.display(window)
-            list_token = init_token(windows_param, current_money)
-            for i, token in enumerate(list_token):
-                token.display(window)
+            list_token_init = init_token(windows_param, current_money)
+            for i, token in enumerate(list_token_init):
                 if token.button.click(event):
                     bet += value_token(i)
                     current_money = player.owner.money - bet
+                    to_show_elem[4] = show_money(player, windows_param, current_money)
+                    to_show_elem[3] = Rectangle(window_width / 2, 3 * window_height / 5, window_width / 3,
+                                                window_height / 10,
+                                                WHITE,
+                                                str(bet), BLACK, FONT)
+                    list_token = init_token(windows_param, current_money)
+
+                    to_show = to_show_elem + list_token + [make_current_token(j, windows_param) for j in range(5) if
+                                                           list_current_token[j] != 0]
+                    move_object(windows_param, 'token', token, list_pos_token[i],
+                                white_rect.y + (white_rect_height / 4),
+                                window_width / 2 - window_width / 6 + list_pos_token[i],
+                                3 * window_height / 5 + window_height / 20, to_show)
+
+                    list_current_token[i] += 1
+
                     if current_money == 0:
                         return bet
+
+                    to_show = to_show_elem + list_token + [make_current_token(j, windows_param) for j in range(5) if
+                                                           list_current_token[j] != 0]
+                    pygame.display.flip()
+                    window.fill(WHITE)
+                    for elem in to_show:
+                        elem.display(window)
+            for i in range(len(list_current_token)):
+                if list_current_token[i] == 0:
+                    continue
+                current_token = make_current_token(i, windows_param)
+                if current_token.button.click(event):
+                    bet -= value_token(i)
+                    current_money = player.owner.money - bet
+                    to_show_elem[4] = show_money(player, windows_param, current_money)
+                    to_show_elem[3] = Rectangle(window_width / 2, 3 * window_height / 5, window_width / 3,
+                                                window_height / 10,
+                                                WHITE,
+                                                str(bet), BLACK, FONT)
+
+                    to_show = to_show_elem + list_token + [make_current_token(j, windows_param) for j in range(5) if
+                                                           (list_current_token[j] != 0 and j != i) or (
+                                                                   list_current_token[j] > 1 and j == i)]
+                    move_object(windows_param, 'token', current_token,
+                                window_width / 2 - window_width / 6 + list_pos_token[i],
+                                3 * window_height / 5 + window_height / 20, list_pos_token[i],
+                                white_rect.y + (white_rect_height / 4), to_show)
+                    list_token = init_token(windows_param, current_money)
+                    list_current_token[i] -= 1
+                    to_show = to_show_elem + list_token + [make_current_token(j, windows_param) for j in range(5) if
+                                                           list_current_token[j] != 0]
+                    pygame.display.flip()
+                    window.fill(WHITE)
+                    for elem in to_show:
+                        elem.display(window)
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     if bet != 0:
@@ -610,12 +696,13 @@ def flip_card(windows_param, card, x_ini, y_ini, to_show) -> None:
         return None
 
 
-def move_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show) -> None:
+def move_object(windows_param, type_object, object, x_ini, y_ini, x_fin, y_fin, to_show) -> None:
     """
-    This function  moves a card from a position to an other
+    This function  moves an object (card or token) from a position to another
 
     :param windows_param:
-    :param card:
+    :param type_object:
+    :param object:
     :param x_ini:
     :param y_ini:
     :param x_fin:
@@ -624,10 +711,14 @@ def move_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show) -> None:
     :return:
     """
     [window, _, _, _, _, background, _, _] = windows_param
-
-    card_to_show = image_from_card(windows_param, x_ini, y_ini, card)
-    card_x = x_ini
-    card_y = y_ini
+    if type_object == 'card':
+        SOUND_CARD.play()
+        object_to_show = image_from_card(windows_param, x_ini, y_ini, object)
+    else:
+        SOUND_TOKEN.play()
+        object_to_show = object
+    object_x = x_ini
+    object_y = y_ini
     dist_x = x_fin - x_ini
     dist_y = y_fin - y_ini
     dist = math.sqrt(dist_x ** 2 + dist_y ** 2)
@@ -638,15 +729,15 @@ def move_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show) -> None:
     dt = int(time / nb_steps)
     while True:
         for step in range(nb_steps):
-            card_x += speed_x * dt
-            card_y += speed_y * dt
-            card_to_show.move(int(card_x), int(card_y))
+            object_x += speed_x * dt
+            object_y += speed_y * dt
+            object_to_show.move(int(object_x), int(object_y))
             window.fill(WHITE)
             background.display(window)
             show_deck(windows_param)
             for elem in to_show:
                 elem.display(window)
-            card_to_show.display(window)
+            object_to_show.display(window)
             for event in pygame.event.get():
                 if event.type == QUIT:
                     pygame.quit()
@@ -670,7 +761,7 @@ def moveflip_card(windows_param, card, x_ini, y_ini, x_fin, y_fin, to_show) -> N
     :param to_show:
     :return:
     """
-    move_card(windows_param, None, x_ini, y_ini, x_fin, y_fin, to_show)
+    move_object(windows_param, 'card', None, x_ini, y_ini, x_fin, y_fin, to_show)
     if card is not None:
         flip_card(windows_param, card, x_fin, y_fin, to_show)
 
@@ -947,13 +1038,14 @@ def round_of(player, game, windows_param) -> None:
 
     if hand_to_show is not None:
         to_show += [image_from_card(windows_param, hand_to_show[1][1], hand_to_show[2], hand_to_show[0][1])]
-        move_card(windows_param, hand_to_show[0][0], hand_to_show[1][0], hand_to_show[2], 2 * window_width / 5,
-                  window_height / 2 - card_height, to_show)
+        move_object(windows_param, 'card', hand_to_show[0][0], hand_to_show[1][0], hand_to_show[2],
+                    2 * window_width / 5,
+                    window_height / 2 - card_height, to_show)
         to_show.pop()
         to_show += [
             image_from_card(windows_param, 2 * window_width / 5, window_height / 2 - card_height, hand_to_show[0][0])]
-        move_card(windows_param, hand_to_show[0][1], hand_to_show[1][1], hand_to_show[2],
-                  2 * window_width / 5 + card_width, window_height / 2 - card_height, to_show)
+        move_object(windows_param, 'card', hand_to_show[0][1], hand_to_show[1][1], hand_to_show[2],
+                    2 * window_width / 5 + card_width, window_height / 2 - card_height, to_show)
     else:
         for k in range(len(player.hand)):
             to_show += [
@@ -1063,6 +1155,7 @@ def show_results(game, results, windows_param) -> None:
                                                          window_height / 10,
                                                          WHITE,
                                                          player_name + " " + results[player_name][0], BLACK, FONT)
+                            SOUND_RESULT[results[player_name][0]].play()
                             rect_name_player.display(window)
                             show_money(None, windows_param, results[player_name][1]).display(window)
                             c += 1
@@ -1123,15 +1216,19 @@ def ask_want_to_continue(windows_param) -> bool:
                         "YES", BLACK, FONT, BLACK_GREY)
     button_no = Button(window_width * (1 / 2 + 1 / 9), window_height / 2, window_width / 8, window_height / 12,
                        GREY, "NO", BLACK, FONT, BLACK_GREY)
+    SOUND_ANOTHER.play()
     while True:
         for event in pygame.event.get():
             button_yes.display(window, event)
             if button_yes.click(event):
+                SOUND_ANOTHER.stop()
                 return False
             button_no.display(window, event)
             if button_no.click(event):
+                SOUND_ANOTHER.stop()
                 return True
             if event.type == QUIT:
+                SOUND_ANOTHER.stop()
                 pygame.quit()
                 exit()
             pygame.display.flip()

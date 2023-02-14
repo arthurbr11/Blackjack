@@ -1,4 +1,4 @@
-import src.game as  game
+import src.game as game
 import src.model as model
 
 
@@ -49,12 +49,12 @@ def play(test: bool = False, split: bool = False, test_players: list = None, nb_
             return
 
 
-def play_with_pygame():
+def play_with_pygame(window_width=1000):
     import display
     model.SHOW_TERMINAL = False
     model.SHOW_PYGAME = True
 
-    windows_param = display.init_display()
+    windows_param = display.init_display(window_width=window_width)
     list_players = display.get_start(windows_param)[1]
     nb_ia = 0
     players = []
@@ -77,4 +77,4 @@ def play_with_pygame():
 
 
 if __name__ == "__main__":
-    play_with_pygame()
+    play_with_pygame(1200)
