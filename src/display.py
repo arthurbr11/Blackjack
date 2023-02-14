@@ -18,7 +18,7 @@ PATH = os.getcwd().rstrip('src')
 SOUND_INTRO = pygame.mixer.Sound(PATH + 'assets/son/INTRO.mp3')
 SOUND_CARD = pygame.mixer.Sound(PATH + 'assets/son/CARD.mp3')
 SOUND_TOKEN = pygame.mixer.Sound(PATH + 'assets/son/TOKEN.mp3')
-SOUND_RESULT = {'WiN !': pygame.mixer.Sound(PATH + 'assets/son/WIN.mp3'),
+SOUND_RESULT = {'WIN !': pygame.mixer.Sound(PATH + 'assets/son/WIN.mp3'),
                 'LOOSE !': pygame.mixer.Sound(PATH + 'assets/son/LOOSE.mp3'),
                 'BUST !': pygame.mixer.Sound(PATH + 'assets/son/BUST.mp3'),
                 'EVEN !': pygame.mixer.Sound(PATH + 'assets/son/EVEN.mp3'),
@@ -389,6 +389,7 @@ def get_start(windows_param) -> tuple[int, list]:
     page_nb_players = True
     page_name_players = False
     nb_players = 0
+    SOUND_INTRO.set_volume(0.5)
     SOUND_INTRO.play(-1)
     while True:
         window.fill(WHITE)
