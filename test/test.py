@@ -1,5 +1,6 @@
 import src.main as main
 import src.model as model
+import src.game as game
 import data.analysis_proba as analysis_proba
 
 
@@ -60,3 +61,14 @@ global_game_test()
 proba_plot_test(2, 500, 2, 1.5)
 split_test()
 counting_method_efficiency_test(1)
+
+
+def draw_player_test():
+    tester = model.Player("tester")
+    party = game.Game([tester])
+    nb_cards = len(party.deck.cards)
+    tester.draw(party.deck, [])
+    return len(tester.hand) == 1 and len(party.deck.cards) == (nb_cards - 1)
+
+
+draw_player_test()
