@@ -67,8 +67,8 @@ def draw_player_test():
     tester = model.Player("tester")
     party = game.Game([tester])
     nb_cards = len(party.deck.cards)
-    tester.draw(party.deck, [])
+    tester.draw(party, [])
     return len(tester.hand) == 1 and len(party.deck.cards) == (nb_cards - 1)
 
 
-draw_player_test()
+print(draw_player_test())
