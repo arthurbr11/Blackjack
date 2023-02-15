@@ -1,6 +1,42 @@
+import random
+
 import src.main as main
 import src.model as model
+import src.game as game
 import data.analysis_proba as analysis_proba
+
+
+def draw_player_test():
+    """
+    Tests, when the draw method is launched, that the player correctly draws a card and that the deck correctly looses this card.
+    :return: True if and only if the draw method of the class Player works correctly (unit test)
+    """
+    tester = model.Player("tester")
+    party = game.Game([tester])
+    nb_cards = len(party.deck.cards)
+    tester.draw(party, [])
+    return len(tester.hand) == 1 and len(party.deck.cards) == (nb_cards - 1)
+
+
+def reset_test():
+    """
+    Tests, with 100 decks, that the deck is correctly reset when the reset method is launched
+    :return: True if and only if the reset method of the class Deck works correctly (unit test)
+    """
+
+    for i in range(3, 100):
+        print(i)
+        deck = model.Deck(i)
+        deck.reset()
+        histogram = [0 for _ in range(13)]
+        print(histogram)
+        for card in deck.cards:
+            histogram[card.rank.value - 1] += 1
+        for rank in range(13):
+            if histogram[rank] != (deck.nb_decks * 4):
+                return False
+    return True
+
 
 
 def global_game_test():
@@ -57,6 +93,6 @@ def counting_method_efficiency_test(counting_method):
 
 
 global_game_test()
-proba_plot_test(4, 500, 1, 1.5)
+proba_plot_test(2, 500, 2, 1.5)
 split_test()
 counting_method_efficiency_test(1)
