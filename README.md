@@ -1,6 +1,12 @@
 # Blackjack
 
 ***
+# 0. How to run the code
+
+To just paly the game run the field main in the folder src.
+To have the terminal change **play_with_pygame** to **play**.
+To run the test you have to run the field test in the folder test.
+
 # 1. Introduction
   
 In this project, we will code the BlackJack game interface: [BlackJack : régles et déroulement du jeu](https://www.le-black-jack.com/regles-du-blackjack.html). Then we will code an AI that can play the game against other players. We first planned to have a working game without any wagering. Therefore we will code the number of players, their names and the different features of BlackJack. These features are for example: Split (we split our deck in two), Remain or draw a card. We will also code the graphical interface using the pygame library. Then we will see how to set up a betting system. We will then make AIs play our game against the users. We aim to do different card counts with our AI to know the best counting method, to know when to get out of the game...  Finally we would like to study different parameters on the victory rate of our AI (deck with many cards, human vs. completely random card shuffle...). 
@@ -33,8 +39,6 @@ At the end, the player can choose both to continue of to stop the game.
 
 The file **analysis_proba** allows us to better understand the game and to analyze counting methods. The five functions in the file retrives data from the game and plot curbs to analyze counting methods. The code is quite explicit : the first function extract data from the game of AI players. Then the second function create the list of AI money to each party and the last functions plot the data and calculate the moment when the AI should leave the game to maximize the gain.
 # 5. Features 
-The global operation of the game works, so we decided to make the player's experience of the game more enjoyable. To do so, the idea was to add music on the game, when a card is dealt...In addition, we also tried to add some help to the players with bonus tickets to advise them on actions (thanks to the card counting). 
+The global operation of the game works, so we decided to make the player's experience of the game more enjoyable. To do so, the idea was to add music on the game, when a card is dealt, or some other actions...In addition, we also tried to add some flexibility for the user so he could change his bet when he have to choose it (not fix when you clik).
 
-# 6. Conclusion
- 
 
