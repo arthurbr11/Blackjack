@@ -3,9 +3,11 @@
 ***
 # 0. How to run the code
 
-To just paly the game run the field main in the folder src.
+To just paly the game run the field **main.py** in the folder src.
+
 To have the terminal change **play_with_pygame** to **play**.
-To run the test you have to run the field test in the folder test.
+
+To run the test you have to run the field **test.py** in the folder test.
 
 # 1. Introduction
   
