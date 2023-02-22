@@ -1,6 +1,7 @@
 # Blackjack
 
 ***
+See the pdf for the report.
 # 0. How to run the code
 
 To just paly the game run the field **main.py** in the folder src.
